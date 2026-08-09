@@ -15,6 +15,31 @@ necesitar ayuda. Todo se corre desde la carpeta `tarjetas-musicales` con la term
 
 ---
 
+## Audio automático: alternativa con voz (sin grabarte)
+
+Si no querés grabarte, podés usar el sintetizador de voz de Windows para generar una
+narración/reseña corta y original (nunca uses la voz para "cantar" o leer letras de
+canciones — es para un texto propio tipo presentación/reseña del disco).
+
+```powershell
+Add-Type -AssemblyName System.Speech
+$synth = New-Object System.Speech.Synthesis.SpeechSynthesizer
+$synth.SelectVoice("Microsoft Helena Desktop")   # voz en español instalada en Windows
+$format = New-Object System.Speech.AudioFormat.SpeechAudioFormatInfo(44100, [System.Speech.AudioFormat.AudioBitsPerSample]::Sixteen, [System.Speech.AudioFormat.AudioChannel]::Mono)
+$synth.SetOutputToWaveFile("mi-resena.wav", $format)
+$synth.Speak("Acá va el texto de tu reseña.")
+$synth.Dispose()
+```
+
+Después normalizá el archivo (el WAV que genera Windows tiene un encabezado no estándar
+que algunos navegadores no logran reproducir):
+
+```bash
+node scripts/normalizar-wav.js mi-resena.wav
+```
+
+Y usalo como cualquier otro audio con `--audio mi-resena.wav`.
+
 ## Paso 1 — Conseguir el link de Spotify del disco
 
 Entrá a [open.spotify.com](https://open.spotify.com), buscá el disco, abrilo, y copiá la URL

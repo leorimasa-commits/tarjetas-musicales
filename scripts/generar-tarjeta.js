@@ -11,6 +11,9 @@
  *     --audio "C:\ruta\a\cancion.mp3" \
  *     --baseUrl "https://usuario.github.io/tarjetas-musicales"
  *
+ * --audio es opcional: si no lo pasás, la tarjeta abre directo mostrando la tapa y los
+ * botones (si hay datos de disco), sin overlay de "tocar para escuchar" ni controles de audio.
+ *
  * Temas disponibles: cumpleanos | fiesta | evento | regalo
  *
  * Opcional, para mostrar un disco (portada + botones a plataformas + lista de temas):
@@ -50,12 +53,9 @@ function slugify(s) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
 
-  const required = ['titulo', 'audio'];
-  for (const r of required) {
-    if (!args[r]) {
-      console.error(`Falta --${r}. Ejemplo:\n  node scripts/generar-tarjeta.js --titulo "Feliz cumple" --audio cancion.mp3 --tema cumpleanos`);
-      process.exit(1);
-    }
+  if (!args.titulo) {
+    console.error('Falta --titulo. Ejemplo:\n  node scripts/generar-tarjeta.js --titulo "Feliz cumple" --audio cancion.mp3 --tema cumpleanos');
+    process.exit(1);
   }
 
   const tema = TEMAS.includes(args.tema) ? args.tema : 'regalo';
@@ -64,17 +64,19 @@ async function main() {
   const mensaje = args.mensaje || '';
   const baseUrl = (args.baseUrl || '').replace(/\/$/, '');
 
-  const audioSrcPath = path.resolve(args.audio);
-  if (!fs.existsSync(audioSrcPath)) {
-    console.error(`No se encontró el archivo de audio: ${audioSrcPath}`);
-    process.exit(1);
-  }
-  const audioExt = path.extname(audioSrcPath) || '.mp3';
-  const audioFileName = 'song' + audioExt;
-
   const cardDir = path.resolve(__dirname, '..', 'cards', slug);
   fs.mkdirSync(cardDir, { recursive: true });
-  fs.copyFileSync(audioSrcPath, path.join(cardDir, audioFileName));
+
+  let audioFileName = '';
+  if (args.audio) {
+    const audioSrcPath = path.resolve(args.audio);
+    if (!fs.existsSync(audioSrcPath)) {
+      console.error(`No se encontró el archivo de audio: ${audioSrcPath}`);
+      process.exit(1);
+    }
+    audioFileName = 'song' + (path.extname(audioSrcPath) || '.mp3');
+    fs.copyFileSync(audioSrcPath, path.join(cardDir, audioFileName));
+  }
 
   // --- Datos opcionales del disco (portada, links a plataformas, lista de temas) ---
   let coverFileName = '';
@@ -110,6 +112,12 @@ async function main() {
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   const escapeJs = (s) => JSON.stringify(String(s || ''));
+
+  if (audioFileName) {
+    html = html.replaceAll('<!--IF_AUDIO-->', '').replaceAll('<!--/IF_AUDIO-->', '');
+  } else {
+    html = html.replace(/<!--IF_AUDIO-->[\s\S]*?<!--\/IF_AUDIO-->/g, '');
+  }
 
   html = html
     .replaceAll('{{TITLE}}', escapeHtml(args.titulo))

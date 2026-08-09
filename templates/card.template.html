@@ -143,15 +143,18 @@
   <div class="cover-hero" id="player">
     <div class="cover-fallback" id="coverFallback">🎵</div>
   </div>
+  <!--IF_AUDIO-->
   <div class="now-playing" id="nowPlaying">
     <span></span><span></span><span></span><span></span><span></span>
   </div>
+  <!--/IF_AUDIO-->
   <p class="message">{{MESSAGE}}</p>
   <div class="scroll-hint" id="scrollHint">⌄ deslizá para ver el disco</div>
 </section>
 
 <section class="album-section" id="albumSection"></section>
 
+<!--IF_AUDIO-->
 <div class="tap-overlay" id="tapOverlay">
   <button class="tap-btn" id="tapBtn">
     <span class="icon">🎵</span>
@@ -164,6 +167,7 @@
 </div>
 
 <audio id="audio" src="{{AUDIO_SRC}}" preload="auto" loop playsinline></audio>
+<!--/IF_AUDIO-->
 
 <script>
   document.documentElement.setAttribute('data-theme', "{{THEME}}");
@@ -189,39 +193,38 @@
   const toggleBtn = document.getElementById('toggleBtn');
   const scrollHint = document.getElementById('scrollHint');
 
-  function onPlaying(){
-    overlay.classList.add('hidden');
-    miniControls.classList.remove('hidden');
-    player.classList.add('playing');
-    nowPlaying.classList.add('playing');
-    toggleBtn.textContent = '⏸';
-  }
-  function onPaused(){
-    player.classList.remove('playing');
-    nowPlaying.classList.remove('playing');
-    toggleBtn.textContent = '▶';
-  }
+  if(audio){
+    function onPlaying(){
+      overlay.classList.add('hidden');
+      miniControls.classList.remove('hidden');
+      player.classList.add('playing');
+      nowPlaying.classList.add('playing');
+      toggleBtn.textContent = '⏸';
+    }
+    function onPaused(){
+      player.classList.remove('playing');
+      nowPlaying.classList.remove('playing');
+      toggleBtn.textContent = '▶';
+    }
 
-  audio.addEventListener('playing', onPlaying);
-  audio.addEventListener('pause', onPaused);
+    audio.addEventListener('playing', onPlaying);
+    audio.addEventListener('pause', onPaused);
 
-  // Intenta autoplay apenas carga (funciona seguido si se llegó por un tap/click real, como al escanear QR o leer NFC)
-  const tryAutoplay = () => {
+    // Intenta autoplay apenas carga (funciona seguido si se llegó por un tap/click real, como al escanear QR o leer NFC)
     audio.play().then(() => {
       overlay.classList.add('hidden');
     }).catch(() => {
       overlay.classList.remove('hidden');
     });
-  };
-  window.addEventListener('DOMContentLoaded', () => { tryAutoplay(); renderAlbumSection(); });
 
-  tapBtn.addEventListener('click', () => {
-    audio.play().catch(()=>{});
-  });
+    tapBtn.addEventListener('click', () => {
+      audio.play().catch(()=>{});
+    });
 
-  toggleBtn.addEventListener('click', () => {
-    if(audio.paused){ audio.play().catch(()=>{}); } else { audio.pause(); }
-  });
+    toggleBtn.addEventListener('click', () => {
+      if(audio.paused){ audio.play().catch(()=>{}); } else { audio.pause(); }
+    });
+  }
 
   function esc(s){
     const d = document.createElement('div');
