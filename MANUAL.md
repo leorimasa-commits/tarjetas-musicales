@@ -1,0 +1,137 @@
+# Manual: cómo hacer una tarjeta nueva
+
+Guía paso a paso para armar una tarjeta musical (QR/NFC que suena solo al escanear) sin
+necesitar ayuda. Todo se corre desde la carpeta `tarjetas-musicales` con la terminal.
+
+## Resumen del flujo
+
+1. Conseguís el link de Spotify del disco.
+2. Corrés `buscar-disco.js` con ese link → te descarga la portada y la lista de temas solo.
+3. (Opcional) buscás a mano los links de Tidal y Apple Music del mismo disco.
+4. Corrés `generar-tarjeta.js` con todo eso + tu propio audio (el que suena automático).
+5. Probás la tarjeta en tu compu con `dev-server.js`.
+6. Publicás el sitio (Netlify Drop o GitHub Pages) para tener la URL final.
+7. Generás el QR y grabás un tag NFC con esa URL.
+
+---
+
+## Paso 1 — Conseguir el link de Spotify del disco
+
+Entrá a [open.spotify.com](https://open.spotify.com), buscá el disco, abrilo, y copiá la URL
+de la barra de direcciones. Tiene que verse así:
+
+```
+https://open.spotify.com/album/XXXXXXXXXXXXXXXXXXXXXX
+```
+
+## Paso 2 — Buscar los datos del disco automáticamente
+
+```bash
+node scripts/buscar-disco.js --spotify "PEGÁ_ACÁ_EL_LINK_DE_SPOTIFY" --out nombre-carpeta
+```
+
+`--out` es solo el nombre de una carpeta (sin espacios ni tildes) para guardar los archivos,
+por ejemplo `--out abbey-road`. Esto te crea:
+
+- `assets/nombre-carpeta/cover.jpg` — la portada oficial.
+- `assets/nombre-carpeta/tracklist.txt` — los temas del disco, cada uno con su ID de Spotify
+  (para que se puedan escuchar individualmente en la tarjeta).
+
+Al final te imprime en la terminal el comando de `generar-tarjeta.js` ya armado con esos datos
+— solo tenés que completar `--titulo`, `--audio`, `--tema`, y copiarlo.
+
+> Esto solo funciona con **Spotify** (es la única plataforma de la que se puede sacar la info
+> automáticamente sin necesitar una cuenta de desarrollador). Tidal y Apple Music hay que
+> buscarlos a mano (paso 3).
+
+## Paso 3 — (Opcional) Links de Tidal y Apple Music
+
+Si querés que la tarjeta tenga también un botón para Tidal y/o Apple Music, buscá el mismo
+disco en esas plataformas y copiá la URL. Es opcional — si no los tenés, la tarjeta muestra
+solo el botón de Spotify.
+
+## Paso 4 — Generar la tarjeta
+
+Usá el comando que te imprimió `buscar-disco.js`, completando lo que falta:
+
+```bash
+node scripts/generar-tarjeta.js \
+  --slug "nombre-carpeta" \
+  --titulo "Título que se ve grande en la tarjeta" \
+  --tema regalo \
+  --audio "C:\ruta\a\tu-mensaje-o-grabacion.mp3" \
+  --album "Nombre del disco" \
+  --artist "Artista" \
+  --cover "assets/nombre-carpeta/cover.jpg" \
+  --spotify "https://open.spotify.com/album/XXXXXXXX" \
+  --tidal "https://tidal.com/album/XXXXXXXX" \
+  --applemusic "https://music.apple.com/..." \
+  --tracklist "assets/nombre-carpeta/tracklist.txt"
+```
+
+Notas sobre cada parte:
+
+- **`--audio`**: el audio que arranca solo apenas se abre la tarjeta. Tiene que ser algo
+  propio (una grabación tuya, un mensaje, una canción propia) — nunca un archivo de una
+  canción comercial de otro artista, por temas de derechos de autor. Si todavía no lo
+  tenés, podés poner cualquier archivo de audio de prueba y reemplazarlo después
+  volviendo a correr el mismo comando.
+- **`--tema`**: define los colores. Opciones: `cumpleanos`, `fiesta`, `evento`, `regalo`.
+- **`--tidal` / `--applemusic`**: opcionales, se pueden omitir.
+- Todo lo relacionado al disco (`--album`, `--artist`, `--cover`, `--spotify`, `--tidal`,
+  `--applemusic`, `--tracklist`) es opcional en conjunto — si no pasás nada de esto, la
+  tarjeta queda simple (solo título, mensaje y audio, sin la sección del disco).
+
+Esto crea la carpeta `cards/nombre-carpeta/` con la tarjeta lista.
+
+## Paso 5 — Probar en tu compu antes de publicar
+
+Editá `scripts/dev-server.js` y cambiá esta línea para que apunte a tu tarjeta nueva:
+
+```js
+const root = path.resolve(__dirname, '..', 'cards', 'nombre-carpeta');
+```
+
+Después corré:
+
+```bash
+node scripts/dev-server.js
+```
+
+Y abrí `http://localhost:5173` en tu navegador.
+
+## Paso 6 — Publicar el sitio
+
+Recién en este paso conseguís la URL final y podés generar el QR de verdad. Dos opciones:
+
+**Netlify Drop** (sin cuenta, instantáneo): entrá a
+[app.netlify.com/drop](https://app.netlify.com/drop) y arrastrá toda la carpeta
+`tarjetas-musicales`. Te da una URL tipo `https://algo-random.netlify.app`.
+
+**GitHub Pages** (necesita cuenta de GitHub): subís el proyecto a un repositorio y activás
+Pages en la configuración del repo. Te da una URL tipo
+`https://tu-usuario.github.io/tarjetas-musicales`.
+
+## Paso 7 — Generar el QR y grabar el NFC
+
+Una vez que tenés la URL publicada, volvé a correr `generar-tarjeta.js` agregando
+`--baseUrl` con esa URL:
+
+```bash
+node scripts/generar-tarjeta.js \
+  ...(los mismos parámetros que usaste antes)... \
+  --baseUrl "https://tu-url-publicada.com"
+```
+
+Esto genera `cards/nombre-carpeta/qr.png` y te muestra en la terminal la URL final exacta.
+Grabá esa misma URL en un tag NFC con una app como **NFC Tools** (Android/iPhone), eligiendo
+un registro de tipo "URL/URI".
+
+---
+
+## Resumen ultra-corto (una vez que ya lo hiciste una vez)
+
+```bash
+node scripts/buscar-disco.js --spotify "LINK" --out carpeta
+node scripts/generar-tarjeta.js --slug carpeta --titulo "..." --tema regalo --audio "tu-audio.mp3" --album "..." --artist "..." --cover assets/carpeta/cover.jpg --spotify "LINK" --tracklist assets/carpeta/tracklist.txt --baseUrl "https://tu-sitio-publicado.com"
+```
