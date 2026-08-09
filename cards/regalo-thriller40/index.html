@@ -32,8 +32,14 @@
     line-height:1.2; max-width:90vw;
   }
   .message{
-    margin:0; max-width:520px; font-size:clamp(15px,4vw,18px); line-height:1.5; opacity:.92;
-    white-space:pre-wrap;
+    margin:0; max-width:560px; font-size:clamp(13px,3.4vw,16px); line-height:2;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.1em; text-transform:uppercase;
+    font-weight:400; white-space:pre-wrap; opacity:0;
+    animation: creditsFade 2.2s ease forwards; animation-delay:.3s;
+  }
+  @keyframes creditsFade{
+    from{ opacity:0; transform:translateY(12px); }
+    to{ opacity:.92; transform:translateY(0); }
   }
 
   .cover-hero{
@@ -147,29 +153,12 @@
     <div class="cover-fallback" id="coverFallback">🎵</div>
   </div>
   
-  <div class="now-playing" id="nowPlaying">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  
-  <p class="message"></p>
+  <p class="message">Este es un regalo musical. Estás por escuchar Thriller 40, la edición especial que se armó para los cuarenta años de uno de los discos más influyentes de la historia. Acá convive todo lo que ya conocés con grabaciones que muy pocos escucharon antes: demos, mezclas alternativas y remixes que muestran cómo se construyó ese sonido único. Un homenaje a un disco que cambió la música popular para siempre. Espero que lo disfrutes.</p>
   <button class="scroll-btn" id="scrollBtn">Ver el disco ⌄</button>
 </section>
 
 <section class="album-section" id="albumSection"></section>
 
-
-<div class="tap-overlay" id="tapOverlay">
-  <button class="tap-btn" id="tapBtn">
-    <span class="icon">🎵</span>
-    Toca para escuchar
-  </button>
-</div>
-
-<div class="mini-controls hidden" id="miniControls">
-  <button id="toggleBtn">⏸</button>
-</div>
-
-<audio id="audio" src="./song.wav" preload="auto" loop playsinline></audio>
 
 
 <script>
@@ -275,6 +264,8 @@
     el.innerHTML = html;
     el.addEventListener('click', onTrackPlayClick);
   }
+
+  renderAlbumSection();
 
   function renderTrackRow(track, i){
     const title = typeof track === 'string' ? track : track.title;
