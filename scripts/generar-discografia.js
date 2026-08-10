@@ -9,6 +9,8 @@
  *     --artista "Patricio Rey y sus Redonditos de Ricota" \
  *     --tema regalo \
  *     --albumes "assets/redondos-discografia/albums.txt" \
+ *     --youtube "https://youtube.com/@canaloficial" (opcional, SOLO si es un canal oficial
+ *       verificado del artista/sello — se muestra como link único arriba de todo) \
  *     --baseUrl "https://usuario.github.io/tarjetas-musicales"
  *
  * El archivo de --albumes tiene una línea por disco: "Título|Año|LinkDeSpotify"
@@ -115,6 +117,7 @@ async function main() {
   html = html
     .replaceAll('{{ARTISTA}}', escapeHtml(args.artista))
     .replaceAll('{{THEME}}', tema)
+    .replace('"{{YOUTUBE_URL}}"', JSON.stringify(args.youtube || ''))
     .replace('{{ALBUMS_JSON}}', JSON.stringify(albums));
 
   fs.writeFileSync(path.join(cardDir, 'index.html'), html, 'utf8');
