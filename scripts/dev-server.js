@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..', 'cards', 'roxette-rarities');
+const root = path.resolve(__dirname, '..', 'cards', 'regalo-thriller40');
 const port = 5173;
 
 const types = {

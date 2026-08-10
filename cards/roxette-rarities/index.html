@@ -113,10 +113,11 @@
   .links-label{ margin:4px 0 -4px; font-size:12px; opacity:.6; text-transform:uppercase; letter-spacing:.06em; }
   .platform-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; width:100%; }
   .platform-links a{
-    display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--text);
+    display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; color:var(--text);
     background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
     padding:10px 16px; border-radius:12px; font-size:14px; font-weight:600;
   }
+  .platform-links a small{ font-size:10px; font-weight:400; opacity:.6; text-transform:uppercase; letter-spacing:.03em; }
 
   details.tracklist{
     width:100%; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 16px;
@@ -166,6 +167,7 @@
     spotifyUrl: "https://open.spotify.com/album/6Uc2KpEmPosdPv1rWWHG1s",
     tidalUrl: "https://tidal.com/album/61205352",
     appleMusicUrl: "https://music.apple.com/us/album/rarities/1117399783",
+    youtubeUrl: "",
     tracklist: [{"title":"Vulnerable - Single Version","spotifyId":"7yTWdvEyL9DIoPzTNjqmcF"},{"title":"Fingertips '93","spotifyId":"4JSWefJZHE2j61uFWEbuwm"},{"title":"Dressed for Success - Look Sharp! US Mix","spotifyId":"391Bm03rDVzJHkckP5AuR8"},{"title":"Joyride - Live MTV Unplugged","spotifyId":"2PRdGWYYk3DEWitr2Hrag6"},{"title":"The Look - Live on MTV Unplugged","spotifyId":"4isy4H3MAzTjcbfb3IbcqY"},{"title":"Dangerous - MTV Unplugged Version","spotifyId":"4ppnzIV5OnvKtCPBnTZbMS"},{"title":"The Sweet Hello, The Sad Goodbye","spotifyId":"0Tn4Cs8uh9NmmEbuHHPECb"},{"title":"The Voice","spotifyId":"40bx6QLi69VfxSJ47MiQCq"},{"title":"Almost Unreal - Demo February '93","spotifyId":"0SqiR8B2b9snkTX1vpnFTg"},{"title":"Fireworks - Jesus Jones Remix","spotifyId":"1VRh7aEWVDSOYAU4U3ezvG"},{"title":"Spending My Time - Electric Dance Remix","spotifyId":"06Dm1GyeyP2yjyyOsoJHWk"},{"title":"One Is Such A Lonely Number - Demo September 1987","spotifyId":"64rL8tPUyvSwGXkWLsOqPb"}]
   };
 
@@ -218,7 +220,7 @@
   }
 
   function renderAlbumSection(){
-    const hasAlbum = ALBUM.name || ALBUM.cover || ALBUM.spotifyUrl || ALBUM.tidalUrl || ALBUM.appleMusicUrl;
+    const hasAlbum = ALBUM.name || ALBUM.cover || ALBUM.spotifyUrl || ALBUM.tidalUrl || ALBUM.appleMusicUrl || ALBUM.youtubeUrl;
     if(!hasAlbum) return;
 
     if(ALBUM.cover){
@@ -233,13 +235,14 @@
     if(ALBUM.artist) html += `<p class="album-credit">${esc(ALBUM.artist)}</p>`;
 
     const links = [];
-    if(ALBUM.spotifyUrl) links.push(['Spotify', ALBUM.spotifyUrl]);
-    if(ALBUM.tidalUrl) links.push(['Tidal', ALBUM.tidalUrl]);
-    if(ALBUM.appleMusicUrl) links.push(['Apple Music', ALBUM.appleMusicUrl]);
+    if(ALBUM.youtubeUrl) links.push(['YouTube', ALBUM.youtubeUrl, 'sin cuenta']);
+    if(ALBUM.spotifyUrl) links.push(['Spotify', ALBUM.spotifyUrl, 'necesita cuenta']);
+    if(ALBUM.tidalUrl) links.push(['Tidal', ALBUM.tidalUrl, 'necesita cuenta']);
+    if(ALBUM.appleMusicUrl) links.push(['Apple Music', ALBUM.appleMusicUrl, 'necesita cuenta']);
     if(links.length){
       html += '<p class="links-label">Escuchar el disco completo en:</p>' +
         '<div class="platform-links">' +
-        links.map(([label,url]) => `<a href="${url}" target="_blank" rel="noopener">▶ ${label}</a>`).join('') +
+        links.map(([label,url,note]) => `<a href="${url}" target="_blank" rel="noopener">▶ ${label}<small>${note}</small></a>`).join('') +
         '</div>';
     }
 

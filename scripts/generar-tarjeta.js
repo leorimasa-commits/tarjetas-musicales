@@ -21,6 +21,8 @@
  *   --spotify "https://open.spotify.com/album/..." \
  *   --tidal "https://tidal.com/album/..." \
  *   --applemusic "https://music.apple.com/..." \
+ *   --youtube "https://youtube.com/..." (SOLO si es una subida oficial verificada del sello
+ *     o artista — nunca un reupload de un tercero. Es la única opción que no pide login.) \
  *   --tracklist "./lista-temas.txt" (un tema por línea; opcionalmente "Título|idDeSpotify"
  *     para que ese tema se pueda tocar individualmente con el preview oficial de Spotify)
  */
@@ -131,6 +133,7 @@ async function main() {
     .replace('"{{SPOTIFY_URL}}"', escapeJs(args.spotify))
     .replace('"{{TIDAL_URL}}"', escapeJs(args.tidal))
     .replace('"{{APPLE_MUSIC_URL}}"', escapeJs(args.applemusic))
+    .replace('"{{YOUTUBE_URL}}"', escapeJs(args.youtube))
     .replace('{{TRACKLIST_JSON}}', JSON.stringify(tracklist));
 
   fs.writeFileSync(path.join(cardDir, 'index.html'), html, 'utf8');

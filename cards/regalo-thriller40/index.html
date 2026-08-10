@@ -113,10 +113,11 @@
   .links-label{ margin:4px 0 -4px; font-size:12px; opacity:.6; text-transform:uppercase; letter-spacing:.06em; }
   .platform-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; width:100%; }
   .platform-links a{
-    display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--text);
+    display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; color:var(--text);
     background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
     padding:10px 16px; border-radius:12px; font-size:14px; font-weight:600;
   }
+  .platform-links a small{ font-size:10px; font-weight:400; opacity:.6; text-transform:uppercase; letter-spacing:.03em; }
 
   details.tracklist{
     width:100%; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 16px;
@@ -166,6 +167,7 @@
     spotifyUrl: "https://open.spotify.com/album/57TzZhbqvYoUBzJSVKFVlG",
     tidalUrl: "https://tidal.com/album/260578202",
     appleMusicUrl: "https://music.apple.com/us/album/thriller-40/1641780996",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLI6kLIhBBwmT1vsdXtazAmgGsIMC5Dsg8",
     tracklist: [{"title":"Wanna Be Startin' Somethin'","spotifyId":"2rTP0iwaMxRy2HFW2nHKq9"},{"title":"Baby Be Mine","spotifyId":"0z0HC6sLfJsTP5bqVPiIw6"},{"title":"The Girl Is Mine (with Paul McCartney)","spotifyId":"46bcHfciO740CEABQrvLrR"},{"title":"Thriller","spotifyId":"2x4x2j4mrdFMuSQnIJDVWM"},{"title":"Beat It","spotifyId":"2x0O1Lg3lhpUqw30Hamzke"},{"title":"Billie Jean","spotifyId":"0MHgys5H8i0bvpIScMeNTl"},{"title":"Human Nature","spotifyId":"6JyGRAFxCTEbSvhrLb206x"},{"title":"P.Y.T. (Pretty Young Thing)","spotifyId":"1URAAak0dRPksAeugKMpEu"},{"title":"The Lady in My Life","spotifyId":"0R7rnPjNqlYwK2b5LNX0aO"},{"title":"Starlight","spotifyId":"4WGwTL5HIiaw5OIFnwgCR9"},{"title":"Got the Hots - Demo","spotifyId":"21fVbhoPzmlLjxWfePb6CT"},{"title":"Who Do You Know - Demo","spotifyId":"5kMng2A15zTwpxiPHypbHm"},{"title":"Carousel","spotifyId":"39SzRa9nN9SFWPnbcMgrYX"},{"title":"Behind The Mask - Mike's Mix (Demo)","spotifyId":"32gg7lWCipR6jYiz9qXwSo"},{"title":"Can't Get Outta The Rain","spotifyId":"5yuLvy5xOhnhMZL0SjIZcX"},{"title":"The Toy - Demo","spotifyId":"2KmJ8VLU4MoX0BoCoo2LSw"},{"title":"Sunset Driver - Demo","spotifyId":"4vA0xg2ObT0RlUwZMDy5kZ"},{"title":"What A Lovely Way To Go - Demo","spotifyId":"4INbMHPtay1Q8fU9090FCc"},{"title":"She's Trouble - Demo","spotifyId":"1FXtdKmCuA38ClAUHI3YjZ"},{"title":"Billie Jean (1981 Home Demo)","spotifyId":"70WBe8dtmzg0OBrrJtN28n"},{"title":"Billie Jean - Long Version","spotifyId":"1euuAfFtkRzJy489azxfLC"},{"title":"Billie Jean (2008 Kanye West Mix) (feat. Kanye West) - Thriller 25th Anniversary Remix","spotifyId":"4jeLWjIvoZ2uWJrkrFo3xA"},{"title":"Beat It - Demo","spotifyId":"7MwHvUIsJCd8vsAhMqyGa5"},{"title":"Beat It (2008 with Fergie Remix) (with Fergie) - Thriller 25th Anniversary Remix","spotifyId":"6XgiJfqS5LdiptYHksfmSI"},{"title":"Wanna Be Startin' Somethin' - Demo","spotifyId":"2GQIHRlbPNnZKvJUeB468J"},{"title":"Wanna Be Startin' Somethin' - Tommy D's Main Mix","spotifyId":"0knaQtcr1cKpE4VlE9mTTa"},{"title":"Wanna Be Startin' Somethin' (2008 with Akon) (with Akon) - Thriller 25th Anniversary Remix","spotifyId":"2ievGqNfnUSaEBPrMQDTxB"},{"title":"Human Nature 7\"","spotifyId":"0E1aGd78m6l0qPwrjTjSpn"},{"title":"P.Y.T. (Pretty Young Thing) - Demo Version","spotifyId":"7FFTcmagmrEDNOe530kvhl"},{"title":"P.Y.T. (Pretty Young Thing) (2008 with will.i.am) (with will.i.am) - Thriller 25th Anniversary Remix","spotifyId":"3FCOOd1ShN8qpHNcMoSPIb"},{"title":"The Girl Is Mine (2008 with will.i.am) (with will.i.am) - Thriller 25th Anniversary Remix","spotifyId":"2jsOxLbTofSAPeLhNR9ll5"},{"title":"Thriller 7\" - Special Edit","spotifyId":"3VKj7hHHi8pJJ4mHDzZC4Q"},{"title":"Thriller - Def Thrill Mix","spotifyId":"5dELg4e472LaS76hzPOvi6"},{"title":"Thriller (Megamix)","spotifyId":"2I5o2Znqz37AibPdyg824v"}]
   };
 
@@ -218,7 +220,7 @@
   }
 
   function renderAlbumSection(){
-    const hasAlbum = ALBUM.name || ALBUM.cover || ALBUM.spotifyUrl || ALBUM.tidalUrl || ALBUM.appleMusicUrl;
+    const hasAlbum = ALBUM.name || ALBUM.cover || ALBUM.spotifyUrl || ALBUM.tidalUrl || ALBUM.appleMusicUrl || ALBUM.youtubeUrl;
     if(!hasAlbum) return;
 
     if(ALBUM.cover){
@@ -233,13 +235,14 @@
     if(ALBUM.artist) html += `<p class="album-credit">${esc(ALBUM.artist)}</p>`;
 
     const links = [];
-    if(ALBUM.spotifyUrl) links.push(['Spotify', ALBUM.spotifyUrl]);
-    if(ALBUM.tidalUrl) links.push(['Tidal', ALBUM.tidalUrl]);
-    if(ALBUM.appleMusicUrl) links.push(['Apple Music', ALBUM.appleMusicUrl]);
+    if(ALBUM.youtubeUrl) links.push(['YouTube', ALBUM.youtubeUrl, 'sin cuenta']);
+    if(ALBUM.spotifyUrl) links.push(['Spotify', ALBUM.spotifyUrl, 'necesita cuenta']);
+    if(ALBUM.tidalUrl) links.push(['Tidal', ALBUM.tidalUrl, 'necesita cuenta']);
+    if(ALBUM.appleMusicUrl) links.push(['Apple Music', ALBUM.appleMusicUrl, 'necesita cuenta']);
     if(links.length){
       html += '<p class="links-label">Escuchar el disco completo en:</p>' +
         '<div class="platform-links">' +
-        links.map(([label,url]) => `<a href="${url}" target="_blank" rel="noopener">▶ ${label}</a>`).join('') +
+        links.map(([label,url,note]) => `<a href="${url}" target="_blank" rel="noopener">▶ ${label}<small>${note}</small></a>`).join('') +
         '</div>';
     }
 
