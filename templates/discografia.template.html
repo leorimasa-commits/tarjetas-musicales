@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ARTISTA}}</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-link{
+    display:inline-block; margin-top:6px; font-size:12px; font-weight:600;
+    color:var(--text); text-decoration:none; opacity:.85;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{ARTISTA}}</h1>
+  <p class="subtitle">Discografía</p>
+</header>
+
+<div class="list" id="list"></div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "{{THEME}}");
+
+  const ALBUMS = {{ALBUMS_JSON}};
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

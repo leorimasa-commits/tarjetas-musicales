@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..', 'cards', 'regalo-thriller40');
+const root = path.resolve(__dirname, '..', 'cards', 'redondos-discografia');
 const port = 5173;
 
 const types = {
