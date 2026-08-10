@@ -92,6 +92,26 @@ una URL al instante. Sirve igual de bien para este uso.
 > Los tags NFC tipo NTAG213/215/216 son baratos y se consiguen como stickers o tarjetas plásticas;
 > tienen memoria de sobra para guardar solo una URL.
 
+## Tarjeta de discografía completa (varios discos de un artista)
+
+Distinto caso de uso, script separado — `scripts/generar-discografia.js`. Se usa cuando
+querés regalar toda la carrera de un artista (no un disco puntual):
+
+```bash
+node scripts/generar-discografia.js \
+  --slug artista-discografia \
+  --artista "Nombre del Artista" \
+  --tema regalo \
+  --albumes "assets/artista/albums.txt" \
+  --youtube "https://youtube.com/@canaloficial" \
+  --baseUrl "https://tu-usuario.github.io/tarjetas-musicales"
+```
+
+El archivo de `--albumes` tiene una línea por disco: `Título|Año|LinkDeSpotify`. El script
+busca automáticamente la tapa y la lista de temas de cada uno. `--youtube` es opcional y
+solo debe usarse con un canal oficial verificado (nunca de fans). Ver el manual para el
+detalle paso a paso.
+
 ## Notas sobre el audio
 
 - Usá archivos propios (grabaciones tuyas, música libre de derechos, o canciones que tengas
