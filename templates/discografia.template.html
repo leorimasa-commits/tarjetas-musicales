@@ -28,6 +28,10 @@
     line-height:1.2;
   }
   .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
   .yt-link{
     display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
     color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
@@ -80,6 +84,7 @@
 <header>
   <h1>{{ARTISTA}}</h1>
   <p class="subtitle">Discografía</p>
+  <p class="intro">{{INTRO}}</p>
   <div id="ytLinkWrap"></div>
 </header>
 
