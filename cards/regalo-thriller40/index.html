@@ -99,11 +99,6 @@
     width:42px; height:42px; border-radius:50%; font-size:16px; cursor:pointer;
   }
   .hidden{ display:none !important; }
-  .scroll-btn{
-    position:absolute; bottom:18px; font-size:13px; opacity:.85; cursor:pointer;
-    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); color:var(--text);
-    padding:8px 16px; border-radius:20px; font-weight:600;
-  }
 
   .album-section{
     max-width:560px; margin:0 auto; padding:32px 20px 60px; display:flex;
@@ -154,7 +149,6 @@
   </div>
   
   <p class="message">Este es un regalo musical. Estás por escuchar Thriller 40, la edición especial que se armó para los cuarenta años de uno de los discos más influyentes de la historia. Acá convive todo lo que ya conocés con grabaciones que muy pocos escucharon antes: demos, mezclas alternativas y remixes que muestran cómo se construyó ese sonido único. Un homenaje a un disco que cambió la música popular para siempre. Espero que lo disfrutes.</p>
-  <button class="scroll-btn" id="scrollBtn">Ver el disco ⌄</button>
 </section>
 
 <section class="album-section" id="albumSection"></section>
@@ -183,11 +177,6 @@
   const nowPlaying = document.getElementById('nowPlaying');
   const miniControls = document.getElementById('miniControls');
   const toggleBtn = document.getElementById('toggleBtn');
-  const scrollBtn = document.getElementById('scrollBtn');
-
-  scrollBtn.addEventListener('click', () => {
-    document.getElementById('albumSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 
   if(audio){
     function onPlaying(){
@@ -230,7 +219,7 @@
 
   function renderAlbumSection(){
     const hasAlbum = ALBUM.name || ALBUM.cover || ALBUM.spotifyUrl || ALBUM.tidalUrl || ALBUM.appleMusicUrl;
-    if(!hasAlbum){ scrollBtn.classList.add('hidden'); return; }
+    if(!hasAlbum) return;
 
     if(ALBUM.cover){
       player.style.backgroundImage = `url("${ALBUM.cover}")`;
