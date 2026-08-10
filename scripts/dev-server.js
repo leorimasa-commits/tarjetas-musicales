@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..', 'cards', 'inxs-discografia');
+const root = path.resolve(__dirname, '..');
 const port = 5173;
 
 const types = {
