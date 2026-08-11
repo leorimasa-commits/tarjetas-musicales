@@ -140,6 +140,10 @@
   .track-embed{ display:none; padding:6px 0 12px 20px; }
   .track-embed.open{ display:block; }
   .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .platform-links a.wa-share{
+    background:#25D366; border-color:rgba(255,255,255,.3);
+  }
 </style>
 </head>
 <body>
@@ -257,10 +261,13 @@
     if(ALBUM.tidalUrl) links.push(['Tidal', ALBUM.tidalUrl, 'necesita cuenta']);
     if(ALBUM.appleMusicUrl) links.push(['Apple Music', ALBUM.appleMusicUrl, 'necesita cuenta']);
     if(links.length){
+      const linkButtons = links.map(([label,url,note]) => `<a href="${url}" target="_blank" rel="noopener">▶ ${label}<small>${note}</small></a>`);
+      const shareText = `🎵 "${document.title}" — Escuchá acá: ${location.href}`;
+      const waHref = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+      const waBtn = `<a class="wa-share" href="${waHref}" target="_blank" rel="noopener">📱 Enviar a mi WhatsApp</a>`;
+      linkButtons.splice(ALBUM.youtubeUrl ? 1 : 0, 0, waBtn);
       html += '<p class="links-label">Escuchar el disco completo en:</p>' +
-        '<div class="platform-links">' +
-        links.map(([label,url,note]) => `<a href="${url}" target="_blank" rel="noopener">▶ ${label}<small>${note}</small></a>`).join('') +
-        '</div>';
+        '<div class="platform-links">' + linkButtons.join('') + '</div>';
     }
 
     if(Array.isArray(ALBUM.tracklist) && ALBUM.tracklist.length){
