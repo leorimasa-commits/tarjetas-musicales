@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soda Stereo</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-link{
+    display:inline-block; margin-top:6px; font-size:12px; font-weight:600;
+    color:var(--text); text-decoration:none; opacity:.85;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Soda Stereo</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">Este es un regalo musical. Soda Stereo fue la banda que puso al rock en español en otro nivel, con una evolución constante disco a disco hasta convertirse en una de las bandas más importantes de Latinoamérica. Acá está su discografía de estudio completa, de punta a punta.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@SodaStereo";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Soda Stereo","anio":"1984","spotifyUrl":"https://open.spotify.com/album/3i4nU0OIi7gMmXDEhG9ZRt","cover":"./covers/cover-0.jpg","tracks":[{"title":"Por Qué No Puedo Ser Del Jet Set? - Remasterizado 2007","spotifyId":"2JD91cpdSGoNh9K50GmByg"},{"title":"Sobredosis de T.V. - Remasterizado 2007","spotifyId":"0aUATjSSGs7kJ7DK3J8x99"},{"title":"Te Hacen Falta Vitaminas - Remasterizado 2007","spotifyId":"3caBCFURBMGqZYrZUc7j8s"},{"title":"Trátame Suavemente - Remasterizado 2007","spotifyId":"65DBZofI0b79kfHTcWWDuU"},{"title":"Dietético - Remasterizado 2007","spotifyId":"4bvkroEWwjF8O1tcLAACUj"},{"title":"Tele-Ka - Remasterizado 2007","spotifyId":"5ZDMWyxvoEEi5ofWUjf0NL"},{"title":"Ni Un Segundo - Remasterizado 2007","spotifyId":"5uwyngLJd6sTOYRic4tH8x"},{"title":"Un Misil En Mi Placard - Remasterizado 2007","spotifyId":"1mbP3zBMzI3sko7CgdPnnB"},{"title":"El Tiempo Es Dinero - Remasterizado 2007","spotifyId":"001YQlnDSduXd5LgBd66gT"},{"title":"Afrodisíacos - Remasterizado 2007","spotifyId":"11DDUdeL5QwBXVqeyb1fOa"},{"title":"Mi Novia Tiene Bíceps - Remasterizado 2007","spotifyId":"7kRhtWodPO1Oi0UVuj7Dob"}]},{"titulo":"Nada Personal","anio":"1985","spotifyUrl":"https://open.spotify.com/album/0hyq754QnaKHYpH32QnWqs","cover":"./covers/cover-1.jpg","tracks":[{"title":"Nada Personal - Remasterizado 2007","spotifyId":"4PBou1i63krEp3jKCPhxVD"},{"title":"Si No Fuera Por... - Remasterizado 2007","spotifyId":"5fu5vl7owT5ny0ry2Bema2"},{"title":"Cuando Pase El Temblor - Remasterizado 2007","spotifyId":"3uMYq07Kj5m564OQwdSCrD"},{"title":"Danza Rota - Remasterizado 2007","spotifyId":"6WB3ovHYXvhXfXQnAeE5qj"},{"title":"El Cuerpo Del Delito - Remasterizado 2007","spotifyId":"56IhGBCFIRw9reDg2NTZSz"},{"title":"Juegos De Seducción - Remasterizado 2007","spotifyId":"39YibHWQJLIgjQ0xWKlq6t"},{"title":"Estoy Azulado - Remasterizado 2007","spotifyId":"6ogBARwwlfsmmgyxWeEzQF"},{"title":"Observándonos (Satélites) - Remasterizado 2007","spotifyId":"2M1EWNXyKRnWHuoU2hk7Rq"},{"title":"Imágenes Retro - Remasterizado 2007","spotifyId":"3bZjHYomeILmtQElz5VNqp"},{"title":"Ecos - Remasterizado 2007","spotifyId":"1Dti4H4XC1IetaCDpI8MU0"}]},{"titulo":"Signos","anio":"1986","spotifyUrl":"https://open.spotify.com/album/7s2lDvm4FwnWE5RXEoY8Gi","cover":"./covers/cover-2.jpg","tracks":[{"title":"Sin Sobresaltos - Remasterizado 2007","spotifyId":"5IZdOXe9NrUJWjwSJo5Akw"},{"title":"El Rito - Remasterizado 2007","spotifyId":"61Hl37BKbYcSelJ3Sd8oU0"},{"title":"Prófugos - Remasterizado 2007","spotifyId":"1Tja3miBbbENpqIOAqGWXa"},{"title":"No Existes - Remasterizado 2007","spotifyId":"6MIDQPurdLJgq5Tg6wM6xy"},{"title":"Persiana Americana - Remasterizado 2007","spotifyId":"71awpJoi5bqGMBrTkHDDoL"},{"title":"En Camino - Remasterizado 2007","spotifyId":"4EO3RjlXJbTUQdDnRGlcGa"},{"title":"Signos - Remasterizado 2007","spotifyId":"09L0jTQCVyvR07arr9Gn6u"},{"title":"Final Caja Negra - Remasterizado 2007","spotifyId":"1FQqxHIo41JUgeSbQNtIMt"}]},{"titulo":"Doble Vida","anio":"1988","spotifyUrl":"https://open.spotify.com/album/0mEY1U7SZdIwDWylFm2UC4","cover":"./covers/cover-3.jpg","tracks":[{"title":"Pic Nic En El 4° B - Remasterizado 2007","spotifyId":"1tooZ43bHR3bSVIDNwEZRM"},{"title":"En La Ciudad De La Furia - Remasterizado 2007","spotifyId":"7J2885UBOaG6x3LLkp2YGf"},{"title":"Lo Que Sangra (La Cúpula) - Remasterizado 2007","spotifyId":"1Ssg0m4YjM10XVTXlblIg0"},{"title":"En El Borde - Remasterizado 2007","spotifyId":"4WOWzyHpoGvlve7qOQiXHf"},{"title":"Languis - Remasterizado 2007","spotifyId":"18D08bgPEem469x1bjxIXM"},{"title":"Día Común- Doble Vida - Remasterizado 2007","spotifyId":"5l94juvdzuSf1TduncAyHJ"},{"title":"Corazón Delator - Remasterizado 2007","spotifyId":"2zaZ81JI8KbYaL7210BB0U"},{"title":"El Ritmo De Tus Ojos - Remasterizado 2007","spotifyId":"15W8Q7ZA88u4eQf5JMDaj7"},{"title":"Terapia De Amor Intensiva - Remasterizado 2007","spotifyId":"57CH3KwRsQkbJH8VSDdKeI"}]},{"titulo":"Canción Animal","anio":"1990","spotifyUrl":"https://open.spotify.com/album/3GoSlKTNcVOp1ZxE5OOXeN","cover":"./covers/cover-4.jpg","tracks":[{"title":"(En) El Séptimo Día - Remasterizado 2007","spotifyId":"4xVZmLJtBTedcXbDB3qYdX"},{"title":"Un Millón De Años Luz - Remasterizado 2007","spotifyId":"0nJrTGcXdJWkKz02UMQdzO"},{"title":"Canción Animal - Remasterizado 2007","spotifyId":"6PqMi24DPibrFj9Ioc4hKL"},{"title":"1990 (Mil Nueve Noventa) - Remasterizado 2007","spotifyId":"5U3z76HVF4JZ5cc7Xaem5v"},{"title":"Sueles Dejarme Solo - Remasterizado 2007","spotifyId":"51M33m6vHnkJ9SJPES3Lu4"},{"title":"De Música Ligera - Remasterizado 2007","spotifyId":"2lpIh6Gr6HYjg1CFBaucS5"},{"title":"Hombre Al Agua - Remasterizado 2007","spotifyId":"5X1QC3aBZxtICZvNg5yrsf"},{"title":"Entre Caníbales - Remasterizado 2007","spotifyId":"0ePI3CMwhjRV3ZWas3gTU9"},{"title":"Té Para 3 - Remasterizado 2007","spotifyId":"2ZWkWB5ZC9BOuPkVuLZs8p"},{"title":"Cae El Sol - Remasterizado 2007","spotifyId":"5sUe0Kil6bGZxNE7slwp64"}]},{"titulo":"Dynamo","anio":"1992","spotifyUrl":"https://open.spotify.com/album/4bfwXuecOmNVlPM5RStAiQ","cover":"./covers/cover-5.jpg","tracks":[{"title":"Secuencia Inicial - Remasterizado 2007","spotifyId":"2fbNuOkVZWhccPEqnuxXvk"},{"title":"Toma La Ruta - Remasterizado 2007","spotifyId":"32KM3MHHkTZiyz5313CLKH"},{"title":"En Remolinos - Remasterizado 2007","spotifyId":"79Q5YxAu9UhTGtG70k9sIR"},{"title":"Primavera 0 - Remasterizado 2007","spotifyId":"2V4aobDkpJD7e36J8xPCL6"},{"title":"Camaleón - Remasterizado 2007","spotifyId":"4ddGbSuvryKgVIIBjBqGHo"},{"title":"Luna Roja - Remasterizado 2007","spotifyId":"0MHENKo7srNABaALyzrYlX"},{"title":"Sweet Sahumerio - Remasterizado 2007","spotifyId":"0GcU3ZhlnF5k3vKjqPRifa"},{"title":"Ameba - Remasterizado 2007","spotifyId":"1ErS8Tahdp0bOUH7SBM4jo"},{"title":"Nuestra Fe - Remasterizado 2007","spotifyId":"6c8DcjaMvJJFxygPtJdp51"},{"title":"Claroscuro - Remasterizado 2007","spotifyId":"7JKYhH7ptVeyErBUbvUpZF"},{"title":"Fue - Remasterizado 2007","spotifyId":"71ymTqjg6wUvgNksseSgbC"},{"title":"Texturas - Remasterizado 2007","spotifyId":"3ZOEoS6TEyA4cKhtMMNxC0"}]},{"titulo":"Sueño Stereo","anio":"1995","spotifyUrl":"https://open.spotify.com/album/1A3VRbn7Kto2ov0LkSY0eg","cover":"./covers/cover-6.jpg","tracks":[{"title":"Ella Usó Mi Cabeza Como Un Revólver - Remasterizado 2007","spotifyId":"5RzXSxR7BUhEtpqh77lMbR"},{"title":"Disco Eterno - Remasterizado 2007","spotifyId":"1MgAlKWp9ntSF5DRG6vKYl"},{"title":"Zoom - Remasterizado 2007","spotifyId":"1djou52IdL1mVEE7gTauxo"},{"title":"Ojo De La Tormenta - Remasterizado 2007","spotifyId":"5Q943XYZo0Xvq4qUQebmWC"},{"title":"Efecto Doppler - Remasterizado 2007","spotifyId":"78fEwrT5UGW1CZfFnEqmUk"},{"title":"Paseando Por Roma - Remasterizado 2007","spotifyId":"7Dk43uYcLammTOb4kS7Q9g"},{"title":"Pasos - Remasterizado 2007","spotifyId":"7KMxBakqV7SKVrS6qDv2yq"},{"title":"Angel Eléctrico - Remasterizado 2007","spotifyId":"40DSOFzJigXSQZkSOM32rs"},{"title":"Crema De Estrellas - Remasterizado 2007","spotifyId":"7KdHxPQklzjdmiaORyNQGb"},{"title":"Planta - Remasterizado 2007","spotifyId":"2Qmv6bDN1yazfH5OrhSlI9"},{"title":"X Playo - Remasterizado 2007","spotifyId":"743BAjD2J8pskuff8fP3Vx"},{"title":"Moirè - Remasterizado 2007","spotifyId":"0DrAH8PKnAIbFqAfnMlpzG"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Queen</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-link{
+    display:inline-block; margin-top:6px; font-size:12px; font-weight:600;
+    color:var(--text); text-decoration:none; opacity:.85;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Queen</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">Este es un regalo musical. Queen fue una de las bandas más grandes e influyentes del rock, capaz de moverse entre el hard rock, el glam, el pop y la ópera en un mismo disco. Acá está su discografía de estudio completa, de punta a punta.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@queen";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Queen","anio":"1973","spotifyUrl":"https://open.spotify.com/album/5SSpz2RyyEhLt5FDymT4Ph","cover":"./covers/cover-0.jpg","tracks":[{"title":"Keep Yourself Alive - 2011 Mix","spotifyId":"4NijroPKrjPAqSEroB07rk"},{"title":"Doing All Right - Remastered 2011","spotifyId":"3js9UOPVsguIDI2WyycfRJ"},{"title":"Great King Rat - Remastered 2011","spotifyId":"4IdURdcFrOeTgthMKwLXWb"},{"title":"My Fairy King - Remastered 2011","spotifyId":"27zHcqNyb9dU3OrcT4WyOg"},{"title":"Liar - Remastered 2011","spotifyId":"6sdkfXqsHTs0CKJmQAdCdo"},{"title":"The Night Comes Down - Remastered 2011","spotifyId":"1uF7aiINkPvBYPhsJZXAEH"},{"title":"Modern Times Rock 'n’ Roll - Remastered 2011","spotifyId":"0Fn0BrSgxS6VWfNd0K2naR"},{"title":"Son And Daughter - Remastered 2011","spotifyId":"6YL0T4a6BXETMcvLwlnXVw"},{"title":"Jesus - Remastered 2011","spotifyId":"2X6DLDwN51zFlxTDfjflgP"},{"title":"Seven Seas Of Rhye - Remastered 2011","spotifyId":"4Li1idfAVU508gpVQPQnaS"}]},{"titulo":"Queen II","anio":"1974","spotifyUrl":"https://open.spotify.com/album/6Cg1pPfnfFXlR1qH2H6NDL","cover":"./covers/cover-1.jpg","tracks":[{"title":"Procession - Remastered 2011","spotifyId":"30YALWarUyGYAODWQb9X4Y"},{"title":"Father To Son - Remastered 2011","spotifyId":"4e0NCSORypaMTdbG5LFhGD"},{"title":"White Queen (As It Began) - Remastered 2011","spotifyId":"5XG3sYoRPIK8VnDwFmgHPT"},{"title":"Some Day One Day - Remastered 2011","spotifyId":"4oI5zoIVyyopUx1Rxberuc"},{"title":"The Loser In The End - Remastered 2011","spotifyId":"05Kj7jfqmuOlX68AMv2RQW"},{"title":"Ogre Battle - Remastered 2011","spotifyId":"0UxXocASq2ToyrRGFfjEUx"},{"title":"The Fairy Feller's Master-Stroke - Remastered 2011","spotifyId":"31BLvCmLsnMHzDlKN6BjVq"},{"title":"Nevermore - Remastered 2011","spotifyId":"0Smf2LIhfokonnV8YEqp6b"},{"title":"The March Of The Black Queen - Remastered 2011","spotifyId":"3meWD39fJLCiIFKV6TFzSL"},{"title":"Funny How Love Is - Remastered 2011","spotifyId":"06tEeUR27PHIMdZ7LCRh5C"},{"title":"Seven Seas Of Rhye - Remastered 2011","spotifyId":"6DlY6kGbhDqMAWvBYHeCJF"}]},{"titulo":"Sheer Heart Attack","anio":"1974","spotifyUrl":"https://open.spotify.com/album/6uj0z3xtvQ8Y0UWevdQlIx","cover":"./covers/cover-2.jpg","tracks":[{"title":"Brighton Rock","spotifyId":"4YznFN5GKhMnAwC6JsjCiA"},{"title":"Killer Queen","spotifyId":"46L5lm1Xzwr0TExEMpObtq"},{"title":"Tenement Funster","spotifyId":"24cZpuHE1WW3NU7cB5yAKI"},{"title":"Flick Of The Wrist","spotifyId":"6kqah6geK9DqZ1LbHkCUPz"},{"title":"Lily Of The Valley","spotifyId":"0tvyCUSt7ogwCMhmXp2mtv"},{"title":"Now I'm Here","spotifyId":"3p4HKU5lWARw0WtNPs4gn1"},{"title":"In The Lap Of The Gods","spotifyId":"0xl6RBIGAhrkWUBJ4kSele"},{"title":"Stone Cold Crazy","spotifyId":"1n2HjhFtH3vPcOSfQq3FeE"},{"title":"Dear Friends","spotifyId":"6C2BnbnQsmIfN7jvR0PEKs"},{"title":"Misfire","spotifyId":"3EF0nPJqLdFi7Excat4ctn"},{"title":"Bring Back That Leroy Brown","spotifyId":"0QW0TKpSRfsqPAOB3cbHui"},{"title":"She Makes Me (Stormtrooper In Stilettos)","spotifyId":"0ipDLcaMbFI4mlsglVsBCC"},{"title":"In the Lap of the Gods...Revisited","spotifyId":"5qBoOLbIl1pmsRClnm8Fv1"}]},{"titulo":"A Night at the Opera","anio":"1975","spotifyUrl":"https://open.spotify.com/album/1GbtB4zTqAsyfZEsm1RZfx","cover":"./covers/cover-3.jpg","tracks":[{"title":"Death On Two Legs (Dedicated To...) - Remastered 2011","spotifyId":"1cN13ivH3D66m9DoW2Z7iU"},{"title":"Lazing On A Sunday Afternoon - Remastered 2011","spotifyId":"1DL2gvMBTCFmg2dREI9Lwp"},{"title":"I'm In Love With My Car - Remastered 2011","spotifyId":"253ewjP2R1LjKqA70mGdnk"},{"title":"You're My Best Friend - Remastered 2011","spotifyId":"4vhVDkSx9RSb2k6mWFMYNI"},{"title":"'39 - Remastered 2011","spotifyId":"6aNP9GlBi3VHPXl7w3Qjr9"},{"title":"Sweet Lady - Remastered 2011","spotifyId":"0K4USWqV0DZZ5sffa3wxh0"},{"title":"Seaside Rendezvous - Remastered 2011","spotifyId":"0VU7avDE4OZ36oVmLPSEZA"},{"title":"The Prophet's Song - Remastered 2011","spotifyId":"6C3wj5V8mqLYtYqgJCABZW"},{"title":"Love Of My Life - Remastered 2011","spotifyId":"2BlNyI35idBaI6BN6WGZeQ"},{"title":"Good Company - Remastered 2011","spotifyId":"5ajVHIX0J3vyUmPhqCBx9U"},{"title":"Bohemian Rhapsody - Remastered 2011","spotifyId":"4u7EnebtmKWzUH433cf5Qv"},{"title":"God Save The Queen - Remastered 2011","spotifyId":"2ISPUUp4pzssWuR2Ic09vR"}]},{"titulo":"A Day at the Races","anio":"1976","spotifyUrl":"https://open.spotify.com/album/7hvCZFEWheDmHJMHOWdkLc","cover":"./covers/cover-4.jpg","tracks":[{"title":"Tie Your Mother Down","spotifyId":"3y6cGEYLF4t2zT9TA155h3"},{"title":"You Take My Breath Away","spotifyId":"4nP3yInam43fkxEqgXnwYn"},{"title":"Long Away","spotifyId":"64ZG7fbxemjYd1o0o8qELy"},{"title":"The Millionaire Waltz","spotifyId":"4J27b6199z73DIHOIFADsW"},{"title":"You And I","spotifyId":"7cY8bcuLvBZTFHnrPPKu6G"},{"title":"Somebody To Love","spotifyId":"2pxCxQs9vgE74PA2k2kVBJ"},{"title":"White Man","spotifyId":"5rYDGNETCqM9NoOnCD8eFb"},{"title":"Good Old-Fashioned Lover Boy","spotifyId":"1lgum3r8M4ctUb8CjcFHvg"},{"title":"Drowse","spotifyId":"2cdOyUGRj961Tn1IFEqmQe"},{"title":"Teo Torriatte (Let Us Cling Together)","spotifyId":"69aswOmLtNPzStgpkzFQ2c"}]},{"titulo":"News of the World","anio":"1977","spotifyUrl":"https://open.spotify.com/album/4UyCb7lKdDqj4sSvAEh8w9","cover":"./covers/cover-5.jpg","tracks":[{"title":"We Will Rock You - Remastered 2011","spotifyId":"7dayhmfINT8nuIGGmxUAv6"},{"title":"We Are The Champions - Remastered 2011","spotifyId":"0DPSOpAIc8FMjcdN1JTvui"},{"title":"Sheer Heart Attack - Remastered 2011","spotifyId":"6skA7TuepfZ3qKOVVcvVwH"},{"title":"All Dead, All Dead - Remastered 2011","spotifyId":"3NUsPTvKPjwURqjg7ePPwE"},{"title":"Spread Your Wings - Remastered 2011","spotifyId":"2MlmcTyav2izz0KS8mlUmz"},{"title":"Fight From The Inside - Remastered 2011","spotifyId":"3J9Z79Flsp8FbbrBql2YBu"},{"title":"Get Down, Make Love - Remastered 2011","spotifyId":"4qKFLNLG4rTopMn0x1COwT"},{"title":"Sleeping On The Sidewalk - Remastered 2011","spotifyId":"0MeSS5hnBqwODCWptOEZfF"},{"title":"Who Needs You - Remastered 2011","spotifyId":"6vGeAiNiFKQ96nCOZlyTGM"},{"title":"It's Late - Remastered 2011","spotifyId":"5k9MPQsS7VtsDXk3zeeGlU"},{"title":"My Melancholy Blues - Remastered 2011","spotifyId":"5WQWTXNhmKmXB70iUNnULW"},{"title":"We Will Rock You - 1991 Bonus Remix Ruined By Rick Rubin","spotifyId":"0RP7J7N4PSxqLRIwVtME2f"}]},{"titulo":"Jazz","anio":"1978","spotifyUrl":"https://open.spotify.com/album/4mbkkOGZS6inHP2di2jaqS","cover":"./covers/cover-6.jpg","tracks":[{"title":"Mustapha - Remastered 2011","spotifyId":"5R3HP6SLtok7bcrmhCAALV"},{"title":"Fat Bottomed Girls - Remastered 2011","spotifyId":"71zWn6jB5BS5jbMCmUoWwu"},{"title":"Jealousy - Remastered 2011","spotifyId":"2zEr0bUKXugsiB3LHWILt1"},{"title":"Bicycle Race - Remastered 2011","spotifyId":"0sEbdywcLubKViKTU3JFDP"},{"title":"If You Can't Beat Them - Remastered 2011","spotifyId":"3syZ2DCObsGQPXDLrNqGS3"},{"title":"Let Me Entertain You - Remastered 2011","spotifyId":"3LGYMwSWJXhqoVK136qlFw"},{"title":"Dead On Time - Remastered 2011","spotifyId":"21vCzJw5Oivkb5h2P31Ek8"},{"title":"In Only Seven Days - Remastered 2011","spotifyId":"2kpstT8GrWg1d0UkAlccl3"},{"title":"Dreamer's Ball - Remastered 2011","spotifyId":"2yawuHbPvWcyrmgJeByxt2"},{"title":"Fun It - Remastered 2011","spotifyId":"6eKKrQYqIkFB4lME4awHBG"},{"title":"Leaving Home Ain't Easy - Remastered 2011","spotifyId":"6NuTvk6e4OMpyNcxCSC9Fi"},{"title":"Don't Stop Me Now - Remastered 2011","spotifyId":"7ejwtLv28uDXr5q6iIG3rt"},{"title":"More Of That Jazz - Remastered 2011","spotifyId":"53dR8zcbDxxoFLLCt62b6f"},{"title":"Fat Bottomed Girls - 1991 Bonus Remix","spotifyId":"5ojj76ChM9oPqthS0tnCCm"},{"title":"Bicycle Race - 1991 Bonus Remix","spotifyId":"7ESwIYzf5RcbsOO2eZUvLC"}]},{"titulo":"The Game","anio":"1980","spotifyUrl":"https://open.spotify.com/album/0JY06ZYYyah5h3IUNtj32d","cover":"./covers/cover-7.jpg","tracks":[{"title":"Play The Game - Remastered 2011","spotifyId":"6CsFW5AoveWy88dt0Hp4G3"},{"title":"Dragon Attack - Remastered 2011","spotifyId":"6ZUudFcAXt6C88VbEius12"},{"title":"Another One Bites The Dust - Remastered 2011","spotifyId":"0oJSOOxT349k0Sj9lzAedX"},{"title":"Need Your Loving Tonight - Remastered 2011","spotifyId":"3ZKoq8IqEHhlWmtygBfNnD"},{"title":"Crazy Little Thing Called Love - Remastered 2011","spotifyId":"2OFjG0RUEzYqJeyGM9ran2"},{"title":"Rock It (Prime Jive) - Remastered 2011","spotifyId":"1ZlSeyqHfgnEogjCBNxpzc"},{"title":"Don't Try Suicide - Remastered 2011","spotifyId":"2eLd18BrRCkoQgeK8SGLLE"},{"title":"Sail Away Sweet Sister - Remastered 2011","spotifyId":"1sVFVJU98NXQTTB5un3aLr"},{"title":"Coming Soon - Remastered 2011","spotifyId":"30Gb7tQsYcMjABoKf8AkPB"},{"title":"Save Me - Remastered 2011","spotifyId":"4EWvkbgvqwnZAAdKyhXRgC"},{"title":"Dragon Attack - 1991 Bonus Remix","spotifyId":"0n8zKoNhEfcjdl0dCXRKY5"}]},{"titulo":"Flash Gordon","anio":"1980","spotifyUrl":"https://open.spotify.com/album/0pZMBVdw7rLCklrrcxIbOy","cover":"./covers/cover-8.jpg","tracks":[{"title":"Flash's Theme - Remastered 2011","spotifyId":"4voFOJrieJ5lqOQCeOhYvZ"},{"title":"In The Space Capsule (The Love Theme) - Remastered 2011","spotifyId":"3mghkybcERvfQ3CRpKvCWU"},{"title":"Ming's Theme (In The Court Of Ming The Merciless) - Remastered 2011","spotifyId":"7trqy9YicirOzAyJemLgBF"},{"title":"The Ring (Hypnotic Seduction Of Dale) - Remastered 2011","spotifyId":"68AqIPJmBZiPqyw6Us69pS"},{"title":"Football Fight - Remastered 2011","spotifyId":"2WmfCjLm4ShgiAtO3dSc3a"},{"title":"In The Death Cell (Love Theme Reprise) - Remastered 2011","spotifyId":"44lqndhKglDLEWbZ7nQn02"},{"title":"Execution Of Flash - Remastered 2011","spotifyId":"4hSrrZBvEoIdkN72yPtA1s"},{"title":"The Kiss (Aura Resurrects Flash) - Remastered 2011","spotifyId":"1xDTDgHjOqxIdOabT3isiz"},{"title":"Arboria (Planet Of The Tree Men) - Remastered 2011","spotifyId":"64sUZQpzXPCwOHl86zWJXY"},{"title":"Escape From The Swamp - Remastered 2011","spotifyId":"3Yy1UYs1m955cVksatgQAO"},{"title":"Flash To The Rescue - Remastered 2011","spotifyId":"5Kbc3OsmiNPJrIgKemKRe9"},{"title":"Vultan's Theme (Attack Of The Hawk Men) - Remastered 2011","spotifyId":"0kgFXU9BU5FRmiT2tR5KEb"},{"title":"Battle Theme - Remastered 2011","spotifyId":"6V7VGHwSVlEOvgFFLj6VsQ"},{"title":"The Wedding March - Remastered 2011","spotifyId":"7sxnFoYCA5aQAxwvqj5qHv"},{"title":"Marriage Of Dale And Ming (And Flash Approaching) - Remastered 2011","spotifyId":"40YeWCXJFK1j3wzf5j1WzS"},{"title":"Crash Dive On Mingo City - Remastered 2011","spotifyId":"4inVIBc94zaZDeUEPi1BM0"},{"title":"Flash's Theme Reprise - Remastered 2011","spotifyId":"7MI1ErGzN4xT2CEKzDWLHd"},{"title":"The Hero - Remastered 2011","spotifyId":"556aoeLPueCUGxIPoiLEPZ"},{"title":"Flash's Theme - Remix","spotifyId":"1vFV6kcIhEEUWJD3VgTlt2"}]},{"titulo":"Hot Space","anio":"1982","spotifyUrl":"https://open.spotify.com/album/4IdoZg7qwE1VAfeqrBRuhC","cover":"./covers/cover-9.jpg","tracks":[{"title":"Staying Power - Remastered 2011","spotifyId":"3MWh5QCShDpHAaxtzAB40f"},{"title":"Dancer - Remastered 2011","spotifyId":"1x2uGVgxRv7UixxiDB65t0"},{"title":"Back Chat - Remastered 2011","spotifyId":"5QlT9vHuFQG3ysqa21lUJb"},{"title":"Body Language - Remastered 2011","spotifyId":"6umFDRSDpIfNxvjhvfqEs5"},{"title":"Action This Day - Remastered 2011","spotifyId":"6tseYkEGXmab3F34lKtOZX"},{"title":"Put Out The Fire - Remastered 2011","spotifyId":"0RNDn4aixJ7ZsV3nBx7fP7"},{"title":"Life Is Real (Song For Lennon) - Remastered 2011","spotifyId":"7tatc9U8Mias1daW4AusvP"},{"title":"Calling All Girls - Remastered 2011","spotifyId":"0ruQPwkrnr2oSaNj80IX0L"},{"title":"Las Palabras De Amor (The Words Of Love) - Remastered 2011","spotifyId":"6LjOlzs9TE8TLJA8CguJWh"},{"title":"Cool Cat - Remastered 2011","spotifyId":"7g5caAJkx7So3uBV2Pj3GQ"},{"title":"Under Pressure - Remastered 2011","spotifyId":"56vizQPMZXcNuSyBsW5f4N"},{"title":"Body Language - 1991 Bonus Remix","spotifyId":"2vH0Z6ITtCzuVivq2asanE"}]},{"titulo":"The Works","anio":"1984","spotifyUrl":"https://open.spotify.com/album/2YcZlfU3fVThUasW4hHI24","cover":"./covers/cover-10.jpg","tracks":[{"title":"Radio Ga Ga - Remastered 2011","spotifyId":"50acXqZDty4ICAyUabsgsl"},{"title":"Tear It Up - Remastered 2011","spotifyId":"5YfTBu1ShZu3C4fnoJdcQm"},{"title":"It's A Hard Life - Remastered 2011","spotifyId":"3s47z6AnLMbxY0JfhxAfNj"},{"title":"Man On The Prowl - Remastered 2011","spotifyId":"50VddZ3Qi7oOmnbni2PZqg"},{"title":"Machines (or 'Back To Humans') - Remastered 2011","spotifyId":"6WV3FlZdcMKfVc6UlKrp2w"},{"title":"I Want To Break Free - Remastered 2011","spotifyId":"0VilVgNyU7XaS0gh7we7mz"},{"title":"Keep Passing The Open Windows - Remastered 2011","spotifyId":"6Nj2VOpqfLQ4WA0sSLNtHW"},{"title":"Hammer To Fall - Remastered 2011","spotifyId":"4FdEHiHWQs5e4wLkv98jmh"},{"title":"Is This The World We Created...? - Remastered 2011","spotifyId":"05deWwouw0Fxf9iZukwtBg"},{"title":"I Go Crazy","spotifyId":"1fKfDzA9kf5men9KspqjPF"},{"title":"Radio Ga Ga - Extended Remix","spotifyId":"7nXUJs5WxpLxWzaHiImBe7"},{"title":"I Want To Break Free - Extended Mix","spotifyId":"5Wb0Jav3dfJgnpUWEJwd18"}]},{"titulo":"A Kind of Magic","anio":"1986","spotifyUrl":"https://open.spotify.com/album/2CtjlCopig2ciZHEBIoZ4r","cover":"./covers/cover-11.jpg","tracks":[{"title":"One Vision","spotifyId":"524aiNxulE2JkXl7CDvmLE"},{"title":"A Kind Of Magic","spotifyId":"63vh1SGG67jGyNPV0SOohf"},{"title":"One Year Of Love","spotifyId":"7dCr2oqXe6Dzw5DInjKIsI"},{"title":"Pain Is So Close To Pleasure","spotifyId":"46gNdrnDoX38cR7zepqO5y"},{"title":"Friends Will Be Friends","spotifyId":"6lmAgXIkyml1j61Vewpndd"},{"title":"Who Wants To Live Forever","spotifyId":"3mCifcD3qeXqsasXySYt0s"},{"title":"Gimme The Prize","spotifyId":"6WjY4oKPVQ9lZaq3aJ0H5v"},{"title":"Don't Lose Your Head","spotifyId":"5FW3zbc9HACf6fUVjmEwSw"},{"title":"Princes Of The Universe","spotifyId":"0FRXByhSyLdz59q79vBdSh"},{"title":"A Kind Of 'A Kind Of Magic'","spotifyId":"1EwejfHiGMXDILwPH8WRLZ"},{"title":"Friends Will Be Friends Will Be Friends","spotifyId":"72fGwZyaRVogDGAcBbFUvp"},{"title":"Forever","spotifyId":"3QdeqFGA8bX3tekrsUQZ1B"}]},{"titulo":"The Miracle","anio":"1989","spotifyUrl":"https://open.spotify.com/album/0GSDhB3gv0XqMmHA0fcXLT","cover":"./covers/cover-12.jpg","tracks":[{"title":"Party","spotifyId":"0J8Z5HeuUkbzYaOSMFt4WK"},{"title":"Khashoggi's Ship","spotifyId":"0cpo5hi8fxx8wfWA0tTI9Z"},{"title":"The Miracle","spotifyId":"0Ks5DhcF0aRWrErK6TQo7w"},{"title":"I Want It All","spotifyId":"2D4gOwkObxc5oBLSfyDajz"},{"title":"The Invisible Man","spotifyId":"77KRD6wYPMS2lIPwest33F"},{"title":"Breakthru","spotifyId":"0PesritaDvkWORoHQJmP3z"},{"title":"Rain Must Fall","spotifyId":"5bb00u00EqFm4lhxoQBhz3"},{"title":"Scandal","spotifyId":"7vd91F1rseBBlwc87opNZz"},{"title":"My Baby Does Me","spotifyId":"7dtKaIH6vVmMAERNVf2IOB"},{"title":"Was It All Worth It","spotifyId":"326miTFTR7wJNAETTGIdwm"},{"title":"Hang On In There","spotifyId":"5fXxaIS7Bd4jZDWZvzpId7"},{"title":"Chinese Torture","spotifyId":"3YQicrEdkS5vpcoTdPnhDd"},{"title":"The Invisible Man - Extended Version","spotifyId":"2LWFb5esxt11tDExPcflN1"}]},{"titulo":"Innuendo","anio":"1991","spotifyUrl":"https://open.spotify.com/album/3jYy7yGNCysTHE8MKrIF1k","cover":"./covers/cover-13.jpg","tracks":[{"title":"Innuendo - Remastered 2011","spotifyId":"2OuImA1gcBXJVMrVH9Kn9p"},{"title":"I'm Going Slightly Mad - Remastered 2011","spotifyId":"4dSZWHJm4CM6Wln5xE8jHm"},{"title":"Headlong - Remastered 2011","spotifyId":"7vSmcmanxnODX5Xx5JrI4p"},{"title":"I Can't Live With You - Remastered 2011","spotifyId":"09peT4dWWDpWX6DfnfnSHO"},{"title":"Don't Try So Hard - 2011 Remaster","spotifyId":"5H4lmc4Qz21BGtMR1miK35"},{"title":"Ride The Wild Wind - Remastered 2011","spotifyId":"6IR3fixImOtXM5YuctudSO"},{"title":"All God's People - Remastered 2011","spotifyId":"0gYG6jy2dA3Z4zLd5byaZR"},{"title":"These Are The Days Of Our Lives - 2011 Remaster","spotifyId":"6L2zQunC8lImxNEH60yxaR"},{"title":"Delilah - Remastered 2011","spotifyId":"32Hryp07EGf5eZ5R9sFQ1e"},{"title":"The Hitman - Remastered 2011","spotifyId":"5UwKS6U7Vr14V6vyrv9SzA"},{"title":"Bijou - 2011 Remaster","spotifyId":"0wVxY713NPma7GMrsow3G7"},{"title":"The Show Must Go On - Remastered 2011","spotifyId":"3VYrW02CQhbkYAe4rpG297"}]},{"titulo":"Made in Heaven","anio":"1995","spotifyUrl":"https://open.spotify.com/album/391ScNR3xKywWSpfDwP3n0","cover":"./covers/cover-14.jpg","tracks":[{"title":"It's A Beautiful Day - Remastered 2011","spotifyId":"23OksreAzaswJBN5APV58U"},{"title":"Made In Heaven - 2011 Remaster","spotifyId":"4NTMIFWtDXnWN4hDSBlKOf"},{"title":"Let Me Live - Remastered 2011","spotifyId":"0l5orJ4UauYhiq0pitl889"},{"title":"Mother Love - 2011 Remaster","spotifyId":"5ShmaPvHBM0lMG5Tj2VtZF"},{"title":"My Life Has Been Saved - Remastered 2011","spotifyId":"0W6NenBf8U0HUujewiVQ6y"},{"title":"I Was Born To Love You - 2011 Remaster","spotifyId":"6j72nKKRKnGTq7HBMyuvfB"},{"title":"Heaven For Everyone - Remastered 2011","spotifyId":"3Klfd4rsRO53fYpxmdQmYV"},{"title":"Too Much Love Will Kill You - Remastered 2011","spotifyId":"0W1uTK6I97CbjFKAVtRGfK"},{"title":"You Don't Fool Me - Remastered 2011","spotifyId":"4cVwf12pBJChNUXXl3jzdg"},{"title":"A Winter's Tale - 2011 Remaster","spotifyId":"12HWTqP3GWqzyyKrpkhojF"},{"title":"It's A Beautiful Day (Reprise) - Remastered 2011","spotifyId":"0xvJ2Ucr9Vdpkm1anaPwDg"},{"title":"Yeah - Remastered 2011","spotifyId":"65YeIE3Y4YBNLnXcpVZz1P"},{"title":"Untitled - Remastered 2011","spotifyId":"7zzSsdYQCM2ZYQ9krf2Ptt"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

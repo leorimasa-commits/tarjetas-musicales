@@ -1,0 +1,15 @@
+Queen|1973|https://open.spotify.com/album/5SSpz2RyyEhLt5FDymT4Ph
+Queen II|1974|https://open.spotify.com/album/6Cg1pPfnfFXlR1qH2H6NDL
+Sheer Heart Attack|1974|https://open.spotify.com/album/6uj0z3xtvQ8Y0UWevdQlIx
+A Night at the Opera|1975|https://open.spotify.com/album/1GbtB4zTqAsyfZEsm1RZfx
+A Day at the Races|1976|https://open.spotify.com/album/7hvCZFEWheDmHJMHOWdkLc
+News of the World|1977|https://open.spotify.com/album/4UyCb7lKdDqj4sSvAEh8w9
+Jazz|1978|https://open.spotify.com/album/4mbkkOGZS6inHP2di2jaqS
+The Game|1980|https://open.spotify.com/album/0JY06ZYYyah5h3IUNtj32d
+Flash Gordon|1980|https://open.spotify.com/album/0pZMBVdw7rLCklrrcxIbOy
+Hot Space|1982|https://open.spotify.com/album/4IdoZg7qwE1VAfeqrBRuhC
+The Works|1984|https://open.spotify.com/album/2YcZlfU3fVThUasW4hHI24
+A Kind of Magic|1986|https://open.spotify.com/album/2CtjlCopig2ciZHEBIoZ4r
+The Miracle|1989|https://open.spotify.com/album/0GSDhB3gv0XqMmHA0fcXLT
+Innuendo|1991|https://open.spotify.com/album/3jYy7yGNCysTHE8MKrIF1k
+Made in Heaven|1995|https://open.spotify.com/album/391ScNR3xKywWSpfDwP3n0

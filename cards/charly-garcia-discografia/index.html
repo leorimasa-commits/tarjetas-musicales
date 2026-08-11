@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charly García</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-link{
+    display:inline-block; margin-top:6px; font-size:12px; font-weight:600;
+    color:var(--text); text-decoration:none; opacity:.85;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Charly García</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">Este es un regalo musical. Charly García es una de las figuras más importantes del rock en español, con una carrera solista tan larga como inquieta, que fue cambiando de sonido disco a disco durante más de cuatro décadas. Acá está su discografía de estudio completa, de punta a punta.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Yendo de la cama al living","anio":"1982","spotifyUrl":"https://open.spotify.com/album/30smSIaIudRfcGGIUn2O2K","cover":"./covers/cover-0.jpg","tracks":[{"title":"Operación Densa - Remastered Version","spotifyId":"6K3AJi2FMNYIMTsjNqOVxk"},{"title":"Despertar De Mambo","spotifyId":"45VlKWrNjrpOoaPYu3Nlzu"},{"title":"Rejas Electrificadas - Remastered Version","spotifyId":"1zNSpLPRLMYCz7UDWGbkwp"},{"title":"Pubis Angelical - Remastered Version","spotifyId":"2kNY9sPl9OTWSQ9vmUdAjA"},{"title":"Monóculo Fantástico - Remastered Version","spotifyId":"4LWe8SjqhSEoVlxpjDE7eU"},{"title":"All I Do Is Dream Of You - Remastered Version","spotifyId":"0nkD6uH3cB3bw6vqM6sObi"},{"title":"Sereno Fantástico - Remastered Version","spotifyId":"76EHHA4GjA4CXUwknq3PTN"},{"title":"Transatlántico Art Deco - Remastered Version","spotifyId":"5w8crib61Iklx1weNhDsOF"},{"title":"Caspa De Estrellas","spotifyId":"3h2GuG8Sp74H3rm4jpJPow"},{"title":"Crimen, Divina, Productor - Remastered Version","spotifyId":"21mggNU24P44bQXBeJh5PK"},{"title":"Pubis Angelical (Vocal) - Remastered Version","spotifyId":"5nFSpDUKCnGd1kR6jFV3UR"},{"title":"Pubis Angelical (Vocal 2) - Remastered Version","spotifyId":"4oeL56SIySwukOzgZMV4Cy"},{"title":"Futuro Pobre - Remastered Version","spotifyId":"0xzFJDLYWfgqcl3IZNCbHd"},{"title":"Tribunas Del Futuro Pobre - Remastered Version","spotifyId":"51ELRuOk9j56Tag5PMM0h6"},{"title":"Todos Los Pubis Juntos - Remastered Version","spotifyId":"7tjWtqZiEFArnrm0U4gFdd"},{"title":"Yendo De La Cama Al Living","spotifyId":"3dbz2D12tzkuqBwmEdinSO"},{"title":"Superhéroes","spotifyId":"1dCLyATQyHFMGLiabl8Pmv"},{"title":"No Bombardeen Buenos Aires - Remastered Version","spotifyId":"5LEiHhhZFw6rlTnHjJtNmx"},{"title":"Vos También Estabas Verde","spotifyId":"4UcpwdTEw89B6q7GZeLUKg"},{"title":"Yo No Quiero Volverme Tan Loco","spotifyId":"7wYyLKPEllrDxlCN8luaEN"},{"title":"Canción De Dos Por Tres - Remastered Version","spotifyId":"5D6Lzu3CRX9L1hmzIm0Hv8"},{"title":"Peluca Telefónica","spotifyId":"5H89HtJjNEjPxcp5aZSTYK"},{"title":"Inconsciente Colectivo","spotifyId":"15Iobek2POjsDO14iIxGUe"}]},{"titulo":"Clics Modernos","anio":"1983","spotifyUrl":"https://open.spotify.com/album/3OyBf97NOuJjhEpQHY920H","cover":"./covers/cover-1.jpg","tracks":[{"title":"Nos Siguen Pegando Abajo","spotifyId":"4VikOud5ZmdmHH6h7uQeDB"},{"title":"No Soy Un Extraño","spotifyId":"5f3EtD85N6tTekD3HVja4j"},{"title":"Dos Cero Uno","spotifyId":"1JR6i97DVXhvUHyROnUdVF"},{"title":"Nuevos Trapos","spotifyId":"0eChv3249vAoIl9oVlDPSP"},{"title":"Bancate Ese Defecto","spotifyId":"5SoJgMbosyJLHLk7ThuFmr"},{"title":"No Me Dejan Salir","spotifyId":"6P6rudfmKr7FyArdyEs0Mk"},{"title":"Los Dinosaurios","spotifyId":"3VCKdfJAL8DTDlwZw5O6Ik"},{"title":"Plateado Sobre Plateado (Huellas En El Mar)","spotifyId":"1zzhZAlwmdoJYhMqfL7EIj"},{"title":"Ojos De Video Tape","spotifyId":"6BqgYMoeuiXk3buXaDvfGm"}]},{"titulo":"Piano Bar","anio":"1984","spotifyUrl":"https://open.spotify.com/album/17utekM9a95MchXbkbh47k","cover":"./covers/cover-2.jpg","tracks":[{"title":"Demoliendo Hoteles","spotifyId":"29iIRrSuANyjnwag69PHOJ"},{"title":"Promesas Sobre El Bidet","spotifyId":"2MXqrO1RBfek6RoijghYYp"},{"title":"Raros Peinados Nuevos","spotifyId":"7mnf5omGMUwSfpwZrt5AZ0"},{"title":"Piano Bar","spotifyId":"1sTDXvAhC6dJQUCJtmmahR"},{"title":"No Te Animás A Despegar","spotifyId":"5RlsSt263xeZXUx9e73z5p"},{"title":"No Se Va A Llamar Mi Amor","spotifyId":"5HWfFv6sEBnpfRgJYOSCPv"},{"title":"Tuve Tu Amor","spotifyId":"6caEkrittbfy0jsKjPT1bq"},{"title":"Rap Del Exilio","spotifyId":"3weWxbl50a933TorZ3wx9r"},{"title":"Cerca De La Revolucion","spotifyId":"66grIvFLGrI4tNhggO2DAd"},{"title":"Total Interferencia","spotifyId":"5InJsNKDCwm7Oi0Xujkhvs"},{"title":"Cancion Para Mi Muerte - Bonus Track","spotifyId":"6JCgP3lmyFmpYKTTripIq6"}]},{"titulo":"Parte de la Religión","anio":"1987","spotifyUrl":"https://open.spotify.com/album/4MrFVzdNEgxfZbJyC2RQt9","cover":"./covers/cover-3.jpg","tracks":[{"title":"Necesito Tu Amor","spotifyId":"4twICqafR4E6Aw9pesF292"},{"title":"Buscando un Símbolo de Paz","spotifyId":"1pLQZ6MwbYaLqzJT3imTBU"},{"title":"Parte de la Religión","spotifyId":"10j7m614MuWqj6qgWKeaw7"},{"title":"Rap de las Hormigas","spotifyId":"0bfp9z9BSYK487QRzS7HcB"},{"title":"Adela en el Carrousell","spotifyId":"4Pz6d9chtIKUQ628KWDZpR"},{"title":"No Voy en Tren","spotifyId":"0rliTXrA8nLBuJcxDuueWU"},{"title":"Rezo por Vos","spotifyId":"6dOzqs6o4DNzXs4jF2v1Yq"},{"title":"El Karma de Vivir al Sur","spotifyId":"1ODANxW34eP0TVS63phHAu"},{"title":"Ella Adivinó","spotifyId":"05kvl6YY3E2YyAGFZwkwdT"},{"title":"La Ruta del Tentempié","spotifyId":"2SmMlziW8PCEkdIuxAhpw9"}]},{"titulo":"Cómo Conseguir Chicas","anio":"1989","spotifyUrl":"https://open.spotify.com/album/7150qYQFyVskNOFtw5oCPr","cover":"./covers/cover-4.jpg","tracks":[{"title":"No Toquen","spotifyId":"7lpSDtQDfHgfOmggQv8mik"},{"title":"Zocacola","spotifyId":"0yAChuncahvimREBFSCIIP"},{"title":"Fanky","spotifyId":"5iVRdHAUDp3cW2I8d6czBS"},{"title":"No Me Veras En El Subte","spotifyId":"5Tw7AoBFXanHhHEAKPIZBs"},{"title":"Ella Es Bailarina","spotifyId":"42Aqk2hUNde8UCzegsrWJy"},{"title":"Anhedonia","spotifyId":"09MPjASnrLwo4ejyNz56Rv"},{"title":"Suicida","spotifyId":"04ssCfJJYy9nV60weLJUZh"},{"title":"Fantasy","spotifyId":"3wOuXyBZaIF7b8IVzQy7y8"},{"title":"A Punto De Caer","spotifyId":"52Y8qdzbLAnHJqoQ8UAYp8"},{"title":"Shisyastawuman","spotifyId":"03gSTaQeHqlmQr5C26gPYb"}]},{"titulo":"Filosofía Barata y Zapatos de Goma","anio":"1990","spotifyUrl":"https://open.spotify.com/album/4eZKmaAjQLChmpJ7uqoZAY","cover":"./covers/cover-5.jpg","tracks":[{"title":"De Mí","spotifyId":"5xnv9ka866mxTHdy9VHIm7"},{"title":"Filosofía Barata y Zapatos de Goma","spotifyId":"03mG8gRIri8ZO92bYmcERo"},{"title":"Reloj de Plastilina","spotifyId":"4MMlauJ06Zm1apM1aPe7HZ"},{"title":"Gato de Metal","spotifyId":"5cuCRYWFrB1sLvuEd3xpt4"},{"title":"No Te Mueras en Mi Casa","spotifyId":"7qL5SE7pZ0QQK6ZUYNrugQ"},{"title":"Curitas","spotifyId":"1jYONbw7wZfVPbQDkffo5w"},{"title":"Solo un Poquito No Más","spotifyId":"2RvDh9M7KQy4lSpMqusw8a"},{"title":"Me Siento Mucho Mejor","spotifyId":"3C5OdJjudhoDye8E5mU3nI"},{"title":"Siempre Puedes Olvidar","spotifyId":"64r4bboZRgiz0SE7cVtDC1"},{"title":"La Canción del Indeciso","spotifyId":"0Rz8ONBkHKGMYZctMUSHQP"},{"title":"Himno Nacional Argentino","spotifyId":"1TGzIHydkrLZjl1BUyxyZ7"}]},{"titulo":"La Hija de la Lágrima","anio":"1994","spotifyUrl":"https://open.spotify.com/album/1ayedQfx32UihcgGBsb8oA","cover":"./covers/cover-6.jpg","tracks":[{"title":"Overture","spotifyId":"3g1Rqr09WM9sQ8Q2rqtNAl"},{"title":"Víctima","spotifyId":"2RonMv1WBqjjuwcfAOC9Sg"},{"title":"Jaco y Chofi","spotifyId":"2hulf8CvwVKcMJydMkCUcO"},{"title":"Atlantis","spotifyId":"2Q9VqurRNTkANxNumAs5aU"},{"title":"La Sal No Sala","spotifyId":"3WBhIsPj9gT77yEW3rH6ts"},{"title":"Chipi-Chipi","spotifyId":"6pCZYiB2ZoLfDuapZbpKl8"},{"title":"Calle [Taxi]","spotifyId":"1RUnGL5KkkO5krVJFtlbp4"},{"title":"Love Is Love","spotifyId":"13sPuyjvuaeuQOms1uSuR6"},{"title":"Tema de Amor","spotifyId":"6GuvS3ylUQhQ6CuPN7QvsP"},{"title":"Fax U","spotifyId":"3rRlgtX41WndRA1T1CgD3o"},{"title":"Lament","spotifyId":"6lnOwEEMWd9iO8ZYcdNvzp"},{"title":"Interludio de la Lágrima","spotifyId":"7dHj0LJbi4uwIpjyBPRu9Z"},{"title":"Workin' in the Morning","spotifyId":"1MXrYEZKJ0xkhkoVNbO832"},{"title":"Waitin","spotifyId":"2zKHhD4uMPWZRUr9oeiDQN"},{"title":"Kurosawa","spotifyId":"0ZkJhrECVkTPyIPNw6mv1c"},{"title":"Chiquilin","spotifyId":"5dFKFfL7wY1CZ47BxE4f5W"},{"title":"Andan (Excerpt)","spotifyId":"5LDkf6dWRm7YXlaWNzWL4m"},{"title":"James Brown","spotifyId":"4C6s7YlZXGknoVQjZWgS4V"},{"title":"Intraterreno","spotifyId":"5mpgXK5U1GillK099i7AYM"},{"title":"No Sugar","spotifyId":"0HaAwxu9emDjM9WmdhN6Hj"},{"title":"Atlantis (Parte II)","spotifyId":"0NVtxRK3nORnjrJWcGcTwD"},{"title":"Locomotion","spotifyId":"5XWuEFoEsiup7VCZDPECi0"},{"title":"Andan (Complete)","spotifyId":"6g0r3S5VykcWWu9KdC2VPo"}]},{"titulo":"Say No More","anio":"1996","spotifyUrl":"https://open.spotify.com/album/3olJNVcMCH3ZXoDxiCMRnP","cover":"./covers/cover-7.jpg","tracks":[{"title":"Estaba En Llamas Cuando Me Acoste","spotifyId":"5VZSFn5vHjvNVE23esAtCi"},{"title":"Vemos...","spotifyId":"1iBA37ONrbZmsh0aNd1A2a"},{"title":"Canciones De Jirafas","spotifyId":"56gla8LM06Jnv18yjE4svH"},{"title":"Necesito Un Gol","spotifyId":"5RO9EgcHboILptcfa3moLy"},{"title":"Alguien en el Mundo Piensa en Mí","spotifyId":"1tJrhGnbZSNJH2bDqnG1HO"},{"title":"Constant Concept","spotifyId":"7cHlZCOdK0itGwqlu9Bkr3"},{"title":"Say No More","spotifyId":"0lZJwpTYUtFHabZieXvPAB"},{"title":"Cuchillos","spotifyId":"2V8AOpOIVv4R8GOvPvdn9I"},{"title":"A1","spotifyId":"7fFBBfBcKQKp8KBqCX4BqP"},{"title":"Plan 9","spotifyId":"3zEMRPfhTW0uEpaYa42Zu3"},{"title":"Casa Vacia","spotifyId":"65kAO33bQBcuQpdZlpEzVj"},{"title":"Podrias Entender","spotifyId":"6B7wLmOZDYrbVWBl0hgGvp"},{"title":"Intuicion","spotifyId":"35SANU4PEh95utoTkYOnvj"},{"title":"La Vanguardia Es Asi","spotifyId":"4ogiPcwvJXmt2y3Q8ExRYw"}]},{"titulo":"El Aguante","anio":"1998","spotifyUrl":"https://open.spotify.com/album/7bwsOicjOJpELfFU2AQrjq","cover":"./covers/cover-8.jpg","tracks":[{"title":"El Aguante","spotifyId":"20YGP4Rz7hPIBnntRbKwKi"},{"title":"Kill My Mother","spotifyId":"0SZD6Z6s5SHyIzYUWdsGDf"},{"title":"Pedro Trabaja En El Cine","spotifyId":"2pYAhk8ZjDIsNgoKJdldUT"},{"title":"No Estaria Mal","spotifyId":"6fcQd9qhTpozyXCivp5s9f"},{"title":"Soldado De Lata","spotifyId":"2FVHqaD384a38HgEPpACDu"},{"title":"Correte Beethoven","spotifyId":"58D0ABMaZKYR7cOrxOQuTm"},{"title":"Tu Arma en el Sur","spotifyId":"4azrY0SbGfPN5TlwF98gR4"},{"title":"Dos Edificios Dorados","spotifyId":"5weGEdndY1ZoFUBeEYBqWu"},{"title":"Uno A Uno","spotifyId":"5mzO3RR5JRVqjS8YgnTAQr"},{"title":"Lo Que Ves Es Lo Que Hay (Todo El Mundo Quiere Olvidar)","spotifyId":"1HNgmnOOopiBhsvqqjBlfM"}]},{"titulo":"Influencia","anio":"2002","spotifyUrl":"https://open.spotify.com/album/5Rgudh1IKSXYyKDVZuyyQu","cover":"./covers/cover-9.jpg","tracks":[{"title":"Tu Vicio","spotifyId":"3HaE5D0wBDeyf38f5w4CLa"},{"title":"I'm Not In Love","spotifyId":"0PYfFdbUXPpf0xWmOamNqR"},{"title":"Influencia","spotifyId":"7B8W8kfQwcVubGo2EGosID"},{"title":"Encuentro Con El Diablo","spotifyId":"3aDqAwZixHsOuBG14CGfMk"},{"title":"El Amor Espera","spotifyId":"0RgEJ60U2INudTJ3hAfPLl"},{"title":"Pelicula Sordomuda","spotifyId":"2zqU4ENIr1SnqjMCBW9tZo"},{"title":"Mi Nena","spotifyId":"4QKp53r2regsmwEBrsgjoe"},{"title":"Tu Vicio (Gospel)","spotifyId":"4SEpbwwljzAvjM5O39rX06"},{"title":"Demasiado Ego (One To One)","spotifyId":"2PGVr2VZzDjIkwVX8piCGb"},{"title":"Influenza","spotifyId":"6C9f7KlcEcshGFYNgqjd0q"},{"title":"I'm Not In Love - Acustico","spotifyId":"0CErSx5FunVFY5OCzJjhQF"},{"title":"I'm Not In Love - Remix","spotifyId":"3rZ1sQjqTVKMeZ2yUUBfKZ"},{"title":"Happy And Real","spotifyId":"0mWApa5VGlLnKZTaeFlYB3"}]},{"titulo":"Rock and Roll Yo","anio":"2003","spotifyUrl":"https://open.spotify.com/album/3qPPzWHpuvFT0xHMyDrvS4","cover":"./covers/cover-10.jpg","tracks":[{"title":"Dileando Con Un Alma","spotifyId":"0L1GjWscoDex0hNJDalJ4A"},{"title":"Rehén","spotifyId":"4PXlH3TuDJQN3IUjo5tRAi"},{"title":"Asesíname","spotifyId":"2NtS0rZ8MdnsJbLNRME6pg"},{"title":"Linda Bailarina","spotifyId":"1RylS56S09lV59yV7lFDhT"},{"title":"Asesíname Stone","spotifyId":"3H1d5PICHxlKUx32gIocKx"},{"title":"V.S.D.","spotifyId":"6BHd6HfvrGqmMeol0U5TGz"},{"title":"Tango","spotifyId":"0vT22R3ZmZ4iH4HL0OxcXn"},{"title":"Cretino","spotifyId":"2cTfMqp7L1a5eHiw2LLGQZ"},{"title":"Rock And Roll Yo","spotifyId":"1xzZlhlVvZw3yTsYzCPh8p"},{"title":"Wonder (Love's In Need Of Love Today)","spotifyId":"076JYdl5qNn0Mz4bChoFwL"},{"title":"Dealer","spotifyId":"3dLmWDHpYENbPmkPhWegoG"}]},{"titulo":"Random","anio":"2017","spotifyUrl":"https://open.spotify.com/album/3AFgH2pplBRflUp6D1d1eQ","cover":"./covers/cover-11.jpg","tracks":[{"title":"La Máquina de Ser Feliz","spotifyId":"52qq2T7uXlpI7Kfb4otWNk"},{"title":"Ella Es Tan Kubrick","spotifyId":"2074PxLJhsulJcP0ivfUSj"},{"title":"Primavera","spotifyId":"0VSzEeOuXTAI3kbG4TXBth"},{"title":"Rivalidad","spotifyId":"6vuWyGYpQfhBC1WFW1fkOR"},{"title":"Otro","spotifyId":"7eFJEG6vPVRfvEB8QqKuKx"},{"title":"Lluvia","spotifyId":"2n2PrSqZeDQB19NSgO01YP"},{"title":"Believe","spotifyId":"0zTGCdMONzCEzG6Sqx4lgt"},{"title":"Amigos de Dios","spotifyId":"5ilKoWnPiMGkhRKhY0Z6fV"},{"title":"Spector","spotifyId":"62oTd25XqwmcLDTnmvxNUF"},{"title":"Mundo B","spotifyId":"5uTio0a7NcuYPPWIHnueNU"}]},{"titulo":"La Lógica del Escorpión","anio":"2024","spotifyUrl":"https://open.spotify.com/album/0k2JGzYRZQC3s3ZNTcyHoA","cover":"./covers/cover-12.jpg","tracks":[{"title":"Rompela","spotifyId":"3BSA7eRvD25S4oX4rdngpU"},{"title":"Yo Ya Sé","spotifyId":"79thbxA6OpIUMVu8mROice"},{"title":"El Club de los 27","spotifyId":"7tgHjgeAYcXQCKEyGpcRj7"},{"title":"La Medicina Nº 9","spotifyId":"3yN6KXgZZfe6SVjRytj5Z2"},{"title":"Te Recuerdo Invierno","spotifyId":"1WNvt80Eh9glkspXEEhl6W"},{"title":"Autofemicidio","spotifyId":"23syx1ODrqa0BkQzaaHd3r"},{"title":"América","spotifyId":"51Mo6woPjQEPOON5eWc220"},{"title":"Juan Represión","spotifyId":"6srEY1lFkB0S3mkNbL5BDT"},{"title":"Estrellas al Caer","spotifyId":"7Je1Wx6gRPt4dhnbgaEAOu"},{"title":"La Pelicana y el Androide","spotifyId":"2TBoLwjf3gSWuVa2Bh8Ayv"},{"title":"Watching the Wheels","spotifyId":"6HUZ1Tfrs0hgx9JliZgVFQ"},{"title":"La Lógica del Escorpión","spotifyId":"54e9B1fVeKg8qBLi4ysSXA"},{"title":"Rock and Roll Star","spotifyId":"4hMpKCpWbYroQ8VKlABGk4"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

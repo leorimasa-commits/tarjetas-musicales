@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Beatles</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-link{
+    display:inline-block; margin-top:6px; font-size:12px; font-weight:600;
+    color:var(--text); text-decoration:none; opacity:.85;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>The Beatles</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">Este es un regalo musical. The Beatles cambiaron para siempre la forma de hacer y grabar música popular, en una carrera corta pero de una creatividad enorme. Acá está su discografía de estudio completa, de punta a punta.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@thebeatles";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Please Please Me","anio":"1963","spotifyUrl":"https://open.spotify.com/album/3KzAvEXcqJKBF97HrXwlgf","cover":"./covers/cover-0.jpg","tracks":[{"title":"I Saw Her Standing There - Remastered 2009","spotifyId":"3KiexfmhxHvG5IgAElmTkd"},{"title":"Misery - Remastered 2009","spotifyId":"40qXGg5nRbcWzcFb26KWkQ"},{"title":"Anna (Go To Him) - Remastered 2009","spotifyId":"2baEFuU0gQon0hgVRioI1o"},{"title":"Chains - Remastered 2009","spotifyId":"3JQWLa88R35d971o5bIImd"},{"title":"Boys - Remastered 2009","spotifyId":"7JxGM1R32ZqfwZou3VtnTg"},{"title":"Ask Me Why - Remastered 2009","spotifyId":"7529Z6b1rlGZFFPWjHPeV5"},{"title":"Please Please Me - Remastered 2009","spotifyId":"6EHuOufBeL6vk3TvVJB5qo"},{"title":"Love Me Do - Remastered 2009","spotifyId":"3VbGCXWRiouAq8VyMYN2MI"},{"title":"P.S. I Love You - Remastered 2009","spotifyId":"7Msq9qojB7yORuJvz49iUy"},{"title":"Baby It's You - Remastered 2009","spotifyId":"2VmB1rF9FtfKUmFHDVnq8Q"},{"title":"Do You Want To Know A Secret - Remastered 2009","spotifyId":"7Aobt67JnaF7qN8jCCKvHq"},{"title":"A Taste Of Honey - Remastered 2009","spotifyId":"7fh53ta3vAOGJMQ4i5tCHe"},{"title":"There's A Place - Remastered 2009","spotifyId":"4dessGxnKXmTbHPhVgqODq"},{"title":"Twist And Shout - Remastered 2009","spotifyId":"5ZBeML7Lf3FMEVviTyvi8l"}]},{"titulo":"With the Beatles","anio":"1963","spotifyUrl":"https://open.spotify.com/album/1aYdiJk6XKeHWGO3FzHHTr","cover":"./covers/cover-1.jpg","tracks":[{"title":"It Won't Be Long - Remastered 2009","spotifyId":"4ekUX4pWizXXksJe0JfS9U"},{"title":"All I've Got To Do - Remastered 2009","spotifyId":"5tztLBvTlNC15Np2tnQ5Ll"},{"title":"All My Loving - Remastered 2009","spotifyId":"4joiWvli4qJVEW6qZV2i2J"},{"title":"Don't Bother Me - Remastered 2009","spotifyId":"7y1hMqXNa0dKQLZH7CKbUG"},{"title":"Little Child - Remastered 2009","spotifyId":"0KogQrSowDnZoU8GSpaxkj"},{"title":"Till There Was You - Remastered 2009","spotifyId":"0ESIjVxnDnCDaTPo6sStHm"},{"title":"Please Mister Postman - Remastered 2009","spotifyId":"6wfK1R6FoLpmUA9lk5ll4T"},{"title":"Roll Over Beethoven - Remastered 2009","spotifyId":"3idqWaBn3mRdsIodCU6uBi"},{"title":"Hold Me Tight - Remastered 2009","spotifyId":"2RvKsA6Ho7VbJkVFiD4UQF"},{"title":"You Really Got A Hold On Me - Remastered 2009","spotifyId":"7rgUYidQh5tH0YlXCoKaYJ"},{"title":"I Wanna Be Your Man - Remastered 2009","spotifyId":"0sIZcoe69iSym9AecvZ7CT"},{"title":"Devil In Her Heart - Remastered 2009","spotifyId":"5maTh4fY9SlgR3FhRkf040"},{"title":"Not A Second Time - Remastered 2009","spotifyId":"5vl0sRtrQM1BTSAxQZFqEN"},{"title":"Money (That's What I Want) - Remastered 2009","spotifyId":"3zw4FTrVNfy2teEkV9FOvh"}]},{"titulo":"A Hard Day's Night","anio":"1964","spotifyUrl":"https://open.spotify.com/album/6wCttLq0ADzkPgtRnUihLV","cover":"./covers/cover-2.jpg","tracks":[{"title":"A Hard Day's Night - Remastered 2009","spotifyId":"5J2CHimS7dWYMImCHkEFaJ"},{"title":"I Should Have Known Better - Remastered 2009","spotifyId":"3pU1CUgPiFfxPCpscwIwQR"},{"title":"If I Fell - Remastered 2009","spotifyId":"1hgvykolO4kBIEozATmpyj"},{"title":"I'm Happy Just To Dance With You - Remastered 2009","spotifyId":"0gd50I2gKioJ59C827EdAY"},{"title":"And I Love Her - Remastered 2009","spotifyId":"65vdMBskhx3akkG9vQlSH1"},{"title":"Tell Me Why - Remastered 2009","spotifyId":"0Wzp5pWPoX0YoBg002HXL9"},{"title":"Can't Buy Me Love - Remastered 2009","spotifyId":"3SdingSsFcZDZAyvcJbgAw"},{"title":"Any Time At All - Remastered 2009","spotifyId":"70XHAdaMaoLIOVb1hSaeJ4"},{"title":"I'll Cry Instead - Remastered 2009","spotifyId":"01xMiErR26kH1KCif6uEYI"},{"title":"Things We Said Today - Remastered 2009","spotifyId":"0voUr8lubIafUVJlauJxYF"},{"title":"When I Get Home - Remastered 2009","spotifyId":"4oLQ0imA5IDtNUnhFKY87q"},{"title":"You Can't Do That - Remastered 2009","spotifyId":"5b9G4dtK3Tdguuy9BO3Nwo"},{"title":"I'll Be Back - Remastered 2009","spotifyId":"3lSi6qfnp2YZazTzcOLBZk"}]},{"titulo":"Beatles for Sale","anio":"1964","spotifyUrl":"https://open.spotify.com/album/1vANZV20H5B4Fk6yf7Ot9a","cover":"./covers/cover-3.jpg","tracks":[{"title":"No Reply - Remastered 2009","spotifyId":"4ltC6PrqkTtpcRNi5lvS4z"},{"title":"I'm A Loser - Remastered 2009","spotifyId":"7wC4EW11mBVxDK3xdC7FTf"},{"title":"Baby's In Black - Remastered 2009","spotifyId":"7cb2SdLm1UMLwdUoWwrZN1"},{"title":"Rock And Roll Music - Remastered 2009","spotifyId":"7Ho3T7ERfooiAfvODaMQ2N"},{"title":"I'll Follow The Sun - Remastered 2009","spotifyId":"45WX2cfbL8bCIqv3rOq1G3"},{"title":"Mr Moonlight - Remastered 2009","spotifyId":"6pPOkr2OxhQ6htrzOiDmq9"},{"title":"Kansas City / Hey-Hey-Hey-Hey - Medley / Remastered 2009","spotifyId":"5xf0zdP4KCfshyVn02D3Ea"},{"title":"Eight Days A Week - Remastered 2009","spotifyId":"1Dg4dFJr3HW7sbA7vPejre"},{"title":"Words Of Love - Remastered 2009","spotifyId":"42qkSeX6HNJYHxlk6cWoFe"},{"title":"Honey Don't - Remastered 2009","spotifyId":"2d7GP7Fz1NrfPpo7MzWZgb"},{"title":"Every Little Thing - Remastered 2009","spotifyId":"2CxTkdvhDuQrOxl8xXkdJS"},{"title":"I Don't Want To Spoil The Party - Remastered 2009","spotifyId":"3kQDIa85ZK8cKVn72NfBnl"},{"title":"What You're Doing - Remastered 2009","spotifyId":"6C6y4OWK1Ki3FVF1TIonxW"},{"title":"Everybody's Trying To Be My Baby - Remastered 2009","spotifyId":"4DZAH8eiqSAkMIE9l5D71U"}]},{"titulo":"Help!","anio":"1965","spotifyUrl":"https://open.spotify.com/album/0PT5m6hwPRrpBwIHVnvbFX","cover":"./covers/cover-4.jpg","tracks":[{"title":"Help! - Remastered 2009","spotifyId":"7DD7eSuYSC5xk2ArU62esN"},{"title":"The Night Before - Remastered 2009","spotifyId":"5xcfepnz1v7a83T8An9gjw"},{"title":"You've Got To Hide Your Love Away - Remastered 2009","spotifyId":"4F1AgKpuFRMLEgtPETVwZk"},{"title":"I Need You - Remastered 2009","spotifyId":"5EzvwjFwdP5Kfl5AZAemzu"},{"title":"Another Girl - Remastered 2009","spotifyId":"7hefVXaGsFPesbK6fKwS6F"},{"title":"You're Going To Lose That Girl - Remastered 2009","spotifyId":"70HNt0eoBVqr4ss68U8x3B"},{"title":"Ticket To Ride - Remastered 2009","spotifyId":"7CZiDzGVjUssMSOXrDNYHL"},{"title":"Act Naturally - Remastered 2009","spotifyId":"0IxxqsYBcCHEQ1HqLYJnwx"},{"title":"It's Only Love - Remastered 2009","spotifyId":"2ue1KRstSKHF8jQkIJZiNC"},{"title":"You Like Me Too Much - Remastered 2009","spotifyId":"0y1LLH0NiwOD5tM3aNMXTr"},{"title":"Tell Me What You See - Remastered 2009","spotifyId":"2jnr9KaaMAmvk0zMcM9UzV"},{"title":"I've Just Seen A Face - Remastered 2009","spotifyId":"788U1Sqej9M6c4iikuDGxO"},{"title":"Yesterday - Remastered 2009","spotifyId":"3BQHpFgAp4l80e1XslIjNI"},{"title":"Dizzy Miss Lizzy - Remastered 2009","spotifyId":"70Dohn82wv6VtxGesqRzbZ"}]},{"titulo":"Rubber Soul","anio":"1965","spotifyUrl":"https://open.spotify.com/album/50o7kf2wLwVmOTVYJOTplm","cover":"./covers/cover-5.jpg","tracks":[{"title":"Drive My Car - Remastered 2009","spotifyId":"06ypiqmILMdVeaiErMFA91"},{"title":"Norwegian Wood (This Bird Has Flown) - Remastered 2009","spotifyId":"1H7gMYGykdtwZOV6s1N0by"},{"title":"You Won't See Me - Remastered 2009","spotifyId":"4LLBKnNCrSRrSjSTuiwjE9"},{"title":"Nowhere Man - Remastered 2009","spotifyId":"5SUlhldQJtOhUr2GzH5RI7"},{"title":"Think For Yourself - Remastered 2009","spotifyId":"64bKVrkaXQAKx04dLHqCNz"},{"title":"The Word - Remastered 2009","spotifyId":"4GBaPHvAyj4V2jeobD9tsy"},{"title":"Michelle - Remastered 2009","spotifyId":"5By7Pzgl6TMuVJG168VWzS"},{"title":"What Goes On - Remastered 2009","spotifyId":"19QXdPRZFHI5kNK3tN8Mh7"},{"title":"Girl - Remastered 2009","spotifyId":"6tQvjqDIK9GXWIC6mejms8"},{"title":"I'm Looking Through You - Remastered 2009","spotifyId":"5E3BVY66TEDexFutOO5GeS"},{"title":"In My Life - Remastered 2009","spotifyId":"3KfbEIOC7YIv90FIfNSZpo"},{"title":"Wait - Remastered 2009","spotifyId":"0CGbof9amBnsNlRhZ8IY2H"},{"title":"If I Needed Someone - Remastered 2009","spotifyId":"7C6hdDIz90Uf5YmdZnYbJJ"},{"title":"Run For Your Life - Remastered 2009","spotifyId":"4gUYV3ktbaOeAK5KrXMWV5"}]},{"titulo":"Revolver","anio":"1966","spotifyUrl":"https://open.spotify.com/album/3PRoXYsngSwjEQWR5PsHWR","cover":"./covers/cover-6.jpg","tracks":[{"title":"Taxman - Remastered 2009","spotifyId":"4BRkPBUxOYffM2QXVlq7aC"},{"title":"Eleanor Rigby - Remastered 2009","spotifyId":"5GjPQ0eI7AgmOnADn1EO6Q"},{"title":"I'm Only Sleeping - Remastered 2009","spotifyId":"2ylCrFiBu98SC0vFfaCent"},{"title":"Love You To - Remastered 2009","spotifyId":"4RdJFhfLQcezwN5LsXl4qP"},{"title":"Here, There And Everywhere - Remastered 2009","spotifyId":"2B4Y9u4ERAFiMo13XPJyGP"},{"title":"Yellow Submarine - Remastered 2009","spotifyId":"50xwQXPtfNZFKFeZ0XePWc"},{"title":"She Said She Said - Remastered 2009","spotifyId":"3VSuWxZM6x6V3ig5nYtikL"},{"title":"Good Day Sunshine - Remastered 2009","spotifyId":"7HTH1ppjkkOe7RLoBDKXYJ"},{"title":"And Your Bird Can Sing - Remastered 2009","spotifyId":"4KRgqwb4kvBuTz1utbYxfb"},{"title":"For No One - Remastered 2009","spotifyId":"1kDkaFlmkdEZiVUogaP9OZ"},{"title":"Doctor Robert - Remastered 2009","spotifyId":"1ob06Ol8FMIPQgjpg7bMyk"},{"title":"I Want To Tell You - Remastered 2009","spotifyId":"7orb0y6ySGdsYZywMoQtsD"},{"title":"Got To Get You Into My Life - Remastered 2009","spotifyId":"3tGhRLgcCP6SIZU3tbGl7l"},{"title":"Tomorrow Never Knows - Remastered 2009","spotifyId":"00oZhqZIQfL9P5CjOP6JsO"}]},{"titulo":"Sgt. Pepper's Lonely Hearts Club Band","anio":"1967","spotifyUrl":"https://open.spotify.com/album/6QaVfG1pHYl1z15ZxkvVDW","cover":"./covers/cover-7.jpg","tracks":[{"title":"Sgt. Pepper's Lonely Hearts Club Band - Remastered 2009","spotifyId":"4fUKE8EULjQdHF4zb0M8FO"},{"title":"With A Little Help From My Friends - Remastered 2009","spotifyId":"2RnPATK99oGOZygnD2GTO6"},{"title":"Lucy In The Sky With Diamonds - Remastered 2009","spotifyId":"25yQPHgC35WNnnOUqFhgVR"},{"title":"Getting Better - Remastered 2009","spotifyId":"3LtOmWpTXLhilL5odoKysR"},{"title":"Fixing A Hole - Remastered 2009","spotifyId":"3pKKxkeB1pOUMHwWBmKc3Y"},{"title":"She's Leaving Home - Remastered 2009","spotifyId":"3PjMtNzwhDHqxoKudm6GvF"},{"title":"Being For The Benefit Of Mr. Kite! - Remastered 2009","spotifyId":"6W35n1UlkvqhfMZstB4BXs"},{"title":"Within You Without You - Remastered 2009","spotifyId":"3Umg8CDhO8dOSj7yBTInYb"},{"title":"When I'm Sixty Four - Remastered 2009","spotifyId":"1NrbnHlR2BFREcyWXHIHip"},{"title":"Lovely Rita - Remastered 2009","spotifyId":"6h9W5FxX4E9lUFsyq8j1AD"},{"title":"Good Morning Good Morning - Remastered 2009","spotifyId":"0xIuNHHcKI1JDuBPlSwzb1"},{"title":"Sgt. Pepper's Lonely Hearts Club Band - Reprise / Remastered 2009","spotifyId":"42ocGQCOT0xYtV3f5kJDsD"},{"title":"A Day In The Life - Remastered 2009","spotifyId":"0hKRSZhUGEhKU6aNSPBACZ"}]},{"titulo":"Magical Mystery Tour","anio":"1967","spotifyUrl":"https://open.spotify.com/album/2BtE7qm1qzM80p9vLSiXkj","cover":"./covers/cover-8.jpg","tracks":[{"title":"Magical Mystery Tour - Remastered 2009","spotifyId":"0qHMhBZqYb99yhX9BHcIkV"},{"title":"The Fool On The Hill - Remastered 2009","spotifyId":"6rHh8urosEFRI67xVa6fzU"},{"title":"Flying - Remastered 2009","spotifyId":"1itLKsCWHtLnxALkgBk1Fa"},{"title":"Blue Jay Way - Remastered 2009","spotifyId":"0QIX9BS0AUCQcHYvyrsMkV"},{"title":"Your Mother Should Know - Remastered 2009","spotifyId":"1dxbAIfCASqv6jix2R1Taj"},{"title":"I Am The Walrus - Remastered 2009","spotifyId":"6Pq9MmkDQYZiiCDpxnvrf6"},{"title":"Hello, Goodbye - Remastered 2009","spotifyId":"0vZ97gHhemKm6c64hTfJNA"},{"title":"Strawberry Fields Forever - Remastered 2009","spotifyId":"3Am0IbOxmvlSXro7N5iSfZ"},{"title":"Penny Lane - Remastered 2009","spotifyId":"1h04XMpzGzmAudoI6VHBgA"},{"title":"Baby, You're A Rich Man - Remastered 2009","spotifyId":"0JBvtprXP2Z0LP3jmzA7Xp"},{"title":"All You Need Is Love - Remastered 2009","spotifyId":"68BTFws92cRztMS1oQ7Ewj"}]},{"titulo":"The Beatles","anio":"1968","spotifyUrl":"https://open.spotify.com/album/1klALx0u4AavZNEvC4LrTL","cover":"./covers/cover-9.jpg","tracks":[{"title":"Back In The U.S.S.R. - Remastered 2009","spotifyId":"0j3p1p06deJ7f9xmJ9yG22"},{"title":"Dear Prudence - Remastered 2009","spotifyId":"5NQYyej46WQkgCbnzGD21W"},{"title":"Glass Onion - Remastered 2009","spotifyId":"2jAojvUaPoHPFSPpF0UNRo"},{"title":"Ob-La-Di, Ob-La-Da - Remastered 2009","spotifyId":"1gFNm7cXfG1vSMcxPpSxec"},{"title":"Wild Honey Pie - Remastered 2009","spotifyId":"6j67aNAPeQ31uw4qw4rpLa"},{"title":"The Continuing Story Of Bungalow Bill - Remastered 2009","spotifyId":"5Z3Rd1fMcaty8g5Pn7yhBQ"},{"title":"While My Guitar Gently Weeps - Remastered 2009","spotifyId":"389QX9Q1eUOEZ19vtzzI9O"},{"title":"Happiness Is A Warm Gun - Remastered 2009","spotifyId":"71LsKf3xISiOlY1mj7FFPP"},{"title":"Martha My Dear - Remastered 2009","spotifyId":"1swmf4hFMJYRNA8Rq9PVaW"},{"title":"I'm So Tired - Remastered 2009","spotifyId":"2X9H5BokS1u5O46YpNYNsZ"},{"title":"Blackbird - Remastered 2009","spotifyId":"5jgFfDIR6FR0gvlA56Nakr"},{"title":"Piggies - Remastered 2009","spotifyId":"4ZmjfLdJXbqjAENqk7eWSE"},{"title":"Rocky Raccoon - Remastered 2009","spotifyId":"1ITQbrueGLl581a25XXm9c"},{"title":"Don't Pass Me By - Remastered 2009","spotifyId":"4zq4rrfHZeZsTbo5vjJXSV"},{"title":"Why Don't We Do It In The Road? - Remastered 2009","spotifyId":"4eLIq1nQNwz2qLu8DeiWIp"},{"title":"I Will - Remastered 2009","spotifyId":"09x9v1o51dbqi5H0u7UGfp"},{"title":"Julia - Remastered 2009","spotifyId":"5FnpXVgDOk2sLT58qM22Of"},{"title":"Birthday - Remastered 2009","spotifyId":"1ABegtCPBMMJaMpfDyATjE"},{"title":"Yer Blues - Remastered 2009","spotifyId":"2AsGApoUuN8pTM17Lq9eUd"},{"title":"Mother Nature's Son - Remastered 2009","spotifyId":"6TjUg1cTUzWHbal6yQAi7c"},{"title":"Everybody's Got Something To Hide Except Me And My Monkey - Remastered 2009","spotifyId":"64P3zpRsDHIk7YTpRtaKYL"},{"title":"Sexy Sadie - Remastered 2009","spotifyId":"2tBv9tAdqEbLNDi5smSjbg"},{"title":"Helter Skelter - Remastered 2009","spotifyId":"0Bs0hUYxz7REyIHH7tRhL2"},{"title":"Long, Long, Long - Remastered 2009","spotifyId":"40d2EcaOOCUjDzzo2YvUWn"},{"title":"Revolution 1 - Remastered 2009","spotifyId":"1aOzDhi5a1RWWRy5dmYA8I"},{"title":"Honey Pie - Remastered 2009","spotifyId":"1TPcNcmuKlq0PKpYOBgP1U"},{"title":"Savoy Truffle - Remastered 2009","spotifyId":"5iyCSUM7zzficwaGo8GIoc"},{"title":"Cry Baby Cry - Remastered 2009","spotifyId":"5XmetMMUFNXClbiYnGdVmP"},{"title":"Revolution 9 - Remastered 2009","spotifyId":"5dZ8PeKKZJLIQAWNTdp8WX"},{"title":"Good Night - Remastered 2009","spotifyId":"3T4Kt51PV4k8tx6YCtBgcl"}]},{"titulo":"Yellow Submarine","anio":"1969","spotifyUrl":"https://open.spotify.com/album/1gKZ5A1ndFqbcrWtW85cCy","cover":"./covers/cover-10.jpg","tracks":[{"title":"Yellow Submarine - Remastered 2009","spotifyId":"3oEo8Pqm5IAi8wQfCI5BpR"},{"title":"Only A Northern Song - Remastered 2009","spotifyId":"4phXWLTSlC1BEogSWhJMDD"},{"title":"All Together Now - Remastered 2009","spotifyId":"2ck8lFrYAch2GPtdhpTHe3"},{"title":"Hey Bulldog - Remastered 2009","spotifyId":"5xYC2ZJJ9TMJL8BOl85O2R"},{"title":"It's All Too Much - Remastered 2009","spotifyId":"2bQZ9BBhP7vSBiyDz7KXnv"},{"title":"All You Need Is Love - Remastered 2009","spotifyId":"2Z8cY4QpZTFUZxCQCpvNe1"},{"title":"Pepperland - Remastered 2009","spotifyId":"1y8kq7M3tBw4zAttsZMya8"},{"title":"Sea Of Time - Remastered 2009","spotifyId":"6FvhNdlAom6yYHa8ekAaAM"},{"title":"Sea Of Holes - Remastered 2009","spotifyId":"6n42oei7aEx2I0dcluKAGx"},{"title":"Sea Of Monsters - Remastered 2009","spotifyId":"30u8QyT0kBSYO5RcZmaLl3"},{"title":"March Of The Meanies - Remastered 2009","spotifyId":"7zJKIrxcH2jY4TOqpvoLvH"},{"title":"Pepperland Laid Waste - Remastered 2009","spotifyId":"0rHHNFcUgB0zlzCk4MVluw"},{"title":"Yellow Submarine In Pepperland - Remastered 2009","spotifyId":"7ExawMDcRz2lMgNEjjYzdr"}]},{"titulo":"Abbey Road","anio":"1969","spotifyUrl":"https://open.spotify.com/album/0ETFjACtuP2ADo6LFhL6HN","cover":"./covers/cover-11.jpg","tracks":[{"title":"Come Together - Remastered 2009","spotifyId":"2EqlS6tkEnglzr7tkKAAYD"},{"title":"Something - Remastered 2009","spotifyId":"0pNeVovbiZHkulpGeOx1Gj"},{"title":"Maxwell's Silver Hammer - Remastered 2009","spotifyId":"2S8xyNRJX1XQdo3qnTuovI"},{"title":"Oh! Darling - Remastered 2009","spotifyId":"2mxByJWOajjiVsLWjNXvDJ"},{"title":"Octopus's Garden - Remastered 2009","spotifyId":"0suLngfo7rJoetk7Ub6N8l"},{"title":"I Want You (She's So Heavy) - Remastered 2009","spotifyId":"3Z25k4ZF6QENy2d9YatsM5"},{"title":"Here Comes The Sun - Remastered 2009","spotifyId":"6dGnYIeXmHdcikdzNNDMm2"},{"title":"Because - Remastered 2009","spotifyId":"1rxoyGj1QuPoVi8fOft1Kt"},{"title":"You Never Give Me Your Money - Remastered 2009","spotifyId":"1jOLTO379yIu9aMnCkpMQl"},{"title":"Sun King - Remastered 2009","spotifyId":"4nwKdZID1ht0lDBJ5h2p87"},{"title":"Mean Mr Mustard - Remastered 2009","spotifyId":"4JOyMhad5dD81uGYLGgKrS"},{"title":"Polythene Pam - Remastered 2009","spotifyId":"1FTCA6wQwulQFokDddKE68"},{"title":"She Came In Through The Bathroom Window - Remastered 2009","spotifyId":"2jtUGFsqanQ82zqDlhiKIp"},{"title":"Golden Slumbers - Remastered 2009","spotifyId":"01SfTM5nfCou5gQL70r6gs"},{"title":"Carry That Weight - Remastered 2009","spotifyId":"5eZrW59C3UgBhkqNlowEID"},{"title":"The End - Remastered 2009","spotifyId":"5aHHf6jrqDRb1fcBmue2kn"},{"title":"Her Majesty - Remastered 2009","spotifyId":"6UCFZ9ZOFRxK8oak7MdPZu"}]},{"titulo":"Let It Be","anio":"1970","spotifyUrl":"https://open.spotify.com/album/0jTGHV5xqHPvEcwL8f6YU5","cover":"./covers/cover-12.jpg","tracks":[{"title":"Two Of Us - Remastered 2009","spotifyId":"0CaBBQsaAiRHhiLmzi7ZRp"},{"title":"Dig A Pony - Remastered 2009","spotifyId":"4OUmlC67FoPLvQNuE5C7kF"},{"title":"Across The Universe - Remastered 2009","spotifyId":"4dkoqJrP0L8FXftrMZongF"},{"title":"I Me Mine - Remastered 2009","spotifyId":"2BMqay80iBzZTa608Y1eG1"},{"title":"Dig It - Remastered 2009","spotifyId":"0eRyOunOVBChlXxIvqwOxH"},{"title":"Let It Be - Remastered 2009","spotifyId":"7iN1s7xHE4ifF5povM6A48"},{"title":"Maggie Mae - Remastered 2009","spotifyId":"2VsX1BoWSGiuVXGiFSUr6h"},{"title":"I've Got A Feeling - Remastered 2009","spotifyId":"3gwRWIbr5ycEVLIAXrWaw7"},{"title":"One After 909 - Remastered 2009","spotifyId":"50qHmeex1nPTyQTwBXjSE4"},{"title":"The Long And Winding Road - Remastered 2009","spotifyId":"3mlMpmY8oZIBFc39D9zLbh"},{"title":"For You Blue - Remastered 2009","spotifyId":"5dpRJkvY8oWMQmQbEQTXhO"},{"title":"Get Back - Remastered 2009","spotifyId":"4MLBqAEzNN89o2M9h92Z26"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
