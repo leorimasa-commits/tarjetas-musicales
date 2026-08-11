@@ -62,8 +62,13 @@
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .back .qr-box{ background:#fff; padding:0.15cm; border-radius:8px; }
-  .back .qr-box img{ width:3.6cm; height:3.6cm; display:block; }
+  .back .qr-box img{ width:3.3cm; height:3.3cm; display:block; }
   .back .instruccion{ font-size:7pt; font-weight:600; opacity:.9; margin:0; }
+  .back .brand{
+    margin-top:0.05cm; text-align:center; line-height:1.3;
+  }
+  .back .brand .slogan{ font-size:6pt; font-style:italic; opacity:.7; display:block; }
+  .back .brand .domain{ font-size:6.5pt; font-weight:700; opacity:.9; display:block; }
 
   @media print{
     body{ background:#fff; padding:0; gap:0.5cm; }
@@ -89,6 +94,10 @@
   <p class="titulo">Fito Páez</p>
   <div class="qr-box"><img src="./qr.png" alt="QR"></div>
   <p class="instruccion">📱 Escaneá para escuchar</p>
+  <div class="brand">
+    <span class="slogan">Directo a tu música.</span>
+    <span class="domain">🌐 onetapmusic.com.ar</span>
+  </div>
 </div>
 
 <script>
