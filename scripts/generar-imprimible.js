@@ -49,7 +49,7 @@ function main() {
 
   let coverSrc = args.cover || '';
   if (!coverSrc) {
-    const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg'];
+    const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg', 'covers/cover-0.jpg', 'covers/cover-0.png'];
     const encontrada = candidatos.find(c => fs.existsSync(path.join(cardDir, c)));
     if (encontrada) coverSrc = './' + encontrada;
   }
