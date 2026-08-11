@@ -54,7 +54,8 @@
   /* --- Atrás: QR grande --- */
   .back{
     background:linear-gradient(160deg, var(--bg2), var(--bg1));
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.18cm;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.16cm;
+    padding:0.35cm 0.3cm;
   }
   .back .titulo{
     font-size:9pt; font-weight:800; margin:0; text-align:center;
@@ -62,13 +63,14 @@
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .back .qr-box{ background:#fff; padding:0.15cm; border-radius:8px; }
-  .back .qr-box img{ width:3.3cm; height:3.3cm; display:block; }
+  .back .qr-box img{ width:3.1cm; height:3.1cm; display:block; }
   .back .instruccion{ font-size:7pt; font-weight:600; opacity:.9; margin:0; }
   .back .brand{
-    margin-top:0.05cm; text-align:center; line-height:1.3;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    flex-wrap:wrap; text-align:center;
   }
-  .back .brand .slogan{ font-size:6pt; font-style:italic; opacity:.7; display:block; }
-  .back .brand .domain{ font-size:6.5pt; font-weight:700; opacity:.9; display:block; }
+  .back .brand .slogan{ font-size:6pt; font-style:italic; opacity:.75; }
+  .back .brand .domain{ font-size:6.5pt; font-weight:700; opacity:.9; }
 
   @media print{
     body{ background:#fff; padding:0; gap:0.5cm; }
@@ -95,8 +97,8 @@
   <div class="qr-box"><img src="./qr.png" alt="QR"></div>
   <p class="instruccion">📱 Escaneá para escuchar</p>
   <div class="brand">
-    <span class="slogan">Directo a tu música.</span>
     <span class="domain">🌐 onetapmusic.com.ar</span>
+    <span class="slogan">"Directo a tu música."</span>
   </div>
 </div>
 
