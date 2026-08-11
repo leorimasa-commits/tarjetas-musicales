@@ -56,8 +56,13 @@
     background:linear-gradient(160deg, var(--bg2), var(--bg1));
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.18cm;
   }
+  .back .titulo{
+    font-size:9pt; font-weight:800; margin:0; text-align:center;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
   .back .qr-box{ background:#fff; padding:0.15cm; border-radius:8px; }
-  .back .qr-box img{ width:4cm; height:4cm; display:block; }
+  .back .qr-box img{ width:3.6cm; height:3.6cm; display:block; }
   .back .instruccion{ font-size:7pt; font-weight:600; opacity:.9; margin:0; }
 
   @media print{
@@ -81,6 +86,7 @@
 <p class="label">Atrás</p>
 <div class="card back" data-theme-card>
   <div class="cut-guide"></div>
+  <p class="titulo">Guns N' Roses</p>
   <div class="qr-box"><img src="./qr.png" alt="QR"></div>
   <p class="instruccion">📱 Escaneá para escuchar</p>
 </div>
