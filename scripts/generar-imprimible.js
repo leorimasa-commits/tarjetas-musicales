@@ -60,8 +60,11 @@ function main() {
   const escapeHtml = (s) => String(s || '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+  const slogan = args.slogan || 'Escaneá. Escuchá. Repetí.';
+
   html = html
     .replaceAll('{{TITULO}}', escapeHtml(args.titulo))
+    .replaceAll('{{SLOGAN}}', escapeHtml(slogan))
     .replaceAll('{{THEME}}', tema)
     .replaceAll('{{QR_SRC}}', './qr.png')
     .replaceAll('{{COVER_SRC}}', coverSrc);

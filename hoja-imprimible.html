@@ -13,51 +13,91 @@
   .theme-regalo{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
 
   * { box-sizing: border-box; }
-  @page{ size: A4; margin: 1cm; }
+  /* NO confiar en @page{margin} para el margen real (wkhtmltopdf no lo respeta
+     consistentemente) — el margen real lo da el padding del body. */
+  @page{ size: A4; margin: 0; }
   body{
-    margin:0; padding:1cm; background:#e5e5e5;
+    margin:0; padding:4cm 1cm 1cm 1cm;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    position:relative;
   }
-  .sheet{
-    display:grid; grid-template-columns:repeat(2, 8.56cm); gap:0.6cm;
-    justify-content:center;
+  /* Fondo gris de previsualización vía ::before en vez de background en el body:
+     wkhtmltopdf ignora el padding-top del body si el body tiene background directo. */
+  body::before{
+    content:''; position:fixed; inset:0; background:#e5e5e5; z-index:-1;
   }
+
+  .page{ max-width:19cm; margin:0 auto; }
+  .page:not(:last-child){ page-break-after:always; }
+
+  .sheet{ border-collapse:collapse; margin:0 auto; }
+  .card-slot{ position:relative; padding:0.4cm; }
+
+  .corner{ position:absolute; width:0.28cm; height:0.28cm; pointer-events:none; }
+  .corner-tl{ top:0.4cm; left:0.4cm; margin:-0.28cm 0 0 -0.28cm; border-top:1px solid #999; border-left:1px solid #999; }
+  .corner-tr{ top:0.4cm; right:0.4cm; margin:-0.28cm -0.28cm 0 0; border-top:1px solid #999; border-right:1px solid #999; }
+  .corner-bl{ bottom:0.4cm; left:0.4cm; margin:0 0 -0.28cm -0.28cm; border-bottom:1px solid #999; border-left:1px solid #999; }
+  .corner-br{ bottom:0.4cm; right:0.4cm; margin:0 -0.28cm -0.28cm 0; border-bottom:1px solid #999; border-right:1px solid #999; }
+
   /* Tamaño real de tarjeta de crédito (ISO/IEC 7810 ID-1): 8.56cm x 5.4cm */
   .card{
     width:8.56cm; height:5.4cm; border-radius:0.3cm; overflow:hidden; position:relative;
-    background:linear-gradient(160deg, var(--bg2), var(--bg1));
-    color:var(--text); display:flex; align-items:center; gap:0.35cm;
-    padding:0.3cm 0.35cm; box-shadow:0 4px 14px rgba(0,0,0,.25);
+    color:var(--text); box-shadow:0 4px 14px rgba(0,0,0,.25);
+    background-color:var(--accent); background-size:cover; background-position:center top;
   }
-  .info{ flex:1; min-width:0; display:flex; flex-direction:column; align-items:flex-start; gap:0.12cm; }
-  .cover{
-    width:3.2cm; height:3.2cm; border-radius:8px; object-fit:cover;
-    box-shadow:0 3px 6px rgba(0,0,0,.4); background:var(--accent); flex-shrink:0;
+  .card.blank{ box-shadow:none; visibility:hidden; }
+  .card::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,.35) 32%, rgba(0,0,0,.05) 55%, transparent 70%);
   }
-  .titulo{
-    font-size:8.5pt; font-weight:800; line-height:1.15; margin:0;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text; background-clip:text; color:transparent;
+
+  .footer{ position:absolute; left:0.3cm; right:1.9cm; bottom:0.22cm; z-index:2; }
+  .footer .titulo{
+    font-size:9.5pt; font-weight:800; line-height:1.15; margin:0 0 0.12cm;
+    text-shadow:0 2px 6px rgba(0,0,0,.6);
   }
-  .instruccion{ font-size:6pt; font-weight:600; opacity:.85; margin:0; }
-  .qr-box{ background:#fff; padding:0.12cm; border-radius:6px; flex-shrink:0; }
-  .qr-box img{ width:2.7cm; height:2.7cm; display:block; }
-  .cut-guide{
-    position:absolute; inset:1px; border:1px dashed rgba(255,255,255,.25);
-    border-radius:0.3cm; pointer-events:none;
+  .footer .brand{ display:flex; flex-direction:column; gap:0.02cm; }
+  .footer .domain{
+    font-size:6.5pt; font-weight:700; opacity:.95; text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+  .footer .slogan{
+    font-size:6pt; font-style:italic; opacity:.8; text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+
+  .qr-badge{
+    position:absolute; right:0.28cm; bottom:0.22cm; z-index:3;
+    width:2.0cm; height:2.0cm; border-radius:6px;
+    background:#fff; padding:2px;
+    box-shadow:0 2px 6px rgba(0,0,0,.35), 0 0 0 2px var(--accent2);
+  }
+  .qr-badge img{
+    width:100%; height:100%; display:block; border-radius:4px;
+    image-rendering:pixelated;
+  }
+  .qr-badge .note{
+    position:absolute; top:-8px; left:-8px; width:18px; height:18px; border-radius:50%;
+    background:var(--accent2); color:var(--bg1); font-size:10px; font-weight:900;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,.4);
   }
 
   @media print{
-    body{ background:#fff; padding:0; }
+    /* No tocar el padding acá: en wkhtmltopdf, el padding-top del body es lo
+       único que produce un margen superior real. Solo cambiamos el fondo. */
+    body::before{ background:#fff; }
     .card{ box-shadow:none; page-break-inside:avoid; }
-    .cut-guide{ border-color:#ccc; }
+    .corner{ border-color:#999; }
   }
 </style>
 </head>
 <body>
-<div class="sheet" id="sheet"></div>
+<div id="pages"></div>
+
 <script>
   const ITEMS = [{"titulo":"Thriller 40","tema":"regalo","qr":"cards/regalo-thriller40/qr.png","cover":"cards/regalo-thriller40/cover.jpg"},{"titulo":"Rarities","tema":"regalo","qr":"cards/roxette-rarities/qr.png","cover":"cards/roxette-rarities/cover.jpg"},{"titulo":"Patricio Rey y sus Redonditos de Ricota","tema":"regalo","qr":"cards/redondos-discografia/qr.png","cover":"cards/redondos-discografia/covers/cover-0.jpg"},{"titulo":"INXS","tema":"regalo","qr":"cards/inxs-discografia/qr.png","cover":"cards/inxs-discografia/covers/cover-0.jpg"}];
+  const SLOGAN = "Escaneá. Escuchá. Repetí.";
+  const COLS = 2;
+  const ROWS_PER_PAGE = 3;
+  const PER_PAGE = COLS * ROWS_PER_PAGE;
 
   function esc(s){
     const d = document.createElement('div');
@@ -65,19 +105,56 @@
     return d.innerHTML;
   }
 
-  document.getElementById('sheet').innerHTML = ITEMS.map(it => `
-    <div class="card theme-${it.tema}">
-      <div class="cut-guide"></div>
-      <div class="info">
-        <img class="cover" src="${it.cover}" alt="">
-        <p class="titulo">${esc(it.titulo)}</p>
-        <p class="instruccion">📱 Escaneá para escuchar</p>
-      </div>
-      <div class="qr-box">
-        <img src="${it.qr}" alt="QR">
-      </div>
-    </div>
-  `).join('');
+  function cardHtml(it){
+    if (!it) return '<div class="card-slot"></div>';
+    return `
+      <div class="card-slot">
+        <span class="corner corner-tl"></span>
+        <span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span>
+        <span class="corner corner-br"></span>
+        <div class="card theme-${it.tema}" style="background-image:url('${it.cover}')">
+          <div class="footer">
+            <p class="titulo">${esc(it.titulo)}</p>
+            <div class="brand">
+              <span class="domain">🌐 onetapmusic.com.ar</span>
+              <span class="slogan">"${esc(SLOGAN)}"</span>
+            </div>
+          </div>
+          <div class="qr-badge">
+            <span class="note">♪</span>
+            <img src="${it.qr}" alt="QR">
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function toRows(items){
+    const rows = [];
+    for (let i = 0; i < items.length; i += COLS) {
+      const row = items.slice(i, i + COLS);
+      while (row.length < COLS) row.push(null);
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function buildTable(rows){
+    const rowsHtml = rows.map(row =>
+      '<tr>' + row.map(it => `<td>${cardHtml(it)}</td>`).join('') + '</tr>'
+    ).join('');
+    return `<table class="sheet">${rowsHtml}</table>`;
+  }
+
+  const pagesEl = document.getElementById('pages');
+  const totalPages = Math.ceil(ITEMS.length / PER_PAGE) || 1;
+  for (let p = 0; p < totalPages; p++) {
+    const chunk = ITEMS.slice(p * PER_PAGE, (p + 1) * PER_PAGE);
+    const page = document.createElement('div');
+    page.className = 'page';
+    page.innerHTML = buildTable(toRows(chunk));
+    pagesEl.appendChild(page);
+  }
 </script>
 </body>
 </html>

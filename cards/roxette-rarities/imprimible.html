@@ -16,60 +16,77 @@
   body{
     margin:0; padding:24px; background:#e5e5e5;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    display:flex; flex-wrap:wrap; gap:24px; justify-content:center;
+    display:flex; flex-direction:column; align-items:center; gap:16px;
   }
+  .label{ font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.08em; margin:0; }
+
   /* Tamaño real de tarjeta de crédito (ISO/IEC 7810 ID-1): 8.56cm x 5.4cm */
   .card{
     width:8.56cm; height:5.4cm; border-radius:0.3cm; overflow:hidden; position:relative;
-    background:linear-gradient(160deg, var(--bg2), var(--bg1));
-    color:var(--text); display:flex; align-items:center; gap:0.35cm;
-    padding:0.3cm 0.35cm; box-shadow:0 4px 14px rgba(0,0,0,.25);
+    color:var(--text); box-shadow:0 4px 14px rgba(0,0,0,.25);
+    background-color:var(--accent); background-size:cover; background-position:center top;
   }
-  .info{
-    flex:1; min-width:0; display:flex; flex-direction:column; align-items:flex-start; gap:0.12cm;
+  .card::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,.35) 32%, rgba(0,0,0,.05) 55%, transparent 70%);
   }
-  .cover{
-    width:1.7cm; height:1.7cm; border-radius:5px; object-fit:cover;
-    box-shadow:0 3px 6px rgba(0,0,0,.4); background:var(--accent); flex-shrink:0;
+
+  .footer{ position:absolute; left:0.3cm; right:1.9cm; bottom:0.22cm; z-index:2; }
+  .footer .titulo{
+    font-size:9.5pt; font-weight:800; line-height:1.15; margin:0 0 0.12cm;
+    text-shadow:0 2px 6px rgba(0,0,0,.6);
   }
-  .titulo{
-    font-size:9.5pt; font-weight:800; line-height:1.15; margin:0;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text; background-clip:text; color:transparent;
+  .footer .brand{ display:flex; flex-direction:column; gap:0.02cm; }
+  .footer .domain{
+    font-size:6.5pt; font-weight:700; opacity:.95; text-shadow:0 1px 3px rgba(0,0,0,.6);
   }
-  .instruccion{
-    font-size:6.5pt; font-weight:600; opacity:.85; margin:0;
+  .footer .slogan{
+    font-size:6pt; font-style:italic; opacity:.8; text-shadow:0 1px 3px rgba(0,0,0,.6);
   }
-  .qr-box{
-    background:#fff; padding:0.15cm; border-radius:6px; flex-shrink:0;
+
+  /* --- QR camuflado, tintado con el color del tema --- */
+  .qr-badge{
+    position:absolute; right:0.28cm; bottom:0.22cm; z-index:3;
+    width:2.0cm; height:2.0cm; border-radius:6px;
+    background:#fff; padding:2px;
+    box-shadow:0 2px 6px rgba(0,0,0,.35), 0 0 0 2px var(--accent2);
   }
-  .qr-box img{ width:3.7cm; height:3.7cm; display:block; }
-  .cut-guide{
-    position:absolute; inset:1px; border:1px dashed rgba(255,255,255,.25);
-    border-radius:0.3cm; pointer-events:none;
+  .qr-badge img{
+    width:100%; height:100%; display:block; border-radius:4px;
+    image-rendering:pixelated;
+  }
+  .qr-badge .note{
+    position:absolute; top:-8px; left:-8px; width:18px; height:18px; border-radius:50%;
+    background:var(--accent2); color:var(--bg1); font-size:10px; font-weight:900;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,.4);
   }
 
   @media print{
-    body{ background:#fff; padding:0; gap:0; }
+    body{ background:#fff; padding:0; gap:0.5cm; }
     .card{ box-shadow:none; page-break-inside:avoid; }
-    .cut-guide{ border-color:#ccc; }
+    .label{ display:none; }
   }
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="cut-guide"></div>
-  <div class="info">
-    <img class="cover" src="./cover.jpg" alt="">
+<p class="label">Tarjeta</p>
+<div class="card" data-theme-card>
+  <div class="footer">
     <p class="titulo">Rarities</p>
-    <p class="instruccion">📱 Escaneá para escuchar</p>
+    <div class="brand">
+      <span class="domain">🌐 onetapmusic.com.ar</span>
+      <span class="slogan">"Escaneá. Escuchá. Repetí."</span>
+    </div>
   </div>
-  <div class="qr-box">
+  <div class="qr-badge">
+    <span class="note">♪</span>
     <img src="./qr.png" alt="QR">
   </div>
 </div>
+
 <script>
   document.documentElement.setAttribute('data-theme', "regalo");
+  document.querySelector('.card').style.backgroundImage = "url('./cover.jpg')";
 </script>
 </body>
 </html>

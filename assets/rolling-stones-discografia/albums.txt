@@ -1,0 +1,25 @@
+The Rolling Stones|1964|https://open.spotify.com/album/7Kln3VdaLUYVIFpqe7AuNA
+The Rolling Stones No. 2|1965|https://open.spotify.com/album/4lzMSOfoyr3LsOuWeve5Cw
+Out of Our Heads|1965|https://open.spotify.com/album/4ODlRs61uBFoP7HspXs1je
+Aftermath|1966|https://open.spotify.com/album/1MaP82K4mOoGYW5Ej0eUyM
+Between the Buttons|1967|https://open.spotify.com/album/36BIYdP4WtviD9Ngqc4SK5
+Their Satanic Majesties Request|1967|https://open.spotify.com/album/1EsawdVONX3m9f9PLhuzS5
+Beggars Banquet|1968|https://open.spotify.com/album/6OHri5qNxwCdVSdyCslspd
+Let It Bleed|1969|https://open.spotify.com/album/4l4u9e9jSbotSXNjYfOugy
+Sticky Fingers|1971|https://open.spotify.com/album/29m6DinzdaD0OPqWKGyMdz
+Exile on Main St.|1972|https://open.spotify.com/album/5U4dnRZsfW8NmwBBkELFPh
+Goats Head Soup|1973|https://open.spotify.com/album/6iVOz2hudE6dv5Yrcsw2c9
+It's Only Rock 'n Roll|1974|https://open.spotify.com/album/4jCpSNa8dV40aMrHOshRdv
+Black and Blue|1976|https://open.spotify.com/album/2jtHqgzKfoF8uVvEosb6Jl
+Some Girls|1978|https://open.spotify.com/album/1Jv2AqzhgsduUik2p4k3cS
+Emotional Rescue|1980|https://open.spotify.com/album/5mEjFOLcBs94wSchOtMCTB
+Tattoo You|1981|https://open.spotify.com/album/15XNBzVWARPMlu0sEbfBjJ
+Undercover|1983|https://open.spotify.com/album/7qHKiPqv019NfMrTak7U2s
+Dirty Work|1986|https://open.spotify.com/album/6Xui7Ex7Qs5CafFQnWeR6w
+Steel Wheels|1989|https://open.spotify.com/album/7yUBkHdrxKHn4a3QhrfEj4
+Voodoo Lounge|1994|https://open.spotify.com/album/3oyjbpNQs5Qm5DNVJW4AlV
+Bridges to Babylon|1997|https://open.spotify.com/album/6lbQFxYqubkf4GbEtXARE7
+A Bigger Bang|2005|https://open.spotify.com/album/5zqveAALqLpkXgPLyYItRV
+Blue & Lonesome|2016|https://open.spotify.com/album/43TJjpNBfw0qY6E87VeIxX
+Hackney Diamonds|2023|https://open.spotify.com/album/1AxMcdQRLguJqSZMxvRNdO
+Foreign Tongues|2026|https://open.spotify.com/album/650o7IPvNOzSSn9qOyJhxw

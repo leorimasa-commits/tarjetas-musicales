@@ -18,6 +18,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const THEME_COLORS = require('./theme-colors');
 
 const TEMAS = ['cumpleanos', 'fiesta', 'evento', 'regalo'];
 
@@ -130,7 +131,10 @@ async function main() {
     const finalUrl = `${baseUrl}/cards/${slug}/`;
     try {
       const QRCode = require('qrcode');
-      await QRCode.toFile(path.join(cardDir, 'qr.png'), finalUrl, { width: 600, margin: 2 });
+      await QRCode.toFile(path.join(cardDir, 'qr.png'), finalUrl, {
+        width: 500, margin: 2,
+        color: { dark: THEME_COLORS[tema] || '#000000', light: '#ffffffff' },
+      });
       console.log(`🔗 URL final:   ${finalUrl}`);
       console.log(`📷 QR generado: cards/${slug}/qr.png`);
     } catch (e) {

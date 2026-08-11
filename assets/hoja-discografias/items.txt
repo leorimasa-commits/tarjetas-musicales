@@ -8,3 +8,5 @@ soda-stereo-discografia|Soda Stereo|regalo
 charly-garcia-discografia|Charly García|regalo
 fito-paez-discografia|Fito Páez|regalo
 gnr-discografia|Guns N' Roses|regalo
+divididos-discografia|Divididos|regalo
+rolling-stones-discografia|The Rolling Stones|regalo

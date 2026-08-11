@@ -61,9 +61,13 @@ function main() {
     };
   });
 
+  const slogan = args.slogan || 'Escaneá. Escuchá. Repetí.';
+
   const templatePath = path.join(root, 'templates', 'hoja-imprimible.template.html');
   let html = fs.readFileSync(templatePath, 'utf8');
-  html = html.replace('{{ITEMS_JSON}}', JSON.stringify(items));
+  html = html
+    .replace('{{ITEMS_JSON}}', JSON.stringify(items))
+    .replace('{{SLOGAN_JSON}}', JSON.stringify(slogan));
 
   const outPath = path.resolve(root, args.out || 'hoja-imprimible.html');
   fs.writeFileSync(outPath, html, 'utf8');
