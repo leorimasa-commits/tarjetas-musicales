@@ -1,4 +1,8 @@
-# Tarjetas musicales NFC/QR
+# Tarjetas musicales NFC/QR — motor de **OneTapMusic**
+
+> "OneTapMusic" es la marca comercial del producto (de cara al cliente). El nombre técnico
+> del repositorio y la URL publicada (`tarjetas-musicales`) **no se cambian** — ya están
+> grabados en los QR/NFC ya emitidos, y renombrarlos los rompería.
 
 Sistema para generar tarjetas (cumpleaños, fiestas, presentación de eventos, regalos musicales)
 que al escanear el QR o acercar el celular a un tag NFC, abren una página que arranca la música
