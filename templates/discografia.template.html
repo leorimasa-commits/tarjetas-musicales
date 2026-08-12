@@ -81,6 +81,9 @@
   .track-embed.open{ display:block; }
   .track-embed iframe{ width:100%; border-radius:10px; border:none; }
 
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
 </style>
 </head>
 <body>
@@ -92,6 +95,11 @@
 </header>
 
 <div class="list" id="list"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://onetapmusic.com.ar" target="_blank" rel="noopener">🌐 onetapmusic.com.ar</a>
+  <p class="slogan">"{{SLOGAN}}"</p>
+</footer>
 
 <script>
   document.documentElement.setAttribute('data-theme', "{{THEME}}");
