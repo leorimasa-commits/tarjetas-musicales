@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KISS</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — OneTapMusic">
+<meta property="og:site_name" content="OneTapMusic">
+<meta property="og:title" content="KISS">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — OneTapMusic">
+<meta property="og:image" content="https://onetapmusic.com.ar/cards/kiss-discografia/covers/cover-0.jpg">
+<meta property="og:url" content="https://onetapmusic.com.ar/cards/kiss-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:8px;
+    font-size:14px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 16px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>KISS</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">Maquillaje, fuego y estadios: la banda que convirtió el show de rock en espectáculo total. 20 discos de estudio en cuatro décadas.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://onetapmusic.com.ar" target="_blank" rel="noopener">🌐 onetapmusic.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@KISS";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Kiss","anio":"1974","spotifyUrl":"https://open.spotify.com/album/0NjpmoajQlllfKH9FaNliD","cover":"./covers/cover-0.jpg","tracks":[{"title":"Strutter - Remastered 1997","spotifyId":"0UCg6lnG2MXpuEpf8Pk1MV"},{"title":"Nothin' To Lose - Remastered 1997","spotifyId":"4myXz1R4Mlz2vFUG8MfyJ9"},{"title":"Firehouse - Remastered 1997","spotifyId":"2hzyGod8yvzZsDkh6M5x2T"},{"title":"Cold Gin - Remastered 1997","spotifyId":"23mkKrQmbtEARwmO846yj8"},{"title":"Let Me Know - Remastered 1997","spotifyId":"1UwA38fwG1M1XDlELbZsM7"},{"title":"Kissin' Time - Remastered 1997","spotifyId":"5JifVj0BnV1Uwk57mAqgq1"},{"title":"Deuce - Remastered 1997","spotifyId":"79EQt03ze9Pr9tAVc2lm5P"},{"title":"Love Theme From Kiss - Remastered 1997","spotifyId":"3h65F8R0FKA70GRGdt1ftw"},{"title":"100,000 Years - Remastered 1997","spotifyId":"4G6sunnUbGwwcvsXZeebjh"},{"title":"Black Diamond - Remastered 1997","spotifyId":"6PmckFG2BhEELc5OM7O7DS"}]},{"titulo":"Hotter Than Hell","anio":"1974","spotifyUrl":"https://open.spotify.com/album/4n2ovJeGDVOP9SqcvaspxE","cover":"./covers/cover-1.jpg","tracks":[{"title":"Got To Choose - Remastered 1997","spotifyId":"2pBWgRUs8UhHYc4uRxB5dN"},{"title":"Parasite - Remastered 1997","spotifyId":"5RaXQF86U71nenpwo2yjdz"},{"title":"Goin' Blind - Remastered 1997","spotifyId":"2Kgabuiyu24mw1tVcFjHh3"},{"title":"Hotter Than Hell - Remastered 1997","spotifyId":"7xYo3ytFiilO6bzf6Hr1Rt"},{"title":"Let Me Go, Rock 'N Roll - Remastered 1997","spotifyId":"6iwBE3iYSgeBI3OtBAPNc1"},{"title":"All The Way - Remastered 1997","spotifyId":"699XVCkdy8eABS1kX4TeHG"},{"title":"Watchin' You - Remastered 1997","spotifyId":"7ARXaWpPILWVpVN3fcuLyg"},{"title":"Mainline - Remastered 1997","spotifyId":"4cTbhy5dxHZTLq8UcYcMxV"},{"title":"Comin' Home - Remastered 1997","spotifyId":"7h1CHrT2QJHKrS0iWsORAM"},{"title":"Strange Ways - Remastered 1997","spotifyId":"4S8Bs6ObRTgurwje3opNFr"}]},{"titulo":"Dressed to Kill","anio":"1975","spotifyUrl":"https://open.spotify.com/album/1qjBjGoc5UCL8dg7q72UVP","cover":"./covers/cover-2.jpg","tracks":[{"title":"Room Service","spotifyId":"0wYIM4Q1gys6IY9phhbK6c"},{"title":"Two Timer","spotifyId":"0fbsmxJi7HGYeGYV8bJsVb"},{"title":"Ladies In Waiting","spotifyId":"0sVmTWGGj4UiFvBaHLkqku"},{"title":"Getaway","spotifyId":"17xiOzY8cPskxHtTtCmD98"},{"title":"Rock Bottom","spotifyId":"1Rp1rvZGA6JfJC70v3v2bw"},{"title":"C'mon And Love Me","spotifyId":"1b9E9SNS0BaTnMM1M89GHz"},{"title":"Anything For My Baby","spotifyId":"1LHlv6gHrWGw8P4TAYqxwS"},{"title":"She","spotifyId":"4245ufFjgF3o6pnCm8BoSL"},{"title":"Love Her All I Can","spotifyId":"1PFMhjOMIhkcBff6LCXuVt"},{"title":"Rock And Roll All Nite","spotifyId":"0fCWbJq1hagsRgShtn6gIU"}]},{"titulo":"Destroyer","anio":"1976","spotifyUrl":"https://open.spotify.com/album/6pM2OebWJjdIkB8kQZU87b","cover":"./covers/cover-3.jpg","tracks":[{"title":"Detroit Rock City","spotifyId":"2pTT8ZlrxfLl9zovq8H4Q2"},{"title":"King Of The Night Time World","spotifyId":"0aSB46t6OukALhooSDVtPC"},{"title":"God Of Thunder","spotifyId":"1S7TXP3ljMQEpsXlge5zji"},{"title":"Great Expectations","spotifyId":"0ibzcB8xwzIAuduFudhtoL"},{"title":"Flaming Youth","spotifyId":"61lnbnJA3TMsZrGrqpkQ5m"},{"title":"Sweet Pain","spotifyId":"6SYVlOIPIi3XqvwHoHx18q"},{"title":"Shout It Out Loud","spotifyId":"6rKJPevq4KgR8Il6KchX6g"},{"title":"Beth","spotifyId":"7hEzLlgSux3H8a3vpzHPTZ"},{"title":"Do You Love Me","spotifyId":"7svwP4tC0UYJbCkiCo6Itz"},{"title":"Rock 'N' Roll Party","spotifyId":"2nYO4Di8PlR7br5sDQAVuX"}]},{"titulo":"Rock and Roll Over","anio":"1976","spotifyUrl":"https://open.spotify.com/album/6722nY178mLes49GPldnjj","cover":"./covers/cover-4.jpg","tracks":[{"title":"I Want You","spotifyId":"5pcOAhkv8BiTpzWITZShKW"},{"title":"Take Me","spotifyId":"12hTHnCBajZeyEiZi1drMz"},{"title":"Calling Dr. Love","spotifyId":"7xD7MvjAdZkx1YICschIuI"},{"title":"Ladies Room","spotifyId":"2StifeMeMCQ5MtCbO5JvAM"},{"title":"Baby Driver","spotifyId":"6cdIIF1yVfuzJsMm4hZTnn"},{"title":"Love 'Em And Leave 'Em","spotifyId":"1If81WW8CnUAGtrZP45xBi"},{"title":"Mr. Speed","spotifyId":"6IDOdsJrrQ5p205vENDADn"},{"title":"See You In Your Dreams","spotifyId":"4LGJNFhRNqDGNvxohQ3lzM"},{"title":"Hard Luck Woman","spotifyId":"1vcZBUX6P6FHXzG2mUfmCE"},{"title":"Makin' Love","spotifyId":"7MkWTQVtyjXH5f9CxzXyJM"}]},{"titulo":"Love Gun","anio":"1977","spotifyUrl":"https://open.spotify.com/album/77opKywcxPnBu5aBMASS2b","cover":"./covers/cover-5.jpg","tracks":[{"title":"I Stole Your Love","spotifyId":"7qj6lBOB1QTgBmKedXuIbs"},{"title":"Christine Sixteen","spotifyId":"3Ms6wIwW1f3DVk563ucHP3"},{"title":"Got Love For Sale","spotifyId":"5oPQ3i5gVV5pD1uOiSI4Um"},{"title":"Shock Me","spotifyId":"39hfj6Tnqgsxn7jGTfWl18"},{"title":"Tomorrow And Tonight","spotifyId":"6lmMkAXWrQ7Sj82BFl85JD"},{"title":"Love Gun","spotifyId":"0SPBrxOUEMIKugXR4bFhxs"},{"title":"Hooligan","spotifyId":"3zhM05SpzaOBdsAmaXkM2Q"},{"title":"Almost Human","spotifyId":"6cTTz6AgxR2Z7QZl7CdCWs"},{"title":"Plaster Caster","spotifyId":"5BMGKj445wO9EgMHMhAMIg"},{"title":"Then She Kissed Me","spotifyId":"2B0oanPxauHfMhVyd3DtPf"}]},{"titulo":"Dynasty","anio":"1979","spotifyUrl":"https://open.spotify.com/album/4FA68GsblSfvKZZRfM1tI1","cover":"./covers/cover-6.jpg","tracks":[{"title":"I Was Made For Lovin' You","spotifyId":"07q0QVgO56EorrSGHC48y3"},{"title":"2,000 Man","spotifyId":"3TjM3SIVQksTj3pNVUZPv8"},{"title":"Sure Know Something","spotifyId":"1HBDWCrQVjrALiOA5rILnE"},{"title":"Dirty Livin'","spotifyId":"159RwMV9yxgOBk0aXhs3sq"},{"title":"Charisma","spotifyId":"6afDASlKWMARNxYSrCAAf8"},{"title":"Magic Touch","spotifyId":"3gAnPHRoANSRwp1gwv5p2m"},{"title":"Hard Times","spotifyId":"3sy8VUikaAQv1SKPK2EsMi"},{"title":"X-Ray Eyes","spotifyId":"4E5ombPeNdVQFgGFDb0Bhs"},{"title":"Save Your Love","spotifyId":"1RUQIkl3vHaOUPKC885STa"}]},{"titulo":"Unmasked","anio":"1980","spotifyUrl":"https://open.spotify.com/album/3PlYLejxpxhtJcynfE08vE","cover":"./covers/cover-7.jpg","tracks":[{"title":"Is That You?","spotifyId":"0PUQgywA7lqrx1olf3DTzj"},{"title":"Shandi","spotifyId":"1aJtdcYdncvyNrVKCcj0eD"},{"title":"Talk To Me","spotifyId":"1LYPRQIN8YHIX4da8fX3CX"},{"title":"Naked City","spotifyId":"5bGZTcRElLENI8gIw3cA0W"},{"title":"What Makes The World Go Round","spotifyId":"0S4qfjkziDRcy0mIsg2Hau"},{"title":"Tomorrow","spotifyId":"0Md4wlfbySpnA2kEICWyl9"},{"title":"Two Sides Of The Coin","spotifyId":"740QEcS6aVuQjweLIfHXi0"},{"title":"She's So European","spotifyId":"1Ar2ONhjMKp4bNrV2WaFYw"},{"title":"Easy As It Seems","spotifyId":"2A5NcCtw77F3uKuKT9tcHv"},{"title":"Torpedo Girl","spotifyId":"0mWyQb9EY10LvTJyRnrrtI"},{"title":"You're All That I Want","spotifyId":"1DtIQXGc2xt0COxPW8Jhrs"}]},{"titulo":"Music from \"The Elder\"","anio":"1981","spotifyUrl":"https://open.spotify.com/album/1J7sLrUoYUrsjhunsgzZpL","cover":"./covers/cover-8.jpg","tracks":[{"title":"Fanfare","spotifyId":"4Ys4vLjBl4X9Njff05mwGn"},{"title":"Just A Boy","spotifyId":"7uBXWtknfZVTG76emkUOmq"},{"title":"Odyssey","spotifyId":"2KgzUSKXrTMJzQEXQYU1Fl"},{"title":"Only You","spotifyId":"53Rc84tFgh2rRFein7EzCg"},{"title":"Under The Rose","spotifyId":"6RxSt7aqhIQ7GZMZybRJBe"},{"title":"Dark Light","spotifyId":"4LmfPK7nIoxeaeN5pyWpdq"},{"title":"A World Without Heroes","spotifyId":"2bCBrhZdfdHnDucyQcyp42"},{"title":"The Oath","spotifyId":"5uBV9nlItDsdBv7q4gBRm7"},{"title":"Mr. Blackwell","spotifyId":"5EfJh66PW3SkpKiONLvucr"},{"title":"Escape From The Island","spotifyId":"2ldDZL26oVFAdz6xOWW8yy"},{"title":"I","spotifyId":"4kU1hKNnA9716lys9emlmF"}]},{"titulo":"Creatures of the Night","anio":"1982","spotifyUrl":"https://open.spotify.com/album/3C1SXX07CX4mPGHmGL0GYR","cover":"./covers/cover-9.jpg","tracks":[{"title":"Creatures Of The Night - 2022 Remastered","spotifyId":"1IZTcqj8xsFFEGxqMpZSDI"},{"title":"Saint And Sinner - 2022 Remastered","spotifyId":"4Y8jjcpi7qaJhX7GBWa2Dl"},{"title":"Keep Me Comin' - 2022 Remastered","spotifyId":"0p8ASjcoaFvRMz6iDFa9tu"},{"title":"Rock And Roll Hell - 2022 Remastered","spotifyId":"0krfvRdSMqUZAfSC3l7dPu"},{"title":"Danger - 2022 Remastered","spotifyId":"1KwwJPeP2WubekT6gRZ7AU"},{"title":"I Love It Loud - 2022 Remastered","spotifyId":"6fdv5JQkLdIYKCNMwnKylh"},{"title":"I Still Love You - 2022 Remastered","spotifyId":"1EpHrZcZ79mOprLK5xqJVz"},{"title":"Killer - 2022 Remastered","spotifyId":"38ehgTcbEfk2YzDOy0PYM0"},{"title":"War Machine - 2022 Remastered","spotifyId":"1MYYJV8oADYTORwbCVj7At"},{"title":"Deadly Weapon - Original Demo","spotifyId":"3Rt4Z15OAW09fDz0safLRR"},{"title":"Betrayed - Outtake","spotifyId":"1cSad1AjdvNcahNUzImV6x"},{"title":"I'm A Legend Tonight - Mix 4 - Instrumental & Background Vocals","spotifyId":"4q3WTCpDDdZKdjAIe6ExOF"},{"title":"Nowhere To Run - Take 11 - Instrumental","spotifyId":"39jA05pw0aF6oHLTRzoOjk"},{"title":"It's My Life - Gene Simmons Demo","spotifyId":"6DP49lmbieCqlNLAWkAB0v"},{"title":"Not For The Innocent - Demo","spotifyId":"2R7oPFDvLMZ1uUacts4GvF"},{"title":"Rock And Roll Hell - Take 2 [9/10/82]","spotifyId":"54eylULbpAcZmNY22C7m8S"},{"title":"I Love It Loud - Alternate Mix 21","spotifyId":"4v9X3nohuXTDvvJ2Pi0792"},{"title":"Don't Leave Me Lonely - Take 8 - Drums & Guitar Instrumental","spotifyId":"5qYuON12xW8THg6nh7GAlT"},{"title":"Creatures Of The Night - Live In Rockford, Illinois 12/31/82","spotifyId":"2S4pQvf1o0vV9IJtvIr3z6"},{"title":"I Love It Loud - Live In Rockford, Illinois 12/31/82","spotifyId":"3v4naf2eLfki2B6cQ8Cwwu"},{"title":"Keep Me Comin' - Live In Sioux City, Iowa 12/30/82","spotifyId":"2UO4KYvddYtpKikcQNuedW"},{"title":"War Machine - Live In Sioux City, Iowa 12/30/82","spotifyId":"2lKwlO41mZor8e3lpOns34"},{"title":"I Want You - Live In Houston, Texas 3/10/83","spotifyId":"6m5ml6SDvtRg6uQ5seWkeC"},{"title":"Rock And Roll Hell - Live In Rockford, Illinois 12/31/82","spotifyId":"4xuJVCGjGWALQauufEX18h"},{"title":"I Still Love You - Live In Sioux City, Iowa 12/30/82","spotifyId":"5QIwbtJQijYUzeAZLxxv7K"}]},{"titulo":"Lick It Up","anio":"1983","spotifyUrl":"https://open.spotify.com/album/0dD1SMOKBDV1qBadcovw30","cover":"./covers/cover-10.jpg","tracks":[{"title":"Exciter","spotifyId":"1SLlMQb4vdly9ZtRCV95Ry"},{"title":"Not For The Innocent","spotifyId":"7ugERxPX4nkoaQFdxQgTdG"},{"title":"Lick It Up","spotifyId":"3cXiUuiGpFmZ8OdAWKk8Ck"},{"title":"Young And Wasted","spotifyId":"6CjgItWryqdUmHsPsFta5u"},{"title":"Gimme More","spotifyId":"5xHwMSNdGFyyb49BEWuR88"},{"title":"All Hell's Breakin' Loose","spotifyId":"5YbJw4lz5qmYCQgmykL9YF"},{"title":"A Million To One","spotifyId":"3Z7AIA7ZjItaRZvkE2Kxs2"},{"title":"Fits Like A Glove","spotifyId":"6pJ5ZjjV3sdF7KYAUPNTpA"},{"title":"Dance All Over Your Face","spotifyId":"41LUHxu7IYCO7If3HmVRg6"},{"title":"And On The 8th Day","spotifyId":"1hb9wXWf4BUQCMd40KUS0P"}]},{"titulo":"Animalize","anio":"1984","spotifyUrl":"https://open.spotify.com/album/7bVCYp0Ubh3rWWWUGMDuqy","cover":"./covers/cover-11.jpg","tracks":[{"title":"I've Had Enough (Into The Fire)","spotifyId":"7CqTi6DxQLskrBQZYQOYAD"},{"title":"Heaven's On Fire","spotifyId":"01fv3ehMBP3wZoWcjOCHWh"},{"title":"Burn Bitch Burn","spotifyId":"1GcSqFpnulomWmTMBZxvFr"},{"title":"Get All You Can Take","spotifyId":"25GKTVcp2x9VkqTsLQHMGE"},{"title":"Lonely Is The Hunter","spotifyId":"7q1J1IjSva9wZ4B68bMN3x"},{"title":"Under The Gun","spotifyId":"1ztzYutW1LZNcMqIIQNm7F"},{"title":"Thrills In The Night","spotifyId":"1ezMXbj83MyIo1mTrDXoag"},{"title":"While The City Sleeps","spotifyId":"2NCRSXyrcSIaBz5ilRnr69"},{"title":"Murder In High-Heels","spotifyId":"6odZhavekdiGZMf7gWXvPV"}]},{"titulo":"Asylum","anio":"1985","spotifyUrl":"https://open.spotify.com/album/0WDUDVt1ZYTJX8KPwH3ast","cover":"./covers/cover-12.jpg","tracks":[{"title":"King Of The Mountain","spotifyId":"30t932njedG0zT5wuy74fd"},{"title":"Any Way You Slice It","spotifyId":"5Uk1tlyJZDVNRhsYkbp4RJ"},{"title":"Who Wants To Be Lonely","spotifyId":"7FIq1KZva7CjQjHG6A8XUg"},{"title":"Trial By Fire","spotifyId":"42NRnMK9Ilr5laKbLtGVGr"},{"title":"I'm Alive","spotifyId":"6W2avwFdtejPv6WDVg3QME"},{"title":"Love's A Deadly Weapon","spotifyId":"5gipVBfconGG0YViUdbav7"},{"title":"Tears Are Falling","spotifyId":"1hxt3chzYLAzS4NmSSi5A3"},{"title":"Secretly Cruel","spotifyId":"1R2ox1yKvVWXuFCs4R2JrT"},{"title":"Radar For Love","spotifyId":"1IpEE28rEthmZ0SLTbsUL1"},{"title":"Uh! All Night","spotifyId":"6y0doCoi1qqlSqp5SGZMPq"}]},{"titulo":"Crazy Nights","anio":"1987","spotifyUrl":"https://open.spotify.com/album/50WDm1tVXgUjwbMtmm4o6u","cover":"./covers/cover-13.jpg","tracks":[{"title":"Crazy Crazy Nights","spotifyId":"45AmJxnQ9ifHsADkmp1qz1"},{"title":"I'll Fight Hell To Hold You","spotifyId":"6pqQlIaizkN1m32umuGBNf"},{"title":"Bang Bang You","spotifyId":"2soM4N9NL817B8hjA8s8nY"},{"title":"No No No","spotifyId":"7m9gmhO9X7SR9PWSBMcxvX"},{"title":"Hell Or High Water","spotifyId":"06mLdQoQ7mWMPx0NZGXH3m"},{"title":"My Way","spotifyId":"3GOgDz7RdDq14Wq9w80hJy"},{"title":"When Your Walls Come Down","spotifyId":"3tYgzYT31HFX3G6UFKPgsE"},{"title":"Reason To Live","spotifyId":"0NdCMQqXwXvaVitgRTElSj"},{"title":"Good Girl Gone Bad","spotifyId":"4lS9jKtpcDifk7lSUjBfkm"},{"title":"Turn On The Night","spotifyId":"3gY8xBxky8LpRTjdOSTpci"},{"title":"Thief In The Night","spotifyId":"2cr7OA25p9CNhaGFhneJwq"}]},{"titulo":"Hot in the Shade","anio":"1989","spotifyUrl":"https://open.spotify.com/album/4tA5KsFziTKOuDVAUivcjM","cover":"./covers/cover-14.jpg","tracks":[{"title":"Rise To It","spotifyId":"7gAHDwN4iqkjFozSODtWBn"},{"title":"Betrayed","spotifyId":"4Dyt80OYGeURHHQqra6vGf"},{"title":"Hide Your Heart","spotifyId":"47o525G86mLspoGnUCaMd9"},{"title":"Prisoner Of Love","spotifyId":"73phzY1PKpIi8vLEYrjd07"},{"title":"Read My Body","spotifyId":"6T51KmRmdpTWy7W4JNR5RA"},{"title":"Love's A Slap In The Face","spotifyId":"4LwpGPyZSHuYtMy4P09ps9"},{"title":"Forever","spotifyId":"2o4u19nlQWOGg5mLanT7Pg"},{"title":"Silver Spoon","spotifyId":"7laqA6CizS6MrUVylkOM0B"},{"title":"Cadillac Dreams","spotifyId":"5wpu001TmV6F9JigRy73fY"},{"title":"King Of Hearts","spotifyId":"5GjUMBE2WP38dxI0W7on6f"},{"title":"The Street Giveth And The Street Taketh Away","spotifyId":"79UjNOv1uwtprlyzlAwc3C"},{"title":"You Love Me To Hate You","spotifyId":"2DQkEhN4mqG18sUwOPRQsJ"},{"title":"Somewhere Between Heaven And Hell","spotifyId":"1v3dUaqWVqDPUA9ktvF7Ih"},{"title":"Little Caesar","spotifyId":"5sGsTHHHf9ZnAfUq55Ppt1"},{"title":"Boomerang","spotifyId":"5OYvemZBLsuU1fgtiTJ4ip"}]},{"titulo":"Revenge","anio":"1992","spotifyUrl":"https://open.spotify.com/album/70eknRp5bKGdFq0rJ7kA3x","cover":"./covers/cover-15.jpg","tracks":[{"title":"Unholy","spotifyId":"1eyRkbW5tJ7YobW9wQ5zVB"},{"title":"Take It Off","spotifyId":"3wqL0i59XVznYx1tJVj9B4"},{"title":"Tough Love","spotifyId":"0YMQSOv8BdC50nImLDuVvZ"},{"title":"Spit","spotifyId":"5OkgRqOxxA64z5cSS3UBuS"},{"title":"God Gave Rock 'N' Roll To You II","spotifyId":"1jJenVEjsXClGR4n4vJkMu"},{"title":"Domino","spotifyId":"7IGNqVaujuSXS3t9QBby3n"},{"title":"Heart Of Chrome","spotifyId":"1IkUqEVG1QqmqE6aANQGIb"},{"title":"Thou Shalt Not","spotifyId":"7GNR797D8FuPPcGc2ZAMg0"},{"title":"Every Time I Look At You","spotifyId":"0ute0e8bY0FmSEIqDfhrBJ"},{"title":"Paralyzed","spotifyId":"4Dh97nKXuExf9MTxIF1j3G"},{"title":"I Just Wanna","spotifyId":"0Mx4pB4WcLA6rjnQ7xPAh3"},{"title":"Carr Jam 1981","spotifyId":"6wnbnHVFRaaPadaVGXeohq"}]},{"titulo":"Carnival of Souls","anio":"1997","spotifyUrl":"https://open.spotify.com/album/7HZxqRi5rwLpyPkJJ4DKaK","cover":"./covers/cover-16.jpg","tracks":[{"title":"Hate","spotifyId":"7jEKp9AmCuOOp9KMuV2lkf"},{"title":"Rain","spotifyId":"5YcBnFOKHVcqPjd2BdYtq4"},{"title":"Master & Slave","spotifyId":"0Wbj9F2MSQ4CIY7N9j3bfX"},{"title":"Childhood's End","spotifyId":"0Fp61INI824mcRYJsxRIE6"},{"title":"I Will Be There","spotifyId":"08bLStHHiSJdVwmCJoraPL"},{"title":"Jungle","spotifyId":"0b6fKixPbuoJLCc0RuvXUQ"},{"title":"In My Head","spotifyId":"5MrU6XRMc9Jn9QNMwZqSmU"},{"title":"It Never Goes Away","spotifyId":"0aj3lHI5vGwYHgkDz6wmys"},{"title":"Seduction Of The Innocent","spotifyId":"3rlV9EUfIHm2cLzkeCRYxs"},{"title":"I Confess","spotifyId":"5S0vL1DGE9y28Djc1DQ4a1"},{"title":"In The Mirror","spotifyId":"5A8BZmvwd5mFzmzDuXzgjR"},{"title":"I Walk Alone","spotifyId":"6qKMEpb7eMqUWvMo9JfsXt"}]},{"titulo":"Psycho Circus","anio":"1998","spotifyUrl":"https://open.spotify.com/album/0A4lWyi4wbORjnlf4WmvFd","cover":"./covers/cover-17.jpg","tracks":[{"title":"Psycho Circus","spotifyId":"1D28pacrVWg8sg7v00l4uR"},{"title":"Within","spotifyId":"3NTFhXUXM0LUCP5fwRzoB8"},{"title":"I Pledge Allegiance To The State Of Rock & Roll","spotifyId":"4SggkM48C0reyER1qw2kvf"},{"title":"Into The Void","spotifyId":"7dynCxfNscOG8WDDgtG0cC"},{"title":"We Are One","spotifyId":"0dPPUcfDnvSwK38lLgzKSd"},{"title":"You Wanted The Best","spotifyId":"5P3f3R0TgzdXOjQy6xuIR0"},{"title":"Raise Your Glasses","spotifyId":"1Nc8Le5T8VvC5YVSgT1sWW"},{"title":"I Finally Found My Way","spotifyId":"1n99KPlyM86nYO4tONuXhY"},{"title":"Dreamin'","spotifyId":"4uyNwEoYLjGqyy1RgXg9Wf"},{"title":"Journey Of 1,000 Years","spotifyId":"6aHSlR5nuLUkWZbgsuCCq9"}]},{"titulo":"Sonic Boom","anio":"2009","spotifyUrl":"https://open.spotify.com/album/6kw2tyyR80TC8TtsidbHAW","cover":"./covers/cover-18.jpg","tracks":[{"title":"Modern Day Delilah","spotifyId":"2yyMMmdmNzYD15QjWrO3mk"},{"title":"Russian Roulette","spotifyId":"5AHqwgSXdIM5G0UECVOOt9"},{"title":"Never Enough","spotifyId":"1z2F2VJeqeRz3NYdBgLYkB"},{"title":"Yes I Know (Nobody's Perfect)","spotifyId":"39VESLyDTqGdPBub5KW5fj"},{"title":"Stand","spotifyId":"1kIGwIpQPT0TXknRKVv1xt"},{"title":"Hot And Cold","spotifyId":"1gIYNqL2RsgtqSVgFYYnqV"},{"title":"All For The Glory","spotifyId":"29ah241hG0aaA82ILPZRxa"},{"title":"Danger Us","spotifyId":"1uePWNBwVR15Oa4Tjvzr5L"},{"title":"I'm An Animal","spotifyId":"6cDk9AFuc6A83UWXsc0emI"},{"title":"When Lightning Strikes","spotifyId":"3wrovUV46YJv7YDEiyWN1U"},{"title":"Say Yeah","spotifyId":"4BQtjxvGkwfyo63RDZo7id"}]},{"titulo":"Monster","anio":"2012","spotifyUrl":"https://open.spotify.com/album/4bEGlyQHzCfjrqryGwmXD5","cover":"./covers/cover-19.jpg","tracks":[{"title":"Hell Or Hallelujah","spotifyId":"7q3pjonUyv6YdUv29vq1hJ"},{"title":"Wall Of Sound","spotifyId":"4Mko6K1NJekfQJNOMuFAlM"},{"title":"Freak","spotifyId":"1iDcKQItcVeNWNK81lIJr4"},{"title":"Back To The Stone Age","spotifyId":"3ymm5chCx4TKBK5QR8cBNB"},{"title":"Shout Mercy","spotifyId":"2Vp8p83gjrgpuD5Gt5jZSO"},{"title":"Long Way Down","spotifyId":"7dDcikEBa1YcaGcbK8LM5H"},{"title":"Eat Your Heart Out","spotifyId":"0vaK2Cjatl7Cuwj4LqVL9m"},{"title":"The Devil Is Me","spotifyId":"6w2GmWHIbZkQ9qV22ROgmJ"},{"title":"Outta This World","spotifyId":"41hSjrtBWW90kSsRpW1U5m"},{"title":"All For The Love Of Rock & Roll","spotifyId":"6QC64kxUJDIg05DfUiF6bH"},{"title":"Take Me Down Below","spotifyId":"6J94o8u6PyfyDNFqjLuj5F"},{"title":"Last Chance","spotifyId":"3GbPKAmbby4dya3alNm4PX"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
