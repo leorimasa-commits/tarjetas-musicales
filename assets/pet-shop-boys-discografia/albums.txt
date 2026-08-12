@@ -1,0 +1,15 @@
+Please|1986|https://open.spotify.com/album/0M4ETXYQ6hEapPpGf6gRRM
+Actually|1987|https://open.spotify.com/album/0p5QwhEke5P9mFY4CY9u4j
+Introspective|1988|https://open.spotify.com/album/4d0V4C5pHQA5G5PjP1FuNH
+Behaviour|1990|https://open.spotify.com/album/23uqrSQB0iXBCRx2Zc8STp
+Very|1993|https://open.spotify.com/album/07uNSYzqpDPo9j0CXbQMb6
+Bilingual|1996|https://open.spotify.com/album/2g3jo7uUI0NFGJmkYle2gO
+Nightlife|1999|https://open.spotify.com/album/6kFbWrGxwCFq4SL5ShVNjU
+Release|2002|https://open.spotify.com/album/5DNscI4sR2hB7fJs1ZDjeL
+Fundamental|2006|https://open.spotify.com/album/3SOZ6biqPwtxNgvrxy9bvN
+Yes|2009|https://open.spotify.com/album/1GIu3azQ9odqyZNocHTcq0
+Elysium|2012|https://open.spotify.com/album/1OCBWSajbQrwLY3EZal8zi
+Electric|2013|https://open.spotify.com/album/3Qk4UEX3E3rGtjZ9zdcVRa
+Super|2016|https://open.spotify.com/album/3bnWNAdAAjei0fHLoVMQXf
+Hotspot|2020|https://open.spotify.com/album/1dvGwLWZYHVEykh5Ibjzgg
+Nonetheless|2024|https://open.spotify.com/album/4kRlRxwCZ0SeRxvjGgVVaj

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pet Shop Boys</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:8px;
+    font-size:14px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 16px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pet Shop Boys</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">Synth-pop e ironía británica: Neil Tennant y Chris Lowe, casi cuatro décadas reinventando la pista de baile.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@officialpetshopboys";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Please","anio":"1986","spotifyUrl":"https://open.spotify.com/album/0M4ETXYQ6hEapPpGf6gRRM","cover":"./covers/cover-0.jpg","tracks":[{"title":"Two Divided by Zero - 2018 Remaster","spotifyId":"4nY3ZwmRfFmx1Jd84XltvY"},{"title":"West End Girls - 2018 Remaster","spotifyId":"2lwnmAQ7VLWmdHA17MHf9G"},{"title":"Opportunities (Let's Make Lots of Money) - 2018 Remaster","spotifyId":"5x2eb5JMao5Z94EzUiXjOa"},{"title":"Love Comes Quickly - 2018 Remaster","spotifyId":"7gpg8xck65nC8JhT1hElHL"},{"title":"Suburbia - 2018 Remaster","spotifyId":"6Jum3wyXPs9bAzq3BWy7y9"},{"title":"Opportunities (Let's Make Lots of Money) - Reprise; 2018 Remaster","spotifyId":"0TF4E9Hop3uXlxexiSEnXT"},{"title":"Tonight Is Forever - 2018 Remaster","spotifyId":"5z3p14HgiTqZprzCJynIdr"},{"title":"Violence - 2018 Remaster","spotifyId":"53i0u2bn9AFOoIW7sO1Tok"},{"title":"I Want a Lover - 2018 Remaster","spotifyId":"5WU15ecoVTRckTTDvczyRR"},{"title":"Later Tonight - 2018 Remaster","spotifyId":"0r5zYFy0YoTxKYRB7Wxc5W"},{"title":"Why Don't We Live Together? - 2018 Remaster","spotifyId":"16lXC129esbXL0P15dsyQ4"}]},{"titulo":"Actually","anio":"1987","spotifyUrl":"https://open.spotify.com/album/0p5QwhEke5P9mFY4CY9u4j","cover":"./covers/cover-1.jpg","tracks":[{"title":"One More Chance - 2018 Remaster","spotifyId":"5GOBlnqd5yjo6Xxf4kC7t5"},{"title":"What Have I Done to Deserve This? (with Dusty Springfield) - 2018 Remaster","spotifyId":"3YoGV9ERBbuyuHDJQLN52F"},{"title":"Shopping - 2018 Remaster","spotifyId":"0iPVDswCag9PdyLQIHoTHV"},{"title":"Rent - 2018 Remaster","spotifyId":"2O2JeJk7j2an1ITDi5A5MK"},{"title":"Hit Music - 2018 Remaster","spotifyId":"5hc0Ayh9WPmMgzv6Cp3mL7"},{"title":"It Couldn't Happen Here - 2018 Remaster","spotifyId":"5dgvEGSCQ5mh2nztb6CDTA"},{"title":"It's a Sin - 2018 Remaster","spotifyId":"1uO9ddZxqmSnHWwUVVSLom"},{"title":"I Want to Wake Up - 2018 Remaster","spotifyId":"1V0pAILSmH1wTHaE4uVi8n"},{"title":"Heart - 2018 Remaster","spotifyId":"5YwQi4PLA13cMhji9sxlnD"},{"title":"King's Cross - 2018 Remaster","spotifyId":"3zzJ1TPoMQJdAMbjy3DIb8"}]},{"titulo":"Introspective","anio":"1988","spotifyUrl":"https://open.spotify.com/album/4d0V4C5pHQA5G5PjP1FuNH","cover":"./covers/cover-2.jpg","tracks":[{"title":"Left to My Own Devices - 2018 Remaster","spotifyId":"5ZbIlWjCC7qK6O6gRLgEPW"},{"title":"I Want a Dog - 2018 Remaster","spotifyId":"4V25h5rl8ZO685J9rkopHr"},{"title":"Domino Dancing - 2018 Remaster","spotifyId":"6ZT1v8YUeFN8n587DvzZXl"},{"title":"I'm Not Scared - 2018 Remaster","spotifyId":"6J7CqQgbcBApgbexN8tmkz"},{"title":"Always on My Mind / In My House - 2018 Remaster","spotifyId":"21akfkoBT6W38XFeNYX57d"},{"title":"It's Alright - 2018 Remaster","spotifyId":"3durhUnVGZ0bAgyIRm5eFy"}]},{"titulo":"Behaviour","anio":"1990","spotifyUrl":"https://open.spotify.com/album/23uqrSQB0iXBCRx2Zc8STp","cover":"./covers/cover-3.jpg","tracks":[{"title":"Being Boring - 2018 Remaster","spotifyId":"1R6clZCzGc3SZRp22ZKXKt"},{"title":"This Must Be the Place I Waited Years to Leave - 2018 Remaster","spotifyId":"3e8lghq4L7eO4rDVVDr3qq"},{"title":"To Face the Truth - 2018 Remaster","spotifyId":"1sUonctr1Se4Pm0f8y6QPp"},{"title":"How Can You Expect to Be Taken Seriously? - 2018 Remaster","spotifyId":"0QE8TYTPtvs6DIMSNdWJbt"},{"title":"Only the Wind - 2018 Remaster","spotifyId":"1Gr6AvdZWu0K5xYycBQcvK"},{"title":"My October Symphony - 2018 Remaster","spotifyId":"0BQq7VzAFg90i0OnoADTKr"},{"title":"So Hard - 2018 Remaster","spotifyId":"1TW8RQe5aJndNNbPaY2pRx"},{"title":"Nervously - 2018 Remaster","spotifyId":"11F7gB5eld7DvaED9lUzci"},{"title":"The End of the World - 2018 Remaster","spotifyId":"3XpYUoL8QGxRdoelerg1Rn"},{"title":"Jealousy - 2018 Remaster","spotifyId":"0lZL5nMu8vz2zHsVUQCpWn"}]},{"titulo":"Very","anio":"1993","spotifyUrl":"https://open.spotify.com/album/07uNSYzqpDPo9j0CXbQMb6","cover":"./covers/cover-4.jpg","tracks":[{"title":"Can You Forgive Her? - 2018 Remaster","spotifyId":"1pCoOsHYlu5UYyyKOB06nj"},{"title":"I Wouldn't Normally Do This Kind of Thing - 2018 Remaster","spotifyId":"77hIKC5EgnAosW3q4CejRu"},{"title":"Liberation - 2018 Remaster","spotifyId":"2T2Sv7STgG8wDG0R9Ve4iR"},{"title":"A Different Point of View - 2018 Remaster","spotifyId":"0XN6FMn6GDelvQaJkaBHB4"},{"title":"Dreaming of the Queen - 2018 Remaster","spotifyId":"0kCaQgAgguP9dy1bhyE5jL"},{"title":"Yesterday When I Was Mad - 2018 Remaster","spotifyId":"6la4wM3WyANs1DAwL8JxOg"},{"title":"The Theatre - 2018 Remaster","spotifyId":"3DZvNaKDObACLkptC43mnf"},{"title":"One and One Make Five - 2018 Remaster","spotifyId":"5W45CwXQgFyVJvDDPQBRBX"},{"title":"To Speak Is a Sin - 2018 Remaster","spotifyId":"2Ij59eFRm0NkjbyDiuT1if"},{"title":"Young Offender - 2018 Remaster","spotifyId":"0kFAlzqIHHnBGswGFsLTTo"},{"title":"One in a Million - 2018 Remaster","spotifyId":"4YXrHEqBMeFuQWVswYDz2v"},{"title":"Go West - 2018 Remaster; Hidden Track","spotifyId":"1Tl6ruPji9K2xLNx0SxoIZ"}]},{"titulo":"Bilingual","anio":"1996","spotifyUrl":"https://open.spotify.com/album/2g3jo7uUI0NFGJmkYle2gO","cover":"./covers/cover-5.jpg","tracks":[{"title":"Discoteca - 2018 Remaster","spotifyId":"7tuWXcDRxfHkKmfsnpXbKE"},{"title":"Single - 2018 Remaster","spotifyId":"6FssRQ5tBZF8MhW3pOrYyd"},{"title":"Metamorphosis - 2018 Remaster","spotifyId":"2c0ywOqNHecuU8Nn3AH9Hj"},{"title":"Electricity - 2018 Remaster","spotifyId":"76OHHazdebiEdf7oRQOAw1"},{"title":"Se a vida é (that’s the way life is) - 2018 Remaster","spotifyId":"0JmioozDlhrDj8UtAcUmv6"},{"title":"It Always Comes as a Surprise - 2018 Remaster","spotifyId":"79hx5uNaGCv0h2P6djd0pt"},{"title":"A Red Letter Day - 2018 Remaster","spotifyId":"18LYVSOTGpP9TSBwgdg1W7"},{"title":"Up Against It - 2018 Remaster","spotifyId":"3VxKR1CDWmlUVwXJ0LngNU"},{"title":"The Survivors - 2018 Remaster","spotifyId":"485ExwdyEaZMvvXZMoTXMc"},{"title":"Before - 2018 Remaster","spotifyId":"6oDgCzfJoBvaMa9Gsu4gMv"},{"title":"To Step Aside - 2018 Remaster","spotifyId":"5WVzK4Au8qNObDY0uw95Yx"},{"title":"Saturday Night Forever - 2018 Remaster","spotifyId":"1TpVlcpgWz1WxmyH8bNS1d"}]},{"titulo":"Nightlife","anio":"1999","spotifyUrl":"https://open.spotify.com/album/6kFbWrGxwCFq4SL5ShVNjU","cover":"./covers/cover-6.jpg","tracks":[{"title":"For Your Own Good - 2017 Remaster","spotifyId":"5KAP48w7ca8Zp4sN02dBsw"},{"title":"Closer to Heaven - 2017 Remaster","spotifyId":"19kIymI2fLR3jKB5RYnuRn"},{"title":"I Don't Know What You Want but I Can't Give It Any More - 2017 Remaster","spotifyId":"28c1jWlqb9dM8vAe2uZqR8"},{"title":"Happiness Is an Option - 2017 Remaster","spotifyId":"5yHwzbw0ocpsIWV9SvNqQJ"},{"title":"You Only Tell Me You Love Me When You're Drunk - 2017 Remaster","spotifyId":"2ZYXViyjq5opgQ1bLELPwK"},{"title":"Vampires - 2017 Remaster","spotifyId":"2Sw1cfyf85KuHj7VQuKE0K"},{"title":"Radiophonic - 2017 Remaster","spotifyId":"45Vb5ScfoAC1EpZtcy0NC5"},{"title":"The Only One - 2017 Remaster","spotifyId":"0CAeUUrxPDIMqtfiz4Qb2C"},{"title":"Boy Strange - 2017 Remaster","spotifyId":"7tGz4VOxP5fvrDdXKUx6Z7"},{"title":"In Denial - 2017 Remaster","spotifyId":"4JoDluKfTGKFIWSpdutUG3"},{"title":"New York City Boy - 2017 Remaster","spotifyId":"6IiJxYhJSA50gWUvdII9RY"},{"title":"Footsteps - 2017 Remaster","spotifyId":"4EbLGzczEcWUN6H3xXWMAb"}]},{"titulo":"Release","anio":"2002","spotifyUrl":"https://open.spotify.com/album/5DNscI4sR2hB7fJs1ZDjeL","cover":"./covers/cover-7.jpg","tracks":[{"title":"Home and Dry - 2017 Remaster","spotifyId":"1nz7SDz33DD9l3p3nbc94h"},{"title":"I Get Along - 2017 Remaster","spotifyId":"0D6L5QVBqCCKLO9cKY9qJ9"},{"title":"Birthday Boy - 2017 Remaster","spotifyId":"1wIJtYPSnUjw2KRnZfxr8k"},{"title":"London - 2017 Remaster","spotifyId":"3rfqSFRdZtW7b929onN8dH"},{"title":"E-Mail - 2017 Remaster","spotifyId":"57l54XBLvrowaSKMSADkju"},{"title":"The Samurai in Autumn - 2017 Remaster","spotifyId":"6BsOUWgYVGDyVNi8xK5zYv"},{"title":"Love Is a Catastrophe - 2017 Remaster","spotifyId":"5Z8ZX7J4bWkQPvGcnqkGM1"},{"title":"Here - 2017 Remaster","spotifyId":"5wfUL3VjqVhZIRO4ROqdMy"},{"title":"The Night I Fell in Love - 2017 Remaster","spotifyId":"5wxQekdmpqYg7FFtSYl1Hg"},{"title":"You Choose - 2017 Remaster","spotifyId":"29hTQRSmqCvmyScTE2FxRO"}]},{"titulo":"Fundamental","anio":"2006","spotifyUrl":"https://open.spotify.com/album/3SOZ6biqPwtxNgvrxy9bvN","cover":"./covers/cover-8.jpg","tracks":[{"title":"Psychological - 2017 Remaster","spotifyId":"3m57585xCcuQdYUIygWFuj"},{"title":"The Sodom and Gomorrah Show - 2017 Remaster","spotifyId":"3dFuMqx7e5X442sujdjf5a"},{"title":"I Made My Excuses and Left - 2017 Remaster","spotifyId":"5AfCvUSZcSDfFEmuLqiPgZ"},{"title":"Minimal - 2017 Remaster","spotifyId":"4H0xBhZnhL8SGET4xk3XUU"},{"title":"Numb - 2017 Remaster","spotifyId":"0Ej9q9sYL4Z9kdNEdqvlNf"},{"title":"God Willing - 2017 Remaster","spotifyId":"5pEKr8Zsxiv5sjCfhvYGTE"},{"title":"Luna Park - 2017 Remaster","spotifyId":"1SJJT1dzLCoRbFpCdamjrZ"},{"title":"I'm with Stupid - 2017 Remaster","spotifyId":"6xDpNY3YS2WOkHVXXiPRh9"},{"title":"Casanova in Hell - 2017 Remaster","spotifyId":"6vk3qayFOjRaQ4IMsPvDxR"},{"title":"Twentieth Century - 2017 Remaster","spotifyId":"3aw4X1PksLAEARLqNYzBk3"},{"title":"Indefinite Leave to Remain - 2017 Remaster","spotifyId":"61tlfrhkYU0nhADbN1p27i"},{"title":"Integral - 2017 Remaster","spotifyId":"0AabmXeuZXaftVolja8rBH"}]},{"titulo":"Yes","anio":"2009","spotifyUrl":"https://open.spotify.com/album/1GIu3azQ9odqyZNocHTcq0","cover":"./covers/cover-9.jpg","tracks":[{"title":"Love etc. - 2018 Remaster","spotifyId":"6JHqLPzfC3zjtsaWeQ0ApO"},{"title":"All over the World - 2018 Remaster","spotifyId":"1jWoa8s6OnK4VWWAkQoB70"},{"title":"Beautiful People - 2018 Remaster","spotifyId":"5w5C8YEduAvR2i9UqABJyq"},{"title":"Did You See Me Coming? - 2018 Remaster","spotifyId":"4pweAUqP6MbGNwhLDqFNXw"},{"title":"Vulnerable - 2018 Remaster","spotifyId":"5ONRRNswbYjD9aIawPqj5o"},{"title":"More Than a Dream - 2018 Remaster","spotifyId":"0spc8ixHV9Dvo8uAupPoOS"},{"title":"Building a Wall - 2018 Remaster","spotifyId":"3op2eZ2BOQSXVGXfe4qomb"},{"title":"King of Rome - 2018 Remaster","spotifyId":"66V13Cd4VdEoo8KztLHXDp"},{"title":"Pandemonium - 2018 Remaster","spotifyId":"0m3iQzObu9pE3EwHonXjgx"},{"title":"The Way It Used to Be - 2018 Remaster","spotifyId":"4QSWaRTQKXs0RI0fYYii2O"},{"title":"Legacy - 2018 Remaster","spotifyId":"0GhmoUlqWxOQK45TB8pwL1"}]},{"titulo":"Elysium","anio":"2012","spotifyUrl":"https://open.spotify.com/album/1OCBWSajbQrwLY3EZal8zi","cover":"./covers/cover-10.jpg","tracks":[{"title":"Leaving - 2017 Remaster","spotifyId":"1cGriVz3ZrDxSdaTfYix3w"},{"title":"Invisible - 2017 Remaster","spotifyId":"6f6OKw5kfctOuorBs9gaWQ"},{"title":"Winner - 2017 Remaster","spotifyId":"6Gh4idnaWVgFvdg6JzHK6L"},{"title":"Your Early Stuff - 2017 Remaster","spotifyId":"3LWuvsFiQmiwNhWAp5CkcK"},{"title":"A Face like That - 2017 Remaster","spotifyId":"4TjBlJa3XKYUvRGwdfonrO"},{"title":"Breathing Space - 2017 Remaster","spotifyId":"5WcDYKFlWNwdTdimh2hyVw"},{"title":"Ego Music - 2017 Remaster","spotifyId":"2q4djinGfIrIDapYJiwwtw"},{"title":"Hold On - 2017 Remaster","spotifyId":"5xDmywd3Pp32vYBAedRCkl"},{"title":"Give It a Go - 2017 Remaster","spotifyId":"5FNtBNjernBcJdzZQlrAMH"},{"title":"Memory of the Future - 2017 Remaster","spotifyId":"48s38r026lwmz3pP1llxYd"},{"title":"Everything Means Something - 2017 Remaster","spotifyId":"2LEyyrUWz5ELdnHal4TXYm"},{"title":"Requiem in Denim and Leopardskin - 2017 Remaster","spotifyId":"7x0hnRYcPCg9nbVoFAnl1h"}]},{"titulo":"Electric","anio":"2013","spotifyUrl":"https://open.spotify.com/album/3Qk4UEX3E3rGtjZ9zdcVRa","cover":"./covers/cover-11.jpg","tracks":[{"title":"Axis","spotifyId":"43T8HAsUSEzzri8PyrdJyM"},{"title":"Bolshy","spotifyId":"3HDgKJMQ9sns4hZuVNfmmq"},{"title":"Love is a Bourgeois Construct","spotifyId":"2n9QuRwUd4mRnUqmwgsWk2"},{"title":"Fluorescent","spotifyId":"5DnwSD60NZfheaGDcXkgIV"},{"title":"Inside a Dream","spotifyId":"4rfLTWLWeCJdPPmLtQOzvD"},{"title":"The Last to Die","spotifyId":"2v969AWyC4jqArJyXV07GY"},{"title":"Shouting in the Evening","spotifyId":"7ycNROzW4wiihaskq5ceXy"},{"title":"Thursday (feat. Example)","spotifyId":"41dBDNxppSXkGDaGpvHeSj"},{"title":"Vocal","spotifyId":"3cd7iNWSLvGnMNuLTaTcCu"},{"title":"Album Track By Track - Band and Producer Commentary","spotifyId":"6lHcYCPkc5HVg0gsJRRmv5"}]},{"titulo":"Super","anio":"2016","spotifyUrl":"https://open.spotify.com/album/3bnWNAdAAjei0fHLoVMQXf","cover":"./covers/cover-12.jpg","tracks":[{"title":"Happiness","spotifyId":"4NMwXstJJX3uGoayoooa5V"},{"title":"The Pop Kids","spotifyId":"7vptsQ6y1CalDnx4hngiUN"},{"title":"Twenty-something","spotifyId":"3hsXKo90l3h0Mx6xXhHuvI"},{"title":"Groovy","spotifyId":"6rjZUo6M8mGiV3zTzkEKm5"},{"title":"The Dictator Decides","spotifyId":"1zSQm11c1RGAgA2W0yCK8u"},{"title":"Pazzo!","spotifyId":"6DpThb4FgtxfP2wHnxsyjJ"},{"title":"Inner Sanctum","spotifyId":"54HsrnIEeuGoAQIAo4oPwS"},{"title":"Undertow","spotifyId":"32qn0fMhxki1BEaJTbKfz3"},{"title":"Sad Robot World","spotifyId":"1QWRgHn79xlfwA8P8yM30D"},{"title":"Say It to Me","spotifyId":"2T8bM2Po87katY9ErYI8mm"},{"title":"Burn","spotifyId":"0YahrrDocHMTXtQ5soy6Q4"},{"title":"Into Thin Air","spotifyId":"4TlFV4fyVywm6a2nmxIndM"}]},{"titulo":"Hotspot","anio":"2020","spotifyUrl":"https://open.spotify.com/album/1dvGwLWZYHVEykh5Ibjzgg","cover":"./covers/cover-13.jpg","tracks":[{"title":"Will-o-the-wisp","spotifyId":"2J3ezHewTtDZA5KXJdJto3"},{"title":"You are the one","spotifyId":"1fLfTsYrErbKIJfqRjbyNB"},{"title":"Happy people","spotifyId":"6V4A11Gm3VDSenYCbmhMd1"},{"title":"Dreamland (feat. Years & Years) - 2023 Remaster","spotifyId":"5lsM03LY7LalQibKCVZFVC"},{"title":"Hoping for a miracle","spotifyId":"6dmNqhpbSCU0wKPcj5UhJT"},{"title":"I don't wanna","spotifyId":"6uQgW2ljAejqD4C6J6THsH"},{"title":"Monkey business","spotifyId":"23Ecwv6NPU6ta47Jt3h3ho"},{"title":"Only the dark","spotifyId":"3OxzZmCgusFx4yy7AvrTQk"},{"title":"Burning the heather","spotifyId":"61qusovz0pjShd1pk4gRcr"},{"title":"Wedding in Berlin","spotifyId":"3jism2Nqzg1XhA7J8XZN8x"}]},{"titulo":"Nonetheless","anio":"2024","spotifyUrl":"https://open.spotify.com/album/4kRlRxwCZ0SeRxvjGgVVaj","cover":"./covers/cover-14.jpg","tracks":[{"title":"Loneliness","spotifyId":"6ZNXgoeANOXuk21U9IujVZ"},{"title":"Feel","spotifyId":"0itChQbLvxQzEk3wp6nEMP"},{"title":"Why am I dancing?","spotifyId":"5ETfv7eZ4gHDrSK2MbyZbC"},{"title":"New London boy","spotifyId":"4cICGoff2F8uTr8JbcGFwt"},{"title":"Dancing star","spotifyId":"3UUnDEpvIEJrYNVESeEVR4"},{"title":"A new bohemia","spotifyId":"0szV4o94frQoWnhX6iiT4N"},{"title":"The schlager hit parade","spotifyId":"73X6eceEl7ReNmqCVYLoOI"},{"title":"The secret of happiness","spotifyId":"04cjzjSxRG6aGVC90vCnaJ"},{"title":"Bullet for Narcissus","spotifyId":"6yPlUjmYnzmElSvg2I7enw"},{"title":"Love is the law","spotifyId":"6SyHYJs1ZG8bYqwSmLAYsu"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
