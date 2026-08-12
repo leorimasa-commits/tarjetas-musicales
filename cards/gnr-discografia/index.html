@@ -80,17 +80,26 @@
   .track-embed{ display:none; padding:6px 0 10px 18px; }
   .track-embed.open{ display:block; }
   .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
 </style>
 </head>
 <body>
 <header>
   <h1>Guns N' Roses</h1>
   <p class="subtitle">Discografía</p>
-  <p class="intro">Guns N' Roses fue una de las bandas de hard rock más grandes de su generación, con una explosión inicial que marcó una época y una carrera después llena de vueltas. Acá está su discografía de estudio completa, de punta a punta.</p>
+  <p class="intro">Guns N’ Roses fue una de las bandas de hard rock más grandes de su generación, con una explosión inicial que marcó una época y una carrera después llena de vueltas. Acá está su discografía de estudio completa, de punta a punta.</p>
   <div id="ytLinkWrap"></div>
 </header>
 
 <div class="list" id="list"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://onetapmusic.com.ar" target="_blank" rel="noopener">🌐 onetapmusic.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
 
 <script>
   document.documentElement.setAttribute('data-theme', "regalo");
