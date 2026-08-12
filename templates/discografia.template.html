@@ -81,8 +81,6 @@
   .track-embed.open{ display:block; }
   .track-embed iframe{ width:100%; border-radius:10px; border:none; }
 
-  .header-actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:14px; }
-  .wa-share{ background:#25D366; border-color:rgba(255,255,255,.3); }
 </style>
 </head>
 <body>
@@ -90,7 +88,7 @@
   <h1>{{ARTISTA}}</h1>
   <p class="subtitle">Discografía</p>
   <p class="intro">{{INTRO}}</p>
-  <div class="header-actions" id="headerActions"></div>
+  <div id="ytLinkWrap"></div>
 </header>
 
 <div class="list" id="list"></div>
@@ -99,11 +97,10 @@
   document.documentElement.setAttribute('data-theme', "{{THEME}}");
 
   const YOUTUBE_URL = "{{YOUTUBE_URL}}";
-  const shareText = `🎧 Discografía de "${document.title}" — Escuchá acá: ${location.href}`;
-  const waHref = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-  document.getElementById('headerActions').innerHTML =
-    (YOUTUBE_URL ? `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>` : '') +
-    `<a class="yt-link wa-share" href="${waHref}" target="_blank" rel="noopener">📱 Enviar a mi WhatsApp</a>`;
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
 
   const ALBUMS = {{ALBUMS_JSON}};
 
