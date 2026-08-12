@@ -12,3 +12,4 @@ divididos-discografia|Divididos|regalo
 rolling-stones-discografia|The Rolling Stones|regalo
 pink-floyd-discografia|Pink Floyd|regalo
 pet-shop-boys-discografia|Pet Shop Boys|regalo
+depeche-mode-discografia|Depeche Mode|evento
