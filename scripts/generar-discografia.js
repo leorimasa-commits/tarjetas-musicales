@@ -80,6 +80,7 @@ async function main() {
   const tema = TEMAS.includes(args.tema) ? args.tema : 'regalo';
   const slug = slugify(args.slug || args.artista + '-discografia');
   const baseUrl = (args.baseUrl || '').replace(/\/$/, '');
+  const slogan = args.slogan || 'Escaneá. Escuchá. Repetí.';
 
   const albumesPath = path.resolve(args.albumes);
   if (!fs.existsSync(albumesPath)) {
@@ -120,6 +121,7 @@ async function main() {
     .replaceAll('{{ARTISTA}}', escapeHtml(args.artista))
     .replaceAll('{{THEME}}', tema)
     .replace('{{INTRO}}', escapeHtml(args.intro))
+    .replaceAll('{{SLOGAN}}', escapeHtml(slogan))
     .replace('"{{YOUTUBE_URL}}"', JSON.stringify(args.youtube || ''))
     .replace('{{ALBUMS_JSON}}', JSON.stringify(albums));
 
