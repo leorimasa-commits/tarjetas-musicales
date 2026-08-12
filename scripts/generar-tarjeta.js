@@ -8,8 +8,10 @@
  *     --subtitulo "Feliz cumpleaños" \
  *     --mensaje "Que este año esté lleno de..." \
  *     --tema cumpleanos \
- *     --audio "C:\ruta\a\cancion.mp3" \
- *     --baseUrl "https://usuario.github.io/tarjetas-musicales"
+ *     --audio "C:\ruta\a\cancion.mp3"
+ *
+ * --baseUrl es opcional: por defecto usa "https://onetapmusic.com.ar" (el dominio
+ * publicado). Pasalo solo si querés generar el QR contra otro sitio (ej. de prueba).
  *
  * --audio es opcional: si no lo pasás, la tarjeta abre directo mostrando la tapa y los
  * botones (si hay datos de disco), sin overlay de "tocar para escuchar" ni controles de audio.
@@ -65,7 +67,7 @@ async function main() {
   const slug = slugify(args.slug || args.titulo);
   const subtitulo = args.subtitulo || '';
   const mensaje = args.mensaje || '';
-  const baseUrl = (args.baseUrl || '').replace(/\/$/, '');
+  const baseUrl = (args.baseUrl || 'https://onetapmusic.com.ar').replace(/\/$/, '');
 
   const cardDir = path.resolve(__dirname, '..', 'cards', slug);
   fs.mkdirSync(cardDir, { recursive: true });

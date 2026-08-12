@@ -44,15 +44,14 @@ node scripts/generar-tarjeta.js \
   --subtitulo "Feliz cumpleaños" \
   --mensaje "Que este año esté lleno de música y buenos momentos." \
   --tema cumpleanos \
-  --audio "C:\ruta\a\cancion.mp3" \
-  --baseUrl "https://tu-usuario.github.io/tarjetas-musicales"
+  --audio "C:\ruta\a\cancion.mp3"
 ```
 
 Temas disponibles: `cumpleanos`, `fiesta`, `evento`, `regalo`.
 
-Si todavía no publicaste el sitio, podés omitir `--baseUrl`: se genera la tarjeta igual, y
-después corrés el mismo comando de nuevo (ya con `--baseUrl`) para que te arme el QR con la URL
-correcta.
+`--baseUrl` es opcional: por defecto usa `https://onetapmusic.com.ar` (el dominio ya publicado),
+así que no hace falta pasarlo. Usalo solo si querés generar el QR contra otro sitio (por ejemplo
+uno de prueba).
 
 ## Probar localmente antes de publicar
 
@@ -107,14 +106,14 @@ node scripts/generar-discografia.js \
   --artista "Nombre del Artista" \
   --tema regalo \
   --albumes "assets/artista/albums.txt" \
-  --youtube "https://youtube.com/@canaloficial" \
-  --baseUrl "https://tu-usuario.github.io/tarjetas-musicales"
+  --youtube "https://youtube.com/@canaloficial"
 ```
 
 El archivo de `--albumes` tiene una línea por disco: `Título|Año|LinkDeSpotify`. El script
 busca automáticamente la tapa y la lista de temas de cada uno. `--youtube` es opcional y
-solo debe usarse con un canal oficial verificado (nunca de fans). Ver el manual para el
-detalle paso a paso.
+solo debe usarse con un canal oficial verificado (nunca de fans). `--baseUrl` también es
+opcional (default `https://onetapmusic.com.ar`), igual que en `generar-tarjeta.js`. Ver el
+manual para el detalle paso a paso.
 
 ## Notas sobre el audio
 
