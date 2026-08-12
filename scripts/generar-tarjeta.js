@@ -68,6 +68,9 @@ async function main() {
   const subtitulo = args.subtitulo || '';
   const mensaje = args.mensaje || '';
   const baseUrl = (args.baseUrl || 'https://onetapmusic.com.ar').replace(/\/$/, '');
+  const slogan = args.slogan || 'Escaneá. Escuchá. Repetí.';
+  const ogDesc = `"${slogan}" — OneTapMusic`;
+  const ogUrl = `${baseUrl}/cards/${slug}/`;
 
   const cardDir = path.resolve(__dirname, '..', 'cards', slug);
   fs.mkdirSync(cardDir, { recursive: true });
@@ -114,7 +117,7 @@ async function main() {
   let html = fs.readFileSync(templatePath, 'utf8');
 
   const escapeHtml = (s) => String(s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
   const escapeJs = (s) => JSON.stringify(String(s || ''));
 
@@ -124,12 +127,23 @@ async function main() {
     html = html.replace(/<!--IF_AUDIO-->[\s\S]*?<!--\/IF_AUDIO-->/g, '');
   }
 
+  const ogImage = coverFileName ? `${baseUrl}/cards/${slug}/${coverFileName}` : '';
+  if (ogImage) {
+    html = html.replaceAll('<!--IF_OG_IMAGE-->', '').replaceAll('<!--/IF_OG_IMAGE-->', '');
+  } else {
+    html = html.replace(/<!--IF_OG_IMAGE-->[\s\S]*?<!--\/IF_OG_IMAGE-->/g, '');
+  }
+
   html = html
     .replaceAll('{{TITLE}}', escapeHtml(args.titulo))
     .replaceAll('{{SUBTITLE}}', escapeHtml(subtitulo))
     .replaceAll('{{MESSAGE}}', escapeHtml(mensaje))
     .replaceAll('{{AUDIO_SRC}}', './' + audioFileName)
     .replaceAll('{{THEME}}', tema)
+    .replaceAll('{{THEME_COLOR}}', THEME_COLORS[tema] || '#000000')
+    .replaceAll('{{OG_DESC}}', escapeHtml(ogDesc))
+    .replaceAll('{{OG_IMAGE}}', escapeHtml(ogImage))
+    .replaceAll('{{OG_URL}}', escapeHtml(ogUrl))
     .replace('"{{ALBUM_NAME}}"', escapeJs(args.album))
     .replace('"{{ALBUM_ARTIST}}"', escapeJs(args.artist))
     .replace('"{{COVER_SRC}}"', escapeJs(coverFileName ? './' + coverFileName : ''))

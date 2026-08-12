@@ -117,13 +117,28 @@ async function main() {
   let html = fs.readFileSync(templatePath, 'utf8');
 
   const escapeHtml = (s) => String(s || '')
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  const ogDesc = `"${slogan}" — OneTapMusic`;
+  const ogUrl = `${baseUrl}/cards/${slug}/`;
+  const firstCover = albums.find(a => a.cover)?.cover || '';
+  const ogImage = firstCover ? `${baseUrl}/cards/${slug}/${firstCover.replace(/^\.\//, '')}` : '';
+
+  if (ogImage) {
+    html = html.replaceAll('<!--IF_OG_IMAGE-->', '').replaceAll('<!--/IF_OG_IMAGE-->', '');
+  } else {
+    html = html.replace(/<!--IF_OG_IMAGE-->[\s\S]*?<!--\/IF_OG_IMAGE-->/g, '');
+  }
 
   html = html
     .replaceAll('{{ARTISTA}}', escapeHtml(args.artista))
     .replaceAll('{{THEME}}', tema)
+    .replaceAll('{{THEME_COLOR}}', THEME_COLORS[tema] || '#000000')
     .replace('{{INTRO}}', escapeHtml(args.intro))
     .replaceAll('{{SLOGAN}}', escapeHtml(slogan))
+    .replaceAll('{{OG_DESC}}', escapeHtml(ogDesc))
+    .replaceAll('{{OG_IMAGE}}', escapeHtml(ogImage))
+    .replaceAll('{{OG_URL}}', escapeHtml(ogUrl))
     .replace('"{{YOUTUBE_URL}}"', JSON.stringify(args.youtube || ''))
     .replace('{{ALBUMS_JSON}}', JSON.stringify(albums));
 
