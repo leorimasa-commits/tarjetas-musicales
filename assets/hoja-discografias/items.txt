@@ -16,3 +16,4 @@ depeche-mode-discografia|Depeche Mode|evento
 u2-discografia|U2|regalo
 kiss-discografia|KISS|regalo
 ratones-paranoicos-discografia|Ratones Paranoicos|regalo
+attaque-77-discografia|Attaque 77|regalo
