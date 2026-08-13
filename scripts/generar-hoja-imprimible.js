@@ -51,8 +51,19 @@ function main() {
       console.error(`⚠️  cards/${slug}/qr.png no existe — generá esa tarjeta con --baseUrl primero.`);
       process.exit(1);
     }
-    const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg', 'covers/cover-0.jpg', 'covers/cover-0.png'];
-    const coverFile = candidatos.find(c => fs.existsSync(path.join(cardDir, c)));
+    const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg'];
+    let coverFile = candidatos.find(c => fs.existsSync(path.join(cardDir, c)));
+    if (!coverFile) {
+      // Tarjetas de discografía: el nombre de la tapa de cada álbum es estable
+      // (por ID de Spotify, no por posición), así que no se puede adivinar —
+      // se toma la del primer álbum tal como quedó en el index.html generado.
+      const indexPath = path.join(cardDir, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        const html = fs.readFileSync(indexPath, 'utf8');
+        const m = html.match(/"cover":"(\.\/covers\/[^"]+)"/);
+        if (m) coverFile = m[1].replace(/^\.\//, '');
+      }
+    }
     return {
       titulo,
       tema: tema || 'regalo',

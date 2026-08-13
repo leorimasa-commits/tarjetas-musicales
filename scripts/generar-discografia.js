@@ -106,7 +106,11 @@ async function main() {
     if (coverUrl) {
       const imgRes = await fetch(coverUrl);
       const buf = Buffer.from(await imgRes.arrayBuffer());
-      coverFileName = `cover-${i}.jpg`;
+      // Nombre estable por álbum (no por posición): si se inserta un disco en
+      // el medio de la lista y se regenera, ningún archivo ya publicado
+      // cambia de contenido bajo el mismo nombre (evita imágenes cacheadas
+      // desactualizadas para quien ya había visitado la página).
+      coverFileName = `cover-${albumId}.jpg`;
       fs.writeFileSync(path.join(coversDir, coverFileName), buf);
     }
     const tracks = await fetchAlbumTracks(albumId);
