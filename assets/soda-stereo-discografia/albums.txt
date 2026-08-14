@@ -1,7 +1,7 @@
-Soda Stereo|1984|https://open.spotify.com/album/3i4nU0OIi7gMmXDEhG9ZRt
-Nada Personal|1985|https://open.spotify.com/album/0hyq754QnaKHYpH32QnWqs
-Signos|1986|https://open.spotify.com/album/7s2lDvm4FwnWE5RXEoY8Gi
-Doble Vida|1988|https://open.spotify.com/album/0mEY1U7SZdIwDWylFm2UC4
-Canción Animal|1990|https://open.spotify.com/album/3GoSlKTNcVOp1ZxE5OOXeN
-Dynamo|1992|https://open.spotify.com/album/4bfwXuecOmNVlPM5RStAiQ
-Sueño Stereo|1995|https://open.spotify.com/album/1A3VRbn7Kto2ov0LkSY0eg
+Soda Stereo|1984|https://open.spotify.com/album/3i4nU0OIi7gMmXDEhG9ZRt|https://tidal.com/browse/album/3347128|https://music.apple.com/us/album/soda-stereo/321883646
+Nada Personal|1985|https://open.spotify.com/album/0hyq754QnaKHYpH32QnWqs|https://tidal.com/browse/album/3347129|https://music.apple.com/us/album/nada-personal/321883378
+Signos|1986|https://open.spotify.com/album/7s2lDvm4FwnWE5RXEoY8Gi|https://tidal.com/browse/album/3347130|https://music.apple.com/us/album/signos/321882453
+Doble Vida|1988|https://open.spotify.com/album/0mEY1U7SZdIwDWylFm2UC4|https://tidal.com/browse/album/3347131|https://music.apple.com/us/album/doble-vida/321882524
+Canción Animal|1990|https://open.spotify.com/album/3GoSlKTNcVOp1ZxE5OOXeN|https://tidal.com/browse/album/3347132|https://music.apple.com/us/album/canci%C3%B3n-animal/321882757
+Dynamo|1992|https://open.spotify.com/album/4bfwXuecOmNVlPM5RStAiQ|https://tidal.com/browse/album/3347141|https://music.apple.com/us/album/dynamo/321884222
+Sueño Stereo|1995|https://open.spotify.com/album/1A3VRbn7Kto2ov0LkSY0eg|https://tidal.com/browse/album/3347134|https://music.apple.com/us/album/sue%C3%B1o-stereo/309452426

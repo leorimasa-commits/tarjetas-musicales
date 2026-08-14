@@ -1,10 +1,10 @@
-Got To Be There|1972|https://open.spotify.com/album/0F4XW0iBOhNFkbn1BuQ8cu
-Ben|1972|https://open.spotify.com/album/3xo2soey9XEBI5DlmT4KlQ
-Music & Me|1973|https://open.spotify.com/album/19vhLDr0Fw8Lja1I8xVV09
-Forever, Michael|1975|https://open.spotify.com/album/6leeBdAohG7zhybC3Cmu8W
-Off the Wall|1979|https://open.spotify.com/album/2ZytN2cY4Zjrr9ukb2rqTP
-Thriller|1982|https://open.spotify.com/album/2ANVost0y2y52ema1E9xAZ
-Bad|1987|https://open.spotify.com/album/3Us57CjssWnHjTUIXBuIeH
-Dangerous|1991|https://open.spotify.com/album/0oX4SealMgNXrvRDhqqOKg
-HIStory: Past, Present and Future, Book I|1995|https://open.spotify.com/album/3OBhnTLrvkoEEETjFA3Qfk
-Invincible|2001|https://open.spotify.com/album/52E4RP7XDzalpIrOgSTgiQ
+Got To Be There|1972|https://open.spotify.com/album/0F4XW0iBOhNFkbn1BuQ8cu|https://tidal.com/browse/album/77582899|https://music.apple.com/us/album/got-to-be-there/648508173
+Ben|1972|https://open.spotify.com/album/3xo2soey9XEBI5DlmT4KlQ|https://tidal.com/browse/album/77640606|https://music.apple.com/us/album/ben/1443228603
+Music & Me|1973|https://open.spotify.com/album/19vhLDr0Fw8Lja1I8xVV09|https://tidal.com/browse/album/35582201|https://music.apple.com/us/album/music-me/1443284801
+Forever, Michael|1975|https://open.spotify.com/album/6leeBdAohG7zhybC3Cmu8W|https://tidal.com/browse/album/35582110|https://music.apple.com/us/album/forever-michael/1444039101
+Off the Wall|1979|https://open.spotify.com/album/2ZytN2cY4Zjrr9ukb2rqTP|https://tidal.com/browse/album/19994074|https://music.apple.com/us/album/off-the-wall/186166282
+Thriller|1982|https://open.spotify.com/album/2ANVost0y2y52ema1E9xAZ|https://tidal.com/browse/album/1781800|https://music.apple.com/us/album/thriller/269572838
+Bad|1987|https://open.spotify.com/album/3Us57CjssWnHjTUIXBuIeH|https://tidal.com/browse/album/16953800|https://music.apple.com/us/album/bad/559334659
+Dangerous|1991|https://open.spotify.com/album/0oX4SealMgNXrvRDhqqOKg|https://tidal.com/browse/album/19193427|https://music.apple.com/us/album/dangerous/322847038
+HIStory: Past, Present and Future, Book I|1995|https://open.spotify.com/album/3OBhnTLrvkoEEETjFA3Qfk|https://tidal.com/browse/album/5279052|https://music.apple.com/us/album/history-past-present-and-future-book-i/310505551
+Invincible|2001|https://open.spotify.com/album/52E4RP7XDzalpIrOgSTgiQ|https://tidal.com/browse/album/19193410|https://music.apple.com/us/album/invincible/215738269
