@@ -60,11 +60,12 @@
   .album-info{ flex:1; min-width:0; }
   .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
   .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
   .album-link{
-    display:inline-flex; align-items:center; gap:6px; margin-top:8px;
-    font-size:14px; font-weight:700; color:var(--text); text-decoration:none;
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
     background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
-    padding:8px 16px; border-radius:20px;
+    padding:8px 14px; border-radius:20px;
   }
 
   details.tracklist{
@@ -144,13 +145,20 @@
           <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
         </details>`
       : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
     return `<div class="album">
         <div class="album-head">
           <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
           <div class="album-info">
             <div class="album-title">${esc(a.titulo)}</div>
             <div class="album-year">${esc(a.anio)}</div>
-            <a class="album-link" href="${a.spotifyUrl}" target="_blank" rel="noopener">▶ Escuchar en Spotify</a>
+            <div class="album-links">${links}</div>
           </div>
         </div>
         ${tracksHtml}

@@ -99,7 +99,10 @@ async function main() {
 
   const albums = [];
   for (let i = 0; i < lineas.length; i++) {
-    const [titulo, anio, spotifyUrl] = lineas[i].split('|').map(p => p.trim());
+    // Formato: Título|Año|SpotifyURL[|TidalURL[|AppleMusicURL]] — los dos
+    // últimos son opcionales, para artistas donde también querramos mostrar
+    // esos accesos directos.
+    const [titulo, anio, spotifyUrl, tidalUrl, appleMusicUrl] = lineas[i].split('|').map(p => p.trim());
     console.log(`(${i + 1}/${lineas.length}) Buscando portada y temas de "${titulo}"...`);
     const { albumId, coverUrl } = await fetchAlbumInfo(spotifyUrl);
     let coverFileName = '';
@@ -114,7 +117,13 @@ async function main() {
       fs.writeFileSync(path.join(coversDir, coverFileName), buf);
     }
     const tracks = await fetchAlbumTracks(albumId);
-    albums.push({ titulo, anio, spotifyUrl, cover: coverFileName ? `./covers/${coverFileName}` : '', tracks });
+    albums.push({
+      titulo, anio, spotifyUrl,
+      tidalUrl: tidalUrl || '',
+      appleMusicUrl: appleMusicUrl || '',
+      cover: coverFileName ? `./covers/${coverFileName}` : '',
+      tracks,
+    });
   }
 
   const templatePath = path.resolve(__dirname, '..', 'templates', 'discografia.template.html');

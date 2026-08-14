@@ -1,10 +1,10 @@
-Gulp!|1984|https://open.spotify.com/album/1yfbnWxr2stypbpB3K0547
-Oktubre|1986|https://open.spotify.com/album/0TmPRZoau8M0QIfnMgwrlI
-Un Baión para el Ojo Idiota|1988|https://open.spotify.com/album/6ETDkXNvthotL4pKkXFg4L
-¡Bang! ¡Bang!... Estás Liquidado|1989|https://open.spotify.com/album/0lafFIfGSFtYsXFIVoIyl5
-La Mosca y la Sopa|1991|https://open.spotify.com/album/1JZBc7tWO3m3ryyToiLTdj
-Lobo Suelto|1993|https://open.spotify.com/album/1cvN5QA28nC5QYpjoksMGe
-Cordero Atado|1993|https://open.spotify.com/album/3zUMPvVgeOb3Fx9SmTCU4m
-Luzbelito|1996|https://open.spotify.com/album/5kk3PbroAezGBPucpoN4oC
-Último Bondi a Finisterre|1998|https://open.spotify.com/album/4AavSPysvEBXOr2Bipzi7q
-Momo Sampler|2000|https://open.spotify.com/album/0omWExUGprwvcvYwGh3Vr0
+Gulp!|1984|https://open.spotify.com/album/1yfbnWxr2stypbpB3K0547|https://tidal.com/browse/album/336330650|https://music.apple.com/us/album/gulp/1722367046
+Oktubre|1986|https://open.spotify.com/album/0TmPRZoau8M0QIfnMgwrlI|https://tidal.com/browse/album/336347021|https://music.apple.com/us/album/oktubre/1259848101
+Un Baión para el Ojo Idiota|1988|https://open.spotify.com/album/6ETDkXNvthotL4pKkXFg4L|https://tidal.com/browse/album/336347046|https://music.apple.com/us/album/un-bai%C3%B3n-para-el-ojo-idiota/1722336096
+¡Bang! ¡Bang!... Estás Liquidado|1989|https://open.spotify.com/album/0lafFIfGSFtYsXFIVoIyl5|https://tidal.com/browse/album/336352200|https://music.apple.com/us/album/bang-bang-est%C3%A1s-liquidado/1722339994
+La Mosca y la Sopa|1991|https://open.spotify.com/album/1JZBc7tWO3m3ryyToiLTdj|https://tidal.com/browse/album/336369683|https://music.apple.com/us/album/la-mosca-y-la-sopa/1722348395
+Lobo Suelto|1993|https://open.spotify.com/album/1cvN5QA28nC5QYpjoksMGe|https://tidal.com/browse/album/336400011|https://music.apple.com/us/album/lobo-suelto/1259847855
+Cordero Atado|1993|https://open.spotify.com/album/3zUMPvVgeOb3Fx9SmTCU4m|https://tidal.com/browse/album/336405815|https://music.apple.com/us/album/cordero-atado/1722376490
+Luzbelito|1996|https://open.spotify.com/album/5kk3PbroAezGBPucpoN4oC|https://tidal.com/browse/album/336406198|https://music.apple.com/us/album/luzbelito/1722376358
+Último Bondi a Finisterre|1998|https://open.spotify.com/album/4AavSPysvEBXOr2Bipzi7q|https://tidal.com/browse/album/336548523|https://music.apple.com/us/album/%C3%BAltimo-bondi-a-finisterre/1722506162
+Momo Sampler|2000|https://open.spotify.com/album/0omWExUGprwvcvYwGh3Vr0|https://tidal.com/browse/album/336548633|https://music.apple.com/us/album/momo-sampler/1722550265
