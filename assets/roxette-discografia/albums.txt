@@ -1,11 +1,11 @@
-Pearls of Passion|1986|https://open.spotify.com/album/4Hz1AOijuFr5o98dfYxvMb
-Look Sharp!|1988|https://open.spotify.com/album/3ZbAooTInchkC9RH7SPKVb
-Joyride|1991|https://open.spotify.com/album/662hbnbu2PCANrex8fsGWz
-Tourism|1992|https://open.spotify.com/album/1P2oppTpVnLKCCeU9z5w1D
-Crash! Boom! Bang!|1994|https://open.spotify.com/album/4rBZcKJv4JVL3IZsWxj0WW
-Rarities|1995|https://open.spotify.com/album/6Uc2KpEmPosdPv1rWWHG1s
-Have a Nice Day|1999|https://open.spotify.com/album/52ANDFJY97RLWdEWDG9vTV
-Room Service|2001|https://open.spotify.com/album/6SzgQ8gDjo3OFZF38joUp0
-Charm School|2011|https://open.spotify.com/album/08f9FR5ZXSWA5OoK0SPIVs
-Travelling|2012|https://open.spotify.com/album/69C0Rfg7W7eWs4KvUBKqBq
-Good Karma|2016|https://open.spotify.com/album/4oUOi5aKtbDx2PNln1aUzU
+Pearls of Passion|1986|https://open.spotify.com/album/4Hz1AOijuFr5o98dfYxvMb|https://tidal.com/browse/album/135157727|https://music.apple.com/us/album/pearls-of-passion/949912381
+Look Sharp!|1988|https://open.spotify.com/album/3ZbAooTInchkC9RH7SPKVb|https://tidal.com/browse/album/217733492|https://music.apple.com/us/album/look-sharp-30th-anniversary-edition/1611167616
+Joyride|1991|https://open.spotify.com/album/662hbnbu2PCANrex8fsGWz|https://tidal.com/browse/album/201350084|https://music.apple.com/us/album/joyride-deluxe-version/693195453
+Tourism|1992|https://open.spotify.com/album/1P2oppTpVnLKCCeU9z5w1D|https://tidal.com/browse/album/275590182|https://music.apple.com/us/album/tourism-30th-anniversary-edition/1670528973
+Crash! Boom! Bang!|1994|https://open.spotify.com/album/4rBZcKJv4JVL3IZsWxj0WW|https://tidal.com/browse/album/434395780|https://music.apple.com/us/album/crash-boom-bang-30th-anniversary-edition/1812890844
+Rarities|1995|https://open.spotify.com/album/6Uc2KpEmPosdPv1rWWHG1s|https://tidal.com/browse/album/61205352|https://music.apple.com/us/album/rarities/1117399783
+Have a Nice Day|1999|https://open.spotify.com/album/52ANDFJY97RLWdEWDG9vTV|https://tidal.com/browse/album/514770484|https://music.apple.com/us/album/have-a-nice-day-extended-version/6774107630
+Room Service|2001|https://open.spotify.com/album/6SzgQ8gDjo3OFZF38joUp0|https://tidal.com/browse/album/134012487|https://music.apple.com/us/album/room-service-deluxe-version/949908656
+Charm School|2011|https://open.spotify.com/album/08f9FR5ZXSWA5OoK0SPIVs|https://tidal.com/browse/album/428820627|https://music.apple.com/us/album/charm-school/1807542752
+Travelling|2012|https://open.spotify.com/album/69C0Rfg7W7eWs4KvUBKqBq|https://tidal.com/browse/album/14166064|https://music.apple.com/us/album/travelling/693192399
+Good Karma|2016|https://open.spotify.com/album/4oUOi5aKtbDx2PNln1aUzU|https://tidal.com/browse/album/61207977|https://music.apple.com/us/album/good-karma/1097631176
