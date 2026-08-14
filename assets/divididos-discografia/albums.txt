@@ -1,10 +1,10 @@
-40 Dibujos Ahí en el Piso|1989|https://open.spotify.com/album/0ZNRl9pxbglsYLKRdSEmz0
-Acariciando lo Áspero|1991|https://open.spotify.com/album/5UmrOPpQ3VmXmBRSvXMbcR
-La Era de la Boludez|1993|https://open.spotify.com/album/4D1aIzUYKG6jytRjgT0QIx
-Otro Le Travaladna|1995|https://open.spotify.com/album/78CgEIHzH8TtgNmV63lMbF
-Gol de Mujer|1998|https://open.spotify.com/album/5qNbbDBwCJn5haKSWxsBJS
-Narigón del Siglo|2000|https://open.spotify.com/album/4GkZExYLfegidZaO1BgpvU
-Vengo del Placard de Otro|2002|https://open.spotify.com/album/3ljsgnB9LYYXmVmXIk5sby
-Amapola del 66|2010|https://open.spotify.com/album/023OHmveapLQkD1mcztdwz
-Haciendo Cosas Raras|2018|https://open.spotify.com/album/3AfZNqMLvgWtpSv70hCy7N
-Divididos|2025|https://open.spotify.com/album/6e8Q3SKXYEfJTKQmHp715l
+40 Dibujos Ahí en el Piso|1989|https://open.spotify.com/album/0ZNRl9pxbglsYLKRdSEmz0|https://tidal.com/browse/album/34227182|https://music.apple.com/us/album/40-dibujos-ah%C3%ADen-el-piso/401913664
+Acariciando lo Áspero|1991|https://open.spotify.com/album/5UmrOPpQ3VmXmBRSvXMbcR|https://tidal.com/browse/album/7239688|https://music.apple.com/za/album/acariciando-lo-aspero/1443302863
+La Era de la Boludez|1993|https://open.spotify.com/album/4D1aIzUYKG6jytRjgT0QIx|https://tidal.com/browse/album/3981008|https://music.apple.com/bo/album/la-era-de-la-boludez/1443428836
+Otro Le Travaladna|1995|https://open.spotify.com/album/78CgEIHzH8TtgNmV63lMbF|https://tidal.com/browse/album/4038761|https://music.apple.com/cr/album/otro-le-travaladna/1443386845
+Gol de Mujer|1998|https://open.spotify.com/album/5qNbbDBwCJn5haKSWxsBJS|https://tidal.com/browse/album/3349661|https://music.apple.com/us/album/gol-de-mujer/321837580
+Narigón del Siglo|2000|https://open.spotify.com/album/4GkZExYLfegidZaO1BgpvU|https://tidal.com/browse/album/3294760|https://music.apple.com/us/album/narig%C3%B3n-del-siglo-yo-te-dejo-perfumado-en-la-esquina/321864763
+Vengo del Placard de Otro|2002|https://open.spotify.com/album/3ljsgnB9LYYXmVmXIk5sby|https://tidal.com/browse/album/5052665|https://music.apple.com/us/album/vengo-del-placard-de-otro/321807724
+Amapola del 66|2010|https://open.spotify.com/album/023OHmveapLQkD1mcztdwz|https://tidal.com/browse/album/536580863|https://music.apple.com/us/album/amapola-del-66/6783870343
+Haciendo Cosas Raras|2018|https://open.spotify.com/album/3AfZNqMLvgWtpSv70hCy7N|https://tidal.com/browse/album/536580212|https://music.apple.com/us/album/haciendo-cosas-raras/6783872623
+Divididos|2025|https://open.spotify.com/album/6e8Q3SKXYEfJTKQmHp715l||https://music.apple.com/us/album/divididos/6783478514
