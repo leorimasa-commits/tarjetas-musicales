@@ -1,8 +1,8 @@
-# Tarjetas musicales NFC/QR — motor de **OneTapMusic**
+# Tarjetas musicales NFC/QR — motor de **ScanBeat**
 
-> "OneTapMusic" es la marca comercial del producto (de cara al cliente). El nombre técnico
-> del repositorio y la URL publicada (`tarjetas-musicales`) **no se cambian** — ya están
-> grabados en los QR/NFC ya emitidos, y renombrarlos los rompería.
+> "ScanBeat" es la marca comercial del producto (de cara al cliente; antes "OneTapMusic").
+> El nombre técnico del repositorio (`tarjetas-musicales`) **no se cambia** — renombrarlo
+> rompería los links ya usados en el código y la documentación.
 
 Sistema para generar tarjetas (cumpleaños, fiestas, presentación de eventos, regalos musicales)
 que al escanear el QR o acercar el celular a un tag NFC, abren una página que arranca la música

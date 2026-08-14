@@ -123,7 +123,7 @@ async function main() {
   const escapeHtml = (s) => String(s || '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-  const ogDesc = `"${slogan}" — OneTapMusic`;
+  const ogDesc = `"${slogan}" — ScanBeat`;
   const ogUrl = `${baseUrl}/cards/${slug}/`;
   const firstCover = albums.find(a => a.cover)?.cover || '';
   const ogImage = firstCover ? `${baseUrl}/cards/${slug}/${firstCover.replace(/^\.\//, '')}` : '';

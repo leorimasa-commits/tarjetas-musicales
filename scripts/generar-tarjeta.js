@@ -69,7 +69,7 @@ async function main() {
   const mensaje = args.mensaje || '';
   const baseUrl = (args.baseUrl || 'https://onetapmusic.com.ar').replace(/\/$/, '');
   const slogan = args.slogan || 'Escaneá. Escuchá. Repetí.';
-  const ogDesc = `"${slogan}" — OneTapMusic`;
+  const ogDesc = `"${slogan}" — ScanBeat`;
   const ogUrl = `${baseUrl}/cards/${slug}/`;
 
   const cardDir = path.resolve(__dirname, '..', 'cards', slug);

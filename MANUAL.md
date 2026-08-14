@@ -1,10 +1,11 @@
-# Manual: cómo hacer una tarjeta nueva (motor de OneTapMusic)
+# Manual: cómo hacer una tarjeta nueva (motor de ScanBeat)
 
 Guía paso a paso para armar una tarjeta musical (QR/NFC que suena solo al escanear) sin
 necesitar ayuda. Todo se corre desde la carpeta `tarjetas-musicales` con la terminal.
 
-> Nota de marca: **OneTapMusic** es el nombre comercial del producto — así se lo presentás
-> al cliente (packaging, redes, etc.). El nombre técnico de esta carpeta/repo no cambia.
+> Nota de marca: **ScanBeat** es el nombre comercial del producto (antes "OneTapMusic") —
+> así se lo presentás al cliente (packaging, redes, etc.). El nombre técnico de esta
+> carpeta/repo no cambia.
 
 ## ¿Disco suelto o discografía completa? Dos herramientas distintas
 
