@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ScanBeat</title>
+<meta name="description" content="ScanBeat: tarjetas musicales con NFC y QR. Escaneá, escuchá, repetí.">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="ScanBeat — Tarjetas musicales NFC/QR">
+<meta property="og:description" content='"Escaneá. Escuchá. Repetí." — ScanBeat'>
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1a1a2e">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:56px 20px 40px; gap:20px;
+  }
+  .logo{
+    margin:0; font-size:clamp(34px,9vw,58px); font-weight:800; letter-spacing:-.02em;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .tagline{
+    margin:0; font-size:clamp(14px,3.4vw,18px); letter-spacing:.14em; text-transform:uppercase;
+    opacity:.75; font-weight:600;
+  }
+  .hero-sub{
+    max-width:480px; margin:4px 0 8px; font-size:clamp(14px,3.6vw,16px); line-height:1.65; opacity:.8;
+  }
+
+  /* ---------- Demo animation ---------- */
+  .demo{
+    position:relative; width:min(300px,80vw); height:340px; margin:12px 0 4px;
+    display:flex; align-items:flex-end; justify-content:center;
+  }
+  .demo-card{
+    position:absolute; bottom:6px; width:150px; height:94px; border-radius:10px;
+    background:linear-gradient(135deg,#5c0011,#8e0e3a);
+    box-shadow:0 10px 26px rgba(0,0,0,.5);
+    animation: cardWait 5s ease-in-out infinite;
+    z-index:1;
+  }
+  .demo-card::before{
+    content:''; position:absolute; right:10px; bottom:10px; width:26px; height:26px; border-radius:5px;
+    background:
+      repeating-linear-gradient(90deg,#fff 0 3px, transparent 3px 6px),
+      repeating-linear-gradient(0deg,#fff 0 3px, transparent 3px 6px);
+    background-blend-mode:multiply; background-color:#fff; opacity:.92;
+  }
+  .demo-card::after{
+    content:'♪'; position:absolute; left:12px; top:10px; font-size:13px; font-weight:800;
+    color:#ffd166; opacity:.9;
+  }
+
+  .demo-phone{
+    position:relative; width:132px; height:270px; border-radius:26px;
+    background:#0b0b14; border:3px solid #2a2a3d; box-shadow:0 20px 50px rgba(0,0,0,.55);
+    z-index:2; overflow:hidden;
+    animation: phoneMove 5s ease-in-out infinite;
+  }
+  .demo-screen{
+    position:absolute; inset:5px; border-radius:20px; overflow:hidden;
+    background:radial-gradient(circle at 50% 20%, var(--bg2), var(--bg1));
+  }
+  .demo-lock{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; opacity:1; animation: lockFade 5s ease-in-out infinite;
+  }
+  .demo-lock .clock{ font-size:22px; font-weight:700; letter-spacing:.02em; }
+  .demo-lock .hint{ font-size:8px; text-transform:uppercase; letter-spacing:.12em; opacity:.55; }
+
+  .demo-player{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:10px; opacity:0; animation: playerFade 5s ease-in-out infinite;
+  }
+  .demo-vinyl{
+    width:64px; height:64px; border-radius:50%;
+    background:
+      radial-gradient(circle at center, var(--accent) 0 16%, #111 17% 19%, #1c1c1c 20% 100%),
+      repeating-radial-gradient(circle at center, transparent 0 3px, rgba(255,255,255,.05) 3px 5px);
+    box-shadow:0 6px 16px rgba(0,0,0,.5);
+    animation: spin 3s linear infinite;
+  }
+  .demo-track{ font-size:10.5px; font-weight:700; }
+  .demo-artist{ font-size:8.5px; opacity:.6; text-transform:uppercase; letter-spacing:.08em; }
+  .demo-bars{ display:flex; align-items:flex-end; gap:3px; height:16px; margin-top:2px; }
+  .demo-bars span{
+    width:3px; border-radius:2px; background:linear-gradient(180deg,var(--accent2),var(--accent));
+    animation: bar 900ms ease-in-out infinite;
+  }
+  .demo-bars span:nth-child(1){ height:35%; animation-delay:0ms; }
+  .demo-bars span:nth-child(2){ height:100%; animation-delay:120ms; }
+  .demo-bars span:nth-child(3){ height:55%; animation-delay:240ms; }
+  .demo-bars span:nth-child(4){ height:80%; animation-delay:360ms; }
+  .demo-bars span:nth-child(5){ height:45%; animation-delay:480ms; }
+
+  .demo-ripple{
+    position:absolute; left:50%; bottom:70px; width:10px; height:10px; margin-left:-5px;
+    border-radius:50%; border:2px solid var(--accent2); opacity:0; z-index:3;
+    animation: ripple 5s ease-in-out infinite;
+  }
+
+  @keyframes cardWait{
+    0%,20%{ transform:translateY(0); }
+    30%,70%{ transform:translateY(-2px); }
+    85%,100%{ transform:translateY(0); }
+  }
+  @keyframes phoneMove{
+    0%,18%{ transform:translateY(0) rotate(0deg); }
+    30%{ transform:translateY(58px) rotate(-2deg); }
+    72%{ transform:translateY(58px) rotate(-2deg); }
+    88%,100%{ transform:translateY(0) rotate(0deg); }
+  }
+  @keyframes lockFade{
+    0%,25%{ opacity:1; }
+    34%,100%{ opacity:0; }
+  }
+  @keyframes playerFade{
+    0%,30%{ opacity:0; transform:translateY(6px); }
+    40%,82%{ opacity:1; transform:translateY(0); }
+    92%,100%{ opacity:0; transform:translateY(6px); }
+  }
+  @keyframes ripple{
+    0%,26%{ opacity:0; transform:scale(.6); }
+    32%{ opacity:.8; transform:scale(1); }
+    50%,100%{ opacity:0; transform:scale(2.4); }
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes bar{ 0%,100%{ transform:scaleY(.4);} 50%{ transform:scaleY(1);} }
+
+  @media (prefers-reduced-motion: reduce){
+    .demo-card, .demo-phone, .demo-lock, .demo-player, .demo-ripple, .demo-vinyl, .demo-bars span{
+      animation:none !important;
+    }
+    .demo-lock{ opacity:0; }
+    .demo-player{ opacity:1; }
+  }
+
+  .cta{
+    display:inline-flex; align-items:center; gap:8px; margin-top:6px; text-decoration:none;
+    background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#111; font-weight:800;
+    font-size:14px; padding:13px 26px; border-radius:24px; box-shadow:0 10px 26px rgba(0,0,0,.4);
+  }
+
+  /* ---------- Cómo funciona ---------- */
+  .section{ max-width:720px; margin:0 auto; padding:40px 20px; }
+  .section h2{
+    text-align:center; font-size:clamp(20px,5vw,26px); font-weight:800; margin:0 0 28px;
+  }
+  .steps{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:center;
+  }
+  .step .num{
+    width:34px; height:34px; margin:0 auto 12px; border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#111; font-weight:800;
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .step h3{ margin:0 0 6px; font-size:14px; font-weight:700; }
+  .step p{ margin:0; font-size:12.5px; opacity:.7; line-height:1.5; }
+
+  /* ---------- Showcase ---------- */
+  .showcase-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+  }
+  .showcase-item{
+    text-decoration:none; display:block; border-radius:14px; overflow:hidden; position:relative;
+    aspect-ratio:1; background:#111; box-shadow:0 8px 20px rgba(0,0,0,.35);
+  }
+  .showcase-item img{ width:100%; height:100%; object-fit:cover; }
+  .showcase-item span{
+    position:absolute; left:0; right:0; bottom:0; padding:8px; font-size:10.5px; font-weight:700;
+    background:linear-gradient(to top, rgba(0,0,0,.85), transparent);
+  }
+  .showcase-more{
+    text-align:center; margin-top:18px; font-size:12.5px; opacity:.6;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{ text-align:center; padding:36px 20px 48px; opacity:.6; font-size:12px; }
+  footer .slogan{ margin:8px 0 0; font-style:italic; }
+
+  @media (max-width:420px){
+    .steps{ grid-template-columns:1fr; gap:24px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <p class="tagline">Tarjetas musicales NFC / QR</p>
+  <h1 class="logo">ScanBeat</h1>
+  <p class="hero-sub">Le acercás el celular a una tarjeta y arranca la música. Sin apps, sin cuentas, sin vueltas.</p>
+
+  <div class="demo" aria-hidden="true">
+    <div class="demo-card"></div>
+    <div class="demo-ripple"></div>
+    <div class="demo-phone">
+      <div class="demo-screen">
+        <div class="demo-lock">
+          <span class="clock">21:47</span>
+          <span class="hint">Acercá el celular</span>
+        </div>
+        <div class="demo-player">
+          <div class="demo-vinyl"></div>
+          <div class="demo-track">Reproduciendo</div>
+          <div class="demo-artist">Tu discografía favorita</div>
+          <div class="demo-bars"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="cta" href="#discografias">▶ Ver discografías</a>
+</section>
+
+<section class="section">
+  <h2>Cómo funciona</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <h3>Elegís la tarjeta</h3>
+      <p>Un disco, una discografía completa, o un mensaje musical para regalar.</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <h3>Escaneás o acercás el NFC</h3>
+      <p>Con la cámara del celular al QR, o apoyando el celular sobre la tarjeta.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <h3>Suena la música</h3>
+      <p>Se abre la página y arranca sola — tapas, temas y links directo a Spotify.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="discografias">
+  <h2>Discografías</h2>
+  <div class="showcase-grid">
+    <a class="showcase-item" href="cards/beatles-discografia/"><img src="cards/beatles-discografia/covers/cover-0.jpg" alt="The Beatles"><span>The Beatles</span></a>
+    <a class="showcase-item" href="cards/queen-discografia/"><img src="cards/queen-discografia/covers/cover-0.jpg" alt="Queen"><span>Queen</span></a>
+    <a class="showcase-item" href="cards/rolling-stones-discografia/"><img src="cards/rolling-stones-discografia/covers/cover-0.jpg" alt="The Rolling Stones"><span>The Rolling Stones</span></a>
+    <a class="showcase-item" href="cards/soda-stereo-discografia/"><img src="cards/soda-stereo-discografia/covers/cover-0.jpg" alt="Soda Stereo"><span>Soda Stereo</span></a>
+    <a class="showcase-item" href="cards/divididos-discografia/"><img src="cards/divididos-discografia/covers/cover-0.jpg" alt="Divididos"><span>Divididos</span></a>
+    <a class="showcase-item" href="cards/depeche-mode-discografia/"><img src="cards/depeche-mode-discografia/covers/cover-0.jpg" alt="Depeche Mode"><span>Depeche Mode</span></a>
+  </div>
+  <p class="showcase-more">Y muchas más — cada tarjeta con su discografía completa.</p>
+</section>
+
+<footer>
+  <div>ScanBeat</div>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+</body>
+</html>
