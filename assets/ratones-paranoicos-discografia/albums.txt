@@ -1,11 +1,11 @@
-Ratones Paranoicos|1986|https://open.spotify.com/album/4jiSCesO2MeWBzRze9cfRq
-Los Chicos Quieren Rock|1988|https://open.spotify.com/album/142zw0mtdYv5FtVTIoNsvT
-Furtivos|1989|https://open.spotify.com/album/7ICXWFt2A3KeYgKLbvOmsl
-Tómalo o Déjalo|1990|https://open.spotify.com/album/3ftwSg3w7TQ4icKnNwAvjg
-Fieras Lunáticas|1991|https://open.spotify.com/album/4bfxADfRQyd6zUTcoS75g0
-Hecho en Memphis|1993|https://open.spotify.com/album/7sEsTk23CAow4mVed6RlNR
-Planeta Paranoico|1996|https://open.spotify.com/album/6194eu8F5MA6IoFmsUgZwE
-Electro Shock|1999|https://open.spotify.com/album/4oWoL5X3iqYswTTXn8RnwG
-Los Chicos Quieren Más|2001|https://open.spotify.com/album/7sRDyMqrIj5niQpLs2UtzD
-Girando|2004|https://open.spotify.com/album/5uXPldCWi4gWWQRkbT0m5B
-Ratones Paranoicos|2009|https://open.spotify.com/album/10ON3n1MhQMuuC0lfnv8EW
+Ratones Paranoicos|1986|https://open.spotify.com/album/4jiSCesO2MeWBzRze9cfRq||https://music.apple.com/us/album/ratones-paranoicos/430564956
+Los Chicos Quieren Rock|1988|https://open.spotify.com/album/142zw0mtdYv5FtVTIoNsvT|https://tidal.com/browse/album/11503841|https://music.apple.com/us/album/los-chicos-quieren-rock/471648530
+Furtivos|1989|https://open.spotify.com/album/7ICXWFt2A3KeYgKLbvOmsl|https://tidal.com/browse/album/11503868|https://music.apple.com/us/album/furtivos/430563389
+Tómalo o Déjalo|1990|https://open.spotify.com/album/3ftwSg3w7TQ4icKnNwAvjg|https://tidal.com/browse/album/11505104|https://music.apple.com/us/album/t%C3%B3malo-o-d%C3%A9jalo/471659832
+Fieras Lunáticas|1991|https://open.spotify.com/album/4bfxADfRQyd6zUTcoS75g0|https://tidal.com/browse/album/11461177|https://music.apple.com/us/album/fieras-lunaticas/431059711
+Hecho en Memphis|1993|https://open.spotify.com/album/7sEsTk23CAow4mVed6RlNR|https://tidal.com/browse/album/11461203|https://music.apple.com/us/album/hecho-en-memphis/431061765
+Planeta Paranoico|1996|https://open.spotify.com/album/6194eu8F5MA6IoFmsUgZwE|https://tidal.com/browse/album/11459768|https://music.apple.com/us/album/planeta-paranoico/470840943
+Electro Shock|1999|https://open.spotify.com/album/4oWoL5X3iqYswTTXn8RnwG|https://tidal.com/browse/album/11460935|https://music.apple.com/us/album/electroshock/401827193
+Los Chicos Quieren Más|2001|https://open.spotify.com/album/7sRDyMqrIj5niQpLs2UtzD|https://tidal.com/browse/album/5074491|https://music.apple.com/us/album/los-chicos-quieren-m%C3%A1s/404151055
+Girando|2004|https://open.spotify.com/album/5uXPldCWi4gWWQRkbT0m5B||https://music.apple.com/us/album/girando/280518104
+Ratones Paranoicos|2009|https://open.spotify.com/album/10ON3n1MhQMuuC0lfnv8EW||https://music.apple.com/us/album/ratones-paranoicos-09/404266746
