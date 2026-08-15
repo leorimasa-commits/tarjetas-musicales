@@ -1,15 +1,15 @@
-The Rolling Stones|1964|https://open.spotify.com/album/7Kln3VdaLUYVIFpqe7AuNA
-Aftermath|1966|https://open.spotify.com/album/1MaP82K4mOoGYW5Ej0eUyM
-Between the Buttons|1967|https://open.spotify.com/album/36BIYdP4WtviD9Ngqc4SK5
-Their Satanic Majesties Request|1967|https://open.spotify.com/album/1EsawdVONX3m9f9PLhuzS5
-Beggars Banquet|1968|https://open.spotify.com/album/6OHri5qNxwCdVSdyCslspd
-Let It Bleed|1969|https://open.spotify.com/album/4l4u9e9jSbotSXNjYfOugy
-Sticky Fingers|1971|https://open.spotify.com/album/29m6DinzdaD0OPqWKGyMdz
-Exile on Main St.|1972|https://open.spotify.com/album/5U4dnRZsfW8NmwBBkELFPh
-Goats Head Soup|1973|https://open.spotify.com/album/6iVOz2hudE6dv5Yrcsw2c9
-It's Only Rock 'n Roll|1974|https://open.spotify.com/album/4jCpSNa8dV40aMrHOshRdv
-Some Girls|1978|https://open.spotify.com/album/1Jv2AqzhgsduUik2p4k3cS
-Tattoo You|1981|https://open.spotify.com/album/15XNBzVWARPMlu0sEbfBjJ
-Undercover|1983|https://open.spotify.com/album/7qHKiPqv019NfMrTak7U2s
-Voodoo Lounge|1994|https://open.spotify.com/album/3oyjbpNQs5Qm5DNVJW4AlV
-Hackney Diamonds|2023|https://open.spotify.com/album/1AxMcdQRLguJqSZMxvRNdO
+The Rolling Stones|1964|https://open.spotify.com/album/7Kln3VdaLUYVIFpqe7AuNA|https://tidal.com/browse/album/5011134|https://music.apple.com/us/album/the-rolling-stones-uk/1440800035
+Aftermath|1966|https://open.spotify.com/album/1MaP82K4mOoGYW5Ej0eUyM|https://tidal.com/browse/album/5695164|https://music.apple.com/us/album/aftermath-uk/1440769047
+Between the Buttons|1967|https://open.spotify.com/album/36BIYdP4WtviD9Ngqc4SK5|https://tidal.com/album/5687396|https://music.apple.com/us/album/between-the-buttons/1440717458
+Their Satanic Majesties Request|1967|https://open.spotify.com/album/1EsawdVONX3m9f9PLhuzS5|https://tidal.com/browse/album/5695191|https://music.apple.com/us/album/their-satanic-majesties-request-50th-anniversary-special/1440759322
+Beggars Banquet|1968|https://open.spotify.com/album/6OHri5qNxwCdVSdyCslspd|https://tidal.com/album/5695066|https://music.apple.com/us/album/beggars-banquet-2018-remaster/1500643395
+Let It Bleed|1969|https://open.spotify.com/album/4l4u9e9jSbotSXNjYfOugy|https://tidal.com/album/5693590|https://music.apple.com/us/album/let-it-bleed-remastered-2019/1500642838
+Sticky Fingers|1971|https://open.spotify.com/album/29m6DinzdaD0OPqWKGyMdz|https://tidal.com/browse/album/3043981|https://music.apple.com/us/album/sticky-fingers-2015-remaster/1440812661
+Exile on Main St.|1972|https://open.spotify.com/album/5U4dnRZsfW8NmwBBkELFPh|https://tidal.com/album/145932521|https://music.apple.com/us/album/exile-on-main-street-2010-remaster/1440872228
+Goats Head Soup|1973|https://open.spotify.com/album/6iVOz2hudE6dv5Yrcsw2c9|https://tidal.com/album/153416443|https://music.apple.com/us/album/goats-head-soup-2009-remaster/1440852826
+It's Only Rock 'n Roll|1974|https://open.spotify.com/album/4jCpSNa8dV40aMrHOshRdv||https://music.apple.com/us/album/its-only-rock-n-roll-2009-remaster/1440812139
+Some Girls|1978|https://open.spotify.com/album/1Jv2AqzhgsduUik2p4k3cS|https://tidal.com/browse/album/145921955|https://music.apple.com/us/album/some-girls-remastered-2011/1440816775
+Tattoo You|1981|https://open.spotify.com/album/15XNBzVWARPMlu0sEbfBjJ|https://tidal.com/browse/album/201311206|https://music.apple.com/us/album/tattoo-you-2021-remaster/1584861492
+Undercover|1983|https://open.spotify.com/album/7qHKiPqv019NfMrTak7U2s|https://tidal.com/browse/album/3043836|https://music.apple.com/us/album/undercover-remastered/1440813901
+Voodoo Lounge|1994|https://open.spotify.com/album/3oyjbpNQs5Qm5DNVJW4AlV||https://music.apple.com/us/album/voodoo-lounge-2009-remaster/1440883583
+Hackney Diamonds|2023|https://open.spotify.com/album/1AxMcdQRLguJqSZMxvRNdO|https://tidal.com/browse/album/322390318|https://music.apple.com/us/album/hackney-diamonds/1712485327

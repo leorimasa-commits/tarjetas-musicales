@@ -1,15 +1,15 @@
-Del 63|1984|https://open.spotify.com/album/0MTUFk4egA3SYvPjjsJUpX
-Giros|1985|https://open.spotify.com/album/2bUpIi2WqqXxrLjwxqmURm
-La la la|1986|https://open.spotify.com/album/7e9eBk99v3kYbGO79ZKKVz
-Ciudad de pobres corazones|1987|https://open.spotify.com/album/4GGCNfkWRUgyu6UjstHlJj
-Ey!|1988|https://open.spotify.com/album/1TscUipICOumgsnfvVqFS0
-Tercer mundo|1990|https://open.spotify.com/album/1qrBKmoNZrXtBnonrHSYsx
-El amor después del amor|1992|https://open.spotify.com/album/1nDTw13U4zW8YuelhilKW5
-Circo beat|1994|https://open.spotify.com/album/3pFykTd3Xwi8jtTrNFJEwa
-Enemigos íntimos|1998|https://open.spotify.com/album/23RUUgvza1NilHi65y7Kjj
-Abre|1999|https://open.spotify.com/album/4uOEHOabkf5hmv0ra14XJb
-Rey Sol|2000|https://open.spotify.com/album/2fIBCg4M2M9DvOadkLghHl
-Naturaleza sangre|2003|https://open.spotify.com/album/0ZK4qMEX66OOFWYNrPtMLS
-Moda y pueblo|2005|https://open.spotify.com/album/3vqXCaRgwooiWyVPpVFkwX
-El mundo cabe en una canción|2006|https://open.spotify.com/album/00REizxKhNyhedvQqAB59n
-Rodolfo|2007|https://open.spotify.com/album/1Q92zpo9RK2KlCJz63XCJ0
+Del 63|1984|https://open.spotify.com/album/0MTUFk4egA3SYvPjjsJUpX|https://tidal.com/album/1332815|https://music.apple.com/us/album/del-63/724883572
+Giros|1985|https://open.spotify.com/album/2bUpIi2WqqXxrLjwxqmURm||https://music.apple.com/us/album/giros/723789679
+La la la|1986|https://open.spotify.com/album/7e9eBk99v3kYbGO79ZKKVz|https://tidal.com/browse/album/3725875|https://music.apple.com/us/album/la-la-la/859237114
+Ciudad de pobres corazones|1987|https://open.spotify.com/album/4GGCNfkWRUgyu6UjstHlJj||https://music.apple.com/us/album/ciudad-de-pobres-corazones/723797966
+Ey!|1988|https://open.spotify.com/album/1TscUipICOumgsnfvVqFS0||https://music.apple.com/us/album/ey/713514813
+Tercer mundo|1990|https://open.spotify.com/album/1qrBKmoNZrXtBnonrHSYsx||https://music.apple.com/us/album/tercer-mundo/201533334
+El amor después del amor|1992|https://open.spotify.com/album/1nDTw13U4zW8YuelhilKW5||https://music.apple.com/us/album/el-amor-despu%C3%A9s-del-amor/201571360
+Circo beat|1994|https://open.spotify.com/album/3pFykTd3Xwi8jtTrNFJEwa|https://tidal.com/album/199568|https://music.apple.com/us/album/fito-paez-circo-beat-30-a%C3%B1os/1776796634
+Enemigos íntimos|1998|https://open.spotify.com/album/23RUUgvza1NilHi65y7Kjj|https://tidal.com/album/1804590|https://music.apple.com/us/album/enemigos-%C3%ADntimos/254636668
+Abre|1999|https://open.spotify.com/album/4uOEHOabkf5hmv0ra14XJb|https://tidal.com/browse/album/168574|https://music.apple.com/us/album/abre-paez/79034301
+Rey Sol|2000|https://open.spotify.com/album/2fIBCg4M2M9DvOadkLghHl||https://music.apple.com/us/album/rey-sol/201555867
+Naturaleza sangre|2003|https://open.spotify.com/album/0ZK4qMEX66OOFWYNrPtMLS|https://tidal.com/browse/album/34225102|https://music.apple.com/us/album/naturaleza-sangre/323094297
+Moda y pueblo|2005|https://open.spotify.com/album/3vqXCaRgwooiWyVPpVFkwX||https://music.apple.com/us/album/moda-y-pueblo/337625502
+El mundo cabe en una canción|2006|https://open.spotify.com/album/00REizxKhNyhedvQqAB59n|https://tidal.com/album/34120162|https://music.apple.com/us/album/el-mundo-cabe-en-una-canci%C3%B3n/323173529
+Rodolfo|2007|https://open.spotify.com/album/1Q92zpo9RK2KlCJz63XCJ0||https://music.apple.com/us/album/rodolfo/267952271

@@ -1,15 +1,15 @@
-Kiss|1974|https://open.spotify.com/album/0NjpmoajQlllfKH9FaNliD
-Hotter Than Hell|1974|https://open.spotify.com/album/4n2ovJeGDVOP9SqcvaspxE
-Dressed to Kill|1975|https://open.spotify.com/album/1qjBjGoc5UCL8dg7q72UVP
-Destroyer|1976|https://open.spotify.com/album/6pM2OebWJjdIkB8kQZU87b
-Rock and Roll Over|1976|https://open.spotify.com/album/6722nY178mLes49GPldnjj
-Love Gun|1977|https://open.spotify.com/album/77opKywcxPnBu5aBMASS2b
-Dynasty|1979|https://open.spotify.com/album/4FA68GsblSfvKZZRfM1tI1
-Unmasked|1980|https://open.spotify.com/album/3PlYLejxpxhtJcynfE08vE
-Creatures of the Night|1982|https://open.spotify.com/album/3C1SXX07CX4mPGHmGL0GYR
-Lick It Up|1983|https://open.spotify.com/album/0dD1SMOKBDV1qBadcovw30
-Animalize|1984|https://open.spotify.com/album/7bVCYp0Ubh3rWWWUGMDuqy
-Asylum|1985|https://open.spotify.com/album/0WDUDVt1ZYTJX8KPwH3ast
-Crazy Nights|1987|https://open.spotify.com/album/50WDm1tVXgUjwbMtmm4o6u
-Hot in the Shade|1989|https://open.spotify.com/album/4tA5KsFziTKOuDVAUivcjM
-Revenge|1992|https://open.spotify.com/album/70eknRp5bKGdFq0rJ7kA3x
+Kiss|1974|https://open.spotify.com/album/0NjpmoajQlllfKH9FaNliD|https://tidal.com/browse/album/14335143|https://music.apple.com/us/album/kiss/1440823022
+Hotter Than Hell|1974|https://open.spotify.com/album/4n2ovJeGDVOP9SqcvaspxE|https://tidal.com/browse/album/633124|https://music.apple.com/us/album/hotter-than-hell/1440831092
+Dressed to Kill|1975|https://open.spotify.com/album/1qjBjGoc5UCL8dg7q72UVP|https://tidal.com/album/467481978|https://music.apple.com/us/album/dressed-to-kill-50th-anniversary-super-deluxe/1848446315
+Destroyer|1976|https://open.spotify.com/album/6pM2OebWJjdIkB8kQZU87b|https://tidal.com/browse/album/632350|https://music.apple.com/us/album/destroyer-45th-anniversary-remastered/1596798921
+Rock and Roll Over|1976|https://open.spotify.com/album/6722nY178mLes49GPldnjj|https://tidal.com/browse/album/77634474|https://music.apple.com/us/album/rock-and-roll-over/1440851319
+Love Gun|1977|https://open.spotify.com/album/77opKywcxPnBu5aBMASS2b||https://music.apple.com/us/album/love-gun-deluxe-edition/1443210977
+Dynasty|1979|https://open.spotify.com/album/4FA68GsblSfvKZZRfM1tI1|https://tidal.com/browse/album/631303|https://music.apple.com/us/album/dynasty/1440861209
+Unmasked|1980|https://open.spotify.com/album/3PlYLejxpxhtJcynfE08vE|https://tidal.com/browse/album/631967|https://music.apple.com/us/album/unmasked/1440819081
+Creatures of the Night|1982|https://open.spotify.com/album/3C1SXX07CX4mPGHmGL0GYR|https://tidal.com/album/77634044|https://music.apple.com/us/album/creatures-of-the-night/1657014242
+Lick It Up|1983|https://open.spotify.com/album/0dD1SMOKBDV1qBadcovw30|https://tidal.com/browse/album/1228837|https://music.apple.com/us/album/lick-it-up/1440823733
+Animalize|1984|https://open.spotify.com/album/7bVCYp0Ubh3rWWWUGMDuqy||https://music.apple.com/us/album/animalize/1442844700
+Asylum|1985|https://open.spotify.com/album/0WDUDVt1ZYTJX8KPwH3ast||https://music.apple.com/us/album/asylum/1443275056
+Crazy Nights|1987|https://open.spotify.com/album/50WDm1tVXgUjwbMtmm4o6u|https://tidal.com/browse/album/1229947|https://music.apple.com/us/album/crazy-nights/1440819307
+Hot in the Shade|1989|https://open.spotify.com/album/4tA5KsFziTKOuDVAUivcjM||https://music.apple.com/us/album/hot-in-the-shade/1442951646
+Revenge|1992|https://open.spotify.com/album/70eknRp5bKGdFq0rJ7kA3x||https://music.apple.com/us/album/revenge/1440852086
