@@ -1,13 +1,13 @@
-Dulce Navidad|1989|https://open.spotify.com/album/3cTshAu7QcQXgENefYRlAc
-El Cielo Puede Esperar|1990|https://open.spotify.com/album/2Hq8YjDCJfynzmTgLGVkxJ
-Ángeles Caídos|1992|https://open.spotify.com/album/6rRl0e1hPYxM1c2ssIAbs0
-Todo Está al Revés|1993|https://open.spotify.com/album/2BZvi1VVlW4zf26AvQ3jFQ
-Amén!|1995|https://open.spotify.com/album/4MhfJxzFsruwaWtF8vMv46
-Un Día Perfecto|1997|https://open.spotify.com/album/1S1BaAuXkFgmkDdjPBAPlj
-Otras Canciones|1998|https://open.spotify.com/album/7puiKW3huokZs5qtYK4o0K
-Radio Insomnio|2000|https://open.spotify.com/album/7cm5BAYTV2rWUTEwpLk1F3
-Amateur|2002|https://open.spotify.com/album/3pCefkYFjGF0OoGRQ2IUKu
-Antihumano|2003|https://open.spotify.com/album/3NsuNDcnIc0jAxpC9svIbz
-Karmagedon|2007|https://open.spotify.com/album/7BwJSFUMeLoEFyJEXbTLLv
-Estallar|2009|https://open.spotify.com/album/2PuPTOnnGJ5D3kvbAwVvSC
-Triángulo de Fuerza|2019|https://open.spotify.com/album/4uyCXEeAbCp37KWE2dnMqq
+Dulce Navidad|1989|https://open.spotify.com/album/3cTshAu7QcQXgENefYRlAc||
+El Cielo Puede Esperar|1990|https://open.spotify.com/album/2Hq8YjDCJfynzmTgLGVkxJ||https://music.apple.com/us/album/el-cielo-puede-esperar/1613773510
+Ángeles Caídos|1992|https://open.spotify.com/album/6rRl0e1hPYxM1c2ssIAbs0||https://music.apple.com/us/album/angeles-caidos/337619421
+Todo Está al Revés|1993|https://open.spotify.com/album/2BZvi1VVlW4zf26AvQ3jFQ||https://music.apple.com/us/album/todo-est%C3%A1-al-reves/337660542
+Amén!|1995|https://open.spotify.com/album/4MhfJxzFsruwaWtF8vMv46||https://music.apple.com/us/album/am%C3%A9n/471807749
+Un Día Perfecto|1997|https://open.spotify.com/album/1S1BaAuXkFgmkDdjPBAPlj|https://tidal.com/browse/album/34227166|https://music.apple.com/us/album/un-dia-perfecto/337608203
+Otras Canciones|1998|https://open.spotify.com/album/7puiKW3huokZs5qtYK4o0K||https://music.apple.com/us/album/otras-canciones/337602392
+Radio Insomnio|2000|https://open.spotify.com/album/7cm5BAYTV2rWUTEwpLk1F3|https://tidal.com/browse/album/77032783|https://music.apple.com/us/album/radio-insomnio/337609873
+Amateur|2002|https://open.spotify.com/album/3pCefkYFjGF0OoGRQ2IUKu||https://music.apple.com/us/album/amateur/337607137
+Antihumano|2003|https://open.spotify.com/album/3NsuNDcnIc0jAxpC9svIbz|https://tidal.com/browse/album/5079372|https://music.apple.com/us/album/antihumano/337658990
+Karmagedon|2007|https://open.spotify.com/album/7BwJSFUMeLoEFyJEXbTLLv||https://music.apple.com/us/album/karmagedon/337623484
+Estallar|2009|https://open.spotify.com/album/2PuPTOnnGJ5D3kvbAwVvSC||https://music.apple.com/us/album/estallar/343875509
+Triángulo de Fuerza|2019|https://open.spotify.com/album/4uyCXEeAbCp37KWE2dnMqq||https://music.apple.com/us/album/tri%C3%A1ngulo-de-fuerza/1457384159

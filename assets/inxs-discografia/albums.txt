@@ -1,12 +1,12 @@
-INXS|1980|https://open.spotify.com/album/1j3pV7clfsIYMbMh4vDxAZ
-Underneath the Colours|1981|https://open.spotify.com/album/31JZCfKcvZyJXbfSpV5UUe
-Shabooh Shoobah|1982|https://open.spotify.com/album/4fG8BOnqmBcUiIPilVZXlz
-The Swing|1984|https://open.spotify.com/album/3GSxZlsQkGEjkHa09sdwRP
-Listen Like Thieves|1985|https://open.spotify.com/album/2A5QVgoJt1FZl7GmM4REzr
-Kick|1987|https://open.spotify.com/album/6p6RTnoHCJMnMx2jcK4oGu
-X|1990|https://open.spotify.com/album/6Ct05XZNu2QpqDpjaxY7Xu
-Live Baby Live|1991|https://open.spotify.com/album/79mcxP0zC4PQVQHVkxI11H
-Welcome to Wherever You Are|1992|https://open.spotify.com/album/66ocxSzZ98wk1rWNfrvU8u
-Full Moon, Dirty Hearts|1993|https://open.spotify.com/album/7qbX96V0PM7lvF7kBE7n7f
-Elegantly Wasted|1997|https://open.spotify.com/album/6aq8CRwcaGJe16bpJaLrw0
-Switch|2005|https://open.spotify.com/album/2RrDWPPHPkA0Zgl8TjxEw7
+INXS|1980|https://open.spotify.com/album/1j3pV7clfsIYMbMh4vDxAZ||https://music.apple.com/au/album/inxs-remastered/1442276293
+Underneath the Colours|1981|https://open.spotify.com/album/31JZCfKcvZyJXbfSpV5UUe||https://music.apple.com/us/album/underneath-the-colours/836626197
+Shabooh Shoobah|1982|https://open.spotify.com/album/4fG8BOnqmBcUiIPilVZXlz||https://music.apple.com/au/album/shabooh-shoobah-remastered/1442572177
+The Swing|1984|https://open.spotify.com/album/3GSxZlsQkGEjkHa09sdwRP|https://tidal.com/browse/album/68691166|https://music.apple.com/us/album/the-swing/828784636
+Listen Like Thieves|1985|https://open.spotify.com/album/2A5QVgoJt1FZl7GmM4REzr|https://tidal.com/browse/album/33351721|https://music.apple.com/us/album/listen-like-thieves/828783216
+Kick|1987|https://open.spotify.com/album/6p6RTnoHCJMnMx2jcK4oGu|https://tidal.com/browse/album/33346342|https://music.apple.com/us/album/kick-2017-remaster/1614037635
+X|1990|https://open.spotify.com/album/6Ct05XZNu2QpqDpjaxY7Xu|https://tidal.com/browse/album/33346330|https://music.apple.com/us/album/x/828782374
+Live Baby Live|1991|https://open.spotify.com/album/79mcxP0zC4PQVQHVkxI11H||https://music.apple.com/us/album/live-baby-live/350233186
+Welcome to Wherever You Are|1992|https://open.spotify.com/album/66ocxSzZ98wk1rWNfrvU8u|https://tidal.com/browse/album/34451710|https://music.apple.com/us/album/welcome-to-wherever-you-are/828782310
+Full Moon, Dirty Hearts|1993|https://open.spotify.com/album/7qbX96V0PM7lvF7kBE7n7f||https://music.apple.com/au/album/full-moon-dirty-hearts-remastered/1442553024
+Elegantly Wasted|1997|https://open.spotify.com/album/6aq8CRwcaGJe16bpJaLrw0|https://tidal.com/browse/album/6815965|https://music.apple.com/us/album/elegantly-wasted-remastered/1444141376
+Switch|2005|https://open.spotify.com/album/2RrDWPPHPkA0Zgl8TjxEw7|https://tidal.com/album/1730707|https://music.apple.com/us/album/switch/253390200

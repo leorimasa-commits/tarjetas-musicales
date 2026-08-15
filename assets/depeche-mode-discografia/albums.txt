@@ -1,15 +1,15 @@
-Speak & Spell|1981|https://open.spotify.com/album/1XLkKNbDs4YrfTVZUEZQGs
-A Broken Frame|1982|https://open.spotify.com/album/0qE1i2m0Kzb4SvzdVxYgos
-Construction Time Again|1983|https://open.spotify.com/album/4PACSjpgl1unuvybxtiZqo
-Some Great Reward|1984|https://open.spotify.com/album/6WBbPlHtSLA2OFwWR2hAqp
-Black Celebration|1986|https://open.spotify.com/album/0JSOfVzxVTpyvxzXggc8rG
-Music for the Masses|1987|https://open.spotify.com/album/5Yyx661Ksxl2pmRUuGLzw3
-Violator|1990|https://open.spotify.com/album/0HT8cy9nQThb3jKPwdGiLb
-Songs of Faith and Devotion|1993|https://open.spotify.com/album/1nL4JmG7eih4iCfo8VxWH3
-Ultra|1997|https://open.spotify.com/album/7cmj0LC7Fob1p2BxsMYYAa
-Exciter|2001|https://open.spotify.com/album/2P664rvpmtWEHUbLotgQy6
-Playing the Angel|2005|https://open.spotify.com/album/5QvVLyLdcK4vnaPEKg7jtO
-Sounds of the Universe|2009|https://open.spotify.com/album/2hNLDFRdi1Yz3Qj9kg0QAd
-Delta Machine|2013|https://open.spotify.com/album/1kpZUS7tLWK0hMWNCKP9La
-Spirit|2017|https://open.spotify.com/album/4WkYJeMlLaNN1x5klAgeJu
-Memento Mori|2023|https://open.spotify.com/album/3QWc9HhBWgk9dIEwOkJx4q
+Speak & Spell|1981|https://open.spotify.com/album/1XLkKNbDs4YrfTVZUEZQGs|https://tidal.com/album/20907673|https://music.apple.com/us/album/speak-spell/665396776
+A Broken Frame|1982|https://open.spotify.com/album/0qE1i2m0Kzb4SvzdVxYgos|https://tidal.com/browse/album/20907836|https://music.apple.com/us/album/a-broken-frame-deluxe/665404834
+Construction Time Again|1983|https://open.spotify.com/album/4PACSjpgl1unuvybxtiZqo|https://tidal.com/album/66932052|https://music.apple.com/us/album/construction-time-again-deluxe/1174247799
+Some Great Reward|1984|https://open.spotify.com/album/6WBbPlHtSLA2OFwWR2hAqp|https://tidal.com/browse/album/20906971|https://music.apple.com/us/album/some-great-reward-deluxe/665413158
+Black Celebration|1986|https://open.spotify.com/album/0JSOfVzxVTpyvxzXggc8rG|https://tidal.com/browse/album/191760814|https://music.apple.com/us/album/black-celebration-deluxe-edition/1577638904
+Music for the Masses|1987|https://open.spotify.com/album/5Yyx661Ksxl2pmRUuGLzw3|https://tidal.com/browse/album/20907449|https://music.apple.com/us/album/music-for-the-masses/665403347
+Violator|1990|https://open.spotify.com/album/0HT8cy9nQThb3jKPwdGiLb|https://tidal.com/album/66932434|https://music.apple.com/us/album/violator-deluxe/1174246686
+Songs of Faith and Devotion|1993|https://open.spotify.com/album/1nL4JmG7eih4iCfo8VxWH3|https://tidal.com/album/20906952|https://music.apple.com/us/album/songs-of-faith-and-devotion-deluxe/665414502
+Ultra|1997|https://open.spotify.com/album/7cmj0LC7Fob1p2BxsMYYAa|https://tidal.com/album/66932450|https://music.apple.com/us/album/ultra-deluxe/1174246980
+Exciter|2001|https://open.spotify.com/album/2P664rvpmtWEHUbLotgQy6|https://tidal.com/browse/album/66932606|https://music.apple.com/us/album/exciter-deluxe/1174248501
+Playing the Angel|2005|https://open.spotify.com/album/5QvVLyLdcK4vnaPEKg7jtO|https://tidal.com/browse/album/20907727|https://music.apple.com/us/album/playing-the-angel/665306622
+Sounds of the Universe|2009|https://open.spotify.com/album/2hNLDFRdi1Yz3Qj9kg0QAd|https://tidal.com/album/97609419|https://music.apple.com/us/album/sounds-of-the-universe-bonus-track-version/665311619
+Delta Machine|2013|https://open.spotify.com/album/1kpZUS7tLWK0hMWNCKP9La|https://tidal.com/album/19357872|https://music.apple.com/us/album/delta-machine-deluxe-edition/594094251
+Spirit|2017|https://open.spotify.com/album/4WkYJeMlLaNN1x5klAgeJu|https://tidal.com/browse/album/71466834|
+Memento Mori|2023|https://open.spotify.com/album/3QWc9HhBWgk9dIEwOkJx4q|https://tidal.com/album/284211116|https://music.apple.com/us/album/memento-mori/1670265523
