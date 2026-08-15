@@ -1,15 +1,15 @@
-Boy|1980|https://open.spotify.com/album/2XHksgb0SsUL4NBaqTXHDX
-October|1981|https://open.spotify.com/album/595N69tnPNf3f023L7ftWa
-War|1983|https://open.spotify.com/album/6GaqU0TlYBKHUiSJ0AT9A2
-The Unforgettable Fire|1984|https://open.spotify.com/album/4JfQDfKe4N5NCEyMP1mYT6
-The Joshua Tree|1987|https://open.spotify.com/album/4mULDK6YXrFXTfSwvwm4M3
-Rattle and Hum|1988|https://open.spotify.com/album/7hIoJcH4ObWasDFq78u1x9
-Achtung Baby|1991|https://open.spotify.com/album/5n52kyQKeUZs5ObZJejLQd
-Zooropa|1993|https://open.spotify.com/album/0IYjMBLA9PgtXyRPlLmTDE
-Pop|1997|https://open.spotify.com/album/5mojJwWgWNJcY3odUGgQc3
-All That You Can't Leave Behind|2000|https://open.spotify.com/album/7a5U0GPoAvT3gvEY66FRuN
-How to Dismantle an Atomic Bomb|2004|https://open.spotify.com/album/5PQPur1PEZFDkI0AXbxFlB
-No Line on the Horizon|2009|https://open.spotify.com/album/2cVfcuckyfRP6KVAHsRPHC
-Songs of Innocence|2014|https://open.spotify.com/album/45Ec0wYJ7npo6lXH4GWmxz
-Songs of Experience|2017|https://open.spotify.com/album/3TbG4ZvwHmzkU9JGltkxnf
-Songs of Surrender|2023|https://open.spotify.com/album/3fqPfbVHsvdpovpJXOJlvU
+Boy|1980|https://open.spotify.com/album/2XHksgb0SsUL4NBaqTXHDX|https://tidal.com/browse/album/1851431|https://music.apple.com/us/album/boy/1443189101
+October|1981|https://open.spotify.com/album/595N69tnPNf3f023L7ftWa|https://tidal.com/browse/album/1851447|https://music.apple.com/us/album/october/1443144590
+War|1983|https://open.spotify.com/album/6GaqU0TlYBKHUiSJ0AT9A2|https://tidal.com/browse/album/1851824|https://music.apple.com/us/album/war/1440894470
+The Unforgettable Fire|1984|https://open.spotify.com/album/4JfQDfKe4N5NCEyMP1mYT6|https://tidal.com/browse/album/3142285|https://music.apple.com/us/album/the-unforgettable-fire/1443184272
+The Joshua Tree|1987|https://open.spotify.com/album/4mULDK6YXrFXTfSwvwm4M3|https://tidal.com/browse/album/1218916|https://music.apple.com/us/album/the-joshua-tree/1443155637
+Rattle and Hum|1988|https://open.spotify.com/album/7hIoJcH4ObWasDFq78u1x9|https://tidal.com/browse/album/2570976|https://music.apple.com/us/album/rattle-and-hum/1442801732
+Achtung Baby|1991|https://open.spotify.com/album/5n52kyQKeUZs5ObZJejLQd|https://tidal.com/browse/album/8938999|https://music.apple.com/us/album/achtung-baby/1443063058
+Zooropa|1993|https://open.spotify.com/album/0IYjMBLA9PgtXyRPlLmTDE|https://tidal.com/album/638887|https://music.apple.com/us/album/zooropa/1442968012
+Pop|1997|https://open.spotify.com/album/5mojJwWgWNJcY3odUGgQc3|https://tidal.com/album/631649|https://music.apple.com/us/album/pop/1442904533
+All That You Can't Leave Behind|2000|https://open.spotify.com/album/7a5U0GPoAvT3gvEY66FRuN|https://tidal.com/browse/album/618554|https://music.apple.com/us/album/all-that-you-cant-leave-behind/1443100430
+How to Dismantle an Atomic Bomb|2004|https://open.spotify.com/album/5PQPur1PEZFDkI0AXbxFlB|https://tidal.com/browse/album/34363343|https://music.apple.com/us/album/how-to-dismantle-an-atomic-bomb-re-assemble-edition/1769438762
+No Line on the Horizon|2009|https://open.spotify.com/album/2cVfcuckyfRP6KVAHsRPHC|https://tidal.com/browse/album/35751146|https://music.apple.com/us/album/no-line-on-the-horizon-bonus-track-version/1442959667
+Songs of Innocence|2014|https://open.spotify.com/album/45Ec0wYJ7npo6lXH4GWmxz|https://tidal.com/browse/album/36706123|https://music.apple.com/us/album/songs-of-innocence/1444749940
+Songs of Experience|2017|https://open.spotify.com/album/3TbG4ZvwHmzkU9JGltkxnf|https://tidal.com/browse/album/81951700|https://music.apple.com/us/album/songs-of-experience/1443185630
+Songs of Surrender|2023|https://open.spotify.com/album/3fqPfbVHsvdpovpJXOJlvU|https://tidal.com/browse/album/282321554|https://music.apple.com/us/album/songs-of-surrender/1664119641
