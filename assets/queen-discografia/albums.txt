@@ -1,15 +1,15 @@
-Queen|1973|https://open.spotify.com/album/5SSpz2RyyEhLt5FDymT4Ph
-Queen II|1974|https://open.spotify.com/album/6Cg1pPfnfFXlR1qH2H6NDL
-Sheer Heart Attack|1974|https://open.spotify.com/album/6uj0z3xtvQ8Y0UWevdQlIx
-A Night at the Opera|1975|https://open.spotify.com/album/1GbtB4zTqAsyfZEsm1RZfx
-A Day at the Races|1976|https://open.spotify.com/album/7hvCZFEWheDmHJMHOWdkLc
-News of the World|1977|https://open.spotify.com/album/4UyCb7lKdDqj4sSvAEh8w9
-Jazz|1978|https://open.spotify.com/album/4mbkkOGZS6inHP2di2jaqS
-The Game|1980|https://open.spotify.com/album/0JY06ZYYyah5h3IUNtj32d
-Flash Gordon|1980|https://open.spotify.com/album/0pZMBVdw7rLCklrrcxIbOy
-Hot Space|1982|https://open.spotify.com/album/4IdoZg7qwE1VAfeqrBRuhC
-The Works|1984|https://open.spotify.com/album/2YcZlfU3fVThUasW4hHI24
-A Kind of Magic|1986|https://open.spotify.com/album/2CtjlCopig2ciZHEBIoZ4r
-The Miracle|1989|https://open.spotify.com/album/0GSDhB3gv0XqMmHA0fcXLT
-Innuendo|1991|https://open.spotify.com/album/3jYy7yGNCysTHE8MKrIF1k
-Made in Heaven|1995|https://open.spotify.com/album/391ScNR3xKywWSpfDwP3n0
+Queen|1973|https://open.spotify.com/album/5SSpz2RyyEhLt5FDymT4Ph|https://tidal.com/browse/album/200071982|https://music.apple.com/us/album/queen/1440755910
+Queen II|1974|https://open.spotify.com/album/6Cg1pPfnfFXlR1qH2H6NDL|https://tidal.com/browse/album/77814820|https://music.apple.com/us/album/queen-ii/1440754724
+Sheer Heart Attack|1974|https://open.spotify.com/album/6uj0z3xtvQ8Y0UWevdQlIx|https://tidal.com/browse/album/36737075|https://music.apple.com/us/album/sheer-heart-attack/1440657490
+A Night at the Opera|1975|https://open.spotify.com/album/1GbtB4zTqAsyfZEsm1RZfx|https://tidal.com/browse/album/36737089|https://music.apple.com/us/album/a-night-at-the-opera/1440806041
+A Day at the Races|1976|https://open.spotify.com/album/7hvCZFEWheDmHJMHOWdkLc|https://tidal.com/browse/album/36737102|https://music.apple.com/us/album/a-day-at-the-races/1440805740
+News of the World|1977|https://open.spotify.com/album/4UyCb7lKdDqj4sSvAEh8w9|https://tidal.com/browse/album/316412760|https://music.apple.com/us/album/news-of-the-world/1440646541
+Jazz|1978|https://open.spotify.com/album/4mbkkOGZS6inHP2di2jaqS|https://tidal.com/browse/album/36738049|https://music.apple.com/us/album/jazz/1440770171
+The Game|1980|https://open.spotify.com/album/0JY06ZYYyah5h3IUNtj32d|https://tidal.com/browse/album/198860148|https://music.apple.com/us/album/the-game/1440806692
+Flash Gordon|1980|https://open.spotify.com/album/0pZMBVdw7rLCklrrcxIbOy|https://tidal.com/album/313951723|https://music.apple.com/us/album/flash-gordon-original-soundtrack-deluxe-edition/1440645420
+Hot Space|1982|https://open.spotify.com/album/4IdoZg7qwE1VAfeqrBRuhC|https://tidal.com/browse/album/36738068|https://music.apple.com/us/album/hot-space/1440810288
+The Works|1984|https://open.spotify.com/album/2YcZlfU3fVThUasW4hHI24|https://tidal.com/browse/album/37091993|https://music.apple.com/us/album/the-works/1440763432
+A Kind of Magic|1986|https://open.spotify.com/album/2CtjlCopig2ciZHEBIoZ4r|https://tidal.com/album/36738316|https://music.apple.com/us/album/a-kind-of-magic/1440783166
+The Miracle|1989|https://open.spotify.com/album/0GSDhB3gv0XqMmHA0fcXLT|https://tidal.com/browse/album/36738366|https://music.apple.com/us/album/the-miracle/1440807729
+Innuendo|1991|https://open.spotify.com/album/3jYy7yGNCysTHE8MKrIF1k|https://tidal.com/browse/album/5077552|https://music.apple.com/us/album/innuendo/1440806201
+Made in Heaven|1995|https://open.spotify.com/album/391ScNR3xKywWSpfDwP3n0|https://tidal.com/browse/album/5077648|https://music.apple.com/us/album/made-in-heaven-deluxe-edition/1440742381

@@ -1,15 +1,15 @@
-The Piper at the Gates of Dawn|1967|https://open.spotify.com/album/2Se4ZylF9NkFGD92yv1aZC
-A Saucerful of Secrets|1968|https://open.spotify.com/album/2vnJKtGjZXRUg0mYPZ3HGH
-More|1969|https://open.spotify.com/album/6AccmjV8Q5cEUZ2tvS8s6c
-Ummagumma|1969|https://open.spotify.com/album/3IPhWIXHOAhS2npnq6FiCG
-Atom Heart Mother|1970|https://open.spotify.com/album/2cUpAOlQjV5uSjkWj5bEQY
-Meddle|1971|https://open.spotify.com/album/468ZwCchVtzEbt9BHmXopb
-Obscured by Clouds|1972|https://open.spotify.com/album/00BBpx0gG4KfQtxSJBPKUZ
-The Dark Side of the Moon|1973|https://open.spotify.com/album/4LH4d3cOWNNsVw41Gqt2kv
-Wish You Were Here|1975|https://open.spotify.com/album/0bCAjiUamIFqKJsekOYuRw
-Animals|1977|https://open.spotify.com/album/3b4E89rxzZQ9zkhgKpj8N4
-The Wall|1979|https://open.spotify.com/album/5Dbax7G8SWrP9xyzkOvy2F
-The Final Cut|1983|https://open.spotify.com/album/1yMenUMOx7BpfTDuVQs99y
-A Momentary Lapse of Reason|1987|https://open.spotify.com/album/4xODvcpjOOgu4oKWL0sCte
-The Division Bell|1994|https://open.spotify.com/album/5F0IQXuHfTV7SBvZVnXERl
-The Endless River|2014|https://open.spotify.com/album/0yU7VItpGPmPcvKmwLg0JT
+The Piper at the Gates of Dawn|1967|https://open.spotify.com/album/2Se4ZylF9NkFGD92yv1aZC|https://tidal.com/browse/album/55391369|https://music.apple.com/us/album/the-piper-at-the-gates-of-dawn/1065975041
+A Saucerful of Secrets|1968|https://open.spotify.com/album/2vnJKtGjZXRUg0mYPZ3HGH|https://tidal.com/album/55391654|https://music.apple.com/us/album/a-saucerful-of-secrets/1065974579
+More|1969|https://open.spotify.com/album/6AccmjV8Q5cEUZ2tvS8s6c|https://tidal.com/browse/album/55391700|https://music.apple.com/us/album/more-original-film-soundtrack/1065975072
+Ummagumma|1969|https://open.spotify.com/album/3IPhWIXHOAhS2npnq6FiCG|https://tidal.com/browse/album/55391725|https://music.apple.com/us/album/ummagumma/1065978159
+Atom Heart Mother|1970|https://open.spotify.com/album/2cUpAOlQjV5uSjkWj5bEQY|https://tidal.com/browse/album/55391422|https://music.apple.com/us/album/atom-heart-mother/1065975345
+Meddle|1971|https://open.spotify.com/album/468ZwCchVtzEbt9BHmXopb|https://tidal.com/album/55391742|https://music.apple.com/us/album/meddle-2016-remaster/1065973614
+Obscured by Clouds|1972|https://open.spotify.com/album/00BBpx0gG4KfQtxSJBPKUZ|https://tidal.com/album/55391428|https://music.apple.com/us/album/obscured-by-clouds/1065975350
+The Dark Side of the Moon|1973|https://open.spotify.com/album/4LH4d3cOWNNsVw41Gqt2kv|https://tidal.com/album/55391786|https://music.apple.com/us/album/the-dark-side-of-the-moon/1065973699
+Wish You Were Here|1975|https://open.spotify.com/album/0bCAjiUamIFqKJsekOYuRw|https://tidal.com/album/55391797|https://music.apple.com/us/album/wish-you-were-here/1065973975
+Animals|1977|https://open.spotify.com/album/3b4E89rxzZQ9zkhgKpj8N4|https://tidal.com/album/55391439|https://music.apple.com/us/album/animals/1065974284
+The Wall|1979|https://open.spotify.com/album/5Dbax7G8SWrP9xyzkOvy2F|https://tidal.com/album/55391447|https://music.apple.com/us/album/the-wall/1065975633
+The Final Cut|1983|https://open.spotify.com/album/1yMenUMOx7BpfTDuVQs99y|https://tidal.com/browse/album/55391474|https://music.apple.com/us/album/the-final-cut-original-motion-picture-soundtrack/1444050544
+A Momentary Lapse of Reason|1987|https://open.spotify.com/album/4xODvcpjOOgu4oKWL0sCte|https://tidal.com/album/55391488|https://music.apple.com/us/album/a-momentary-lapse-of-reason/1065974932
+The Division Bell|1994|https://open.spotify.com/album/5F0IQXuHfTV7SBvZVnXERl|https://tidal.com/album/55391524|https://music.apple.com/us/album/the-division-bell/1065976549
+The Endless River|2014|https://open.spotify.com/album/0yU7VItpGPmPcvKmwLg0JT|https://tidal.com/browse/album/37563697|https://music.apple.com/us/album/the-endless-river/919600058
