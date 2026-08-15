@@ -6,7 +6,6 @@ Rock and Roll Over|1976|https://open.spotify.com/album/6722nY178mLes49GPldnjj
 Love Gun|1977|https://open.spotify.com/album/77opKywcxPnBu5aBMASS2b
 Dynasty|1979|https://open.spotify.com/album/4FA68GsblSfvKZZRfM1tI1
 Unmasked|1980|https://open.spotify.com/album/3PlYLejxpxhtJcynfE08vE
-Music from "The Elder"|1981|https://open.spotify.com/album/1J7sLrUoYUrsjhunsgzZpL
 Creatures of the Night|1982|https://open.spotify.com/album/3C1SXX07CX4mPGHmGL0GYR
 Lick It Up|1983|https://open.spotify.com/album/0dD1SMOKBDV1qBadcovw30
 Animalize|1984|https://open.spotify.com/album/7bVCYp0Ubh3rWWWUGMDuqy
@@ -14,7 +13,3 @@ Asylum|1985|https://open.spotify.com/album/0WDUDVt1ZYTJX8KPwH3ast
 Crazy Nights|1987|https://open.spotify.com/album/50WDm1tVXgUjwbMtmm4o6u
 Hot in the Shade|1989|https://open.spotify.com/album/4tA5KsFziTKOuDVAUivcjM
 Revenge|1992|https://open.spotify.com/album/70eknRp5bKGdFq0rJ7kA3x
-Carnival of Souls|1997|https://open.spotify.com/album/7HZxqRi5rwLpyPkJJ4DKaK
-Psycho Circus|1998|https://open.spotify.com/album/0A4lWyi4wbORjnlf4WmvFd
-Sonic Boom|2009|https://open.spotify.com/album/6kw2tyyR80TC8TtsidbHAW
-Monster|2012|https://open.spotify.com/album/4bEGlyQHzCfjrqryGwmXD5
