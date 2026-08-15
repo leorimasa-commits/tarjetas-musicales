@@ -49,9 +49,28 @@ function main() {
 
   let coverSrc = args.cover || '';
   if (!coverSrc) {
-    const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg', 'covers/cover-0.jpg', 'covers/cover-0.png'];
+    const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg'];
     const encontrada = candidatos.find(c => fs.existsSync(path.join(cardDir, c)));
-    if (encontrada) coverSrc = './' + encontrada;
+    if (encontrada) {
+      coverSrc = './' + encontrada;
+    } else {
+      // Discografías: no hay "cover.jpg" único. Usamos la tapa del primer
+      // álbum tal como está ordenado en la página (leyendo el ALBUMS_JSON ya
+      // generado), no el primer archivo alfabético de covers/ (los nombres
+      // son por ID de Spotify, no reflejan el orden de la discografía).
+      const indexPath = path.join(cardDir, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        const indexHtml = fs.readFileSync(indexPath, 'utf8');
+        const m = indexHtml.match(/const ALBUMS = (\[.*?\]);\s*\n/s);
+        if (m) {
+          try {
+            const albums = JSON.parse(m[1]);
+            const primerCover = albums.find(a => a.cover)?.cover;
+            if (primerCover) coverSrc = primerCover;
+          } catch { /* si falla el parseo, seguimos sin tapa */ }
+        }
+      }
+    }
   }
 
   const templatePath = path.resolve(__dirname, '..', 'templates', 'imprimible.template.html');

@@ -1,13 +1,13 @@
-Please Please Me|1963|https://open.spotify.com/album/3KzAvEXcqJKBF97HrXwlgf
-With the Beatles|1963|https://open.spotify.com/album/1aYdiJk6XKeHWGO3FzHHTr
-A Hard Day's Night|1964|https://open.spotify.com/album/6wCttLq0ADzkPgtRnUihLV
-Beatles for Sale|1964|https://open.spotify.com/album/1vANZV20H5B4Fk6yf7Ot9a
-Help!|1965|https://open.spotify.com/album/0PT5m6hwPRrpBwIHVnvbFX
-Rubber Soul|1965|https://open.spotify.com/album/50o7kf2wLwVmOTVYJOTplm
-Revolver|1966|https://open.spotify.com/album/3PRoXYsngSwjEQWR5PsHWR
-Sgt. Pepper's Lonely Hearts Club Band|1967|https://open.spotify.com/album/6QaVfG1pHYl1z15ZxkvVDW
-Magical Mystery Tour|1967|https://open.spotify.com/album/2BtE7qm1qzM80p9vLSiXkj
-The Beatles|1968|https://open.spotify.com/album/1klALx0u4AavZNEvC4LrTL
-Yellow Submarine|1969|https://open.spotify.com/album/1gKZ5A1ndFqbcrWtW85cCy
-Abbey Road|1969|https://open.spotify.com/album/0ETFjACtuP2ADo6LFhL6HN
-Let It Be|1970|https://open.spotify.com/album/0jTGHV5xqHPvEcwL8f6YU5
+Please Please Me|1963|https://open.spotify.com/album/3KzAvEXcqJKBF97HrXwlgf|https://tidal.com/browse/album/55163243|https://music.apple.com/us/album/please-please-me/1441164816
+With the Beatles|1963|https://open.spotify.com/album/1aYdiJk6XKeHWGO3FzHHTr|https://tidal.com/browse/album/55163389|https://music.apple.com/us/album/with-the-beatles/1441164362
+A Hard Day's Night|1964|https://open.spotify.com/album/6wCttLq0ADzkPgtRnUihLV|https://tidal.com/browse/album/55130564|https://music.apple.com/us/album/a-hard-days-night/1441164416
+Beatles for Sale|1964|https://open.spotify.com/album/1vANZV20H5B4Fk6yf7Ot9a|https://tidal.com/browse/album/55130661|https://music.apple.com/us/album/beatles-for-sale/1441165005
+Help!|1965|https://open.spotify.com/album/0PT5m6hwPRrpBwIHVnvbFX|https://tidal.com/browse/album/55130681|https://music.apple.com/us/album/help/1441164524
+Rubber Soul|1965|https://open.spotify.com/album/50o7kf2wLwVmOTVYJOTplm|https://tidal.com/browse/album/55163273|https://music.apple.com/us/album/rubber-soul/1441164359
+Revolver|1966|https://open.spotify.com/album/3PRoXYsngSwjEQWR5PsHWR|https://tidal.com/browse/album/55163258|https://music.apple.com/us/album/revolver-2022-mix/1642995371
+Sgt. Pepper's Lonely Hearts Club Band|1967|https://open.spotify.com/album/6QaVfG1pHYl1z15ZxkvVDW|https://tidal.com/browse/album/55163288|https://music.apple.com/us/album/sgt-peppers-lonely-hearts-club-band-2017-mix/1573250333
+Magical Mystery Tour|1967|https://open.spotify.com/album/2BtE7qm1qzM80p9vLSiXkj|https://tidal.com/browse/album/55130767|https://music.apple.com/us/album/magical-mystery-tour/1441163490
+The Beatles|1968|https://open.spotify.com/album/1klALx0u4AavZNEvC4LrTL|https://tidal.com/browse/album/55163302|https://music.apple.com/us/album/the-beatles-the-white-album/1441133180
+Yellow Submarine|1969|https://open.spotify.com/album/1gKZ5A1ndFqbcrWtW85cCy|https://tidal.com/browse/album/55130781|https://music.apple.com/us/album/yellow-submarine/1441164525
+Abbey Road|1969|https://open.spotify.com/album/0ETFjACtuP2ADo6LFhL6HN|https://tidal.com/browse/album/55130630|https://music.apple.com/us/album/abbey-road-2019-mix/1474815798
+Let It Be|1970|https://open.spotify.com/album/0jTGHV5xqHPvEcwL8f6YU5|https://tidal.com/album/55130733|https://music.apple.com/us/album/let-it-be-2021-super-deluxe/1582541991
