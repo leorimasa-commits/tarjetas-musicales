@@ -13,7 +13,7 @@
  *     --youtube "https://youtube.com/@canaloficial" (opcional, SOLO si es un canal oficial
  *       verificado del artista/sello — se muestra como link único arriba de todo)
  *
- * --baseUrl es opcional: por defecto usa "https://onetapmusic.com.ar" (el dominio
+ * --baseUrl es opcional: por defecto usa "https://scanbeat.com.ar" (el dominio
  * publicado). Pasalo solo si querés generar el QR contra otro sitio (ej. de prueba).
  *
  * El archivo de --albumes tiene una línea por disco: "Título|Año|LinkDeSpotify"
@@ -81,7 +81,7 @@ async function main() {
 
   const tema = TEMAS.includes(args.tema) ? args.tema : 'regalo';
   const slug = slugify(args.slug || args.artista + '-discografia');
-  const baseUrl = (args.baseUrl || 'https://onetapmusic.com.ar').replace(/\/$/, '');
+  const baseUrl = (args.baseUrl || 'https://scanbeat.com.ar').replace(/\/$/, '');
   const slogan = args.slogan || 'Escaneá. Escuchá. Repetí.';
 
   const albumesPath = path.resolve(args.albumes);

@@ -173,7 +173,7 @@ Esto genera `cards/nombre-carpeta/qr.png` y te muestra en la terminal la URL fin
 Grabá esa misma URL en un tag NFC con una app como **NFC Tools** (Android/iPhone), eligiendo
 un registro de tipo "URL/URI".
 
-> En este repo `--baseUrl` tiene como default `https://onetapmusic.com.ar` (el dominio ya
+> En este repo `--baseUrl` tiene como default `https://scanbeat.com.ar` (el dominio ya
 > publicado), así que en la práctica no hace falta pasarlo salvo que quieras probar contra
 > otro sitio.
 

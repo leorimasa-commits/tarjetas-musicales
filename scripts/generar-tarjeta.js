@@ -10,7 +10,7 @@
  *     --tema cumpleanos \
  *     --audio "C:\ruta\a\cancion.mp3"
  *
- * --baseUrl es opcional: por defecto usa "https://onetapmusic.com.ar" (el dominio
+ * --baseUrl es opcional: por defecto usa "https://scanbeat.com.ar" (el dominio
  * publicado). Pasalo solo si querés generar el QR contra otro sitio (ej. de prueba).
  *
  * --audio es opcional: si no lo pasás, la tarjeta abre directo mostrando la tapa y los
@@ -67,7 +67,7 @@ async function main() {
   const slug = slugify(args.slug || args.titulo);
   const subtitulo = args.subtitulo || '';
   const mensaje = args.mensaje || '';
-  const baseUrl = (args.baseUrl || 'https://onetapmusic.com.ar').replace(/\/$/, '');
+  const baseUrl = (args.baseUrl || 'https://scanbeat.com.ar').replace(/\/$/, '');
   const slogan = args.slogan || 'Escaneá. Escuchá. Repetí.';
   const ogDesc = `"${slogan}" — ScanBeat`;
   const ogUrl = `${baseUrl}/cards/${slug}/`;

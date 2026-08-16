@@ -49,7 +49,7 @@ node scripts/generar-tarjeta.js \
 
 Temas disponibles: `cumpleanos`, `fiesta`, `evento`, `regalo`.
 
-`--baseUrl` es opcional: por defecto usa `https://onetapmusic.com.ar` (el dominio ya publicado),
+`--baseUrl` es opcional: por defecto usa `https://scanbeat.com.ar` (el dominio ya publicado),
 así que no hace falta pasarlo. Usalo solo si querés generar el QR contra otro sitio (por ejemplo
 uno de prueba).
 
@@ -112,7 +112,7 @@ node scripts/generar-discografia.js \
 El archivo de `--albumes` tiene una línea por disco: `Título|Año|LinkDeSpotify`. El script
 busca automáticamente la tapa y la lista de temas de cada uno. `--youtube` es opcional y
 solo debe usarse con un canal oficial verificado (nunca de fans). `--baseUrl` también es
-opcional (default `https://onetapmusic.com.ar`), igual que en `generar-tarjeta.js`. Ver el
+opcional (default `https://scanbeat.com.ar`), igual que en `generar-tarjeta.js`. Ver el
 manual para el detalle paso a paso.
 
 ## Notas sobre el audio
