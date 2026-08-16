@@ -1,0 +1,9 @@
+My World|2009|https://open.spotify.com/album/1rG5TDs3jYh6OU753I54CI|https://tidal.com/album/3182076|https://music.apple.com/us/album/my-world-itunes-exclusive-edition/1440616467
+My World 2.0|2010|https://open.spotify.com/album/3BmcYMh0KYsimWL6p2gPa9|https://tidal.com/album/3524425|https://music.apple.com/us/album/my-world-2-0-bonus-track-version/1440661543
+Under the Mistletoe|2011|https://open.spotify.com/album/3cr4Xgz8nnfp7iYbVqwzzH|https://tidal.com/album/8993788|https://music.apple.com/us/album/under-the-mistletoe-deluxe-edition/1440640693
+Believe|2012|https://open.spotify.com/album/5cxMa6oLINJzmZ8lF7wWQN|https://tidal.com/album/15905168|https://music.apple.com/us/album/believe-deluxe-edition/1440650852
+Purpose|2015|https://open.spotify.com/album/6Fr2rQkZ383FcMqFyT7yPr|https://tidal.com/album/53893673|https://music.apple.com/us/album/purpose/1440825845
+Changes|2020|https://open.spotify.com/album/63iWSELt9V1kV6RSMxN7Ii|https://tidal.com/browse/album/131190301|https://music.apple.com/us/album/changes/1496639180
+Justice|2021|https://open.spotify.com/album/5dGWwsZ9iB2Xc3UKR0gif2|https://tidal.com/album/177329026|https://music.apple.com/us/album/justice-triple-chucks-deluxe/1560255066
+SWAG|2025|https://open.spotify.com/album/5vD5M5VW62LL78Ko8x0CVZ|https://tidal.com/browse/album/447382076|https://music.apple.com/us/album/swag/1825998885
+SWAG II|2025|https://open.spotify.com/album/2KrREEyHxkdFGYAd1DmMdS|https://tidal.com/album/458604624|https://music.apple.com/us/album/swag-ii/1839605744

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Dua Lipa — Imprimible</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  * { box-sizing: border-box; }
+  body{
+    margin:0; padding:24px; background:#e5e5e5;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+  }
+  .label{ font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.08em; margin:0; }
+
+  /* Tamaño real de tarjeta de crédito (ISO/IEC 7810 ID-1): 8.56cm x 5.4cm */
+  .card{
+    width:8.56cm; height:5.4cm; border-radius:0.3cm; overflow:hidden; position:relative;
+    color:var(--text); box-shadow:0 4px 14px rgba(0,0,0,.25);
+    background-color:var(--accent); background-size:cover; background-position:center top;
+  }
+  .card::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,.35) 32%, rgba(0,0,0,.05) 55%, transparent 70%);
+  }
+
+  .footer{ position:absolute; left:0.3cm; right:1.9cm; bottom:0.22cm; z-index:2; }
+  .footer .titulo{
+    font-size:9.5pt; font-weight:800; line-height:1.15; margin:0 0 0.12cm;
+    text-shadow:0 2px 6px rgba(0,0,0,.6);
+  }
+  .footer .brand{ display:flex; flex-direction:column; gap:0.02cm; }
+  .footer .domain{
+    font-size:6.5pt; font-weight:700; opacity:.95; text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+  .footer .slogan{
+    font-size:6pt; font-style:italic; opacity:.8; text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+
+  /* --- QR camuflado, tintado con el color del tema --- */
+  .qr-badge{
+    position:absolute; right:0.28cm; bottom:0.22cm; z-index:3;
+    width:2.0cm; height:2.0cm; border-radius:6px;
+    background:#fff; padding:2px;
+    box-shadow:0 2px 6px rgba(0,0,0,.35), 0 0 0 2px var(--accent2);
+  }
+  .qr-badge img{
+    width:100%; height:100%; display:block; border-radius:4px;
+    image-rendering:pixelated;
+  }
+  .qr-badge .note{
+    position:absolute; top:-8px; left:-8px; width:18px; height:18px; border-radius:50%;
+    background:var(--accent2); color:var(--bg1); font-size:10px; font-weight:900;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+
+  @media print{
+    body{ background:#fff; padding:0; gap:0.5cm; }
+    .card{ box-shadow:none; page-break-inside:avoid; }
+    .label{ display:none; }
+  }
+</style>
+</head>
+<body>
+<p class="label">Tarjeta</p>
+<div class="card" data-theme-card>
+  <div class="footer">
+    <p class="titulo">Dua Lipa</p>
+    <div class="brand">
+      <span class="domain">🌐 scanbeat.com.ar</span>
+      <span class="slogan">"Escaneá. Escuchá. Repetí."</span>
+    </div>
+  </div>
+  <div class="qr-badge">
+    <span class="note">♪</span>
+    <img src="./qr.png" alt="QR">
+  </div>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+  document.querySelector('.card').style.backgroundImage = "url('./covers/cover-2vlhlrgMaXqcnhRqIEV9AP.jpg')";
+</script>
+</body>
+</html>
