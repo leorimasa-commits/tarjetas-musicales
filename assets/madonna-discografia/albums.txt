@@ -1,0 +1,14 @@
+Madonna|1983|https://open.spotify.com/album/5lrlWKjNY0eTDXp9Bd3LpW|https://tidal.com/browse/album/1223283|https://music.apple.com/us/album/madonna/80815644
+Like a Virgin|1984|https://open.spotify.com/album/2IU9ftOgyRL2caQGWK1jjX|https://tidal.com/album/68639154|https://music.apple.com/us/album/like-a-virgin/80815235
+True Blue|1986|https://open.spotify.com/album/6fmnT17jc2Sc69q3nza1eD|https://tidal.com/album/1757129|https://music.apple.com/us/album/true-blue/80815611
+Like a Prayer|1989|https://open.spotify.com/album/48AGkmM7iO4jrELRnNZGPV|https://tidal.com/album/1669821|https://music.apple.com/us/album/like-a-prayer/83448003
+Erotica|1992|https://open.spotify.com/album/2QjCLLlSs1k7YVEWZ0moCV|https://tidal.com/album/379034|https://music.apple.com/us/album/erotica/80814958
+Bedtime Stories|1994|https://open.spotify.com/album/1saoZHjleM0tAQQoCvpMrB|https://tidal.com/album/379049|https://music.apple.com/us/album/bedtime-stories/80814997
+Ray of Light|1998|https://open.spotify.com/album/6cuNyrSmRjBeekioLdLkvI|https://tidal.com/album/1669846|https://music.apple.com/us/album/ray-of-light/952887
+Music|2000|https://open.spotify.com/album/1V342k6sinWc4y4R2iReOu|https://tidal.com/browse/album/1669860|https://music.apple.com/us/album/music/80815197
+Confessions on a Dance Floor|2005|https://open.spotify.com/album/1hg0pQJLE9dzfT1kgZtDPr|https://tidal.com/album/1669833|https://music.apple.com/us/album/confessions-on-a-dance-floor/91992239
+Madame X|2019|https://open.spotify.com/album/4qKjIaeL6CkNAaxcqE6CXk|https://tidal.com/browse/album/111211929|https://music.apple.com/us/album/madame-x-deluxe/1862323917
+American Life|2003|https://open.spotify.com/album/6makHXbA3KBYNlYEPXyFJW
+Hard Candy|2008|https://open.spotify.com/album/1Ms3J8LcSCMH29tG5bSKLu
+MDNA|2012|https://open.spotify.com/album/2trAegxlPgPnZHfYrUNvp0
+Rebel Heart|2015|https://open.spotify.com/album/5NFLUa7LJ8la1znPXcxIfd

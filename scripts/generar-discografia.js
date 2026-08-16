@@ -16,6 +16,11 @@
  * --baseUrl es opcional: por defecto usa "https://scanbeat.com.ar" (el dominio
  * publicado). Pasalo solo si querés generar el QR contra otro sitio (ej. de prueba).
  *
+ * --max es opcional: si la discografía es muy larga, corta la lista "completa" (con
+ * tapa y temas) en los primeros N discos del archivo, y el resto se muestra abajo
+ * como una lista simple de links (sin tapa, sin temas, sin bajar nada de más).
+ * Poné primero en --albumes los discos más importantes.
+ *
  * El archivo de --albumes tiene una línea por disco: "Título|Año|LinkDeSpotify"
  */
 const fs = require('fs');
@@ -93,17 +98,21 @@ async function main() {
   const lineas = fs.readFileSync(albumesPath, 'utf8')
     .split('\n').map(l => l.trim()).filter(Boolean);
 
+  const maxRich = args.max ? parseInt(args.max, 10) : lineas.length;
+  const lineasRicas = lineas.slice(0, maxRich);
+  const lineasSimples = lineas.slice(maxRich);
+
   const cardDir = path.resolve(__dirname, '..', 'cards', slug);
   const coversDir = path.join(cardDir, 'covers');
   fs.mkdirSync(coversDir, { recursive: true });
 
   const albums = [];
-  for (let i = 0; i < lineas.length; i++) {
+  for (let i = 0; i < lineasRicas.length; i++) {
     // Formato: Título|Año|SpotifyURL[|TidalURL[|AppleMusicURL]] — los dos
     // últimos son opcionales, para artistas donde también querramos mostrar
     // esos accesos directos.
-    const [titulo, anio, spotifyUrl, tidalUrl, appleMusicUrl] = lineas[i].split('|').map(p => p.trim());
-    console.log(`(${i + 1}/${lineas.length}) Buscando portada y temas de "${titulo}"...`);
+    const [titulo, anio, spotifyUrl, tidalUrl, appleMusicUrl] = lineasRicas[i].split('|').map(p => p.trim());
+    console.log(`(${i + 1}/${lineasRicas.length}) Buscando portada y temas de "${titulo}"...`);
     const { albumId, coverUrl } = await fetchAlbumInfo(spotifyUrl);
     let coverFileName = '';
     if (coverUrl) {
@@ -124,6 +133,15 @@ async function main() {
       cover: coverFileName ? `./covers/${coverFileName}` : '',
       tracks,
     });
+  }
+
+  // Discos "de más": solo título/año/links, sin bajar tapa ni temas.
+  const moreAlbums = lineasSimples.map(linea => {
+    const [titulo, anio, spotifyUrl, tidalUrl, appleMusicUrl] = linea.split('|').map(p => p.trim());
+    return { titulo, anio, spotifyUrl, tidalUrl: tidalUrl || '', appleMusicUrl: appleMusicUrl || '' };
+  });
+  if (moreAlbums.length) {
+    console.log(`+ ${moreAlbums.length} disco(s) más como links simples (sin tapa/temas).`);
   }
 
   const templatePath = path.resolve(__dirname, '..', 'templates', 'discografia.template.html');
@@ -153,7 +171,8 @@ async function main() {
     .replaceAll('{{OG_IMAGE}}', escapeHtml(ogImage))
     .replaceAll('{{OG_URL}}', escapeHtml(ogUrl))
     .replace('"{{YOUTUBE_URL}}"', JSON.stringify(args.youtube || ''))
-    .replace('{{ALBUMS_JSON}}', JSON.stringify(albums));
+    .replace('{{ALBUMS_JSON}}', JSON.stringify(albums))
+    .replace('{{MORE_ALBUMS_JSON}}', JSON.stringify(moreAlbums));
 
   fs.writeFileSync(path.join(cardDir, 'index.html'), html, 'utf8');
 
