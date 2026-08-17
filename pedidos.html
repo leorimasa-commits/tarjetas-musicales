@@ -33,13 +33,19 @@
   }
   #selector .sub{ margin:0; opacity:.65; font-size:13.5px; }
 
-  #search{
-    display:block; width:100%; max-width:420px; margin:0 auto 22px; padding:12px 16px;
+  #orderName, #search{
+    display:block; width:100%; max-width:420px; margin:0 auto 14px; padding:12px 16px;
     border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
     color:var(--text); font-size:15px; outline:none;
   }
-  #search::placeholder{ color:rgba(255,255,255,.4); }
-  #search:focus{ border-color:var(--accent2); }
+  #search{ margin-bottom:22px; }
+  #orderName{ border-color:rgba(255,209,102,.35); font-weight:700; }
+  #orderName::placeholder, #search::placeholder{ color:rgba(255,255,255,.4); }
+  #orderName:focus, #search:focus{ border-color:var(--accent2); }
+
+  #printview .order-label{
+    font-size:9pt; font-weight:700; color:#555; margin:0 0 0.3cm; text-align:left;
+  }
 
   .grid{
     display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:12px;
@@ -151,6 +157,7 @@
     <h1>Armar pedido</h1>
     <p class="sub">Elegí las tarjetas que van en la hoja y armá el PDF para imprimir.</p>
   </header>
+  <input id="orderName" type="text" placeholder="Nombre del pedido (ej: Juan Pérez)">
   <input id="search" type="text" placeholder="Buscar artista…">
   <div class="grid" id="grid"></div>
 </div>
@@ -187,10 +194,14 @@
 
   const gridEl = document.getElementById('grid');
   const searchEl = document.getElementById('search');
+  const orderNameEl = document.getElementById('orderName');
   const countEl = document.getElementById('count');
   const pagesInfoEl = document.getElementById('pageCount');
   const btnGenerate = document.getElementById('btnGenerate');
   const btnClear = document.getElementById('btnClear');
+  const originalTitle = document.title;
+
+  orderNameEl.value = localStorage.getItem('scanbeat-ultimo-pedido') || '';
 
   function renderGrid(){
     const q = searchEl.value.trim().toLowerCase();
@@ -273,17 +284,31 @@
 
   const pagesEl = document.getElementById('pages');
 
+  function fechaCorta(){
+    const d = new Date();
+    return d.toLocaleDateString('es-AR');
+  }
+
   function renderPrintView(){
+    const nombre = orderNameEl.value.trim();
+    localStorage.setItem('scanbeat-ultimo-pedido', nombre);
+
     const items = selected.map(slug => BY_SLUG[slug]).filter(Boolean);
     pagesEl.innerHTML = '';
     const totalPages = Math.ceil(items.length / PER_PAGE) || 1;
+    const labelHtml = nombre
+      ? `<p class="order-label">Pedido: ${esc(nombre)} — ${items.length} tarjeta(s) — ${fechaCorta()}</p>`
+      : '';
     for (let p = 0; p < totalPages; p++) {
       const chunk = items.slice(p * PER_PAGE, (p + 1) * PER_PAGE);
       const page = document.createElement('div');
       page.className = 'page';
-      page.innerHTML = buildTable(toRows(chunk));
+      page.innerHTML = labelHtml + buildTable(toRows(chunk));
       pagesEl.appendChild(page);
     }
+
+    document.title = nombre ? `Pedido - ${nombre}` : 'Hoja imprimible - ScanBeat';
+
     document.getElementById('selector').style.display = 'none';
     document.getElementById('bar').style.display = 'none';
     document.getElementById('printview').style.display = 'block';
@@ -296,6 +321,7 @@
     document.getElementById('printview').style.display = 'none';
     document.getElementById('selector').style.display = 'block';
     document.getElementById('bar').style.display = 'flex';
+    document.title = originalTitle;
   });
 
   document.getElementById('btnPrint').addEventListener('click', () => window.print());
