@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Admin — Reporte de pedidos — ScanBeat</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1a1a2e">
+<style>
+  :root{ --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text); min-height:100vh;
+  }
+  a{ color:inherit; }
+  button{ font-family:inherit; cursor:pointer; }
+
+  main{ max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+  header{ text-align:center; margin-bottom:22px; }
+  header .links{ display:flex; justify-content:center; gap:16px; margin-bottom:10px; font-size:13px; opacity:.65; }
+  h1{
+    margin:0 0 6px; font-size:clamp(24px,6vw,32px); font-weight:800; letter-spacing:-.02em;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header p{ margin:0; opacity:.65; font-size:13.5px; }
+
+  .toolbar{ display:flex; justify-content:center; gap:10px; margin:18px 0 24px; }
+  .btn-refresh{
+    border:none; border-radius:20px; padding:10px 18px; font-weight:800; font-size:13px;
+    background:rgba(255,255,255,.08); color:var(--text); border:1px solid rgba(255,255,255,.15);
+  }
+  .status-msg{ text-align:center; opacity:.6; font-size:13.5px; padding:30px 0; }
+
+  .order-card{
+    border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:16px 18px; margin-bottom:14px;
+    background:rgba(255,255,255,.03);
+  }
+  .order-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:6px; }
+  .order-name{ font-size:15px; font-weight:800; }
+  .order-date{ font-size:11.5px; opacity:.5; white-space:nowrap; }
+  .order-contacto{ font-size:13px; opacity:.75; margin-bottom:10px; }
+  .badge{
+    display:inline-block; font-size:10.5px; font-weight:800; padding:3px 10px; border-radius:12px;
+    text-transform:uppercase; letter-spacing:.03em; margin-bottom:10px;
+  }
+  .badge.pagado{ background:rgba(120,220,150,.18); color:#8ee6a8; }
+  .badge.pendiente{ background:rgba(255,180,80,.18); color:#ffc266; }
+  .chips{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+  .chip{
+    display:inline-block; padding:4px 10px; border-radius:14px; background:rgba(255,255,255,.08);
+    font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.02em;
+  }
+  .order-comentario{ font-size:12.5px; opacity:.7; font-style:italic; margin:0 0 12px; }
+  .order-actions{ display:flex; flex-wrap:wrap; gap:8px; }
+  .order-actions a, .order-actions button{
+    border:none; border-radius:18px; padding:9px 16px; font-weight:800; font-size:12.5px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  .btn-pdf{ background:rgba(255,255,255,.08); color:var(--text); border:1px solid rgba(255,255,255,.15) !important; }
+  .btn-send{ background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#111; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="links">
+      <a href="../">← Sitio</a>
+      <a href="pedidos.html">Armar hoja →</a>
+    </div>
+    <h1>Reporte de pedidos</h1>
+    <p>Pedidos recibidos desde el formulario público, más recientes primero.</p>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn-refresh" id="btnRefresh">🔄 Actualizar</button>
+  </div>
+
+  <div id="content"><p class="status-msg">Cargando pedidos…</p></div>
+</main>
+
+<script>
+  const CARDS = [{"slug":"ariana-grande-discografia","titulo":"Ariana Grande"},{"slug":"attaque-77-discografia","titulo":"Attaque 77"},{"slug":"bad-bunny-discografia","titulo":"Bad Bunny"},{"slug":"beatles-discografia","titulo":"The Beatles"},{"slug":"beyonce-discografia","titulo":"Beyoncé"},{"slug":"bruno-mars-discografia","titulo":"Bruno Mars"},{"slug":"charly-garcia-discografia","titulo":"Charly García"},{"slug":"coldplay-discografia","titulo":"Coldplay"},{"slug":"depeche-mode-discografia","titulo":"Depeche Mode"},{"slug":"divididos-discografia","titulo":"Divididos"},{"slug":"dua-lipa-discografia","titulo":"Dua Lipa"},{"slug":"fito-paez-discografia","titulo":"Fito Páez"},{"slug":"gnr-discografia","titulo":"Guns N' Roses"},{"slug":"inxs-discografia","titulo":"INXS"},{"slug":"justin-bieber-discografia","titulo":"Justin Bieber"},{"slug":"karol-g-discografia","titulo":"Karol G"},{"slug":"kiss-discografia","titulo":"KISS"},{"slug":"lady-gaga-discografia","titulo":"Lady Gaga"},{"slug":"luis-miguel-discografia","titulo":"Luis Miguel"},{"slug":"madonna-discografia","titulo":"Madonna"},{"slug":"maroon-5-discografia","titulo":"Maroon 5"},{"slug":"metallica-discografia","titulo":"Metallica"},{"slug":"michael-jackson-discografia","titulo":"Michael Jackson"},{"slug":"miley-cyrus-discografia","titulo":"Miley Cyrus"},{"slug":"pet-shop-boys-discografia","titulo":"Pet Shop Boys"},{"slug":"pink-floyd-discografia","titulo":"Pink Floyd"},{"slug":"queen-discografia","titulo":"Queen"},{"slug":"ratones-paranoicos-discografia","titulo":"Ratones Paranoicos"},{"slug":"redondos-discografia","titulo":"Patricio Rey y sus Redonditos de Ricota"},{"slug":"rihanna-discografia","titulo":"Rihanna"},{"slug":"rolling-stones-discografia","titulo":"The Rolling Stones"},{"slug":"roxette-discografia","titulo":"Roxette"},{"slug":"shakira-discografia","titulo":"Shakira"},{"slug":"soda-stereo-discografia","titulo":"Soda Stereo"},{"slug":"taylor-swift-discografia","titulo":"Taylor Swift"},{"slug":"u2-discografia","titulo":"U2"}];
+  const BY_TITULO = {};
+  CARDS.forEach(c => { BY_TITULO[c.titulo.trim().toLowerCase()] = c; });
+  const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzbbU9PD3YlOxnpBSkQUOS_rpQoRegvuSySr6AhUhCnisaCjLhiNfmO1ap41woX6l63/exec';
+  const SITE_URL = 'https://scanbeat.com.ar';
+
+  const contentEl = document.getElementById('content');
+  const btnRefresh = document.getElementById('btnRefresh');
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s == null ? '' : s;
+    return d.innerHTML;
+  }
+
+  function formatFecha(iso){
+    try {
+      const d = new Date(iso);
+      return d.toLocaleDateString('es-AR') + ' ' + d.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+    } catch { return iso; }
+  }
+
+  function mensajeParaCliente(nombre, discografias){
+    const nombres = discografias.split(',').map(s => s.trim()).filter(Boolean);
+    const links = nombres.map(n => {
+      const c = BY_TITULO[n.toLowerCase()];
+      return c ? `${c.titulo}: ${SITE_URL}/cards/${c.slug}/` : null;
+    }).filter(Boolean);
+    return `¡Hola${nombre ? ' ' + nombre : ''}! 🎵 Acá tenés el acceso a tu pedido de ScanBeat:\n\n`
+      + links.join('\n')
+      + `\n\nEscaneá el QR de tu tarjeta o entrá directo desde estos links para elegir dónde escuchar: Spotify, Apple Music, Tidal o YouTube.\n\n¡Gracias por tu compra!`;
+  }
+
+  function sendUrlFor(contacto, mensaje){
+    const limpio = (contacto || '').trim();
+    if (limpio.includes('@')) {
+      return `mailto:${encodeURIComponent(limpio)}?subject=${encodeURIComponent('Tu pedido de ScanBeat 🎵')}&body=${encodeURIComponent(mensaje)}`;
+    }
+    const soloNumeros = limpio.replace(/\D/g, '');
+    return `https://wa.me/${soloNumeros}?text=${encodeURIComponent(mensaje)}`;
+  }
+
+  function orderCardHtml(o){
+    const chips = o.discografias.split(',').map(s => s.trim()).filter(Boolean)
+      .map(n => `<span class="chip">${esc(n)}</span>`).join('');
+    const mensaje = mensajeParaCliente(o.nombre, o.discografias);
+    const sendUrl = sendUrlFor(o.contacto, mensaje);
+    return `
+      <div class="order-card">
+        <div class="order-head">
+          <span class="order-name">${esc(o.nombre)}</span>
+          <span class="order-date">${formatFecha(o.fecha)}</span>
+        </div>
+        <p class="order-contacto">${esc(o.contacto)}</p>
+        <span class="badge ${o.pagado ? 'pagado' : 'pendiente'}">${o.pagado ? '✅ Pagado' : '⏳ Pendiente de pago'}</span>
+        <div class="chips">${chips}</div>
+        ${o.comentario ? `<p class="order-comentario">"${esc(o.comentario)}"</p>` : ''}
+        <div class="order-actions">
+          ${o.pdf ? `<a class="btn-pdf" href="${esc(o.pdf)}" target="_blank" rel="noopener">📄 Ver PDF</a>` : ''}
+          <a class="btn-send" href="${sendUrl}" target="_blank" rel="noopener">📩 Enviar tarjetas al cliente</a>
+        </div>
+      </div>`;
+  }
+
+  async function cargarPedidos(){
+    if (!SHEETS_WEBAPP_URL) {
+      contentEl.innerHTML = '<p class="status-msg">Todavía no está conectada la planilla de pedidos (SHEETS_WEBAPP_URL vacío).</p>';
+      return;
+    }
+    contentEl.innerHTML = '<p class="status-msg">Cargando pedidos…</p>';
+    try {
+      const res = await fetch(SHEETS_WEBAPP_URL, { cache: 'no-store' });
+      const data = await res.json();
+      if (!Array.isArray(data)) throw new Error(data && data.error ? data.error : 'Respuesta inesperada');
+      if (!data.length) {
+        contentEl.innerHTML = '<p class="status-msg">Todavía no llegó ningún pedido.</p>';
+        return;
+      }
+      contentEl.innerHTML = data.map(orderCardHtml).join('');
+    } catch (err) {
+      console.error(err);
+      contentEl.innerHTML = '<p class="status-msg">⚠️ No se pudo cargar el reporte. Probá "Actualizar" de nuevo.</p>';
+    }
+  }
+
+  btnRefresh.addEventListener('click', cargarPedidos);
+  cargarPedidos();
+</script>
+</body>
+</html>

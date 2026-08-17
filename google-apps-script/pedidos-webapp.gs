@@ -39,6 +39,33 @@ function doPost(e) {
   }
 }
 
+function doGet(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Pedidos');
+    if (!sheet || sheet.getLastRow() < 2) {
+      return ContentService.createTextOutput(JSON.stringify([])).setMimeType(ContentService.MimeType.JSON);
+    }
+    var rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, 7).getValues();
+    var data = rows
+      .filter(function (r) { return r[1] || r[2]; }) // ignora filas vacías (huérfanas de antes del fix)
+      .map(function (r) {
+        return {
+          fecha: r[0] instanceof Date ? r[0].toISOString() : String(r[0]),
+          nombre: r[1],
+          contacto: r[2],
+          discografias: r[3],
+          comentario: r[4],
+          pdf: r[5],
+          pagado: r[6] === true,
+        };
+      })
+      .reverse(); // más recientes primero
+    return ContentService.createTextOutput(JSON.stringify(data)).setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ error: String(err) })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
 function crearHoja_() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.insertSheet('Pedidos');
@@ -94,5 +121,9 @@ function guardarPdf_(base64, nombre) {
  * agrega una fila con: fecha, nombre, contacto, discografías elegidas, comentario, un
  * link al PDF (guardado en tu Google Drive, carpeta "Pedidos ScanBeat"), y una casilla
  * "Pagado" que tildás vos a mano cuando cobrás ese pedido.
+ *
+ * Esta misma URL (la que termina en /exec) también sirve para LEER los pedidos: el panel
+ * admin/reportes.html la usa (con GET) para mostrar la lista de pedidos y armar el envío
+ * al cliente. No hace falta ninguna URL ni implementación aparte para eso.
  * ================================================================================
  */

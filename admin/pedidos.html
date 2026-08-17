@@ -25,7 +25,8 @@
   /* ---------- Selector ---------- */
   #selector{ max-width:1100px; margin:0 auto; padding:32px 20px 140px; }
   #selector header{ text-align:center; margin-bottom:22px; }
-  #selector header a.back{ display:inline-block; margin-bottom:10px; font-size:13px; opacity:.6; text-decoration:none; }
+  #selector header .links{ display:flex; justify-content:center; gap:16px; margin-bottom:10px; font-size:13px; opacity:.65; }
+  #selector header a{ text-decoration:none; }
   #selector h1{
     margin:0 0 6px; font-size:clamp(24px,6vw,32px); font-weight:800; letter-spacing:-.02em;
     background:linear-gradient(90deg,var(--accent),var(--accent2));
@@ -197,7 +198,10 @@
 
 <div id="selector">
   <header>
-    <a class="back" href="../">← Volver</a>
+    <div class="links">
+      <a href="../">← Sitio</a>
+      <a href="reportes.html">Reporte de pedidos →</a>
+    </div>
     <h1>Armar hoja</h1>
     <p class="sub">Panel de administración — elegí las tarjetas que van en la hoja y armá el PDF para imprimir.</p>
   </header>
