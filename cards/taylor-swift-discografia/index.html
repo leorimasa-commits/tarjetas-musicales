@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taylor Swift</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Taylor Swift">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/taylor-swift-discografia/covers/cover-7mzrIsaAjnXihW3InKjlC3.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/taylor-swift-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Taylor Swift</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De su debut country a THE TORTURED POETS DEPARTMENT: la compositora que redefinió el pop moderno, era tras era.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@TaylorSwift";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Taylor Swift","anio":"2006","spotifyUrl":"https://open.spotify.com/album/7mzrIsaAjnXihW3InKjlC3","tidalUrl":"https://tidal.com/browse/album/36039732","appleMusicUrl":"https://music.apple.com/us/album/taylor-swift-bonus-track-version/1440913923","cover":"./covers/cover-7mzrIsaAjnXihW3InKjlC3.jpg","tracks":[{"title":"Tim McGraw","spotifyId":"0Om9WAB5RS09L80DyOfTNa"},{"title":"Picture To Burn","spotifyId":"32mVHdy0bi1XKgr0ajsBlG"},{"title":"Teardrops On My Guitar - Radio Single Remix","spotifyId":"7zMcNqs55Mxer82bvZFkpg"},{"title":"A Place in this World","spotifyId":"73OX8GdpOeGzKC6OvGSbsv"},{"title":"Cold As You","spotifyId":"7an1exwMnfYRcdVQm0yDev"},{"title":"The Outside","spotifyId":"2QA3IixpRcKyOdG7XDzRgv"},{"title":"Tied Together with a Smile","spotifyId":"6K0CJLVXqbGMeJSmJ4ENKK"},{"title":"Stay Beautiful","spotifyId":"2ZoOmCSgj0ypVAmGd1ve4y"},{"title":"Should've Said No","spotifyId":"16MVSD0mGI4RMQT83Qzm69"},{"title":"Mary's Song (Oh My My My)","spotifyId":"2QrQCMel6v2JiLxqrg4p2O"},{"title":"Our Song","spotifyId":"15DeqWWQB4dcEWzJg15VrN"},{"title":"I'm Only Me When I'm With You","spotifyId":"0JIdBrXGSJXS72zjF9ss9u"},{"title":"Invisible","spotifyId":"5OOd01o2YS1QFwdpVLds3r"},{"title":"A Perfectly Good Heart","spotifyId":"1spLfUJxtyVyiKKTegQ2r4"},{"title":"Teardrops on My Guitar - Pop Version","spotifyId":"4pJi1rVt9GNegU9kywjg4z"}]},{"titulo":"Fearless (Taylor's Version)","anio":"2021","spotifyUrl":"https://open.spotify.com/album/4hDok0OAJd57SGIT8xuWJH","tidalUrl":"https://tidal.com/browse/album/179708892","appleMusicUrl":"https://music.apple.com/us/album/fearless-taylors-version/1552791073","cover":"./covers/cover-4hDok0OAJd57SGIT8xuWJH.jpg","tracks":[{"title":"Fearless (Taylor’s Version)","spotifyId":"77sMIMlNaSURUAXq5coCxE"},{"title":"Fifteen (Taylor’s Version)","spotifyId":"2nqio0SfWg6gh2eCtfuMa5"},{"title":"Love Story (Taylor’s Version)","spotifyId":"6YvqWjhGD8mB5QXcbcUKtx"},{"title":"Hey Stephen (Taylor’s Version)","spotifyId":"550erGcdD9n6PnwxrvYqZT"},{"title":"White Horse (Taylor’s Version)","spotifyId":"5YL553x8sHderRBDlm3NM3"},{"title":"You Belong With Me (Taylor’s Version)","spotifyId":"1qrpoAMXodY6895hGKoUpA"},{"title":"Breathe (feat. Colbie Caillat) (Taylor’s Version)","spotifyId":"7HC7R2D8WjXVcUHJyEGjRs"},{"title":"Tell Me Why (Taylor’s Version)","spotifyId":"0k0vFacOHNuArLWMiH60p7"},{"title":"You’re Not Sorry (Taylor’s Version)","spotifyId":"6iiAfo4wTA2CVC3Uwx9uh8"},{"title":"The Way I Loved You (Taylor’s Version)","spotifyId":"22bPsP2jCgbLUvh82U0Z3M"},{"title":"Forever & Always (Taylor’s Version)","spotifyId":"1msEuwSBneBKpVCZQcFTsU"},{"title":"The Best Day (Taylor’s Version)","spotifyId":"6ON9UuIq49xXY9GPmHIYRp"},{"title":"Change (Taylor’s Version)","spotifyId":"3ExweHKZF9B752DPQByRVT"},{"title":"Jump Then Fall (Taylor’s Version)","spotifyId":"2m3ObD945KvpE5y9A1eUWm"},{"title":"Untouchable (Taylor’s Version)","spotifyId":"0tQ9vBYpldCuikPsbgOVKA"},{"title":"Forever & Always (Piano Version) (Taylor’s Version)","spotifyId":"01QdEx6kFr78ZejhQtWR5m"},{"title":"Come In With The Rain (Taylor’s Version)","spotifyId":"1n2wszmJyVkw6FHqyLnQsY"},{"title":"Superstar (Taylor’s Version)","spotifyId":"51A8eKvvZz9uydvIZ7xRSV"},{"title":"The Other Side Of The Door (Taylor’s Version)","spotifyId":"1cSFlSBdpT4F5vb1frQ231"},{"title":"Today Was A Fairytale (Taylor’s Version)","spotifyId":"2JoJrsEV15OzbijS47lids"},{"title":"You All Over Me (feat. Maren Morris) (Taylor’s Version) (From The Vault)","spotifyId":"4CHpVfAhuxNJ3ibExe6kxO"},{"title":"Mr. Perfectly Fine (Taylor’s Version) (From The Vault)","spotifyId":"2CYVETnhM9aytqrazYYwrK"},{"title":"We Were Happy (Taylor’s Version) (From The Vault)","spotifyId":"34V9RiEPe8MNdU32qJsJa1"},{"title":"That’s When (feat. Keith Urban) (Taylor’s Version) (From The Vault)","spotifyId":"7eResoqEJJAVTkQYSqvO3P"},{"title":"Don’t You (Taylor’s Version) (From The Vault)","spotifyId":"4uuEGH5SVuzkkSFjo2DEiY"},{"title":"Bye Bye Baby (Taylor’s Version) (From The Vault)","spotifyId":"4qUijfYU8EoIWiY6oSyrgT"}]},{"titulo":"Red (Taylor's Version)","anio":"2021","spotifyUrl":"https://open.spotify.com/album/6kZ42qRrzov54LcAk4onW9","tidalUrl":"https://tidal.com/browse/album/204609700","appleMusicUrl":"https://music.apple.com/us/album/red-taylors-version-a-message-from-taylor/1590368275","cover":"./covers/cover-6kZ42qRrzov54LcAk4onW9.jpg","tracks":[{"title":"State Of Grace (Taylor's Version)","spotifyId":"6lzc0Al0zfZOIFsFvBS1ki"},{"title":"Red (Taylor's Version)","spotifyId":"4OAuvHryIVv4kMDNSLuPt6"},{"title":"Treacherous (Taylor's Version)","spotifyId":"3S7HNKPakdwNEBFIVTL6dZ"},{"title":"I Knew You Were Trouble (Taylor's Version)","spotifyId":"6AtZLIzUINvExIUy4QhdjP"},{"title":"All Too Well (Taylor's Version)","spotifyId":"3nsfB1vus2qaloUdcBZvDu"},{"title":"22 (Taylor's Version)","spotifyId":"3yII7UwgLF6K5zW3xad3MP"},{"title":"I Almost Do (Taylor's Version)","spotifyId":"2r9CbjYgFhtAmcFv1cSquB"},{"title":"We Are Never Ever Getting Back Together (Taylor's Version)","spotifyId":"5YqltLsjdqFtvqE7Nrysvs"},{"title":"Stay Stay Stay (Taylor's Version)","spotifyId":"7eQj6r5PIdYKEIZjucBMcq"},{"title":"The Last Time (feat. Gary Lightbody of Snow Patrol) (Taylor’s Version)","spotifyId":"0y6kdSRCVQhSsHSpWvTUm7"},{"title":"Holy Ground (Taylor's Version)","spotifyId":"7J4b3LVCIGO4CMBDFLPoP6"},{"title":"Sad Beautiful Tragic (Taylor's Version)","spotifyId":"73qMN9bXy7MSPwwGfH3wQr"},{"title":"The Lucky One (Taylor's Version)","spotifyId":"4e5ayHsOLJNLTGfjau2mEw"},{"title":"Everything Has Changed (feat. Ed Sheeran) (Taylor’s Version)","spotifyId":"7qEUFOVcxRI19tbT68JcYK"},{"title":"Starlight (Taylor's Version)","spotifyId":"7A2cNLRT0YJc1yjxHlKihs"},{"title":"Begin Again (Taylor's Version)","spotifyId":"05GsNucq8Bngd9fnd4fRa0"},{"title":"The Moment I Knew (Taylor's Version)","spotifyId":"0NRHj8hDwwmSPaA41o379r"},{"title":"Come Back...Be Here (Taylor's Version)","spotifyId":"4pNApnaUWAL2J4KO2eqokq"},{"title":"Girl At Home (Taylor's Version)","spotifyId":"0DMVrlMUn01M0IcpDbwgu7"},{"title":"State Of Grace (Acoustic Version) (Taylor's Version)","spotifyId":"5jAIouBES8LWMiriuNq170"},{"title":"Ronan (Taylor's Version)","spotifyId":"7nWui6jiMM2m9qFmET1Mtj"},{"title":"Better Man (Taylor's Version) (From The Vault)","spotifyId":"4OmFmE0fzcMG6g0Y8p4eSD"},{"title":"Nothing New (feat. Phoebe Bridgers) (Taylor’s Version) (From The Vault)","spotifyId":"01K4zKU104LyJ8gMb7227B"},{"title":"Babe (Taylor's Version) (From The Vault)","spotifyId":"0v4z1tuZvn6LGknom9Qx7d"},{"title":"Message In A Bottle (Taylor's Version) (From The Vault)","spotifyId":"3z6XUommYDWPHeFhmhhT6j"},{"title":"I Bet You Think About Me (feat. Chris Stapleton) (Taylor’s Version) (From The Vault)","spotifyId":"4CkgMiMqZ5JzW9iYXSTMTL"},{"title":"Forever Winter (Taylor's Version) (From The Vault)","spotifyId":"3oGVx9RBmiYGv5ZCecWLkx"},{"title":"Run (feat. Ed Sheeran) (Taylor’s Version) (From The Vault)","spotifyId":"4IQkfUsrwXol38VV3U7t7T"},{"title":"The Very First Night (Taylor's Version) (From The Vault)","spotifyId":"6pYNq0ZwpPVazKzsqpf0G8"},{"title":"All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)","spotifyId":"5enxwA8aAbwZbf5qCHORXi"}]},{"titulo":"1989 (Taylor's Version)","anio":"2023","spotifyUrl":"https://open.spotify.com/album/64LU4c1nfjz1t4VnGhagcg","tidalUrl":"https://tidal.com/browse/album/323856439","appleMusicUrl":"https://music.apple.com/us/album/1989-taylors-version/1708308989","cover":"./covers/cover-64LU4c1nfjz1t4VnGhagcg.jpg","tracks":[{"title":"Welcome To New York (Taylor's Version)","spotifyId":"1hR8BSuEqPCCZfv93zzzz9"},{"title":"Blank Space (Taylor's Version)","spotifyId":"45wMBGri1PORPjM9PwFfrS"},{"title":"Style (Taylor's Version)","spotifyId":"1hjRhYpWyqDpPahmSlUTlc"},{"title":"Out Of The Woods (Taylor's Version)","spotifyId":"045ZeOHPIzhxxsm8bq5kyE"},{"title":"All You Had To Do Was Stay (Taylor's Version)","spotifyId":"6GXgd1BPD9bUpqw5AntGV5"},{"title":"Shake It Off (Taylor's Version)","spotifyId":"3pv7Q5v2dpdefwdWIvE7yH"},{"title":"I Wish You Would (Taylor's Version)","spotifyId":"43y1WpBdnEy5TR9aZoSQL9"},{"title":"Bad Blood (Taylor's Version)","spotifyId":"64FzgoLZ3oXu2SriZblHic"},{"title":"Wildest Dreams (Taylor's Version)","spotifyId":"1K39ty6o1sHwwlZwO6a7wK"},{"title":"How You Get The Girl (Taylor's Version)","spotifyId":"75W3SngKzTuoQ94uLf3y82"},{"title":"This Love (Taylor’s Version)","spotifyId":"5QVVjX0ZItqlVpEuVCM9Yg"},{"title":"I Know Places (Taylor's Version)","spotifyId":"2f0GI2ZLUtbGqFx8t2Gk6A"},{"title":"Clean (Taylor's Version)","spotifyId":"2ByBBvpR9b7IynvRmnG7kG"},{"title":"Wonderland (Taylor's Version)","spotifyId":"2ve0kuaWUCt4Zx8x4bf1MR"},{"title":"You Are In Love (Taylor's Version)","spotifyId":"4UwqOWDpdeIDVQDuKT6iza"},{"title":"New Romantics (Taylor's Version)","spotifyId":"2vPMoMDXxu9uX1igWZmXSG"},{"title":"\"Slut!\" (Taylor's Version) (From The Vault)","spotifyId":"71BqAINEnezjQfxE4VuJfq"},{"title":"Say Don't Go (Taylor's Version) (From The Vault)","spotifyId":"4NioO5R9sHEZh4cGzMHyNt"},{"title":"Now That We Don't Talk (Taylor's Version) (From The Vault)","spotifyId":"5KD6AEm19QnMbfWpfoOHMl"},{"title":"Suburban Legends (Taylor's Version) (From The Vault)","spotifyId":"6T0sEnqjmHISIKwFETeeiP"},{"title":"Is It Over Now? (Taylor's Version) (From The Vault)","spotifyId":"1Iq8oo9XkmmvCQiGOfORiz"}]},{"titulo":"reputation","anio":"2017","spotifyUrl":"https://open.spotify.com/album/6DEjYFkNZh67HP7R9PSZvv","tidalUrl":"https://tidal.com/browse/album/121255042","appleMusicUrl":"https://music.apple.com/us/album/reputation/1440933849","cover":"./covers/cover-6DEjYFkNZh67HP7R9PSZvv.jpg","tracks":[{"title":"...Ready For It?","spotifyId":"2yLa0QULdQr0qAIvVwN6B5"},{"title":"End Game","spotifyId":"2x0WlnmfG39ZuDmstl9xfX"},{"title":"I Did Something Bad","spotifyId":"4svZDCRz4cJoneBpjpx8DJ"},{"title":"Don’t Blame Me","spotifyId":"1R0a2iXumgCiFb7HEZ7gUE"},{"title":"Delicate","spotifyId":"6NFyWDv5CjfwuzoCkw47Xf"},{"title":"Look What You Made Me Do","spotifyId":"1P17dC1amhFzptugyAO7Il"},{"title":"So It Goes...","spotifyId":"5PxFv9yJEg9dxvbZggykro"},{"title":"Gorgeous","spotifyId":"1ZY1PqizIl78geGM4xWlEA"},{"title":"Getaway Car","spotifyId":"0VE4kBnHJUgtMf0dy6DRmW"},{"title":"King Of My Heart","spotifyId":"7HuBDWi18s4aJM8UFnNheH"},{"title":"Dancing With Our Hands Tied","spotifyId":"7I7JbDv63ZJJsSi24DyJrz"},{"title":"Dress","spotifyId":"6oVxXO5oQ4pTpO8RSnkzvv"},{"title":"This Is Why We Can't Have Nice Things","spotifyId":"07NxDD1iKCHbAldceD7QLP"},{"title":"Call It What You Want","spotifyId":"1GwMQaZz6Au3QLDbjbMdme"},{"title":"New Year’s Day","spotifyId":"7F5oktn5YOsR9eR5YsFtqb"}]},{"titulo":"folklore","anio":"2020","spotifyUrl":"https://open.spotify.com/album/2fenSS68JI1h4Fo296JfGr","tidalUrl":"https://tidal.com/browse/album/149678928","appleMusicUrl":"https://music.apple.com/us/album/folklore/1524793738","cover":"./covers/cover-2fenSS68JI1h4Fo296JfGr.jpg","tracks":[{"title":"the 1","spotifyId":"0Jlcvv8IykzHaSmj49uNW8"},{"title":"cardigan","spotifyId":"4R2kfaDFhslZEMJqAFNpdd"},{"title":"the last great american dynasty","spotifyId":"2Eeur20xVqfUoM3Q7EFPFt"},{"title":"exile (feat. Bon Iver)","spotifyId":"4pvb0WLRcMtbPGmtejJJ6y"},{"title":"my tears ricochet","spotifyId":"1MgV7FIyNxIG7WzMRJV5HC"},{"title":"mirrorball","spotifyId":"0ZNU020wNYvgW84iljPkPP"},{"title":"seven","spotifyId":"6KJqZcs9XDgVck7Lg9QOTC"},{"title":"august","spotifyId":"3hUxzQpSfdDqwM3ZTFQY0K"},{"title":"this is me trying","spotifyId":"7kt9e9LFSpN1zQtYEl19o1"},{"title":"illicit affairs","spotifyId":"2NmsngXHeC1GQ9wWrzhOMf"},{"title":"invisible string","spotifyId":"6VsvKPJ4xjVNKpI8VVZ3SV"},{"title":"mad woman","spotifyId":"2QDyYdZyhlP2fp79KZX8Bi"},{"title":"epiphany","spotifyId":"08fa9LFcFBTcilB3iq2e2A"},{"title":"betty","spotifyId":"5kI4eCXXzyuIUXjQra0Cxi"},{"title":"peace","spotifyId":"7MbT4I8qGntX4fMdqMQgke"},{"title":"hoax","spotifyId":"6MWoRt97mnSTXZhu3ggi9C"}]},{"titulo":"evermore","anio":"2020","spotifyUrl":"https://open.spotify.com/album/2Xoteh7uEpea4TohMxjtaq","tidalUrl":"https://tidal.com/browse/album/165682541","appleMusicUrl":"https://music.apple.com/us/album/evermore/1544275966","cover":"./covers/cover-2Xoteh7uEpea4TohMxjtaq.jpg","tracks":[{"title":"willow","spotifyId":"0lx2cLdOt3piJbcaXIV74f"},{"title":"champagne problems","spotifyId":"0sY6ZUTh4yoctD8VIXz339"},{"title":"gold rush","spotifyId":"5BK0uqwY9DNfZ630STAEaq"},{"title":"‘tis the damn season","spotifyId":"7dW84mWkdWE5a6lFWxJCBG"},{"title":"tolerate it","spotifyId":"0PurA4JVJ8YQgSVopY8fn6"},{"title":"no body, no crime (feat. HAIM)","spotifyId":"3RaT22zZsxVYxxKR7TAaYF"},{"title":"happiness","spotifyId":"73YUReisjb3A9ActdLLjJQ"},{"title":"dorothea","spotifyId":"670fUmXf4KQekzbEgaXyPA"},{"title":"coney island (feat. The National)","spotifyId":"3k7ne7VmH43ZPWxPdvPUgR"},{"title":"ivy","spotifyId":"19CSr8rwW05VJL2F91KFNK"},{"title":"cowboy like me","spotifyId":"1XjHRolIXL2M1EEOUsGGR4"},{"title":"long story short","spotifyId":"2o2sgVJIgFXk8GQjWTgI6U"},{"title":"marjorie","spotifyId":"12ntTeqEeTg7GAVpe8Mhpl"},{"title":"closure","spotifyId":"35rdVq36LMHQX0Suw9a6tK"},{"title":"evermore (feat. Bon Iver)","spotifyId":"3O5osWf1rSoKMwe6E9ZaXP"}]},{"titulo":"Midnights","anio":"2022","spotifyUrl":"https://open.spotify.com/album/151w1FgRZfnKZA9FEcg9Z3","tidalUrl":"https://tidal.com/browse/album/255207222","appleMusicUrl":"https://music.apple.com/us/album/midnights/1649434996","cover":"./covers/cover-151w1FgRZfnKZA9FEcg9Z3.jpg","tracks":[{"title":"Lavender Haze","spotifyId":"5jQI2r1RdgtuT8S3iG8zFC"},{"title":"Maroon","spotifyId":"3eX0NZfLtGzoLUxPNvRfqm"},{"title":"Anti-Hero","spotifyId":"0V3wPSX9ygBnCm8psDIegu"},{"title":"Snow On The Beach (feat. Lana Del Rey)","spotifyId":"1wtOxkiel43cVs0Yux5Q4h"},{"title":"You're On Your Own, Kid","spotifyId":"4D7BCuvgdJlYvlX5WlN54t"},{"title":"Midnight Rain","spotifyId":"3rWDp9tBPQR9z6U5YyRSK4"},{"title":"Question...?","spotifyId":"0heeNYlwOGuUSe7TgUD27B"},{"title":"Vigilante Shit","spotifyId":"1xwAWUI6Dj0WGC3KiUPN0O"},{"title":"Bejeweled","spotifyId":"3qoftcUZaUOncvIYjFSPdE"},{"title":"Labyrinth","spotifyId":"0A1JLUlkZkp2EFrosoNQi0"},{"title":"Karma","spotifyId":"7KokYm8cMIXCsGVmUvKtqf"},{"title":"Sweet Nothing","spotifyId":"0wavGRldH0AWyu2zvTz8zb"},{"title":"Mastermind","spotifyId":"7FmYn9e7KHMXcxqGSj9LjH"}]},{"titulo":"THE TORTURED POETS DEPARTMENT","anio":"2024","spotifyUrl":"https://open.spotify.com/album/1Mo4aZ8pdj6L1jx8zSwJnt","tidalUrl":"https://tidal.com/browse/album/357676034","appleMusicUrl":"https://music.apple.com/us/album/the-tortured-poets-department/1736268215","cover":"./covers/cover-1Mo4aZ8pdj6L1jx8zSwJnt.jpg","tracks":[{"title":"Fortnight (feat. Post Malone)","spotifyId":"2OzhQlSqBEmt7hmkYxfT6m"},{"title":"The Tortured Poets Department","spotifyId":"3NMrVbIVWT3fPXBj0rNDKG"},{"title":"My Boy Only Breaks His Favorite Toys","spotifyId":"2XXwLdtuAcE0HSCu61ijAb"},{"title":"Down Bad","spotifyId":"2F3N9tdombb64aW6VtZOdo"},{"title":"So Long, London","spotifyId":"3Vevii7qKqrmW8CcyzBHDl"},{"title":"But Daddy I Love Him","spotifyId":"5og4Qzt92jJzVDkOtSEilb"},{"title":"Fresh Out The Slammer","spotifyId":"3fO566xJgwxIa3qGCGBvIC"},{"title":"Florida!!! (feat. Florence + The Machine)","spotifyId":"3ZVFcD8Wlw9T9klGqmJf9F"},{"title":"Guilty as Sin?","spotifyId":"0W0iAC1VGlB82PI6elxFYf"},{"title":"Who’s Afraid of Little Old Me?","spotifyId":"36t6frENUtCYKuZus6aYDO"},{"title":"I Can Fix Him (No Really I Can)","spotifyId":"2h3MDMf8sd9s4XIzpTBIjX"},{"title":"loml","spotifyId":"6RSG1dKPV5gEvILwJb4QtS"},{"title":"I Can Do It With a Broken Heart","spotifyId":"4q5YezDOIPcoLr8R81x9qy"},{"title":"The Smallest Man Who Ever Lived","spotifyId":"2v1ivOOsgn64g5OywuH55L"},{"title":"The Alchemy","spotifyId":"1dhMTsEZz6ZEquGvmzVoHn"},{"title":"Clara Bow","spotifyId":"1UlhrRvYzbHEyugEDspXUB"}]},{"titulo":"The Life of a Showgirl","anio":"2025","spotifyUrl":"https://open.spotify.com/album/4a6NzYL1YHRUgx9e3YZI6I","tidalUrl":"https://tidal.com/album/463900363","appleMusicUrl":"https://music.apple.com/us/album/the-life-of-a-showgirl/1842897453","cover":"./covers/cover-4a6NzYL1YHRUgx9e3YZI6I.jpg","tracks":[{"title":"The Fate of Ophelia","spotifyId":"53iuhJlwXhSER5J2IYYv1W"},{"title":"Elizabeth Taylor","spotifyId":"1jgTiNob5cVyXeJ3WgX5bL"},{"title":"Opalite","spotifyId":"3yWuTOYDztXjZxdE2cIRUa"},{"title":"Father Figure","spotifyId":"03bTIHJElXZ0O0jqOQvAbY"},{"title":"Eldest Daughter","spotifyId":"62HoDY1Km6lm47haFpUn9c"},{"title":"Ruin The Friendship","spotifyId":"62V2ZHslgQV98gH4AuVXnr"},{"title":"Actually Romantic","spotifyId":"2x3mwb96B6TquRqMtbxUE1"},{"title":"Wi$h Li$t","spotifyId":"2TEQvxxQabwLQMqWMg1qGu"},{"title":"Wood","spotifyId":"5ylJtmaWPJ33cW3En7WOu0"},{"title":"CANCELLED!","spotifyId":"1appZ3c336FkPvCuywfmrs"},{"title":"Honey","spotifyId":"4qmFC3Jz5aQ0erlk2OSi2X"},{"title":"The Life of a Showgirl (feat. Sabrina Carpenter)","spotifyId":"5eXgqtg3T8Av0m1FUaGHex"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [{"titulo":"Speak Now (Taylor's Version)","anio":"2023","spotifyUrl":"https://open.spotify.com/album/5AEDGbliTTfjOB8TSm1sxt","tidalUrl":"","appleMusicUrl":""},{"titulo":"Lover","anio":"2019","spotifyUrl":"https://open.spotify.com/album/1NAmidJlEaVgA3MpcPFYGq","tidalUrl":"","appleMusicUrl":""}];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

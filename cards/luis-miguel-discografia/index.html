@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Luis Miguel</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Luis Miguel">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/luis-miguel-discografia/covers/cover-6JSqwckfTYWbJj4R1fdOOo.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/luis-miguel-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Luis Miguel</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De Busca Una Mujer a Luis Miguel: el Sol de México y su legendaria serie de Romances en bolero.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@luismiguel";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Busca Una Mujer","anio":"1988","spotifyUrl":"https://open.spotify.com/album/6JSqwckfTYWbJj4R1fdOOo","tidalUrl":"https://tidal.com/browse/album/172671","appleMusicUrl":"https://music.apple.com/us/album/busca-una-mujer/101069668","cover":"./covers/cover-6JSqwckfTYWbJj4R1fdOOo.jpg","tracks":[{"title":"Fría Como El Viento","spotifyId":"2J4qy8RyfwgXHt73cWOE6P"},{"title":"Esa Niña","spotifyId":"2rL3yI7v4R3EKdK0shizrZ"},{"title":"Culpable O No - Miénteme Como Siempre","spotifyId":"7BwxbmYFy0l3ROHDjV2c14"},{"title":"Un Hombre Busca a Una Mujer","spotifyId":"3ZRUhvuUE2lwZF19puKM8P"},{"title":"La Incondicional","spotifyId":"6F9yAYUaNbUhdlQyt5uZ3b"},{"title":"Separados","spotifyId":"1BkWs6sjxg239MVdm3xOFx"},{"title":"Por Favor Señora","spotifyId":"4MAUqdDvCTMS9ZiB5DB6UK"},{"title":"Pupilas De Gato","spotifyId":"6MaaiqPz6nuaVVhDHKiWGa"},{"title":"El Primero","spotifyId":"7MuIKeqmb44yi2dWMSm5M7"},{"title":"Soy Un Perdedor","spotifyId":"5Am8wx7Sgd0G6cj0URVjOM"}]},{"titulo":"20 Años","anio":"1990","spotifyUrl":"https://open.spotify.com/album/3D9NENGfg4DFmYJrEaxRHd","tidalUrl":"https://tidal.com/album/92607755","appleMusicUrl":"https://music.apple.com/us/album/20-a%C3%B1os/1422838915","cover":"./covers/cover-3D9NENGfg4DFmYJrEaxRHd.jpg","tracks":[{"title":"Entrégate","spotifyId":"5fj3zNkXfOlrJGVcZBId6D"},{"title":"Oro De Ley","spotifyId":"2PZtKB8fDoDGLot27oUnWH"},{"title":"Tengo Todo Excepto a Ti","spotifyId":"27XboT5Wb8VOn7A0heo3Ei"},{"title":"Será Que No Me Amas (Blame It on the Boogie)","spotifyId":"0ULXIAoxSZBcOwygC3PA0i"},{"title":"Amante Del Amor","spotifyId":"3HE0wPD30AjKMKtxNaKFQ4"},{"title":"Hoy El Aire Huele a Ti","spotifyId":"2ZYvD9zQf1iBLelkgkUl7U"},{"title":"Cuestión De Piel","spotifyId":"1PdgPj8tdE2OAhH40J4f4g"},{"title":"Más Allá De Todo","spotifyId":"7CbgafOaqArpdlZVlTpNeA"},{"title":"Alguien Como Tú","spotifyId":"4syvq0aJLeWu0UA9VYcgob"},{"title":"Más","spotifyId":"1KRaDU2NWnUN28Dj1wlnl8"}]},{"titulo":"Romance","anio":"1991","spotifyUrl":"https://open.spotify.com/album/4MjzdTkEmTwPAlVwDSSivP","tidalUrl":"https://tidal.com/browse/album/172646","appleMusicUrl":"https://music.apple.com/us/album/romance/42017898","cover":"./covers/cover-4MjzdTkEmTwPAlVwDSSivP.jpg","tracks":[{"title":"No Me Platiques Más","spotifyId":"1kS5xIvvytkr5Ut1JkQ9SM"},{"title":"Inolvidable","spotifyId":"2pSZjEpbXwlocV8js7MNmu"},{"title":"La Puerta","spotifyId":"5dlNzEPBCM7HgmhfaK0xph"},{"title":"La Barca","spotifyId":"2MkeDQiyZ8MV45IjLhCPSF"},{"title":"Te Extraño","spotifyId":"1uSRXFGgEkukRZIa9WsX52"},{"title":"Usted","spotifyId":"0MHSnVk2CrGP8hIkxpxwMJ"},{"title":"Contigo En La Distancia","spotifyId":"03oCjV73Utu9KpXrgcqoTJ"},{"title":"Mucho Corazón","spotifyId":"5C1HYHG6b1wk9MpC2UP9C6"},{"title":"La Mentira","spotifyId":"3wogsSWyEEu5eVgLqUqySF"},{"title":"Cuando Vuelva a Tu Lado","spotifyId":"3dsvRFQ7YWkNBH8GTPwf7Q"},{"title":"No Sé Tú","spotifyId":"2DAsLftcRKP3iarCPmI1RY"},{"title":"Cómo","spotifyId":"0pWAOLzD2VencHdiDnmRos"}]},{"titulo":"Aries","anio":"1993","spotifyUrl":"https://open.spotify.com/album/6UFAOiLDzOOt75eJhrhFNC","tidalUrl":"https://tidal.com/album/250407","appleMusicUrl":"https://music.apple.com/us/album/aries/100986900","cover":"./covers/cover-6UFAOiLDzOOt75eJhrhFNC.jpg","tracks":[{"title":"Suave","spotifyId":"4p7XH4NhQ25iGYrrbg93gt"},{"title":"Me Niego Estar Solo","spotifyId":"1Ou6RRAWBpVQqkWDY3vFAR"},{"title":"Luz Verde","spotifyId":"0FpYqjOx9Q4khUauXDrVtj"},{"title":"Hasta El Fin","spotifyId":"5Du3bmN3s1rrkjYgwBR5Co"},{"title":"Ayer","spotifyId":"3PoR4LhD7Y74bPpk8lZ6f7"},{"title":"Qué Nivel De Mujer","spotifyId":"4yakD6EKEjeMezENNCSlcc"},{"title":"Pensar En Ti","spotifyId":"4tDY2UqYP370iZLJGYDvvz"},{"title":"Dame Tu Amor","spotifyId":"52gwH8TUdBBhQEs5FqDfik"},{"title":"Hasta Que Me Olvides","spotifyId":"6vPAmoERUMRoTZaCCSWQ12"},{"title":"Tú Y Yo","spotifyId":"5QEelAij2rdNm6WzYiw0wc"}]},{"titulo":"Segundo Romance","anio":"1994","spotifyUrl":"https://open.spotify.com/album/2e6Hp6xaTbUDVzcGLNTHm0","tidalUrl":"https://tidal.com/album/172659","appleMusicUrl":"https://music.apple.com/us/album/segundo-romance/101068833","cover":"./covers/cover-2e6Hp6xaTbUDVzcGLNTHm0.jpg","tracks":[{"title":"El Día Que Me Quieras","spotifyId":"3NKIbFFAioTfznWbnjAMXX"},{"title":"Sin Ti","spotifyId":"0G8iM0Y7xbireCKILhmXAZ"},{"title":"Somos Novios","spotifyId":"4dr2h9rnEW6OBxm8LvRBW2"},{"title":"La Media Vuelta","spotifyId":"1lKI9y1DL6QnYTZguVmACX"},{"title":"Solamente Una Vez","spotifyId":"70BcjMGYixgH1GKkLS40Jr"},{"title":"Todo Y Nada","spotifyId":"1FJSXlDrgr9AS37w67CPHP"},{"title":"Historia De Un Amor","spotifyId":"6av3uLAacGG7c9fjshWmuH"},{"title":"Como Yo Te Amé","spotifyId":"4uP2EipoPEAq3InMMCQMG9"},{"title":"Nosotros","spotifyId":"6xNBJuhCUv24pLdO28AdGc"},{"title":"Yo Se Que Volverás","spotifyId":"4wwmsWGi6mMEqWx8leGFsO"},{"title":"Delirio","spotifyId":"0JsCnQ0xGg6zE7WZkBD9hA"}]},{"titulo":"Nada Es Igual","anio":"1996","spotifyUrl":"https://open.spotify.com/album/0WN5rXI75cVpVMiZ646oyn","tidalUrl":"https://tidal.com/browse/album/188915","appleMusicUrl":"https://music.apple.com/us/album/nada-es-igual/101201782","cover":"./covers/cover-0WN5rXI75cVpVMiZ646oyn.jpg","tracks":[{"title":"Si Te Vas","spotifyId":"4bC7qHKVCD187qEA4xLqU9"},{"title":"Abrázame","spotifyId":"2XZxK7IzFaS0BZMpSP8whW"},{"title":"Dame","spotifyId":"4mu9UDULgYFQfWQFx5fkKM"},{"title":"Nada Es Igual","spotifyId":"3x26LBxicCV5Y79T0Dcwte"},{"title":"Todo Por Su Amor","spotifyId":"2j1zJQA3xbPB9LtxVSnx8G"},{"title":"Que Tú Te Vas","spotifyId":"5xBgNzopylKVTJnrFcKang"},{"title":"Sintiéndote Lejos","spotifyId":"6x0V11tujHlNBpPXNVdFAr"},{"title":"Cómo Es Posible Que a Mi Lado","spotifyId":"3XNKgHcTo3JyWjOdb540Te"},{"title":"Un Día Mas","spotifyId":"1DsSWNLXRQf4fmlmZBWKOe"},{"title":"Sueña","spotifyId":"7e3mCGbRFSsYmnGuQf9rMk"}]},{"titulo":"Amarte Es Un Placer","anio":"1999","spotifyUrl":"https://open.spotify.com/album/59hPa94rgOLoOBKHz98i7n","tidalUrl":"https://tidal.com/album/169223","appleMusicUrl":"https://music.apple.com/us/album/amarte-es-un-placer/101057285","cover":"./covers/cover-59hPa94rgOLoOBKHz98i7n.jpg","tracks":[{"title":"Tu mirada","spotifyId":"3PlhEGoFWvQpPtCycG8xpr"},{"title":"Soy yo","spotifyId":"7gQfSsnHaLcZLvr16L1fYw"},{"title":"Sol, arena y mar","spotifyId":"3pJlTmnEjkf1u9Bualfo8X"},{"title":"O Tu O Ninguna","spotifyId":"7u5wdRqlAC4qeRp47e7hce"},{"title":"Quiero","spotifyId":"2IWGjFFHiChCI6g6wE3mQO"},{"title":"Dormir contigo","spotifyId":"0REKETXT8fkn2C863KKlO4"},{"title":"Dímelo en un beso","spotifyId":"4QfG9VQEB7R1eXX1UuE6g6"},{"title":"No me fio","spotifyId":"6OQwPtGt4lOfiuUYqk1UQr"},{"title":"Te propongo esta noche","spotifyId":"3rZySdtQD7kNmpVb8gYQv4"},{"title":"Tú sólo tú","spotifyId":"25N6ODLeaoXWwFAPp53lkD"},{"title":"Ese momento","spotifyId":"10xLuldyRWXfQHgdynGNHQ"},{"title":"Amarte es un placer","spotifyId":"4lQWZGUrquRfH9se6nlmp3"}]},{"titulo":"México en la Piel","anio":"2004","spotifyUrl":"https://open.spotify.com/album/41VfVz6sKvbm1yCbqAlwfM","tidalUrl":"https://tidal.com/album/288286","appleMusicUrl":"https://music.apple.com/us/album/m%C3%A9xico-en-la-piel-edici%C3%B3n-diamante/79672062","cover":"./covers/cover-41VfVz6sKvbm1yCbqAlwfM.jpg","tracks":[{"title":"El Viajero","spotifyId":"4qb8QUWJCrW3hHuUcSSvmC"},{"title":"Entrega Total","spotifyId":"5stIIDoqTCHP69BKGdbSEg"},{"title":"Échame a Mi La Culpa","spotifyId":"2TOBMDqbtPP6sAQtWc2Br9"},{"title":"México En La Piel","spotifyId":"5BPq1UQa1NSN647R6IzD3n"},{"title":"Cruz De Olvido","spotifyId":"43U31uHEKbHdrvjIJuvkGa"},{"title":"De Qué Manera Te Olvido","spotifyId":"0j0ntQup1Wp9ZiQTUvgnhm"},{"title":"Luz De Luna","spotifyId":"5MALTxghQ66hGWdl1lsGmB"},{"title":"Motivos","spotifyId":"4yEJ1SNpgfK5GPx3Y0YhIU"},{"title":"Cielo Rojo","spotifyId":"6z2gdbLv44WxTfpsnvoPLI"},{"title":"Paloma Querida","spotifyId":"7nQWIZIZ4W7ZKFbrF5R97L"},{"title":"Que Seas Feliz","spotifyId":"6AOt2y4PzYgiUapxCIrbfV"},{"title":"Un Mundo Raro","spotifyId":"2ybospMFQiiopuI9P8WjfH"},{"title":"Sabes Una Cosa","spotifyId":"21Ullb4TU8qMsQd0Iselng"},{"title":"Por un amor","spotifyId":"2fj0xfc4XtTAPqinYJHyZ8"},{"title":"Mi Ciudad","spotifyId":"13IYWtMDbpY8rf4vPkgCiQ"}]},{"titulo":"Cómplices","anio":"2008","spotifyUrl":"https://open.spotify.com/album/0PsSywVZE4qeOPBNiSj4Hz","tidalUrl":"https://tidal.com/browse/album/1804205","appleMusicUrl":"https://music.apple.com/us/album/c%C3%B3mplices/279149962","cover":"./covers/cover-0PsSywVZE4qeOPBNiSj4Hz.jpg","tracks":[{"title":"Te Desean","spotifyId":"0zdUCIN0M4esyLCUlN1VW9"},{"title":"Dicen","spotifyId":"2hoVBKvt0rqzqDvKKsvdzz"},{"title":"Ay cariño","spotifyId":"4od2VWQGNexct1VuOAf7Ol"},{"title":"De nuevo el paraíso","spotifyId":"40T73ktdHsROkdvJlVwBIK"},{"title":"Si tú te atreves","spotifyId":"4tljir1112UOLjqP2lXn4J"},{"title":"Amor A Mares","spotifyId":"4Pq8FOCpiJEgweqiUNbtN3"},{"title":"Estrenando Amor","spotifyId":"1MK8ZJXZzQJoK0KMTpRsEj"},{"title":"Bravo Amor Bravo","spotifyId":"1vdISki3Bq9EbzLJDyLJQ8"},{"title":"Tu imaginación","spotifyId":"3MEE6wxbVVe2pdTYy6uBiq"},{"title":"Cómplices","spotifyId":"5hTuYsUm5AI7fLVR5nrpxs"},{"title":"Amor De Hecho","spotifyId":"48rXakSwykYYhakO9VEng2"},{"title":"Se Amaban","spotifyId":"1sATEbNG0ZTkOlvbu6UQUl"}]},{"titulo":"Luis Miguel","anio":"2010","spotifyUrl":"https://open.spotify.com/album/1gpyLgIsXBUpq8RVGDSnZF","tidalUrl":"https://tidal.com/album/5267817","appleMusicUrl":"https://music.apple.com/us/album/luis-miguel-edici%C3%B3n-de-lujo/409212424","cover":"./covers/cover-1gpyLgIsXBUpq8RVGDSnZF.jpg","tracks":[{"title":"Labios de miel","spotifyId":"7BTTFnqh2ZCon1cMNmP0FV"},{"title":"Mujer de fuego","spotifyId":"4840SClG9EaHGHgPZhww9Y"},{"title":"Tres palabras","spotifyId":"7uvk5N2Vbjcap2hyLzHZ56"},{"title":"Ella es así","spotifyId":"0uZVAR987iTWljIr5p8ISR"},{"title":"No existen límites","spotifyId":"0ZBpkRG83s1MlIBmFgYQoP"},{"title":"Siento","spotifyId":"5zAh7whO7jygBgasP04w2x"},{"title":"Lo que queda de mí","spotifyId":"1kBaM0TJmPHvu5IPpjsc9b"},{"title":"Es por ti","spotifyId":"3gFowKBDwbOFvYAcvYNe6W"},{"title":"¿De quién es usted?","spotifyId":"2HdvUmmUxpSJs9HwpHrfil"},{"title":"Tal vez me mientes","spotifyId":"78a1GojnrB01ASe9iP4E6P"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [{"titulo":"Romances","anio":"1997","spotifyUrl":"https://open.spotify.com/album/3OdgRM6jaoh8Q1Nu3BnheU","tidalUrl":"","appleMusicUrl":""},{"titulo":"Mis Romances","anio":"2001","spotifyUrl":"https://open.spotify.com/album/0hAqX9l2oj2RQAHLWrilLv","tidalUrl":"","appleMusicUrl":""},{"titulo":"33","anio":"2003","spotifyUrl":"https://open.spotify.com/album/5HooteTWKKPU1GjuOo5Bpf","tidalUrl":"","appleMusicUrl":""}];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Kill 'Em All|1983|https://open.spotify.com/album/1aGapZGHBovnmhwqVNI6JZ|https://tidal.com/album/4542661|https://music.apple.com/us/album/kill-em-all-remastered/579146130
+Ride the Lightning|1984|https://open.spotify.com/album/1nTvIQEXvygqSIqc2vuwAz|https://tidal.com/album/4542727|https://music.apple.com/us/album/ride-the-lightning-remastered-2016-remastered-version/579148345
+Master of Puppets|1986|https://open.spotify.com/album/2Lq2qX3hYhiuPckC8Flj21|https://tidal.com/album/145434577|https://music.apple.com/us/album/master-of-puppets-remastered/1275600311
+...And Justice for All|1988|https://open.spotify.com/album/6jZ1z25PyF4Yd3kHxt9rl1|https://tidal.com/album/166789684|https://music.apple.com/us/album/and-justice-for-all-remastered/1434424163
+Metallica|1991|https://open.spotify.com/album/2Kh43m04B1UkVcpcRa1Zug|https://tidal.com/browse/album/166790187|https://music.apple.com/us/album/metallica-remastered/1572046434
+Load|1996|https://open.spotify.com/album/6gzDPIJ1IUi2sI1VQDu4J6|https://tidal.com/album/441771410|https://music.apple.com/us/album/load-remastered/1806720489
+ReLoad|1997|https://open.spotify.com/album/0Ip2GlQPoAIgdkqCO2YkMa|https://tidal.com/browse/album/166789082|https://music.apple.com/us/album/reload/579374216
+Death Magnetic|2008|https://open.spotify.com/album/0lf5ceMub7KQhLfGxCdM06|https://tidal.com/browse/album/1897660|https://music.apple.com/us/album/death-magnetic/579367503
+Hardwired...To Self-Destruct|2016|https://open.spotify.com/album/4kizef5du9TgAGfNhWbKmt|https://tidal.com/browse/album/67002934|https://music.apple.com/us/album/hardwired-to-self-destruct/1145497823
+72 Seasons|2023|https://open.spotify.com/album/70uejEPPRPSLBrTRdfghP5|https://tidal.com/browse/album/288627595|https://music.apple.com/us/album/72-seasons/1655432387
+St. Anger|2003|https://open.spotify.com/album/4ljK2LVKvEPd5xPgUJn0Bs
