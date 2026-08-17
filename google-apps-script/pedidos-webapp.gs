@@ -8,6 +8,20 @@
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
+
+    // Acción del panel admin/reportes.html: mandar el mail al cliente directo desde acá
+    // (con tu cuenta de Gmail), sin abrir ningún programa.
+    if (data.tipo === 'enviarMail') {
+      MailApp.sendEmail({
+        to: data.contacto,
+        subject: data.asunto || 'Tu pedido de ScanBeat',
+        body: data.mensaje || '',
+      });
+      return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Comportamiento normal: guardar un pedido nuevo que llega desde pedido.html.
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Pedidos') || crearHoja_();
 
     var pdfUrl = '';
@@ -125,5 +139,12 @@ function guardarPdf_(base64, nombre) {
  * Esta misma URL (la que termina en /exec) también sirve para LEER los pedidos: el panel
  * admin/reportes.html la usa (con GET) para mostrar la lista de pedidos y armar el envío
  * al cliente. No hace falta ninguna URL ni implementación aparte para eso.
+ *
+ * También manda mails directo desde tu cuenta de Gmail (MailApp) cuando tocás "Enviar
+ * tarjetas al cliente" en admin/reportes.html para un contacto con @ — no abre ningún
+ * programa, se manda solo. La primera vez que actualices a esta versión, al redesplegar
+ * Google puede volver a pedirte autorización (porque ahora el script también necesita
+ * permiso para mandar mails en tu nombre) — es el mismo paso de "Avanzado → Ir a...
+ * → Permitir" de siempre.
  * ================================================================================
  */

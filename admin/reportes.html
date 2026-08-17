@@ -62,6 +62,7 @@
   }
   .btn-pdf{ background:rgba(255,255,255,.08); color:var(--text); border:1px solid rgba(255,255,255,.15) !important; }
   .btn-send{ background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#111; }
+  .btn-send:disabled{ opacity:.5; }
 </style>
 </head>
 <body>
@@ -116,20 +117,24 @@
       + `\n\nEscaneá el QR de tu tarjeta o entrá directo desde estos links para elegir dónde escuchar: Spotify, Apple Music, Tidal o YouTube.\n\n¡Gracias por tu compra!`;
   }
 
-  function sendUrlFor(contacto, mensaje){
-    const limpio = (contacto || '').trim();
-    if (limpio.includes('@')) {
-      return `mailto:${encodeURIComponent(limpio)}?subject=${encodeURIComponent('Tu pedido de ScanBeat 🎵')}&body=${encodeURIComponent(mensaje)}`;
-    }
-    const soloNumeros = limpio.replace(/\D/g, '');
+  function esEmail(contacto){
+    return (contacto || '').trim().includes('@');
+  }
+
+  function waUrlFor(contacto, mensaje){
+    const soloNumeros = (contacto || '').trim().replace(/\D/g, '');
     return `https://wa.me/${soloNumeros}?text=${encodeURIComponent(mensaje)}`;
   }
 
-  function orderCardHtml(o){
+  let ORDERS = [];
+
+  function orderCardHtml(o, idx){
     const chips = o.discografias.split(',').map(s => s.trim()).filter(Boolean)
       .map(n => `<span class="chip">${esc(n)}</span>`).join('');
     const mensaje = mensajeParaCliente(o.nombre, o.discografias);
-    const sendUrl = sendUrlFor(o.contacto, mensaje);
+    const accionHtml = esEmail(o.contacto)
+      ? `<button type="button" class="btn-send" data-send-mail="${idx}">📩 Enviar tarjetas al cliente</button>`
+      : `<a class="btn-send" href="${waUrlFor(o.contacto, mensaje)}" target="_blank" rel="noopener">📱 Enviar por WhatsApp</a>`;
     return `
       <div class="order-card">
         <div class="order-head">
@@ -142,7 +147,7 @@
         ${o.comentario ? `<p class="order-comentario">"${esc(o.comentario)}"</p>` : ''}
         <div class="order-actions">
           ${o.pdf ? `<a class="btn-pdf" href="${esc(o.pdf)}" target="_blank" rel="noopener">📄 Ver PDF</a>` : ''}
-          <a class="btn-send" href="${sendUrl}" target="_blank" rel="noopener">📩 Enviar tarjetas al cliente</a>
+          ${accionHtml}
         </div>
       </div>`;
   }
@@ -157,6 +162,7 @@
       const res = await fetch(SHEETS_WEBAPP_URL, { cache: 'no-store' });
       const data = await res.json();
       if (!Array.isArray(data)) throw new Error(data && data.error ? data.error : 'Respuesta inesperada');
+      ORDERS = data;
       if (!data.length) {
         contentEl.innerHTML = '<p class="status-msg">Todavía no llegó ningún pedido.</p>';
         return;
@@ -167,6 +173,35 @@
       contentEl.innerHTML = '<p class="status-msg">⚠️ No se pudo cargar el reporte. Probá "Actualizar" de nuevo.</p>';
     }
   }
+
+  contentEl.addEventListener('click', async (e) => {
+    const btn = e.target.closest('button[data-send-mail]');
+    if (!btn) return;
+    const o = ORDERS[Number(btn.dataset.sendMail)];
+    if (!o) return;
+    const mensaje = mensajeParaCliente(o.nombre, o.discografias);
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    try {
+      const res = await fetch(SHEETS_WEBAPP_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          tipo: 'enviarMail',
+          contacto: o.contacto,
+          asunto: 'Tu pedido de ScanBeat 🎵',
+          mensaje,
+        }),
+      });
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.error || 'Error desconocido');
+      btn.textContent = '✅ Enviado';
+    } catch (err) {
+      console.error(err);
+      btn.textContent = '⚠️ Error — reintentar';
+      btn.disabled = false;
+    }
+  });
 
   btnRefresh.addEventListener('click', cargarPedidos);
   cargarPedidos();
