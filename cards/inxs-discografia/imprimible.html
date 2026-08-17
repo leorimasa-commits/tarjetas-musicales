@@ -23,13 +23,13 @@
   /* Tamaño real de tarjeta de crédito (ISO/IEC 7810 ID-1): 8.56cm x 5.4cm */
   .card{
     width:8.56cm; height:5.4cm; border-radius:0.3cm; overflow:hidden; position:relative;
-    color:var(--text); box-shadow:0 4px 14px rgba(0,0,0,.25);
-    background-color:var(--accent); background-size:cover; background-position:center top;
+    color:var(--text); box-shadow:0 4px 14px rgba(0,0,0,.25); background-color:var(--accent);
   }
-  .card::before{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,.35) 32%, rgba(0,0,0,.05) 55%, transparent 70%);
-  }
+  /* Tapa y degradado como <img> reales, no CSS background: así se imprimen siempre,
+     sin depender de la casilla "Gráficos de fondo" del diálogo de impresión. */
+  .card-cover, .card-shade{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+  .card-cover{ object-fit:cover; object-position:center top; z-index:0; }
+  .card-shade{ z-index:1; pointer-events:none; }
 
   .footer{ position:absolute; left:0.3cm; right:1.9cm; bottom:0.22cm; z-index:2; }
   .footer .titulo{
@@ -72,6 +72,8 @@
 <body>
 <p class="label">Tarjeta</p>
 <div class="card" data-theme-card>
+  <img class="card-cover" src="./covers/cover-1j3pV7clfsIYMbMh4vDxAZ.jpg" alt="">
+  <img class="card-shade" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0%25' stop-color='black' stop-opacity='0.8'/%3E%3Cstop offset='32%25' stop-color='black' stop-opacity='0.35'/%3E%3Cstop offset='55%25' stop-color='black' stop-opacity='0.05'/%3E%3Cstop offset='70%25' stop-color='black' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='10' height='10' fill='url(%23g)'/%3E%3C/svg%3E" alt="">
   <div class="footer">
     <p class="titulo">INXS</p>
     <div class="brand">
@@ -87,7 +89,6 @@
 
 <script>
   document.documentElement.setAttribute('data-theme', "regalo");
-  document.querySelector('.card').style.backgroundImage = "url('./covers/cover-1j3pV7clfsIYMbMh4vDxAZ.jpg')";
 </script>
 </body>
 </html>

@@ -73,6 +73,9 @@ function main() {
     }
   }
 
+  // src="" en un <img> hace que el navegador recargue la página actual — nunca dejarlo vacío.
+  if (!coverSrc) coverSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7';
+
   const templatePath = path.resolve(__dirname, '..', 'templates', 'imprimible.template.html');
   let html = fs.readFileSync(templatePath, 'utf8');
 
