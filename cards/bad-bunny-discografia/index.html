@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bad Bunny</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Bad Bunny">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/bad-bunny-discografia/covers/cover-7CjJb2mikwAWA1V6kewFBF.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/bad-bunny-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Bad Bunny</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De X 100PRE a DeBÍ TiRAR MáS FOToS: el conejo malo que redefinió el trap y el reguetón en español.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@badbunny";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"X 100PRE","anio":"2018","spotifyUrl":"https://open.spotify.com/album/7CjJb2mikwAWA1V6kewFBF","tidalUrl":"https://tidal.com/album/101423934","appleMusicUrl":"https://music.apple.com/us/album/estamos-bien/1447554595","cover":"./covers/cover-7CjJb2mikwAWA1V6kewFBF.jpg","tracks":[{"title":"NI BIEN NI MAL","spotifyId":"278kSqsZIiYp8p3QjYAqa8"},{"title":"200 Mph","spotifyId":"5jGUJXnELDaDTgiRjD9lsg"},{"title":"¿Quien Tu Eres?","spotifyId":"6kN06eEOblRAuWI0xUUS91"},{"title":"Caro","spotifyId":"6it15CsDlkqB7N4lF0C1qM"},{"title":"Tenemos Que Hablar","spotifyId":"5VQpJ2AY2iMzrRZKgcvNjh"},{"title":"Otra Noche en Miami","spotifyId":"4vCAzANUWDE24URV6wQ4ra"},{"title":"Ser Bichote","spotifyId":"4UEuIEv9Wc3wtiWUplGJ7q"},{"title":"Si Estuviésemos Juntos","spotifyId":"35wvL50xvKpCHEJPxLOLPI"},{"title":"Solo de Mi","spotifyId":"4uP3pUP18ennmz0tb3GphR"},{"title":"Cuando Perriabas","spotifyId":"5mj8WVFcKdGA8p9HWGTSLc"},{"title":"La Romana","spotifyId":"1khmgu0pveJbkbpbkyvcQv"},{"title":"Como Antes","spotifyId":"69ZaPBHhRMRDjRpW1ivnOU"},{"title":"RLNDT","spotifyId":"6pZHZndlo57dPCYnvlYFOE"},{"title":"Estamos Bien","spotifyId":"2OWVCFTolecLiGZPquvWvT"},{"title":"MIA","spotifyId":"3gE4eQH3K83Sght0ZLvuBK"}]},{"titulo":"YHLQMDLG","anio":"2020","spotifyUrl":"https://open.spotify.com/album/5lJqux7orBlA1QzyiBGti1","tidalUrl":"https://tidal.com/album/132672298","appleMusicUrl":"https://music.apple.com/us/album/si-veo-a-tu-mam%C3%A1/1500776322","cover":"./covers/cover-5lJqux7orBlA1QzyiBGti1.jpg","tracks":[{"title":"Si Veo a Tu Mamá","spotifyId":"41wtwzCZkXwpnakmwJ239F"},{"title":"La Difícil","spotifyId":"6NfrH0ANGmgBXyxgV2PeXt"},{"title":"Pero Ya No","spotifyId":"75pQqzwgCjUOSSy5CpmAjy"},{"title":"La Santa","spotifyId":"69vlMrzHwATKzupwNcUPyK"},{"title":"Yo Perreo Sola","spotifyId":"0SqqAgdovOE24BzxIClpjw"},{"title":"Bichiyal","spotifyId":"4j4w4CXm6BSr0s25wAWrrX"},{"title":"Soliá","spotifyId":"7sOfmPd18RWp3FoCzpa7Kw"},{"title":"La Zona","spotifyId":"5kqNIqFjijuzvVLhuY9B8j"},{"title":"Que Malo","spotifyId":"53v2u51nq3CxiKUNphRzP1"},{"title":"Vete","spotifyId":"2n7ohqg1s68ToAHh4u9mcW"},{"title":"Ignorantes","spotifyId":"38RIEav39FGi86jppxO0du"},{"title":"A Tu Merced","spotifyId":"4r9jkMEnArtWGH2rL2FZl0"},{"title":"Una Vez","spotifyId":"5J7teKIJGtqVypgYI6sqXj"},{"title":"Safaera","spotifyId":"2DEZmgHKAvm41k4J3R2E9Y"},{"title":"25/8","spotifyId":"4NqQaovM14WR2hNPMFxgjb"},{"title":"Está Cabrón Ser Yo","spotifyId":"4saHEjXw7O1NXJOzBkUKKG"},{"title":"Puesto Pa' Guerrial","spotifyId":"5gCg2qMPzKkW4jS4dBKdDs"},{"title":"P FKN R","spotifyId":"0fgsKar6uBO08vzHXkTjWi"},{"title":"Hablamos Mañana","spotifyId":"1V8XneTrX6kKeoxYbk4x6h"},{"title":"<3","spotifyId":"4MZSqgwlE71CWZ6qQ3gkKm"}]},{"titulo":"Las Que No Iban a Salir","anio":"2020","spotifyUrl":"https://open.spotify.com/album/4gvQO5mEuhbMSrLIuwXkmz","tidalUrl":"https://tidal.com/browse/album/140807534","appleMusicUrl":"","cover":"./covers/cover-4gvQO5mEuhbMSrLIuwXkmz.jpg","tracks":[{"title":"SI ELLA SALE","spotifyId":"1zaDh3qaGSeSmulNyWlUxm"},{"title":"MÁS DE UNA CITA","spotifyId":"4EJHKSnHENfjOxXWryyNtL"},{"title":"BYE ME FUI","spotifyId":"0FktnzDqjClqU6iqOZVEs2"},{"title":"CANCIÓN CON YANDEL","spotifyId":"3pm4XtcsRIFFtH2UErk62R"},{"title":"PA' ROMPERLA","spotifyId":"5XqCz18k96K8tx6DAYM97i"},{"title":"BAD CON NICKY","spotifyId":"5bmSver2b3ZXyuyLKtgnFI"},{"title":"BENDICIONES","spotifyId":"2CoMYp2uIKsT09nreEZnZn"},{"title":"CÓMO SE SIENTE - Remix","spotifyId":"6KFjMJJq8UZpfUyDgeH0Yl"},{"title":"RONCA FREESTYLE","spotifyId":"3XZeOzJ9tqnu58YP6cqApI"},{"title":"EN CASITA","spotifyId":"2DhNdoHxavs7Qtf5MnhZD0"}]},{"titulo":"El Último Tour del Mundo","anio":"2020","spotifyUrl":"https://open.spotify.com/album/2d9BCZeAAhiZWPpbX9aPCW","tidalUrl":"https://tidal.com/album/163650011","appleMusicUrl":"https://music.apple.com/us/album/la-noche-de-anoche/1542102907","cover":"./covers/cover-2d9BCZeAAhiZWPpbX9aPCW.jpg","tracks":[{"title":"EL MUNDO ES MÍO","spotifyId":"36DHxTW2xdr9GG15T9oK9L"},{"title":"TE MUDASTE","spotifyId":"5RubKOuDoPn5Kj5TLVxSxY"},{"title":"HOY COBRÉ","spotifyId":"0tjZv2hChdHZCW1zFXpy1J"},{"title":"MALDITA POBREZA","spotifyId":"0Lsis3LB0XAK6XlTHXaJk2"},{"title":"LA NOCHE DE ANOCHE","spotifyId":"2XIc1pqjXV3Cr2BQUGNBck"},{"title":"TE DESEO LO MEJOR","spotifyId":"23XjN1s3DZC8Q9ZwuorYY4"},{"title":"YO VISTO ASÍ","spotifyId":"5fROvzNghPid8mbKNDYvpJ"},{"title":"HACIENDO QUE ME AMAS","spotifyId":"26QApq0cuO9brJigr0C0W4"},{"title":"BOOKER T","spotifyId":"26w9NTiE9NGjW1ZvIOd1So"},{"title":"LA DROGA","spotifyId":"67ACYA3UI6QMNtHX6b34wX"},{"title":"DÁKITI","spotifyId":"4MzXwWMhyBbmu6hOcLVD49"},{"title":"TRELLAS","spotifyId":"09WAnxdBuebQopKhJT3oZS"},{"title":"SORRY PAPI","spotifyId":"5jZ32WOU7sqzDYbzINwMUk"},{"title":"120","spotifyId":"3KJ3opyV29269SXkPrc19l"},{"title":"ANTES QUE SE ACABE","spotifyId":"7kjEqI6eZ7YlFrGhxixnlN"},{"title":"CANTARES DE NAVIDAD","spotifyId":"2Iv6YBslkxslMJQsxshZh5"}]},{"titulo":"Un Verano Sin Ti","anio":"2022","spotifyUrl":"https://open.spotify.com/album/3RQQmkQEvNCY4prGKE6oc5","tidalUrl":"https://tidal.com/album/227614732","appleMusicUrl":"https://music.apple.com/us/album/despu%C3%A9s-de-la-playa/1622045624","cover":"./covers/cover-3RQQmkQEvNCY4prGKE6oc5.jpg","tracks":[{"title":"Moscow Mule","spotifyId":"6Xom58OOXk2SoU711L2IXO"},{"title":"Después de la Playa","spotifyId":"1dm6z1fWB0cErMszU25dy2"},{"title":"Me Porto Bonito","spotifyId":"6Sq7ltF9Qa7SNFBsV5Cogx"},{"title":"Tití Me Preguntó","spotifyId":"1IHWl5LamUGEuP4ozKQSXZ"},{"title":"Un Ratito","spotifyId":"5CzixCxDkRXX9mScCmah8O"},{"title":"Yo No Soy Celoso","spotifyId":"5kVZxyMY1gfdCLiChsfjn1"},{"title":"Tarot","spotifyId":"41oY4WCTj5kccfesTVFnvN"},{"title":"Neverita","spotifyId":"31i56LZnwE6uSu3exoHjtB"},{"title":"La Corriente","spotifyId":"1797zYiX4cKosMH836X9Gt"},{"title":"Efecto","spotifyId":"5Eax0qFko2dh7Rl2lYs3bx"},{"title":"Party","spotifyId":"4tYFy8ALRjIZvnvSLw5lxN"},{"title":"Aguacero","spotifyId":"2uflssWlCaJ6CbTMOsUpNI"},{"title":"Enséñame a Bailar","spotifyId":"2NMjggapJcXXM7WccGEBUO"},{"title":"Ojitos Lindos","spotifyId":"3k3NWokhRRkEPhCzPmV8TW"},{"title":"Dos Mil 16","spotifyId":"4d4ZXH4dr5bYfgErHiZCX2"},{"title":"El Apagón","spotifyId":"0UvZcEfpzVyx47QsRbjyBz"},{"title":"Otro Atardecer","spotifyId":"0E0DRHf5PfMeor0ZCwB3oT"},{"title":"Un Coco","spotifyId":"6VrQTLzzuyGIYjUDe4kAZk"},{"title":"Andrea","spotifyId":"44XjoNvtwevktFKjvVe1vH"},{"title":"Me Fui de Vacaciones","spotifyId":"28GCbKgjlVD9eDmasGbe0T"},{"title":"Un Verano Sin Ti","spotifyId":"18HOjcvTVV7W8YzBuOsAPS"},{"title":"Agosto","spotifyId":"0wihfILRNOwE2156Shezc8"},{"title":"Callaita","spotifyId":"71wFwRo8xGc4lrcyKwsvba"}]},{"titulo":"Nadie Sabe Lo Que Va a Pasar Mañana","anio":"2023","spotifyUrl":"https://open.spotify.com/album/4FftCsAcXXD1nFO9RFUNFO","tidalUrl":"https://tidal.com/album/321611033","appleMusicUrl":"","cover":"./covers/cover-4FftCsAcXXD1nFO9RFUNFO.jpg","tracks":[{"title":"NADIE SABE","spotifyId":"23d8v6tU6lR77pFKsApMtF"},{"title":"MONACO","spotifyId":"4MjDJD8cW7iVeWInc2Bdyj"},{"title":"FINA","spotifyId":"3nNmRE0DxHC6ZaKkrpUumS"},{"title":"HIBIKI","spotifyId":"4qSEvFGCpde73gqIuq3sho"},{"title":"MR. OCTOBER","spotifyId":"1ODFVLQszq0hCOdZtqV5wq"},{"title":"CYBERTRUCK","spotifyId":"4Jc7252S1P99DjQ1lNGEOc"},{"title":"VOU 787","spotifyId":"0rDQZJtSGgsB2rdkObpdFa"},{"title":"SEDA","spotifyId":"1YnChEM51BVZ5dRhbVFEMl"},{"title":"GRACIAS POR NADA","spotifyId":"1U3A66OHQyTu4N2QTMsP86"},{"title":"TELEFONO NUEVO","spotifyId":"01ppKlDRCmPpusO3yNrSRY"},{"title":"BABY NUEVA","spotifyId":"3NhstUmrlhaN1M6hP8zMbb"},{"title":"MERCEDES CAROTA","spotifyId":"3TYOH7ta0101NYssoH5GlU"},{"title":"LOS PITS","spotifyId":"7ucEkWU0SVy0XFdfXESgfY"},{"title":"VUELVE CANDY B","spotifyId":"3mRF0YNsDdFKFnxwg16hSz"},{"title":"BATICANO","spotifyId":"5qzLdvRViHUrRNdkpakG7C"},{"title":"NO ME QUIERO CASAR","spotifyId":"39L3LdlHS3gqB62HPWaJRg"},{"title":"WHERE SHE GOES","spotifyId":"2sTDlCxmuZCTDKKk9f1qus"},{"title":"THUNDER Y LIGHTNING","spotifyId":"4pcafPzLDSqQktqSpxHL3E"},{"title":"PERRO NEGRO","spotifyId":"7iQXYTyuG13aoeHxGG28Nh"},{"title":"EUROPA :)","spotifyId":"6vh4S1z08AjGipGAEsV62e"},{"title":"ACHO PR","spotifyId":"1C7lXfx4Y5maVl4AgUVlHA"},{"title":"UN PREVIEW","spotifyId":"5ixdmTpCmH5diBA1j154wN"}]},{"titulo":"Oasis","anio":"2023","spotifyUrl":"https://open.spotify.com/album/6ylFfzx32ICw4L1A7YWNLN","tidalUrl":"https://tidal.com/album/225095707","appleMusicUrl":"https://music.apple.com/us/album/oasis/1470146332","cover":"./covers/cover-6ylFfzx32ICw4L1A7YWNLN.jpg","tracks":[{"title":"MOJAITA","spotifyId":"71pEiUWwfDFiRO6RmFpnBf"},{"title":"YO LE LLEGO","spotifyId":"0uIfrUwwg0Z7KTitul7E3T"},{"title":"CUIDAO POR AHÍ","spotifyId":"6SYSu569pfYdkDT9A5lZqi"},{"title":"QUE PRETENDES","spotifyId":"25ZAibhr3bdlMCLmubZDVt"},{"title":"LA CANCIÓN","spotifyId":"0fea68AdmYNygeTGI4RC18"},{"title":"UN PESO","spotifyId":"7hynhxDoDpgMIV12JuVtNa"},{"title":"ODIO","spotifyId":"7alOsNr36sJ8CyOEP4aILq"},{"title":"COMO UN BEBÉ","spotifyId":"7knLcYCOSaURD0d7HUULFM"}]},{"titulo":"DeBÍ TiRAR MáS FOToS","anio":"2025","spotifyUrl":"https://open.spotify.com/album/5K79FLRUCSysQnVESLcTdb","tidalUrl":"https://tidal.com/album/409386860","appleMusicUrl":"https://music.apple.com/us/album/nuevayol/1787022393","cover":"./covers/cover-5K79FLRUCSysQnVESLcTdb.jpg","tracks":[{"title":"NUEVAYoL","spotifyId":"5TFD2bmFKGhoCRbX61nXY5"},{"title":"VOY A LLeVARTE PA PR","spotifyId":"59D4DOkspUbWyMmbAPQkxZ"},{"title":"BAILE INoLVIDABLE","spotifyId":"2lTm559tuIvatlT1u0JYG2"},{"title":"PERFuMITO NUEVO","spotifyId":"1Q9Efnm5csdCMFynISxL2x"},{"title":"WELTiTA","spotifyId":"5WEF0icHWmAZBBMglBd599"},{"title":"VeLDÁ","spotifyId":"7d6yK8v8J484SWH5prIQiE"},{"title":"EL CLúB","spotifyId":"0iKo4pNNjHHdKUcFARlfCa"},{"title":"KETU TeCRÉ","spotifyId":"4c2Pc0NrfkesPR0jff6q3F"},{"title":"BOKeTE","spotifyId":"79x7xtoCLpf6l32Zz6mWo4"},{"title":"KLOuFRENS","spotifyId":"4MUrUT38U98olfnyzMBCzm"},{"title":"TURiSTA","spotifyId":"7tCuCjhxzjX2XCz4JiiAsp"},{"title":"CAFé CON RON","spotifyId":"6VNXmo59yDYgcwLS17UNAW"},{"title":"PIToRRO DE COCO","spotifyId":"14QaXYIK3K3QPtezqxRRPN"},{"title":"LO QUE LE PASÓ A HAWAii","spotifyId":"1Hg0e997pObvZ91w1FCPFk"},{"title":"EoO","spotifyId":"6J5kc12BW5HuP3d7C3vvx8"},{"title":"DtMF","spotifyId":"3sK8wGT43QFpWrvNQsrQya"},{"title":"LA MuDANZA","spotifyId":"3G7agPwWfcORnWCAGMDOpm"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lady Gaga</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Lady Gaga">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/lady-gaga-discografia/covers/cover-1jpUMnKpRlng1OJN7LJauV.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/lady-gaga-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lady Gaga</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De The Fame a MAYHEM: pop, electrónica y teatralidad en estado puro, sin miedo a reinventarse.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@ladygaga";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"The Fame","anio":"2008","spotifyUrl":"https://open.spotify.com/album/1jpUMnKpRlng1OJN7LJauV","tidalUrl":"https://tidal.com/browse/album/236985401","appleMusicUrl":"https://music.apple.com/us/album/just-dance-feat-colby-odonis/1440818588","cover":"./covers/cover-1jpUMnKpRlng1OJN7LJauV.jpg","tracks":[{"title":"Just Dance","spotifyId":"2x7MyWybabEz6Y6wvHuwGE"},{"title":"LoveGame","spotifyId":"0TcJ7QWpggdSg8t0fHThHm"},{"title":"Paparazzi","spotifyId":"7Hqig8kp32q2Ire3ECQvWM"},{"title":"Poker Face","spotifyId":"5R8dQOPq8haW94K7mgERlO"},{"title":"Eh, Eh (Nothing Else I Can Say)","spotifyId":"4CIu6ip0JlQeCqLLfoqlDW"},{"title":"Beautiful, Dirty, Rich","spotifyId":"3qrQtMmkuV79LMGfsGDHRf"},{"title":"The Fame","spotifyId":"25pWYL5848CIMh3OfnDroM"},{"title":"Money Honey","spotifyId":"5ww65ORP2faNi9ygUjxwId"},{"title":"Starstruck","spotifyId":"2DLsZCx5UEqVB3vY3kZWWB"},{"title":"Boys Boys Boys","spotifyId":"129NQr4tA6j60b59rflcTY"},{"title":"Paper Gangsta","spotifyId":"0LtZYj18X8mpZ2M6A7nA8t"},{"title":"Brown Eyes","spotifyId":"6YSrwzBdLvN5RtzYmWsUPx"},{"title":"I Like It Rough","spotifyId":"2FABVB96EnV25oBToWNUk4"},{"title":"Summerboy","spotifyId":"1c31md8UrbHONSycrFi3Jy"},{"title":"Disco Heaven","spotifyId":"20rDqWMo6aYgeTXsX8l2rn"}]},{"titulo":"The Fame Monster","anio":"2009","spotifyUrl":"https://open.spotify.com/album/58WSd6SDPOcbnnJ2tq0Ph8","tidalUrl":"https://tidal.com/album/236962383","appleMusicUrl":"https://music.apple.com/us/album/the-fame-monster/1440814077","cover":"./covers/cover-58WSd6SDPOcbnnJ2tq0Ph8.jpg","tracks":[{"title":"Bad Romance","spotifyId":"6TAdq4dNZx3JN2vm6Pr4hi"},{"title":"Alejandro","spotifyId":"0RsTUK89eNgV2YXg37BeJQ"},{"title":"Monster","spotifyId":"3lM8PqytBRX4ImTznLfk2n"},{"title":"Speechless","spotifyId":"5QB0aILqhJpYiFXoOrB2kR"},{"title":"Dance In The Dark","spotifyId":"6YAC2BXXCwCBp1PnF4MXD4"},{"title":"Telephone","spotifyId":"4BkhzD8dCxUFZFzwmK2NnD"},{"title":"So Happy I Could Die","spotifyId":"5wvZdHIkFmu21PKqDLxg0d"},{"title":"Teeth","spotifyId":"2OycPJAn1YudMCWtEjUlXO"}]},{"titulo":"Born This Way","anio":"2011","spotifyUrl":"https://open.spotify.com/album/2KkMVsxymoNR7hRmBcMttd","tidalUrl":"https://tidal.com/browse/album/77669919","appleMusicUrl":"https://music.apple.com/us/album/born-this-way/1440824019","cover":"./covers/cover-2KkMVsxymoNR7hRmBcMttd.jpg","tracks":[{"title":"Marry The Night","spotifyId":"1k18nxjYj8R5iz82Ap7GEY"},{"title":"Born This Way","spotifyId":"6aDi4gOE2Cfc6ecynvP81R"},{"title":"Government Hooker","spotifyId":"163qYiv7eLxiExe5FwUZqm"},{"title":"Judas","spotifyId":"0QkWikH5Z3U0f79T9iuF6c"},{"title":"Americano","spotifyId":"6YWZJINy5OxVfFfCpK6z5L"},{"title":"Hair","spotifyId":"7p5kptMgNXhbbt8Ipk7ycD"},{"title":"Scheiße","spotifyId":"0YWNXGOEmG69eLEuxAKKww"},{"title":"Bloody Mary","spotifyId":"3qk4i6DRjtagkjF3hZnXp2"},{"title":"Bad Kids","spotifyId":"7BQ9t4oG9P7AuuCkJO7VmM"},{"title":"Highway Unicorn (Road To Love)","spotifyId":"4MHbePKCz2UUMCgm3xix1T"},{"title":"Heavy Metal Lover","spotifyId":"4D6MvQ3FnVrPkYhq5WsN6H"},{"title":"Electric Chapel","spotifyId":"4AgFspZtZEIk9yj5Sinbu5"},{"title":"Yoü And I","spotifyId":"6rkAY9rk1NTFB94QxG3LJR"},{"title":"The Edge Of Glory","spotifyId":"0JNdS1n0ifOP25XvhwAMgM"}]},{"titulo":"ARTPOP","anio":"2013","spotifyUrl":"https://open.spotify.com/album/3m73auBlGk2iiRACSODAlR","tidalUrl":"https://tidal.com/album/116143564","appleMusicUrl":"https://music.apple.com/us/album/artpop/1451767927","cover":"./covers/cover-3m73auBlGk2iiRACSODAlR.jpg","tracks":[{"title":"Aura","spotifyId":"2CWyCq0GEnlaw3GZDDC6wR"},{"title":"Venus","spotifyId":"3EjdCseLWQ1wyrk5qJQKZv"},{"title":"G.U.Y.","spotifyId":"2a6aX6b0GbcMLCnbagqQKo"},{"title":"Sexxx Dreams","spotifyId":"5abNW4jWGx9GF64Ekr54Sm"},{"title":"Jewels N' Drugs","spotifyId":"6S9IWNfOVjk217fZOTVPaC"},{"title":"MANiCURE","spotifyId":"5yZKuo7OQborlFp3CVsMOz"},{"title":"ARTPOP","spotifyId":"5G2KHX3AQeiP9Bmm0ruB5L"},{"title":"Swine","spotifyId":"6SEEnC1b3hVajjjo2VFVna"},{"title":"Donatella","spotifyId":"5govHs40FeDzSfusu44q7K"},{"title":"Fashion!","spotifyId":"15bkq3HIthAE11hSplj0Lj"},{"title":"Mary Jane Holland","spotifyId":"4agZUARl4mJVVaH1wsR7VE"},{"title":"Dope","spotifyId":"1PZvojGY9MLTnELoAgFIFQ"},{"title":"Gypsy","spotifyId":"1bTxHdv6H6Q5gTGOWVSYWQ"},{"title":"Applause","spotifyId":"1EntfuxWPYjI8ONzkfNb0W"},{"title":"Applause - Empire Of The Sun Remix","spotifyId":"5YYLfdMTOx1dfsUPAh8f1v"}]},{"titulo":"Joanne","anio":"2016","spotifyUrl":"https://open.spotify.com/album/6Lz05XTRg1D6cCViSANoY3","tidalUrl":"https://tidal.com/album/169908648","appleMusicUrl":"https://music.apple.com/us/album/joanne/1440895544","cover":"./covers/cover-6Lz05XTRg1D6cCViSANoY3.jpg","tracks":[{"title":"Diamond Heart","spotifyId":"4outmUWedZPh2ZWq1vXAgE"},{"title":"A-YO","spotifyId":"7Fzn1TFuDxmstu7nxxMAKP"},{"title":"Joanne","spotifyId":"00nKdBKPs0F7nJ0xzWbccg"},{"title":"John Wayne","spotifyId":"5sEovJiXqhiD1lzptxnttF"},{"title":"Dancin' In Circles","spotifyId":"5V2fueYWTBpB8gvFeS1XbS"},{"title":"Perfect Illusion","spotifyId":"2FKljmdiz0JiaDitTV5UCH"},{"title":"Million Reasons","spotifyId":"6kmm2jcandx3obXukxQ5bi"},{"title":"Sinner’s Prayer","spotifyId":"7bhGiUNiNSbtzdrPNtCsmV"},{"title":"Come To Mama","spotifyId":"5F5VNsrTUvgwJoh3CKiTkY"},{"title":"Hey Girl","spotifyId":"3RVXntC55Fa0xfUcpxLuZE"},{"title":"Angel Down","spotifyId":"5WyhwoQ7Sbj6zyGy7pqjVL"}]},{"titulo":"Chromatica","anio":"2020","spotifyUrl":"https://open.spotify.com/album/05c49JgPmL4Uz2ZeqRx5SP","tidalUrl":"https://tidal.com/browse/album/143020722","appleMusicUrl":"https://music.apple.com/us/album/chromatica/1500951604","cover":"./covers/cover-05c49JgPmL4Uz2ZeqRx5SP.jpg","tracks":[{"title":"Chromatica I","spotifyId":"3CGZ7wfk4skmuyQgua1C1K"},{"title":"Alice","spotifyId":"41A89rj3GoMG6ktN37L7PG"},{"title":"Stupid Love","spotifyId":"7yBbV2k2S2uhaQc24NF2xt"},{"title":"Rain On Me (with Ariana Grande)","spotifyId":"7ju97lgwC2rKQ6wwsf9no9"},{"title":"Free Woman","spotifyId":"4L6ihclQPu1hqP9r3WNJjQ"},{"title":"Fun Tonight","spotifyId":"6hyQVqfHFvsJDjcmj4qrHf"},{"title":"Chromatica II","spotifyId":"0oQc0F6KUE7QY7k5TU6bic"},{"title":"911","spotifyId":"6qI0MU175Dk2DeoUjlrOpy"},{"title":"Plastic Doll","spotifyId":"3CidPLqWXqgesJlwYVJZdy"},{"title":"Sour Candy (with BLACKPINK)","spotifyId":"1IWNylpZ477gIVUDpJL66u"},{"title":"Enigma","spotifyId":"7JDbfYUHjDzQPFSDh5lzGs"},{"title":"Replay","spotifyId":"7sKbyYeJnITO1Eh9xd0lKd"},{"title":"Chromatica III","spotifyId":"6kXRZSe28BawCiEdME8YLk"},{"title":"Sine From Above (with Elton John)","spotifyId":"0zzsyWc45eUcSjw4FNHxeN"},{"title":"1000 Doves","spotifyId":"62hTXlVQacy3pjBW4ntRPl"},{"title":"Babylon","spotifyId":"5DttNeiizFqWUON9hZBqTY"}]},{"titulo":"MAYHEM","anio":"2025","spotifyUrl":"https://open.spotify.com/album/2MHUaRi9OCyTN02SoyRRBJ","tidalUrl":"https://tidal.com/browse/album/421850005","appleMusicUrl":"https://music.apple.com/us/album/garden-of-eden/1792666546","cover":"./covers/cover-2MHUaRi9OCyTN02SoyRRBJ.jpg","tracks":[{"title":"Disease","spotifyId":"0T3Hw3kPj9T2E4UoaSXmfn"},{"title":"Abracadabra","spotifyId":"2LHNTC9QZxsL3nWpt8iaSR"},{"title":"Garden Of Eden","spotifyId":"4mUR5Tv0CvJtpmnUtzeIgd"},{"title":"Perfect Celebrity","spotifyId":"0Tqn5Th0wk55eLdga96vZM"},{"title":"Vanish Into You","spotifyId":"5IoPnNiYAOvHHJpz13wzRL"},{"title":"Killah (feat. Gesaffelstein)","spotifyId":"4pNzBbGcqXofx8mLBPTeih"},{"title":"Zombieboy","spotifyId":"0ElVpg9XIswx3XWs6kUj6a"},{"title":"LoveDrug","spotifyId":"3hcivoswCVR8LZkHR8MYA5"},{"title":"How Bad Do U Want Me","spotifyId":"2rvd6akG8qEtBNUvQpN7iY"},{"title":"Don't Call Tonight","spotifyId":"0uoWOZeZZiC90RMNDQBqj4"},{"title":"Shadow Of A Man","spotifyId":"6OC87jHRiovNPEUrgaqFSu"},{"title":"The Beast","spotifyId":"08svDlp6TNFlfMIgjjZlYI"},{"title":"Blade Of Grass","spotifyId":"7xIoinMSiwIp5BWR7toO1O"},{"title":"Die With A Smile","spotifyId":"7so0lgd0zP2Sbgs2d7a1SZ"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

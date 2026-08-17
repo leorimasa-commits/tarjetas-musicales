@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shakira</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Shakira">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/shakira-discografia/covers/cover-3HLngzP9wVd8p3SMDQgyd9.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/shakira-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Shakira</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De Pies Descalzos a Las Mujeres Ya No Lloran: tres décadas llevando el pop latino al mundo entero.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@shakira";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Pies Descalzos","anio":"1995","spotifyUrl":"https://open.spotify.com/album/3HLngzP9wVd8p3SMDQgyd9","tidalUrl":"https://tidal.com/album/26828294","appleMusicUrl":"https://music.apple.com/us/album/pies-descalzos/193662156","cover":"./covers/cover-3HLngzP9wVd8p3SMDQgyd9.jpg","tracks":[{"title":"Estoy Aquí","spotifyId":"4M1lEbqPzlEw1JYWB6aE7K"},{"title":"Antología","spotifyId":"0KAqMRUSZwzG3dZLdDA4eH"},{"title":"Un Poco de Amor","spotifyId":"6dwhYg12fOFw8aUrnCOOqC"},{"title":"Quiero","spotifyId":"3o4qlkbRP4DSXl4NBrWULJ"},{"title":"Te Necesito","spotifyId":"6nR1XJxwiZlsDMnOsdlh5m"},{"title":"Vuelve","spotifyId":"74DGE82ZVx7VKCoMgbyKBD"},{"title":"Te Espero Sentada","spotifyId":"3J93BR2ihQjDQ9n9AfYTqu"},{"title":"Pies Descalzos, Sueños Blancos","spotifyId":"5yKQTwznar5I75UyYJ9CnR"},{"title":"Pienso en Ti","spotifyId":"4I0y9VniZ7JlDYthP8Vpo9"},{"title":"Donde Estas Corazon","spotifyId":"6IGvaQ4aFBjy66TdUurIiA"},{"title":"Se Quiere, Se Mata","spotifyId":"31NNxg7WYqs1bgRSFXgCf8"}]},{"titulo":"Dónde Están los Ladrones?","anio":"1998","spotifyUrl":"https://open.spotify.com/album/5hcKSTqKOLuzJgYIQileAe","tidalUrl":"https://tidal.com/browse/album/26807585","appleMusicUrl":"https://music.apple.com/us/album/d%C3%B3nde-est%C3%A1n-los-ladrones/192682818","cover":"./covers/cover-5hcKSTqKOLuzJgYIQileAe.jpg","tracks":[{"title":"Ciega, Sordomuda","spotifyId":"7jxHeJLVpnP7S08JFF4GBi"},{"title":"Si Te Vas","spotifyId":"7Apo6o7oxgFyXaSmdx6NHN"},{"title":"Moscas en la Casa","spotifyId":"1j5NOlhczuiPnZdT6aovgY"},{"title":"No Creo","spotifyId":"4suenIuyqxZYV0VIjsbYrG"},{"title":"Inevitable","spotifyId":"78dbqYDvx6FOefROApu9w0"},{"title":"Octavo Día","spotifyId":"4g5ucHrtIEM4LrIbrLo8Oz"},{"title":"Que Vuelvas","spotifyId":"3DjXu9jBpV5lPbhHQVyPQd"},{"title":"Tú","spotifyId":"6ZEVQ2whiJvhjCNAOJ0DC3"},{"title":"Dónde Están los Ladrones","spotifyId":"2nSd3kBslXIbBAdrmqvKM6"},{"title":"Sombra de Ti","spotifyId":"6rROXfjFzQyH2w9FAiVkq7"},{"title":"Ojos Así","spotifyId":"4EDfdYJ7mqXRoWAqzF1PVO"}]},{"titulo":"Laundry Service","anio":"2001","spotifyUrl":"https://open.spotify.com/album/6WaruQqgJzSlSzZz2YdUku","tidalUrl":"https://tidal.com/album/26828557","appleMusicUrl":"https://music.apple.com/us/album/laundry-service/188260845","cover":"./covers/cover-6WaruQqgJzSlSzZz2YdUku.jpg","tracks":[{"title":"Objection (Tango)","spotifyId":"6v4BO70yz5MclzEjuyIWpW"},{"title":"Underneath Your Clothes","spotifyId":"7hSutTmcWo3mdMy5p6nuP8"},{"title":"Whenever, Wherever","spotifyId":"1aOmguVejTHGDMmXjNpSPo"},{"title":"Rules","spotifyId":"2xnHNytBhw7sh9XrUuWTzj"},{"title":"The One","spotifyId":"032rOlqTseuMobet1jpna8"},{"title":"Ready for the Good Times","spotifyId":"77HLxGCg7Pol8sXQKRJ3DF"},{"title":"Fool","spotifyId":"3wcDkuCwJJ8xbds86p0z2P"},{"title":"Te Dejo Madrid","spotifyId":"1w4a3Sy3d1ptWxIlE6S5bY"},{"title":"Poem to a Horse","spotifyId":"7rE1p08sgOmsJC3m3j462B"},{"title":"Que Me Quedes Tú","spotifyId":"2VY4zXDAGaFPdzyezjmT2s"},{"title":"Eyes Like Yours (Ojos Así)","spotifyId":"5Zcvsa7LBiVlEnD69aZiNb"},{"title":"Suerte (Whenever, Wherever)","spotifyId":"7ppmRz3W47ALsrATmglbv1"},{"title":"Te Aviso, Te Anuncio (Tango)","spotifyId":"5T2mV4uefPTylywzV0L84z"},{"title":"Whenever, Wherever - Sahara Mix","spotifyId":"4IXwdtnrNq5fPQRqAuJwam"},{"title":"Underneath Your Clothes - Acoustic Live Vox","spotifyId":"1YRBm74ixDPdDd3iJUextF"},{"title":"Objection (Tango) - Afro-Punk Version","spotifyId":"73ZUaFZdd5aii31xpyk3Az"},{"title":"Whenever, Wherever - Pepsi Super Bowl LIV Halftime Show Remix","spotifyId":"59QI3gSnv576kHyV4Jqt36"}]},{"titulo":"Fijación Oral, Vol. 1","anio":"2005","spotifyUrl":"https://open.spotify.com/album/3zHPYwiMJqa3hTBgk695Ae","tidalUrl":"https://tidal.com/browse/album/26807597","appleMusicUrl":"https://music.apple.com/us/album/fijaci%C3%B3n-oral-volumen-1-expanded-edition/1817217210","cover":"./covers/cover-3zHPYwiMJqa3hTBgk695Ae.jpg","tracks":[{"title":"En Tus Pupilas","spotifyId":"28x1syDlcQU3QOFhYIG63K"},{"title":"La Pared","spotifyId":"3TZNOCoBeIeMMTAkyMJUxq"},{"title":"La Tortura (feat. Alejandro Sanz)","spotifyId":"5BSclXJTa9B0iURhUjZo50"},{"title":"Obtener un Si","spotifyId":"5JwZwNT0SyOZlErdpvdEg3"},{"title":"Dia Especial (feat. Gustavo Cerati)","spotifyId":"1XyRT1VeLaJs5rEJA3rMO9"},{"title":"Escondite Ingles","spotifyId":"6FIa32QgkH62pbe4yX5Sgk"},{"title":"No (feat. Gustavo Cerati)","spotifyId":"0J6dOwflFSy3h1AoKmkqKc"},{"title":"Las de la Intuición","spotifyId":"3uU6dqBjVKRTPis0RrTaT4"},{"title":"Dia de Enero","spotifyId":"0OEBOJhSObnFuHuasXdt52"},{"title":"Lo Imprescindible","spotifyId":"5sQi44U78b4HJT4KgyT1Ub"},{"title":"La Pared - Versión Acústica","spotifyId":"5u4QS9JQtNetXX6DfQ6TGF"},{"title":"La Tortura (feat. Alejandro Sanz) - Shaketon Remix","spotifyId":"3FsGjnnVi70WRUHOmopafn"}]},{"titulo":"Oral Fixation, Vol. 2","anio":"2005","spotifyUrl":"https://open.spotify.com/album/2cHhcN6iNLNXc7FByWBGi5","tidalUrl":"https://tidal.com/album/29272","appleMusicUrl":"https://music.apple.com/us/album/oral-fixation-vol-2-expanded-edition/1817217057","cover":"./covers/cover-2cHhcN6iNLNXc7FByWBGi5.jpg","tracks":[{"title":"How Do You Do","spotifyId":"2BEHlR9lPiQDAHDVN9qmY9"},{"title":"Illegal (feat. Carlos Santana)","spotifyId":"5toWsyTlR9gyxAtKm4Z1A8"},{"title":"Hips Don't Lie (feat. Wyclef Jean)","spotifyId":"3d0WouFnFmr0K3kjeza3fF"},{"title":"Animal City","spotifyId":"7cY6iCJgl5FhSjzq1HF30q"},{"title":"Don't Bother","spotifyId":"4tN0D2OeDh2pErMXCu86Du"},{"title":"The Day and the Time (feat. Gustavo Cerati)","spotifyId":"6ZXbTWxVNAk1Hh1BUEKsI2"},{"title":"Dreams for Plans","spotifyId":"19qP3WOlhtw4O7e32ziUGF"},{"title":"Hey You","spotifyId":"4E7hlbV1U6lNO51gL97Xjw"},{"title":"Your Embrace","spotifyId":"4DdBhkgOALlS3DKDKJUEbs"},{"title":"Costume Makes the Clown","spotifyId":"68pOYRE0s82aoGxxZVg1eu"},{"title":"Something","spotifyId":"3xc6Jfsn4Goiz2CtGAnUBl"},{"title":"Timor","spotifyId":"2Lw0o8GwH8MFG4XcJTQqnE"},{"title":"La Tortura (feat. Alejandro Sanz) - Alternate Version","spotifyId":"1CdIXHNoydzrMsVeVZpz4s"},{"title":"Hips Don't Lie (featuring Wyclef Jean) (feat. Wyclef Jean) - En Español","spotifyId":"6mz40EkyjCOrW7SoRA6oCJ"},{"title":"Don't Bother - jrsnchz radio mix","spotifyId":"5BRdqgaMaezCEUYUAl2Zpp"},{"title":"Illegal - Ali Dee Radio Remix","spotifyId":"15bC3TlI6mlazKPbhV2Lcf"}]},{"titulo":"She Wolf","anio":"2009","spotifyUrl":"https://open.spotify.com/album/3MhG5IXiezatEXyNsXPLPm","tidalUrl":"https://tidal.com/browse/album/440200519","appleMusicUrl":"https://music.apple.com/us/album/she-wolf-deluxe-version/340234380","cover":"./covers/cover-3MhG5IXiezatEXyNsXPLPm.jpg","tracks":[{"title":"She Wolf","spotifyId":"4l9fZ75WzPZlAIkqJIWlo8"},{"title":"Did It Again","spotifyId":"3sDhJxD2bl3tFvPux54UK2"},{"title":"Long Time","spotifyId":"1Ctr3bOy2Df2iTeTgeNcv6"},{"title":"Why Wait","spotifyId":"4IS0RfunmA1dZQyL2rvyRr"},{"title":"Good Stuff","spotifyId":"4qMABt80hTYHU0ZDKlOngl"},{"title":"Men in This Town","spotifyId":"50nXBeI5RwKshansUZrdSQ"},{"title":"Gypsy","spotifyId":"2EP2fYLLC32XI5PaDKhylj"},{"title":"Spy (feat. Wyclef Jean)","spotifyId":"734hn6xVA28O2QP3mwYwMr"},{"title":"Mon Amour","spotifyId":"5uDGB0GbShBBUQ4LXBH61q"},{"title":"Loba","spotifyId":"0FpB2Hw5qx9SeMMQuw1G5P"},{"title":"Lo Hecho Está Hecho","spotifyId":"3kKJ8b84p6GgFrVsi775Bm"},{"title":"Años Luz","spotifyId":"6VRycqh42yjKnS00BkK4ms"},{"title":"Give It Up To Me (feat. Lil Wayne)","spotifyId":"7lHLV4mhFfk13afE57241n"},{"title":"Did It Again (feat. Kid Cudi)","spotifyId":"11Md2yQhVjB2udBnfqii1F"},{"title":"Gitana","spotifyId":"57vPlAo9jx3ZP2nTlEByO5"},{"title":"Lo Hecho Está Hecho (feat. Pitbull)","spotifyId":"0KX7SjxTOeWQGwbGsw0x0p"},{"title":"Gypsy - Live From T4 Studios","spotifyId":"1yOSNynWvSDbMDBPacijZj"},{"title":"She Wolf - Live From T4 Studios","spotifyId":"4SXAL7NWiGGDG92y6QduAd"}]},{"titulo":"Sale el Sol","anio":"2010","spotifyUrl":"https://open.spotify.com/album/3gR578qnw47M30LVBTjrlW","tidalUrl":"https://tidal.com/browse/album/31007237","appleMusicUrl":"https://music.apple.com/us/album/sale-el-sol/888878323","cover":"./covers/cover-3gR578qnw47M30LVBTjrlW.jpg","tracks":[{"title":"Sale el Sol","spotifyId":"1DJxR9NMQ14fv1WK0pHodt"},{"title":"Loca (feat. El Cata)","spotifyId":"42k1KeBehAd83lrGt1okiC"},{"title":"Antes de las Seis","spotifyId":"5J5uyhoBZxJwmjy2Zg6DgF"},{"title":"Gordita (feat. Residente Calle 13)","spotifyId":"6fufW0yhOYcNHvAaUwgpS1"},{"title":"Addicted to You","spotifyId":"4zy1s9GnxWsNzZp1688euA"},{"title":"Lo Que Más","spotifyId":"6c8ZIkGXlKE5vSzrUbHLDr"},{"title":"Mariposas","spotifyId":"5mqbIuIagl2q2HZqTiLSfS"},{"title":"Rabiosa (feat. El Cata)","spotifyId":"19t0Z7qsoV6A1CGJVYRnjm"},{"title":"Devoción","spotifyId":"58haa2vmqz7tCG7FFDrLWZ"},{"title":"Islands","spotifyId":"7kHU3Re5YQd45PLwGRbGvE"},{"title":"Tu Boca","spotifyId":"6ja9N12lzBD1TRuQfZb18z"},{"title":"Waka Waka (Esto Es Africa) - K-Mix","spotifyId":"4DRFIoachXrW8YV7Yje0yz"},{"title":"Loca (feat. Dizzee Rascal)","spotifyId":"6YMPu36VGIknb8Ey1ohW3j"},{"title":"Rabiosa (feat. Pitbull)","spotifyId":"2Xh7dyCHCErCv3PmdVEGw4"},{"title":"Waka Waka (This Time for Africa) - K-Mix","spotifyId":"63Tl9k1sH8tznn3bqoMuyF"},{"title":"Loca (feat. Dizzee Rascal) - Freemasons Radio Edit","spotifyId":"2Sk7RnSVAQGcTovlJQ5FD1"}]},{"titulo":"Shakira.","anio":"2014","spotifyUrl":"https://open.spotify.com/album/2gOSZzsO8EZJvtdmVOVtJE","tidalUrl":"https://tidal.com/browse/album/38616909","appleMusicUrl":"https://music.apple.com/us/album/shakira-expanded-edition-spanish-version/825811721","cover":"./covers/cover-2gOSZzsO8EZJvtdmVOVtJE.jpg","tracks":[{"title":"Dare (La La La)","spotifyId":"2g1jbrVOuX488h5ILA1Cb2"},{"title":"Can't Remember to Forget You (feat. Rihanna)","spotifyId":"09N6k2FECWDBNL7DF5uo3j"},{"title":"Empire","spotifyId":"5OlrcU79ULKCPXwt1i7JXv"},{"title":"You Don't Care About Me","spotifyId":"1LcAPBcL6RT0rcGbPTxoMr"},{"title":"Cut Me Deep (feat. MAGIC!)","spotifyId":"70ADPhE824gKn38CPHgiDg"},{"title":"Spotlight","spotifyId":"0o13CIZgE4KIRVn1KdzuCx"},{"title":"Broken Record","spotifyId":"6uBYwDurQJm3YQkYxSG5fO"},{"title":"Medicine (feat. Blake Shelton)","spotifyId":"2RtAelBaTWKHOCVmoDQUfT"},{"title":"23","spotifyId":"24YOXjKUYehjyIz66uhXqv"},{"title":"The One Thing","spotifyId":"2vEuxSbxYtQFKcjN04UVKJ"},{"title":"Nunca Me Acuerdo de Olvidarte","spotifyId":"6YzJIzT0FMxrEpRlUeLpAT"},{"title":"Loca por Ti","spotifyId":"4RTNfpgco68betLqDcEAyE"},{"title":"La La La","spotifyId":"18hNqyuWDWmnr0NixQHIos"},{"title":"Chasing Shadows","spotifyId":"4DCAO5JHENPeOXCEUPNUU5"},{"title":"That Way","spotifyId":"7GMiEYPbQgEHYouceWWxQr"},{"title":"La La La (Brazil 2014) (feat. Carlinhos Brown)","spotifyId":"7xSAKieVU47dvIoaaeCndX"},{"title":"La La La (Brasil 2014) (feat. Carlinhos Brown) - Tradução/Letra)","spotifyId":"1i0zBh7TE6qcvy6dVXQ20c"}]},{"titulo":"El Dorado","anio":"2017","spotifyUrl":"https://open.spotify.com/album/6bUxh58rYTL67FS8dyTKMN","tidalUrl":"https://tidal.com/browse/album/74272858","appleMusicUrl":"https://music.apple.com/us/album/el-dorado/1234665555","cover":"./covers/cover-6bUxh58rYTL67FS8dyTKMN.jpg","tracks":[{"title":"Me Enamoré","spotifyId":"4qknM1pQz53QOyfDVTjcM9"},{"title":"Nada","spotifyId":"1D8bmUIhLHEO4KMS2SHwUx"},{"title":"Chantaje (feat. Maluma)","spotifyId":"6mICuAdrwEjh6Y6lroV2Kg"},{"title":"When a Woman","spotifyId":"6MFVCPU3QN3YqMjJz4mtFe"},{"title":"Amarillo","spotifyId":"5Qn56ssVeZJfNwDCme7Eo0"},{"title":"Perro Fiel (feat. Nicky Jam)","spotifyId":"70lnL3QaSOIIyMa2X9aVRL"},{"title":"Trap (feat. Maluma)","spotifyId":"7GncL3nyKUjsEm8Z5gvTpW"},{"title":"Comme moi (feat. Shakira)","spotifyId":"2RHpEALdmp9dnPuEm7SLKB"},{"title":"Coconut Tree","spotifyId":"4uGz0wWAkH4FGPpBR6eaHt"},{"title":"La Bicicleta","spotifyId":"0sXvAOmXgjR2QUqLK1MltU"},{"title":"Deja vu","spotifyId":"5clmffOxeckeJ2e3GMy6UZ"},{"title":"What We Said (feat. MAGIC!) - Comme moi English Version","spotifyId":"0kM7Geaz7x7r17CPONjpOU"},{"title":"Toneladas","spotifyId":"5VD3oQilL00HfIEW6ICSQq"}]},{"titulo":"Las Mujeres Ya No Lloran","anio":"2024","spotifyUrl":"https://open.spotify.com/album/3fonA82Hl7huJiQCwKkzGA","tidalUrl":"https://tidal.com/browse/album/352028305","appleMusicUrl":"https://music.apple.com/us/album/copa-vac%C3%ADa/1731059947","cover":"./covers/cover-3fonA82Hl7huJiQCwKkzGA.jpg","tracks":[{"title":"Puntería","spotifyId":"2dYXrWkNO40NXy2Q3IYLRc"},{"title":"La Fuerte","spotifyId":"09mHLXMh3rmruStxevfh3U"},{"title":"Tiempo Sin Verte","spotifyId":"6c8jkAgbVk44B8SwRi8vQs"},{"title":"Cohete","spotifyId":"5JKk6Gh5CLlwpbPz48eWtB"},{"title":"(Entre Paréntesis)","spotifyId":"68viiGZoRbLCjsy5xD4VrU"},{"title":"Cómo Dónde y Cuándo","spotifyId":"40Ccxt7rKCXiViGQKPPACR"},{"title":"Nassau","spotifyId":"2D48pEtMZRYcByAhjvVLM3"},{"title":"Última","spotifyId":"3FEIMzqeq5EXqaMi3mHP6L"},{"title":"Te Felicito","spotifyId":"64zcAZeIWHszCGKOSqAogH"},{"title":"Monotonía","spotifyId":"2dfH1gA3FZDv9L69Dqy9RY"},{"title":"Shakira: Bzrp Music Sessions, Vol. 53","spotifyId":"3MhdQkxCOkM41Q7oPFIABJ"},{"title":"TQG (feat. Shakira)","spotifyId":"1VyoUKGlVrGE9QvCT0Cw0b"},{"title":"Acróstico - Milan + Sasha","spotifyId":"2qcLLzq1deFSABxoqWFGdi"},{"title":"Copa Vacía","spotifyId":"3KV9n8QMepWCXI3TkWKeZy"},{"title":"El Jefe","spotifyId":"3cLJZEdlBiY2jZ5lduO4Sm"},{"title":"Bzrp Music Sessions, Vol. 53 - Tiësto Remix","spotifyId":"22Q0eVNpSUIWG0prN6cVmI"},{"title":"Puntería - Vinyl Version","spotifyId":"1DYtDpkadSjqvjjtIP88SI"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

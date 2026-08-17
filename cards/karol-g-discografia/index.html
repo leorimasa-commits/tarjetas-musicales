@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Karol G</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Karol G">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/karol-g-discografia/covers/cover-12nlJpvrOd7tTOaCxB1UeR.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/karol-g-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Karol G</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De Unstoppable a Tropicoqueta: la Bichota que llevó el género urbano y tropical latino a lo más alto.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@karolg";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Unstoppable","anio":"2017","spotifyUrl":"https://open.spotify.com/album/12nlJpvrOd7tTOaCxB1UeR","tidalUrl":"https://tidal.com/browse/album/80233791","appleMusicUrl":"https://music.apple.com/us/album/ahora-me-llama-remix/1440879288","cover":"./covers/cover-12nlJpvrOd7tTOaCxB1UeR.jpg","tracks":[{"title":"Ganas De Ti","spotifyId":"6Kbl5FRBRRZhjbv5FoXe3w"},{"title":"La Dama","spotifyId":"78mpFgPXtqFccYQpSTNRX6"},{"title":"Hello","spotifyId":"2RK7wvV1U6BU5siw4vhXN7"},{"title":"El Pecado","spotifyId":"4M1dVJegubckrFNGGfcbrE"},{"title":"A Solas","spotifyId":"2yKJmfi2tvRJQ6elMxDmzv"},{"title":"Ahora Me Llama","spotifyId":"0alSPoUfrGb0RdVVG4Lf3n"},{"title":"Eres Mi Todo","spotifyId":"229NpRywpBdKErmKM2ctz2"},{"title":"Amor No Hay","spotifyId":"4NO3qKhMYw9XjD7TAPQGUR"},{"title":"A Ella","spotifyId":"1pkMzGqBBS10nDiiYrNGGJ"},{"title":"Muñeco De Lego","spotifyId":"1PuBKZbBeFWc9uVvUjUuOW"},{"title":"Casi Nada","spotifyId":"7p7erLN6ursMA8uvWiXj7Z"},{"title":"Lo Sabe Dios","spotifyId":"3lbSlSHXPFThany9iJxRrV"},{"title":"Ahora Me Llama - Remix","spotifyId":"5K5mnE8uQnf9zIEX7ojdoq"}]},{"titulo":"OCEAN","anio":"2019","spotifyUrl":"https://open.spotify.com/album/4i5b4YWuMtneUSvQPONwzK","tidalUrl":"https://tidal.com/browse/album/108381271","appleMusicUrl":"https://music.apple.com/us/album/ocean/1460193253","cover":"./covers/cover-4i5b4YWuMtneUSvQPONwzK.jpg","tracks":[{"title":"Ocean","spotifyId":"6qoIFQfdmaQF9A1gb67tR7"},{"title":"Punto G","spotifyId":"2E82gORVSA7UMEz5M1IP3b"},{"title":"Love With A Quality","spotifyId":"6F9DPkjP6Tbz9FLgLyYgX6"},{"title":"Baby","spotifyId":"1eRdeUgwXTHexTTY7kqPS4"},{"title":"Sin Corazón","spotifyId":"690JwCXepkfh98mSMxCrrd"},{"title":"Dices Que Te Vas","spotifyId":"0QHOIQxRlIPYPJ1HLgIN8S"},{"title":"Pineapple","spotifyId":"24SkzbH7hGhUvqIaKlJ1TY"},{"title":"La Vida Continuó","spotifyId":"6NUDfOCXlQT0RIuYJCXbfe"},{"title":"Bebesita","spotifyId":"69XHHNUwwgm7I0dlfqaGJS"},{"title":"Culpables","spotifyId":"4RGKft6YTTWHjpQeRIInuS"},{"title":"Mi Cama","spotifyId":"3fFMAZtSAK5YQ3Zdl3EE4Q"},{"title":"La Ocasión Perfecta","spotifyId":"0Y0QTT6W7zRVKv9hWdYkCg"},{"title":"Créeme","spotifyId":"4EKZsrsCKyqr64FBHLc0DU"},{"title":"Go Karo","spotifyId":"75myWkNUTahMKBbP6xCOlt"},{"title":"Mi Cama - Remix","spotifyId":"5yV2jwp1AZnulVkiWEorq7"},{"title":"Yo Aprendí","spotifyId":"0VU7mSqoaNxseitmR4chF5"}]},{"titulo":"KG0516","anio":"2021","spotifyUrl":"https://open.spotify.com/album/5CS8E6JVACItYto4OOJoPW","tidalUrl":"https://tidal.com/browse/album/178086113","appleMusicUrl":"https://music.apple.com/us/album/el-makin%C3%B3n/1560071303","cover":"./covers/cover-5CS8E6JVACItYto4OOJoPW.jpg","tracks":[{"title":"DÉJALOS QUE MIREN","spotifyId":"1gDN23O2aqeWX5NqjSnAbV"},{"title":"EL MAKINON","spotifyId":"2FSGUA0gFgGeQdprjtGM2M"},{"title":"200 COPAS","spotifyId":"0aZnyTWJNgdzYoOiaW8HKG"},{"title":"CONTIGO VOY A MUERTE","spotifyId":"615XWyY2RPfk3iuYcU6qvi"},{"title":"DVD","spotifyId":"2Uk2XAamvFG6AecKgayLKU"},{"title":"EL BARCO","spotifyId":"0MT6qJd7wKlWjH7tP7oWHi"},{"title":"LOCATION","spotifyId":"478g4LSkyMB1PMkVOVmIaE"},{"title":"GATO MALO","spotifyId":"7wy5kv4fYAsR9qFxKKZC5E"},{"title":"ODISEA","spotifyId":"1lyT9DtXlF7bjiwEurRpRU"},{"title":"BICHOTA","spotifyId":"1WvrDdouh6C51In1SdATbq"},{"title":"SOLA ES MEJOR","spotifyId":"6b5LFS96QBt4qJ5Yd3tfqm"},{"title":"ARRANCA PAL CARAJO","spotifyId":"2LRI27CycRpNInbdM8AFLI"},{"title":"Ay, DiOs Mío!","spotifyId":"1beTDCe7sT7fzm8WIKXicz"},{"title":"BEAUTIFUL BOY","spotifyId":"50dG65XY5SNFkpFl2xA5Dn"},{"title":"Tusa","spotifyId":"0dKg2vGC1hFqcK5LGTaKzX"},{"title":"LEYENDAS","spotifyId":"5vQy9fwVJTeLsaX9IOpCcp"}]},{"titulo":"Mañana Será Bonito","anio":"2023","spotifyUrl":"https://open.spotify.com/album/4kS7bSuU0Jm9LYMosFU2x5","tidalUrl":"https://tidal.com/album/277248225","appleMusicUrl":"https://music.apple.com/us/album/provenza/1670245862","cover":"./covers/cover-4kS7bSuU0Jm9LYMosFU2x5.jpg","tracks":[{"title":"MIENTRAS ME CURO DEL CORA","spotifyId":"6otePxalBK8AVa20xhZYVQ"},{"title":"X SI VOLVEMOS","spotifyId":"4NoOME4Dhf4xgxbHDT7VGe"},{"title":"PERO TÚ","spotifyId":"1dw7qShk971xMD6r6mA4VN"},{"title":"BESTIES","spotifyId":"7eTv2OTr3aY5iKtFdBusoA"},{"title":"GUCCI LOS PAÑOS","spotifyId":"3CNbrXrUrEARw8zeKNCdYo"},{"title":"TQG","spotifyId":"0DWdj2oZMBFSzRsi2Cvfzf"},{"title":"TUS GAFITAS","spotifyId":"3gOI5aQD4mOMLsP3aWrkon"},{"title":"OJOS FERRARI","spotifyId":"5yAIrkplUEpMNeojW8Q30o"},{"title":"MERCURIO","spotifyId":"6KCvMsAiL6WseKEFsWoPgc"},{"title":"GATÚBELA","spotifyId":"6Vn1vje8yMw2OY6IOk9dkH"},{"title":"KÁRMIKA","spotifyId":"3mFNc5EQn30irR983Wg9OD"},{"title":"PROVENZA","spotifyId":"3HqcNJdZ2seoGxhn0wVNDK"},{"title":"CAROLINA","spotifyId":"3goYw6YHoCjA1sfBzpdgzH"},{"title":"DAÑAMOS LA AMISTAD","spotifyId":"3jUDqkHatwtprUmZ8epP8P"},{"title":"AMARGURA","spotifyId":"505v13epFXodT9fVAJ6h8k"},{"title":"CAIRO","spotifyId":"16dUQ4quIHDe4ZZ0wF1EMN"},{"title":"MAÑANA SERÁ BONITO","spotifyId":"4bycD60yZgR6anIBtmU8UH"}]},{"titulo":"Tropicoqueta","anio":"2025","spotifyUrl":"https://open.spotify.com/album/0yY0fT7zibMEffhBJD9Nab","tidalUrl":"https://tidal.com/album/443072650","appleMusicUrl":"https://music.apple.com/us/album/coleccionando-heridas/1819544141","cover":"./covers/cover-0yY0fT7zibMEffhBJD9Nab.jpg","tracks":[{"title":"La Reina Presenta","spotifyId":"25JwlfH1QtTlOLgNq72IBO"},{"title":"Ivonny Bonita","spotifyId":"6Sv0CzVqzydd7NYQgAG70c"},{"title":"Papasito","spotifyId":"64zQbQTwu4ppBEfWyhst9t"},{"title":"LATINA FOREVA","spotifyId":"2KrQbq3aqGOFGnkTKnN2XA"},{"title":"Dile Luna","spotifyId":"4n0JnrS5az8qhhQRuofBfo"},{"title":"Cuando Me Muera Te Olvido","spotifyId":"0x0Egm8IgaRNCfNKqkJrPt"},{"title":"Coleccionando Heridas","spotifyId":"3ddJ8Vbc5tYPxq5zKRVke6"},{"title":"Un Gatito Me Llamó","spotifyId":"01bd6lyQR2ZiicAifXtlr9"},{"title":"Amiga Mía","spotifyId":"1tTEcJKC5uAtIoPrWCkmXZ"},{"title":"Bandida Entrenada","spotifyId":"3o0nsMGWZMpp3GOEZkVuSR"},{"title":"Ese Hombre Es Malo","spotifyId":"61yr9YbDKfyZn7zh1ZgUOW"},{"title":"A Su Boca La Amo (Interlude)","spotifyId":"6VVm8loj8FpKcAPUvgJfEl"},{"title":"Verano Rosa","spotifyId":"0nafF9MxcXJBQWv3BTKtdF"},{"title":"No Puedo Vivir Sin Él","spotifyId":"6zRVWT0bZaBfe9H5z4naf4"},{"title":"Tu Perfume","spotifyId":"4iWjsRa7DnFiqiihxnyFoI"},{"title":"FKN Movie","spotifyId":"0t2Y8BKBhtHQTOW7nzyIc0"},{"title":"Se Puso Linda","spotifyId":"71AVxv9fJVgGpGZIGcxud3"},{"title":"Viajando Por El Mundo","spotifyId":"4w6Wpq1KWk485krowaqUIV"},{"title":"Si Antes Te Hubiera Conocido","spotifyId":"73scB4Q4fcOmnsBVZPmk32"},{"title":"Tropicoqueta","spotifyId":"3l8zyeHnG8u2q7H4FQyVtS"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
