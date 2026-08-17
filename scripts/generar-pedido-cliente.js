@@ -22,6 +22,9 @@ for (const slug of slugs) {
   const titleMatch = html.match(/<title>([^<]*)<\/title>/);
   const titulo = titleMatch ? titleMatch[1] : slug;
 
+  const temaMatch = html.match(/setAttribute\('data-theme',\s*"([^"]+)"/);
+  const tema = temaMatch ? temaMatch[1] : 'regalo';
+
   let cover = '';
   const albumsMatch = html.match(/const ALBUMS = (\[.*?\]);/s);
   if (albumsMatch) {
@@ -32,7 +35,10 @@ for (const slug of slugs) {
     } catch { /* sin tapa si no matchea */ }
   }
 
-  items.push({ slug, titulo, cover });
+  const qrPath = path.join(cardDir, 'qr.png');
+  const qr = fs.existsSync(qrPath) ? `cards/${slug}/qr.png` : '';
+
+  items.push({ slug, titulo, tema, cover, qr });
 }
 
 items.sort((a, b) => a.titulo.localeCompare(b.titulo, 'es', { sensitivity: 'base' }));
