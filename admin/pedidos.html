@@ -140,7 +140,7 @@
   /* ---------- Vista de impresión (misma grilla que hoja-imprimible) ---------- */
   #printview{ display:none; }
   #printview .toolbar{
-    max-width:19cm; margin:0 auto 16px; padding:16px 20px 0; display:flex; gap:12px; justify-content:center;
+    max-width:20.9cm; margin:0 auto 16px; padding:16px 20px 0; display:flex; gap:12px; justify-content:center;
   }
   #printview .toolbar button{
     border:none; border-radius:20px; padding:10px 18px; font-weight:800; font-size:13px;
@@ -148,7 +148,11 @@
   #printview .btn-back{ background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.25); }
   #printview .btn-print{ background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#111; }
 
-  #printview .page{ max-width:19cm; margin:0 auto 24px; background:#e5e5e5; padding:2cm 1cm 1cm 1cm; }
+  /* Ancho real necesario para 2 columnas de tarjeta (8.56cm + 0.4cm de padding a cada
+     lado del card-slot = 9.36cm cada una) + el padding de .page (1cm a cada lado) =
+     20.72cm. Con 19cm la segunda columna se salía de la caja de .page — quedaba
+     desalineada/se veía cortada contra el fondo gris. */
+  #printview .page{ max-width:20.9cm; margin:0 auto 24px; background:#e5e5e5; padding:2cm 1cm 1cm 1cm; }
   #printview .sheet{ border-collapse:collapse; margin:0 auto; }
   #printview .card-slot{ position:relative; padding:0.4cm; }
 

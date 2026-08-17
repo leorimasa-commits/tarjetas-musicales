@@ -113,7 +113,12 @@
   .theme-fiesta{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
   .theme-evento{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
   .theme-regalo{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
-  .page{ background:#e5e5e5; padding:2cm 1cm 1cm 1cm; width:19cm; }
+  /* Ancho real necesario: 2 columnas de tarjeta (8.56cm + 0.4cm de padding a cada lado
+     del card-slot = 9.36cm cada una) + el padding izquierdo/derecho de .page (1cm cada
+     uno) = 20.72cm. Con "width:19cm" (como estaba antes) la segunda columna se salía de
+     la caja de .page, y html2canvas recorta todo lo que queda afuera de esa caja al
+     capturar — la tarjeta de la derecha aparecía cortada/desalineada en el PDF. */
+  .page{ background:#e5e5e5; padding:2cm 1cm 1cm 1cm; width:20.9cm; }
   .sheet{ border-collapse:collapse; margin:0 auto; }
   .card-slot{ position:relative; padding:0.4cm; }
   .corner{ position:absolute; width:0.28cm; height:0.28cm; pointer-events:none; }
