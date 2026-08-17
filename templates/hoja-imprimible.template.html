@@ -81,6 +81,7 @@
   }
 
   @media print{
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
     /* No tocar el padding acá: en wkhtmltopdf, el padding-top del body es lo
        único que produce un margen superior real. Solo cambiamos el fondo. */
     body::before{ background:#fff; }

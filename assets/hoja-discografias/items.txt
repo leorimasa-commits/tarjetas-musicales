@@ -1,19 +1,19 @@
-redondos-discografia|Patricio Rey y sus Redonditos de Ricota|regalo
-inxs-discografia|INXS|regalo
-michael-jackson-discografia|Michael Jackson|regalo
-roxette-discografia|Roxette|regalo
-queen-discografia|Queen|regalo
+attaque-77-discografia|Attaque 77|regalo
 beatles-discografia|The Beatles|regalo
-soda-stereo-discografia|Soda Stereo|regalo
 charly-garcia-discografia|Charly García|regalo
+depeche-mode-discografia|Depeche Mode|evento
+divididos-discografia|Divididos|regalo
 fito-paez-discografia|Fito Páez|regalo
 gnr-discografia|Guns N' Roses|regalo
-divididos-discografia|Divididos|regalo
-rolling-stones-discografia|The Rolling Stones|regalo
-pink-floyd-discografia|Pink Floyd|regalo
-pet-shop-boys-discografia|Pet Shop Boys|regalo
-depeche-mode-discografia|Depeche Mode|evento
-u2-discografia|U2|regalo
+inxs-discografia|INXS|regalo
 kiss-discografia|KISS|regalo
+michael-jackson-discografia|Michael Jackson|regalo
+redondos-discografia|Patricio Rey y sus Redonditos de Ricota|regalo
+pet-shop-boys-discografia|Pet Shop Boys|regalo
+pink-floyd-discografia|Pink Floyd|regalo
+queen-discografia|Queen|regalo
 ratones-paranoicos-discografia|Ratones Paranoicos|regalo
-attaque-77-discografia|Attaque 77|regalo
+rolling-stones-discografia|The Rolling Stones|regalo
+roxette-discografia|Roxette|regalo
+soda-stereo-discografia|Soda Stereo|regalo
+u2-discografia|U2|regalo

@@ -34,6 +34,8 @@ for (const slug of slugs) {
   items.push({ slug, artista, cover, cantidad });
 }
 
+items.sort((a, b) => a.artista.localeCompare(b.artista, 'es', { sensitivity: 'base' }));
+
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }

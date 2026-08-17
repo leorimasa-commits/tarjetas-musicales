@@ -62,6 +62,7 @@
   }
 
   @media print{
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
     body{ background:#fff; padding:0; gap:0.5cm; }
     .card{ box-shadow:none; page-break-inside:avoid; }
     .label{ display:none; }

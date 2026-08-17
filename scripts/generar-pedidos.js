@@ -57,6 +57,8 @@ for (const slug of slugs) {
   });
 }
 
+items.sort((a, b) => a.titulo.localeCompare(b.titulo, 'es', { sensitivity: 'base' }));
+
 const templatePath = path.join(root, 'templates', 'pedidos.template.html');
 let html = fs.readFileSync(templatePath, 'utf8');
 html = html.replace('{{CARDS_JSON}}', JSON.stringify(items));

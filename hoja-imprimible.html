@@ -81,6 +81,7 @@
   }
 
   @media print{
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
     /* No tocar el padding acá: en wkhtmltopdf, el padding-top del body es lo
        único que produce un margen superior real. Solo cambiamos el fondo. */
     body::before{ background:#fff; }
@@ -93,7 +94,7 @@
 <div id="pages"></div>
 
 <script>
-  const ITEMS = [{"titulo":"Patricio Rey y sus Redonditos de Ricota","tema":"regalo","qr":"cards/redondos-discografia/qr.png","cover":"cards/redondos-discografia/covers/cover-1yfbnWxr2stypbpB3K0547.jpg"},{"titulo":"INXS","tema":"regalo","qr":"cards/inxs-discografia/qr.png","cover":"cards/inxs-discografia/covers/cover-1j3pV7clfsIYMbMh4vDxAZ.jpg"}];
+  const ITEMS = [{"titulo":"INXS","tema":"regalo","qr":"cards/inxs-discografia/qr.png","cover":"cards/inxs-discografia/covers/cover-1j3pV7clfsIYMbMh4vDxAZ.jpg"},{"titulo":"Patricio Rey y sus Redonditos de Ricota","tema":"regalo","qr":"cards/redondos-discografia/qr.png","cover":"cards/redondos-discografia/covers/cover-1yfbnWxr2stypbpB3K0547.jpg"}];
   const SLOGAN = "Escaneá. Escuchá. Repetí.";
   const COLS = 2;
   const ROWS_PER_PAGE = 4;
