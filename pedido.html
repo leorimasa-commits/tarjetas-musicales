@@ -60,12 +60,13 @@
   .empty-msg{ text-align:center; opacity:.5; padding:30px; grid-column:1/-1; font-size:13.5px; }
 
   #chosen{
-    margin-bottom:30px; padding:16px; border-radius:14px; border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.03);
+    position:sticky; top:0; z-index:5; margin:0 -20px 22px; padding:14px 20px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    background:rgba(22,22,40,.92); backdrop-filter:blur(10px);
   }
-  #chosen h2{ margin:0 0 10px; font-size:14px; font-weight:800; }
-  #chosen .empty{ opacity:.5; font-size:13px; margin:0; }
-  .chips{ display:flex; flex-wrap:wrap; gap:6px; }
+  #chosen h2{ margin:0 0 8px; font-size:13px; font-weight:800; }
+  #chosen .empty{ opacity:.5; font-size:12.5px; margin:0; }
+  .chips{ display:flex; flex-wrap:wrap; gap:6px; max-height:88px; overflow-y:auto; }
   .chip{
     display:inline-flex; align-items:center; gap:6px; padding:5px 6px 5px 10px;
     border-radius:16px; background:rgba(255,255,255,.08); font-size:11.5px; font-weight:700;
@@ -107,14 +108,14 @@
     <p>Elegí las discografías que querés en tu tarjeta y completá tus datos. Te contactamos para coordinar el resto.</p>
   </header>
 
-  <input id="search" type="text" placeholder="Buscar artista…">
-  <div class="grid" id="grid"></div>
-
   <div id="chosen">
     <h2>Tu selección (<span id="count">0</span>)</h2>
     <p class="empty" id="emptyMsg">Todavía no elegiste ninguna discografía.</p>
     <div class="chips" id="chips"></div>
   </div>
+
+  <input id="search" type="text" placeholder="Buscar artista…">
+  <div class="grid" id="grid"></div>
 
   <form class="contact" action="https://formsubmit.co/pedidos@scanbeat.com.ar" method="POST" id="orderForm">
     <input type="hidden" name="_subject" value="Nuevo pedido — ScanBeat">
