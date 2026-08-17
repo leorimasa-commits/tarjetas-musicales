@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catálogo — ScanBeat</title>
+<meta name="description" content="Todas las discografías disponibles en ScanBeat.">
+<meta name="theme-color" content="#1a1a2e">
+<style>
+  :root{ --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  header{ text-align:center; padding:44px 20px 20px; }
+  header a.back{ display:inline-block; margin-bottom:14px; font-size:13px; opacity:.6; }
+  h1{
+    margin:0 0 8px; font-size:clamp(26px,7vw,40px); font-weight:800; letter-spacing:-.02em;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header p{ margin:0; opacity:.7; font-size:14px; }
+  .cat-grid{
+    max-width:960px; margin:0 auto; padding:12px 20px 60px;
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:16px;
+  }
+  .cat-item{
+    display:block; border-radius:14px; overflow:hidden; position:relative;
+    aspect-ratio:1; background:#111; box-shadow:0 8px 20px rgba(0,0,0,.35);
+  }
+  .cat-item img{ width:100%; height:100%; object-fit:cover; }
+  .cat-item span{
+    position:absolute; left:0; right:0; bottom:0; padding:10px 8px; font-size:12px; font-weight:700;
+    background:linear-gradient(to top, rgba(0,0,0,.9), transparent);
+  }
+  .cat-item small{ display:block; font-weight:500; opacity:.65; font-size:10px; margin-top:2px; }
+  footer{ text-align:center; padding:20px 20px 48px; opacity:.5; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="./">← Volver</a>
+  <h1>Catálogo</h1>
+  <p>33 discografías disponibles</p>
+</header>
+<div class="cat-grid">
+    <a class="cat-item" href="cards/ariana-grande-discografia/">
+      <img src="cards/ariana-grande-discografia/covers/cover-1oo1wVkwE6SksxdwOLs5uG.jpg" alt="Ariana Grande" loading="lazy">
+      <span>Ariana Grande<small>7 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/attaque-77-discografia/">
+      <img src="cards/attaque-77-discografia/covers/cover-3cTshAu7QcQXgENefYRlAc.jpg" alt="Attaque 77" loading="lazy">
+      <span>Attaque 77<small>13 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/bad-bunny-discografia/">
+      <img src="cards/bad-bunny-discografia/covers/cover-7CjJb2mikwAWA1V6kewFBF.jpg" alt="Bad Bunny" loading="lazy">
+      <span>Bad Bunny<small>8 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/beatles-discografia/">
+      <img src="cards/beatles-discografia/covers/cover-3KzAvEXcqJKBF97HrXwlgf.jpg" alt="The Beatles" loading="lazy">
+      <span>The Beatles<small>13 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/beyonce-discografia/">
+      <img src="cards/beyonce-discografia/covers/cover-06v9eHnqhMK2tbM2Iz3p0Y.jpg" alt="Beyoncé" loading="lazy">
+      <span>Beyoncé<small>8 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/bruno-mars-discografia/">
+      <img src="cards/bruno-mars-discografia/covers/cover-6J84szYCnMfzEcvIcfWMFL.jpg" alt="Bruno Mars" loading="lazy">
+      <span>Bruno Mars<small>4 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/charly-garcia-discografia/">
+      <img src="cards/charly-garcia-discografia/covers/cover-30smSIaIudRfcGGIUn2O2K.jpg" alt="Charly García" loading="lazy">
+      <span>Charly García<small>13 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/coldplay-discografia/">
+      <img src="cards/coldplay-discografia/covers/cover-6ZG5lRT77aJ3btmArcykra.jpg" alt="Coldplay" loading="lazy">
+      <span>Coldplay<small>10 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/depeche-mode-discografia/">
+      <img src="cards/depeche-mode-discografia/covers/cover-1XLkKNbDs4YrfTVZUEZQGs.jpg" alt="Depeche Mode" loading="lazy">
+      <span>Depeche Mode<small>15 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/divididos-discografia/">
+      <img src="cards/divididos-discografia/covers/cover-0ZNRl9pxbglsYLKRdSEmz0.jpg" alt="Divididos" loading="lazy">
+      <span>Divididos<small>10 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/dua-lipa-discografia/">
+      <img src="cards/dua-lipa-discografia/covers/cover-2vlhlrgMaXqcnhRqIEV9AP.jpg" alt="Dua Lipa" loading="lazy">
+      <span>Dua Lipa<small>3 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/fito-paez-discografia/">
+      <img src="cards/fito-paez-discografia/covers/cover-0MTUFk4egA3SYvPjjsJUpX.jpg" alt="Fito Páez" loading="lazy">
+      <span>Fito Páez<small>15 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/gnr-discografia/">
+      <img src="cards/gnr-discografia/covers/cover-28yHV3Gdg30AiB8h8em1eW.jpg" alt="Guns N&#39; Roses" loading="lazy">
+      <span>Guns N&#39; Roses<small>6 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/inxs-discografia/">
+      <img src="cards/inxs-discografia/covers/cover-1j3pV7clfsIYMbMh4vDxAZ.jpg" alt="INXS" loading="lazy">
+      <span>INXS<small>12 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/justin-bieber-discografia/">
+      <img src="cards/justin-bieber-discografia/covers/cover-1rG5TDs3jYh6OU753I54CI.jpg" alt="Justin Bieber" loading="lazy">
+      <span>Justin Bieber<small>9 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/karol-g-discografia/">
+      <img src="cards/karol-g-discografia/covers/cover-12nlJpvrOd7tTOaCxB1UeR.jpg" alt="Karol G" loading="lazy">
+      <span>Karol G<small>5 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/kiss-discografia/">
+      <img src="cards/kiss-discografia/covers/cover-0NjpmoajQlllfKH9FaNliD.jpg" alt="KISS" loading="lazy">
+      <span>KISS<small>15 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/lady-gaga-discografia/">
+      <img src="cards/lady-gaga-discografia/covers/cover-1jpUMnKpRlng1OJN7LJauV.jpg" alt="Lady Gaga" loading="lazy">
+      <span>Lady Gaga<small>7 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/madonna-discografia/">
+      <img src="cards/madonna-discografia/covers/cover-5lrlWKjNY0eTDXp9Bd3LpW.jpg" alt="Madonna" loading="lazy">
+      <span>Madonna<small>10 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/maroon-5-discografia/">
+      <img src="cards/maroon-5-discografia/covers/cover-1Rv9WRKyYhFaGbuYDaQunN.jpg" alt="Maroon 5" loading="lazy">
+      <span>Maroon 5<small>7 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/michael-jackson-discografia/">
+      <img src="cards/michael-jackson-discografia/covers/cover-0F4XW0iBOhNFkbn1BuQ8cu.jpg" alt="Michael Jackson" loading="lazy">
+      <span>Michael Jackson<small>10 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/miley-cyrus-discografia/">
+      <img src="cards/miley-cyrus-discografia/covers/cover-0lB2NEOuH7WRqaWotxmIDH.jpg" alt="Miley Cyrus" loading="lazy">
+      <span>Miley Cyrus<small>9 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/pet-shop-boys-discografia/">
+      <img src="cards/pet-shop-boys-discografia/covers/cover-0M4ETXYQ6hEapPpGf6gRRM.jpg" alt="Pet Shop Boys" loading="lazy">
+      <span>Pet Shop Boys<small>15 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/pink-floyd-discografia/">
+      <img src="cards/pink-floyd-discografia/covers/cover-2Se4ZylF9NkFGD92yv1aZC.jpg" alt="Pink Floyd" loading="lazy">
+      <span>Pink Floyd<small>15 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/queen-discografia/">
+      <img src="cards/queen-discografia/covers/cover-5SSpz2RyyEhLt5FDymT4Ph.jpg" alt="Queen" loading="lazy">
+      <span>Queen<small>15 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/ratones-paranoicos-discografia/">
+      <img src="cards/ratones-paranoicos-discografia/covers/cover-4jiSCesO2MeWBzRze9cfRq.jpg" alt="Ratones Paranoicos" loading="lazy">
+      <span>Ratones Paranoicos<small>11 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/redondos-discografia/">
+      <img src="cards/redondos-discografia/covers/cover-1yfbnWxr2stypbpB3K0547.jpg" alt="Patricio Rey y sus Redonditos de Ricota" loading="lazy">
+      <span>Patricio Rey y sus Redonditos de Ricota<small>10 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/rihanna-discografia/">
+      <img src="cards/rihanna-discografia/covers/cover-19UbDbyaYRW1U7lBMYO9F2.jpg" alt="Rihanna" loading="lazy">
+      <span>Rihanna<small>8 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/rolling-stones-discografia/">
+      <img src="cards/rolling-stones-discografia/covers/cover-7Kln3VdaLUYVIFpqe7AuNA.jpg" alt="The Rolling Stones" loading="lazy">
+      <span>The Rolling Stones<small>15 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/roxette-discografia/">
+      <img src="cards/roxette-discografia/covers/cover-4Hz1AOijuFr5o98dfYxvMb.jpg" alt="Roxette" loading="lazy">
+      <span>Roxette<small>11 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/shakira-discografia/">
+      <img src="cards/shakira-discografia/covers/cover-3HLngzP9wVd8p3SMDQgyd9.jpg" alt="Shakira" loading="lazy">
+      <span>Shakira<small>10 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/soda-stereo-discografia/">
+      <img src="cards/soda-stereo-discografia/covers/cover-3i4nU0OIi7gMmXDEhG9ZRt.jpg" alt="Soda Stereo" loading="lazy">
+      <span>Soda Stereo<small>7 discos</small></span>
+    </a>
+    <a class="cat-item" href="cards/u2-discografia/">
+      <img src="cards/u2-discografia/covers/cover-2XHksgb0SsUL4NBaqTXHDX.jpg" alt="U2" loading="lazy">
+      <span>U2<small>15 discos</small></span>
+    </a>
+</div>
+<footer>ScanBeat — "Escaneá. Escuchá. Repetí."</footer>
+</body>
+</html>
