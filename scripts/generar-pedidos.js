@@ -28,18 +28,19 @@ for (const slug of slugs) {
   const temaMatch = html.match(/setAttribute\('data-theme',\s*"([^"]+)"/);
   const tema = temaMatch ? temaMatch[1] : 'regalo';
 
+  // Rutas relativas a admin/pedidos.html (un nivel más adentro que la raíz del repo).
   let cover = '';
   const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg'];
   const encontrada = candidatos.find(c => fs.existsSync(path.join(cardDir, c)));
   if (encontrada) {
-    cover = `cards/${slug}/${encontrada}`;
+    cover = `../cards/${slug}/${encontrada}`;
   } else {
     const m = html.match(/const ALBUMS = (\[.*?\]);/s);
     if (m) {
       try {
         const albums = JSON.parse(m[1]);
         const primerCover = albums.find(a => a.cover)?.cover;
-        if (primerCover) cover = `cards/${slug}/${primerCover.replace(/^\.\//, '')}`;
+        if (primerCover) cover = `../cards/${slug}/${primerCover.replace(/^\.\//, '')}`;
       } catch { /* sin tapa si no matchea */ }
     }
   }
@@ -52,7 +53,7 @@ for (const slug of slugs) {
 
   items.push({
     slug, titulo, tema, cantidad,
-    qr: `cards/${slug}/qr.png`,
+    qr: `../cards/${slug}/qr.png`,
     cover,
   });
 }
@@ -63,5 +64,7 @@ const templatePath = path.join(root, 'templates', 'pedidos.template.html');
 let html = fs.readFileSync(templatePath, 'utf8');
 html = html.replace('{{CARDS_JSON}}', JSON.stringify(items));
 
-fs.writeFileSync(path.join(root, 'pedidos.html'), html, 'utf8');
-console.log(`✅ pedidos.html generado con ${items.length} tarjetas disponibles.`);
+const adminDir = path.join(root, 'admin');
+fs.mkdirSync(adminDir, { recursive: true });
+fs.writeFileSync(path.join(adminDir, 'pedidos.html'), html, 'utf8');
+console.log(`✅ admin/pedidos.html generado con ${items.length} tarjetas disponibles.`);

@@ -41,9 +41,9 @@ function esc(s) {
 }
 
 const cards = items.map(it => `
-    <a class="cat-item" href="cards/${it.slug}/">
+    <a class="cat-item" href="pedido.html?artist=${encodeURIComponent(it.slug)}">
       <img src="cards/${it.slug}/${it.cover.replace(/^\.\//, '')}" alt="${esc(it.artista)}" loading="lazy">
-      <span>${esc(it.artista)}<small>${it.cantidad} disco${it.cantidad === 1 ? '' : 's'}</small></span>
+      <span>${esc(it.artista)}</span>
     </a>`).join('');
 
 const html = `<!DOCTYPE html>
@@ -86,7 +86,6 @@ const html = `<!DOCTYPE html>
     position:absolute; left:0; right:0; bottom:0; padding:10px 8px; font-size:12px; font-weight:700;
     background:linear-gradient(to top, rgba(0,0,0,.9), transparent);
   }
-  .cat-item small{ display:block; font-weight:500; opacity:.65; font-size:10px; margin-top:2px; }
   footer{ text-align:center; padding:20px 20px 48px; opacity:.5; font-size:12px; }
 </style>
 </head>
@@ -94,7 +93,7 @@ const html = `<!DOCTYPE html>
 <header>
   <a class="back" href="./">← Volver</a>
   <h1>Catálogo</h1>
-  <p>${items.length} discografías disponibles</p>
+  <p>${items.length} discografías disponibles — tocá una tapa para armar tu pedido</p>
 </header>
 <div class="cat-grid">${cards}
 </div>
