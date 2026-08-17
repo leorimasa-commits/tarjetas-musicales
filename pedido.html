@@ -413,7 +413,7 @@
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ unit: 'cm', format: 'a4' });
     const pageEls = [...offscreenEl.querySelectorAll('.page')];
-    const PAGE_WIDTH_CM = 19; // ancho fijo de .page — ver su CSS (width:19cm)
+    const PAGE_WIDTH_CM = 20.9; // ancho fijo de .page — debe coincidir con su CSS (width:20.9cm)
     for (let i = 0; i < pageEls.length; i++) {
       const pageEl = pageEls[i];
       // La altura de .page varía según cuántas filas de tarjetas tiene (la última hoja
