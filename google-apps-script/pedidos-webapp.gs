@@ -16,6 +16,8 @@ function doPost(e) {
         to: data.contacto,
         subject: data.asunto || 'Tu pedido de ScanBeat',
         body: data.mensaje || '',
+        name: 'ScanBeat', // así lo ve el cliente en vez del Gmail personal
+        replyTo: 'pedidos@scanbeat.com.ar', // si responde, cae en la casilla que ya reenviás
       });
       return ContentService.createTextOutput(JSON.stringify({ ok: true }))
         .setMimeType(ContentService.MimeType.JSON);
