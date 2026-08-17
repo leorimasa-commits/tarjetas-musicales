@@ -25,6 +25,12 @@ function doPost(e) {
       false, // Pagado — se tilda a mano
     ]);
 
+    // La casilla se aplica solo a la fila recién agregada (NO precargar un rango grande
+    // de antemano: eso deja valores FALSE escritos en celdas vacías, y appendRow() las
+    // cuenta como "ocupadas" — los pedidos terminan agregándose muy abajo en vez de justo
+    // después del último real).
+    sheet.getRange(sheet.getLastRow(), 7).insertCheckboxes();
+
     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
@@ -38,7 +44,6 @@ function crearHoja_() {
   var sheet = ss.insertSheet('Pedidos');
   sheet.appendRow(['Fecha', 'Nombre', 'Contacto', 'Discografías', 'Comentario', 'PDF', 'Pagado']);
   sheet.getRange('A1:G1').setFontWeight('bold');
-  sheet.getRange('G2:G1000').insertCheckboxes();
   sheet.setFrozenRows(1);
   sheet.autoResizeColumns(1, 7);
   return sheet;
@@ -75,8 +80,15 @@ function guardarPdf_(base64, nombre) {
  *    personales), tocá "Avanzado" → "Ir a [nombre del proyecto] (no seguro)" → "Permitir".
  * 9. Te va a dar una "URL de la aplicación web" que termina en /exec — copiala.
  * 10. Pasame esa URL para pegarla en pedido.html (donde dice SHEETS_WEBAPP_URL) y quedar
- *     conectado. Si en algún momento reemplazás la implementación, la URL puede cambiar
- *     y hay que actualizarla ahí de nuevo.
+ *     conectado.
+ *
+ * Si en el futuro cambio este código (por ejemplo para arreglar algo), tenés que volver
+ * a pegarlo en el editor y ACTUALIZAR la implementación existente para que tome el
+ * cambio — no alcanza con guardar:
+ *   Implementar → Administrar implementaciones → ícono de lápiz (editar) en la
+ *   implementación activa → en "Versión" elegí "Nueva versión" → Implementar.
+ * Así la URL sigue siendo la misma (no hace falta pasarme una nueva) pero ya corre el
+ * código actualizado.
  *
  * Cada pedido nuevo crea automáticamente la hoja "Pedidos" (si todavía no existe) y le
  * agrega una fila con: fecha, nombre, contacto, discografías elegidas, comentario, un
