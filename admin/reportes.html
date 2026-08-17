@@ -84,11 +84,7 @@
 </main>
 
 <script>
-  const CARDS = [{"slug":"ariana-grande-discografia","titulo":"Ariana Grande"},{"slug":"attaque-77-discografia","titulo":"Attaque 77"},{"slug":"bad-bunny-discografia","titulo":"Bad Bunny"},{"slug":"beatles-discografia","titulo":"The Beatles"},{"slug":"beyonce-discografia","titulo":"Beyoncé"},{"slug":"bruno-mars-discografia","titulo":"Bruno Mars"},{"slug":"charly-garcia-discografia","titulo":"Charly García"},{"slug":"coldplay-discografia","titulo":"Coldplay"},{"slug":"depeche-mode-discografia","titulo":"Depeche Mode"},{"slug":"divididos-discografia","titulo":"Divididos"},{"slug":"dua-lipa-discografia","titulo":"Dua Lipa"},{"slug":"fito-paez-discografia","titulo":"Fito Páez"},{"slug":"gnr-discografia","titulo":"Guns N' Roses"},{"slug":"inxs-discografia","titulo":"INXS"},{"slug":"justin-bieber-discografia","titulo":"Justin Bieber"},{"slug":"karol-g-discografia","titulo":"Karol G"},{"slug":"kiss-discografia","titulo":"KISS"},{"slug":"lady-gaga-discografia","titulo":"Lady Gaga"},{"slug":"luis-miguel-discografia","titulo":"Luis Miguel"},{"slug":"madonna-discografia","titulo":"Madonna"},{"slug":"maroon-5-discografia","titulo":"Maroon 5"},{"slug":"metallica-discografia","titulo":"Metallica"},{"slug":"michael-jackson-discografia","titulo":"Michael Jackson"},{"slug":"miley-cyrus-discografia","titulo":"Miley Cyrus"},{"slug":"pet-shop-boys-discografia","titulo":"Pet Shop Boys"},{"slug":"pink-floyd-discografia","titulo":"Pink Floyd"},{"slug":"queen-discografia","titulo":"Queen"},{"slug":"ratones-paranoicos-discografia","titulo":"Ratones Paranoicos"},{"slug":"redondos-discografia","titulo":"Patricio Rey y sus Redonditos de Ricota"},{"slug":"rihanna-discografia","titulo":"Rihanna"},{"slug":"rolling-stones-discografia","titulo":"The Rolling Stones"},{"slug":"roxette-discografia","titulo":"Roxette"},{"slug":"shakira-discografia","titulo":"Shakira"},{"slug":"soda-stereo-discografia","titulo":"Soda Stereo"},{"slug":"taylor-swift-discografia","titulo":"Taylor Swift"},{"slug":"u2-discografia","titulo":"U2"}];
-  const BY_TITULO = {};
-  CARDS.forEach(c => { BY_TITULO[c.titulo.trim().toLowerCase()] = c; });
-  const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzbbU9PD3YlOxnpBSkQUOS_rpQoRegvuSySr6AhUhCnisaCjLhiNfmO1ap41woX6l63/exec';
-  const SITE_URL = 'https://scanbeat.com.ar';
+  const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbynSAmjU_PqVqt-9D79cd_LpblqXahZbXLS-xRpi46qRXiZ5WO7uNwWu5xYqWoavgao/exec';
 
   const contentEl = document.getElementById('content');
   const btnRefresh = document.getElementById('btnRefresh');
@@ -106,15 +102,13 @@
     } catch { return iso; }
   }
 
-  function mensajeParaCliente(nombre, discografias){
-    const nombres = discografias.split(',').map(s => s.trim()).filter(Boolean);
-    const links = nombres.map(n => {
-      const c = BY_TITULO[n.toLowerCase()];
-      return c ? `${c.titulo}: ${SITE_URL}/cards/${c.slug}/` : null;
-    }).filter(Boolean);
-    return `¡Hola${nombre ? ' ' + nombre : ''}! 🎵 Acá tenés el acceso a tu pedido de ScanBeat:\n\n`
-      + links.join('\n')
-      + `\n\nEscaneá el QR de tu tarjeta o entrá directo desde estos links para elegir dónde escuchar: Spotify, Apple Music, Tidal o YouTube.\n\n¡Gracias por tu compra!`;
+  function mensajeParaCliente(o){
+    const nombres = o.discografias.split(',').map(s => s.trim()).filter(Boolean).join(', ');
+    const saludo = `¡Hola${o.nombre ? ' ' + o.nombre : ''}! 🎵`;
+    if (o.pdf) {
+      return `${saludo} Acá tenés la hoja de tu pedido de ScanBeat (${nombres}):\n\n${o.pdf}\n\n¡Gracias por tu compra!`;
+    }
+    return `${saludo} Tu pedido de ScanBeat: ${nombres}.\n\nEn breve te mandamos la hoja imprimible. ¡Gracias por tu compra!`;
   }
 
   function esEmail(contacto){
@@ -131,7 +125,7 @@
   function orderCardHtml(o, idx){
     const chips = o.discografias.split(',').map(s => s.trim()).filter(Boolean)
       .map(n => `<span class="chip">${esc(n)}</span>`).join('');
-    const mensaje = mensajeParaCliente(o.nombre, o.discografias);
+    const mensaje = mensajeParaCliente(o);
     const accionHtml = esEmail(o.contacto)
       ? `<button type="button" class="btn-send" data-send-mail="${idx}">📩 Enviar tarjetas al cliente</button>`
       : `<a class="btn-send" href="${waUrlFor(o.contacto, mensaje)}" target="_blank" rel="noopener">📱 Enviar por WhatsApp</a>`;
@@ -179,7 +173,7 @@
     if (!btn) return;
     const o = ORDERS[Number(btn.dataset.sendMail)];
     if (!o) return;
-    const mensaje = mensajeParaCliente(o.nombre, o.discografias);
+    const mensaje = mensajeParaCliente(o);
     btn.disabled = true;
     btn.textContent = 'Enviando…';
     try {

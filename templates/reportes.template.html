@@ -84,11 +84,7 @@
 </main>
 
 <script>
-  const CARDS = {{CARDS_JSON}};
-  const BY_TITULO = {};
-  CARDS.forEach(c => { BY_TITULO[c.titulo.trim().toLowerCase()] = c; });
   const SHEETS_WEBAPP_URL = '{{SHEETS_WEBAPP_URL}}';
-  const SITE_URL = 'https://scanbeat.com.ar';
 
   const contentEl = document.getElementById('content');
   const btnRefresh = document.getElementById('btnRefresh');
@@ -106,15 +102,13 @@
     } catch { return iso; }
   }
 
-  function mensajeParaCliente(nombre, discografias){
-    const nombres = discografias.split(',').map(s => s.trim()).filter(Boolean);
-    const links = nombres.map(n => {
-      const c = BY_TITULO[n.toLowerCase()];
-      return c ? `${c.titulo}: ${SITE_URL}/cards/${c.slug}/` : null;
-    }).filter(Boolean);
-    return `¡Hola${nombre ? ' ' + nombre : ''}! 🎵 Acá tenés el acceso a tu pedido de ScanBeat:\n\n`
-      + links.join('\n')
-      + `\n\nEscaneá el QR de tu tarjeta o entrá directo desde estos links para elegir dónde escuchar: Spotify, Apple Music, Tidal o YouTube.\n\n¡Gracias por tu compra!`;
+  function mensajeParaCliente(o){
+    const nombres = o.discografias.split(',').map(s => s.trim()).filter(Boolean).join(', ');
+    const saludo = `¡Hola${o.nombre ? ' ' + o.nombre : ''}! 🎵`;
+    if (o.pdf) {
+      return `${saludo} Acá tenés la hoja de tu pedido de ScanBeat (${nombres}):\n\n${o.pdf}\n\n¡Gracias por tu compra!`;
+    }
+    return `${saludo} Tu pedido de ScanBeat: ${nombres}.\n\nEn breve te mandamos la hoja imprimible. ¡Gracias por tu compra!`;
   }
 
   function esEmail(contacto){
@@ -131,7 +125,7 @@
   function orderCardHtml(o, idx){
     const chips = o.discografias.split(',').map(s => s.trim()).filter(Boolean)
       .map(n => `<span class="chip">${esc(n)}</span>`).join('');
-    const mensaje = mensajeParaCliente(o.nombre, o.discografias);
+    const mensaje = mensajeParaCliente(o);
     const accionHtml = esEmail(o.contacto)
       ? `<button type="button" class="btn-send" data-send-mail="${idx}">📩 Enviar tarjetas al cliente</button>`
       : `<a class="btn-send" href="${waUrlFor(o.contacto, mensaje)}" target="_blank" rel="noopener">📱 Enviar por WhatsApp</a>`;
@@ -179,7 +173,7 @@
     if (!btn) return;
     const o = ORDERS[Number(btn.dataset.sendMail)];
     if (!o) return;
-    const mensaje = mensajeParaCliente(o.nombre, o.discografias);
+    const mensaje = mensajeParaCliente(o);
     btn.disabled = true;
     btn.textContent = 'Enviando…';
     try {
