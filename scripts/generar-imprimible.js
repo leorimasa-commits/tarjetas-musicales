@@ -4,7 +4,7 @@
  * de una tarjeta ya publicada, para imprimir y armar la tarjeta física.
  *
  * Uso:
- *   node scripts/generar-imprimible.js --slug regalo-thriller40 --titulo "Thriller 40" --tema regalo
+ *   node scripts/generar-imprimible.js --slug beatles-discografia --titulo "The Beatles" --tema regalo
  *
  * Requiere que la tarjeta ya tenga su QR generado (correr generar-tarjeta.js o
  * generar-discografia.js con --baseUrl antes de esto).
