@@ -33,15 +33,55 @@
   }
   #selector .sub{ margin:0; opacity:.65; font-size:13.5px; }
 
-  #orderName, #search{
-    display:block; width:100%; max-width:420px; margin:0 auto 14px; padding:12px 16px;
+  .fields{ display:flex; gap:10px; max-width:420px; margin:0 auto 14px; flex-wrap:wrap; }
+  .fields > *{ flex:1; min-width:140px; }
+
+  #orderName, #orderPrice, #search{
+    display:block; width:100%; padding:12px 16px;
     border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
     color:var(--text); font-size:15px; outline:none;
   }
-  #search{ margin-bottom:22px; }
-  #orderName{ border-color:rgba(255,209,102,.35); font-weight:700; }
-  #orderName::placeholder, #search::placeholder{ color:rgba(255,255,255,.4); }
-  #orderName:focus, #search:focus{ border-color:var(--accent2); }
+  #search{ max-width:420px; margin:0 auto 22px; }
+  #orderName, #orderPrice{ border-color:rgba(255,209,102,.35); font-weight:700; }
+  #orderName::placeholder, #orderPrice::placeholder, #search::placeholder{ color:rgba(255,255,255,.4); }
+  #orderName:focus, #orderPrice:focus, #search:focus{ border-color:var(--accent2); }
+
+  /* ---------- Resumen de hojas ---------- */
+  #summary{ max-width:720px; margin:0 auto 26px; display:flex; flex-direction:column; gap:14px; }
+  .sheet-block{
+    border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:12px 14px;
+    background:rgba(255,255,255,.03);
+  }
+  .sheet-block.complete{ border-color:rgba(255,209,102,.4); background:rgba(255,209,102,.06); }
+  .sheet-block-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+  .sheet-block-head b{ font-size:13.5px; }
+  .sheet-block-head .frac{ font-size:12px; opacity:.65; }
+  .sheet-dots{ display:flex; gap:4px; margin-bottom:10px; }
+  .sheet-dots span{
+    flex:1; height:6px; border-radius:3px; background:rgba(255,255,255,.12);
+  }
+  .sheet-dots span.filled{ background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+  .sheet-chips{ display:flex; flex-wrap:wrap; gap:6px; }
+  .chip{
+    display:inline-flex; align-items:center; gap:6px; padding:5px 6px 5px 10px;
+    border-radius:16px; background:rgba(255,255,255,.08); font-size:11.5px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.02em;
+  }
+  .chip button{
+    border:none; background:rgba(255,255,255,.15); color:var(--text); width:16px; height:16px;
+    border-radius:50%; font-size:10px; line-height:1; display:flex; align-items:center; justify-content:center;
+    padding:0;
+  }
+  .chip button:hover{ background:var(--accent); }
+
+  /* ---------- Aviso de hoja nueva ---------- */
+  #toast{
+    position:fixed; top:16px; left:50%; transform:translateX(-50%) translateY(-140%);
+    background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#111; font-weight:800;
+    font-size:13.5px; padding:12px 20px; border-radius:14px; box-shadow:0 10px 26px rgba(0,0,0,.5);
+    z-index:20; transition:transform .35s ease; text-align:center; max-width:88vw;
+  }
+  #toast.show{ transform:translateX(-50%) translateY(0); }
 
   #printview .order-label{
     font-size:9pt; font-weight:700; color:#555; margin:0 0 0.3cm; text-align:left;
@@ -160,13 +200,19 @@
     <h1>Armar pedido</h1>
     <p class="sub">Elegí las tarjetas que van en la hoja y armá el PDF para imprimir.</p>
   </header>
-  <input id="orderName" type="text" placeholder="Nombre del pedido (ej: Juan Pérez)">
+  <div class="fields">
+    <input id="orderName" type="text" placeholder="Nombre del pedido (ej: Juan Pérez)">
+    <input id="orderPrice" type="number" inputmode="decimal" min="0" step="1" placeholder="Precio por hoja ($)">
+  </div>
   <input id="search" type="text" placeholder="Buscar artista…">
+  <div id="summary"></div>
   <div class="grid" id="grid"></div>
 </div>
 
+<div id="toast" class="no-print"></div>
+
 <div id="bar" class="no-print">
-  <span class="info"><b id="count">0</b> tarjeta(s) — <span id="pageCount">0</span> hoja(s) A4</span>
+  <span class="info"><b id="count">0</b> tarjeta(s) — <b id="pageCount">0</b> hoja(s) A4<span id="priceInfo"></span></span>
   <button class="btn-clear" id="btnClear">Vaciar selección</button>
   <button class="btn-generate" id="btnGenerate" disabled>Generar hoja imprimible</button>
 </div>
@@ -198,13 +244,32 @@
   const gridEl = document.getElementById('grid');
   const searchEl = document.getElementById('search');
   const orderNameEl = document.getElementById('orderName');
+  const orderPriceEl = document.getElementById('orderPrice');
+  const summaryEl = document.getElementById('summary');
+  const toastEl = document.getElementById('toast');
   const countEl = document.getElementById('count');
   const pagesInfoEl = document.getElementById('pageCount');
+  const priceInfoEl = document.getElementById('priceInfo');
   const btnGenerate = document.getElementById('btnGenerate');
   const btnClear = document.getElementById('btnClear');
   const originalTitle = document.title;
 
   orderNameEl.value = localStorage.getItem('scanbeat-ultimo-pedido') || '';
+  orderPriceEl.value = localStorage.getItem('scanbeat-precio-hoja') || '';
+
+  function sheetsOf(list){
+    const chunks = [];
+    for (let i = 0; i < list.length; i += PER_PAGE) chunks.push(list.slice(i, i + PER_PAGE));
+    return chunks;
+  }
+
+  let toastTimer = null;
+  function showToast(msg){
+    clearTimeout(toastTimer);
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3200);
+  }
 
   function renderGrid(){
     const q = searchEl.value.trim().toLowerCase();
@@ -222,27 +287,88 @@
       </button>`).join('');
   }
 
+  function renderSummary(){
+    if (!selected.length) { summaryEl.innerHTML = ''; return; }
+    const chunks = sheetsOf(selected);
+    summaryEl.innerHTML = chunks.map((chunk, idx) => {
+      const dots = Array.from({ length: PER_PAGE }, (_, i) =>
+        `<span class="${i < chunk.length ? 'filled' : ''}"></span>`).join('');
+      const chips = chunk.map(slug => {
+        const c = BY_SLUG[slug];
+        return `<span class="chip">${esc(c.titulo)}<button type="button" data-remove="${slug}">×</button></span>`;
+      }).join('');
+      const complete = chunk.length === PER_PAGE ? 'complete' : '';
+      return `
+        <div class="sheet-block ${complete}">
+          <div class="sheet-block-head">
+            <b>Hoja ${idx + 1}</b>
+            <span class="frac">${chunk.length}/${PER_PAGE}${complete ? ' — completa' : ''}</span>
+          </div>
+          <div class="sheet-dots">${dots}</div>
+          <div class="sheet-chips">${chips}</div>
+        </div>`;
+    }).join('');
+  }
+
   function updateBar(){
     countEl.textContent = selected.length;
-    pagesInfoEl.textContent = selected.length ? Math.ceil(selected.length / PER_PAGE) : 0;
+    const totalSheets = selected.length ? Math.ceil(selected.length / PER_PAGE) : 0;
+    pagesInfoEl.textContent = totalSheets;
     btnGenerate.disabled = selected.length === 0;
+
+    const precio = parseFloat(orderPriceEl.value);
+    if (precio > 0 && totalSheets > 0) {
+      const total = precio * totalSheets;
+      priceInfoEl.textContent = ` — Total: $${total.toLocaleString('es-AR')} (${totalSheets} × $${precio.toLocaleString('es-AR')})`;
+    } else {
+      priceInfoEl.textContent = '';
+    }
+  }
+
+  function addSlug(slug){
+    const sheetsBefore = Math.ceil(selected.length / PER_PAGE);
+    selected.push(slug);
+    const sheetsAfter = Math.ceil(selected.length / PER_PAGE);
+    if (sheetsAfter > sheetsBefore) {
+      showToast(`🆕 Empezaste la Hoja ${sheetsAfter} — cada hoja nueva tiene su propio costo`);
+    }
+  }
+
+  function removeSlug(slug){
+    const i = selected.indexOf(slug);
+    if (i !== -1) selected.splice(i, 1);
   }
 
   gridEl.addEventListener('click', (e) => {
     const tile = e.target.closest('.tile');
     if (!tile) return;
     const slug = tile.dataset.slug;
-    const i = selected.indexOf(slug);
-    if (i === -1) selected.push(slug); else selected.splice(i, 1);
+    if (selected.includes(slug)) removeSlug(slug); else addSlug(slug);
     renderGrid();
+    renderSummary();
+    updateBar();
+  });
+
+  summaryEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-remove]');
+    if (!btn) return;
+    removeSlug(btn.dataset.remove);
+    renderGrid();
+    renderSummary();
     updateBar();
   });
 
   searchEl.addEventListener('input', renderGrid);
 
+  orderPriceEl.addEventListener('input', () => {
+    localStorage.setItem('scanbeat-precio-hoja', orderPriceEl.value);
+    updateBar();
+  });
+
   btnClear.addEventListener('click', () => {
     selected = [];
     renderGrid();
+    renderSummary();
     updateBar();
   });
 
@@ -297,18 +423,22 @@
   function renderPrintView(){
     const nombre = orderNameEl.value.trim();
     localStorage.setItem('scanbeat-ultimo-pedido', nombre);
+    const precio = parseFloat(orderPriceEl.value);
 
     const items = selected.map(slug => BY_SLUG[slug]).filter(Boolean);
     pagesEl.innerHTML = '';
     const totalPages = Math.ceil(items.length / PER_PAGE) || 1;
-    const labelHtml = nombre
-      ? `<p class="order-label">Pedido: ${esc(nombre)} — ${items.length} tarjeta(s) — ${fechaCorta()}</p>`
+    const precioTxt = precio > 0
+      ? ` — $${precio.toLocaleString('es-AR')}/hoja, total $${(precio * totalPages).toLocaleString('es-AR')}`
       : '';
     for (let p = 0; p < totalPages; p++) {
       const chunk = items.slice(p * PER_PAGE, (p + 1) * PER_PAGE);
+      const encabezado = nombre
+        ? `Pedido: ${esc(nombre)} — Hoja ${p + 1} de ${totalPages}${precioTxt} — ${fechaCorta()}`
+        : `Hoja ${p + 1} de ${totalPages}${precioTxt}`;
       const page = document.createElement('div');
       page.className = 'page';
-      page.innerHTML = labelHtml + buildTable(toRows(chunk));
+      page.innerHTML = `<p class="order-label">${encabezado}</p>` + buildTable(toRows(chunk));
       pagesEl.appendChild(page);
     }
 
@@ -332,6 +462,7 @@
   document.getElementById('btnPrint').addEventListener('click', () => window.print());
 
   renderGrid();
+  renderSummary();
   updateBar();
 </script>
 </body>
