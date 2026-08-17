@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¡Gracias! — ScanBeat</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1a1a2e">
+<style>
+  :root{ --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; height:100%; }
+  body{
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:20px;
+  }
+  a{ color:inherit; }
+  .icon{ font-size:52px; margin-bottom:12px; }
+  h1{
+    margin:0 0 10px; font-size:clamp(24px,6vw,32px); font-weight:800; letter-spacing:-.02em;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  p{ margin:0 0 24px; opacity:.75; font-size:15px; max-width:420px; }
+  a.cta{
+    display:inline-block; text-decoration:none; background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#111; font-weight:800; font-size:14px; padding:13px 26px; border-radius:24px;
+    box-shadow:0 10px 26px rgba(0,0,0,.4);
+  }
+</style>
+</head>
+<body>
+<div>
+  <div class="icon">🎉</div>
+  <h1>¡Pedido enviado!</h1>
+  <p>Recibimos tu selección. Te vamos a contactar a la brevedad para coordinar el pago y la entrega.</p>
+  <a class="cta" href="./">← Volver al inicio</a>
+</div>
+</body>
+</html>
