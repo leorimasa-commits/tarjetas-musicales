@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{{TITLE}}</title>
-<meta name="description" content="{{OG_DESC}}">
+<title>Grandes Éxitos 80s</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
 <meta property="og:site_name" content="ScanBeat">
-<meta property="og:title" content="{{TITLE}}">
-<meta property="og:description" content="{{OG_DESC}}">
-<!--IF_OG_IMAGE--><meta property="og:image" content="{{OG_IMAGE}}"><!--/IF_OG_IMAGE-->
-<meta property="og:url" content="{{OG_URL}}">
+<meta property="og:title" content="Grandes Éxitos 80s">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/hits-80s-compilado/cover.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/hits-80s-compilado/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="{{THEME_COLOR}}">
+<meta name="theme-color" content="#0f0c29">
 <style>
   :root{
     --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
@@ -152,50 +152,33 @@
 </head>
 <body>
 <section class="hero">
-  <h1>{{TITLE}}</h1>
+  <h1>Grandes Éxitos 80s</h1>
   <div class="cover-hero" id="player">
     <div class="cover-fallback" id="coverFallback">🎵</div>
   </div>
-  <!--IF_AUDIO-->
-  <div class="now-playing" id="nowPlaying">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <!--/IF_AUDIO-->
-  <p class="message">{{MESSAGE}}</p>
+  
+  <p class="message">20 hits imperdibles de la década que no pasa de moda</p>
 </section>
 
 <section class="album-section" id="albumSection"></section>
 
-<!--IF_AUDIO-->
-<div class="tap-overlay" id="tapOverlay">
-  <button class="tap-btn" id="tapBtn">
-    <span class="icon">🎵</span>
-    Toca para escuchar
-  </button>
-</div>
 
-<div class="mini-controls hidden" id="miniControls">
-  <button id="toggleBtn">⏸</button>
-</div>
-
-<audio id="audio" src="{{AUDIO_SRC}}" preload="auto" loop playsinline></audio>
-<!--/IF_AUDIO-->
 
 <script>
-  document.documentElement.setAttribute('data-theme', "{{THEME}}");
+  document.documentElement.setAttribute('data-theme', "fiesta");
 
   // Datos opcionales del disco (si una tarjeta no los usa, quedan vacíos y esa sección no se muestra)
   const ALBUM = {
-    name: "{{ALBUM_NAME}}",
-    artist: "{{ALBUM_ARTIST}}",
-    cover: "{{COVER_SRC}}",
-    spotifyUrl: "{{SPOTIFY_URL}}",
-    tidalUrl: "{{TIDAL_URL}}",
-    appleMusicUrl: "{{APPLE_MUSIC_URL}}",
-    youtubeUrl: "{{YOUTUBE_URL}}",
-    escucharEn: "{{ESCUCHAR_EN}}",
-    temasDe: "{{TEMAS_DE}}",
-    tracklist: {{TRACKLIST_JSON}}
+    name: "",
+    artist: "Varios artistas",
+    cover: "./cover.jpg",
+    spotifyUrl: "https://open.spotify.com/playlist/37i9dQZF1DX4UtSsGT1Sbe",
+    tidalUrl: "",
+    appleMusicUrl: "",
+    youtubeUrl: "",
+    escucharEn: "la playlist completa en",
+    temasDe: "de la playlist",
+    tracklist: [{"title":"Billie Jean — Michael Jackson"},{"title":"Sweet Dreams (Are Made of This) — Eurythmics"},{"title":"Take On Me — a-ha"},{"title":"Every Breath You Take — The Police"},{"title":"Livin' on a Prayer — Bon Jovi"},{"title":"Sweet Child O' Mine — Guns N' Roses"},{"title":"Don't Stop Believin' — Journey"},{"title":"Girls Just Want to Have Fun — Cyndi Lauper"}]
   };
 
   const audio = document.getElementById('audio');

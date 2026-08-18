@@ -25,6 +25,12 @@
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   header p{ margin:0; opacity:.7; font-size:14px; }
+  .cat-nav{ display:flex; justify-content:center; gap:8px; margin-top:16px; }
+  .cat-nav a{
+    font-size:13px; font-weight:700; padding:8px 16px; border-radius:20px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+  }
+  .cat-nav a.active{ background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#111; border:none; }
   .cat-grid{
     max-width:960px; margin:0 auto; padding:12px 20px 60px;
     display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:16px;
@@ -46,6 +52,10 @@
   <a class="back" href="./">← Volver</a>
   <h1>Catálogo</h1>
   <p>38 discografías disponibles — tocá una tapa para armar tu pedido</p>
+  <nav class="cat-nav">
+    <a href="catalogo.html" class="active">Discografías</a>
+    <a href="catalogo-compilados.html">Compilados</a>
+  </nav>
 </header>
 <div class="cat-grid">
     <a class="cat-item" href="pedido.html?artist=ariana-grande-discografia">

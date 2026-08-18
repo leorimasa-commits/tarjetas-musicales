@@ -1,5 +1,5 @@
-// Escanea cards/*-discografia y regenera catalogo.html en la raíz del repo.
-// Correr después de agregar/quitar cualquier discografía, antes de commitear.
+// Escanea cards/*-compilado y regenera catalogo-compilados.html en la raíz del repo.
+// Correr después de agregar/quitar cualquier compilado, antes de commitear.
 const fs = require('fs');
 const path = require('path');
 
@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, '..');
 const cardsDir = path.join(root, 'cards');
 
 const slugs = fs.readdirSync(cardsDir, { withFileTypes: true })
-  .filter(d => d.isDirectory() && d.name.endsWith('-discografia'))
+  .filter(d => d.isDirectory() && d.name.endsWith('-compilado'))
   .map(d => d.name)
   .sort();
 
@@ -18,32 +18,24 @@ for (const slug of slugs) {
   const html = fs.readFileSync(indexPath, 'utf8');
 
   const titleMatch = html.match(/<title>([^<]*)<\/title>/);
-  const artista = titleMatch ? titleMatch[1] : slug;
+  const titulo = titleMatch ? titleMatch[1] : slug;
 
-  const albumsMatch = html.match(/const ALBUMS = (\[.*?\]);/s);
-  let cover = '';
-  let cantidad = 0;
-  if (albumsMatch) {
-    try {
-      const albums = JSON.parse(albumsMatch[1]);
-      cantidad = albums.length;
-      if (albums[0] && albums[0].cover) cover = albums[0].cover;
-    } catch (e) { /* ignora si el JSON no matchea */ }
-  }
+  const coverMatch = html.match(/cover:\s*"([^"]*)"/);
+  const cover = coverMatch ? coverMatch[1].replace(/^\.\//, '') : '';
 
-  items.push({ slug, artista, cover, cantidad });
+  items.push({ slug, titulo, cover });
 }
 
-items.sort((a, b) => a.artista.localeCompare(b.artista, 'es', { sensitivity: 'base' }));
+items.sort((a, b) => a.titulo.localeCompare(b.titulo, 'es', { sensitivity: 'base' }));
 
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
 const cards = items.map(it => `
-    <a class="cat-item" href="pedido.html?artist=${encodeURIComponent(it.slug)}">
-      <img src="cards/${it.slug}/${it.cover.replace(/^\.\//, '')}" alt="${esc(it.artista)}" loading="lazy">
-      <span>${esc(it.artista)}</span>
+    <a class="cat-item" href="cards/${it.slug}/">
+      <img src="cards/${it.slug}/${it.cover}" alt="${esc(it.titulo)}" loading="lazy">
+      <span>${esc(it.titulo)}</span>
     </a>`).join('');
 
 const html = `<!DOCTYPE html>
@@ -51,8 +43,8 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Catálogo — ScanBeat</title>
-<meta name="description" content="Todas las discografías disponibles en ScanBeat.">
+<title>Compilados — ScanBeat</title>
+<meta name="description" content="Todos los compilados disponibles en ScanBeat.">
 <meta name="theme-color" content="#1a1a2e">
 <style>
   :root{ --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff; }
@@ -92,25 +84,27 @@ const html = `<!DOCTYPE html>
     position:absolute; left:0; right:0; bottom:0; padding:10px 8px; font-size:12px; font-weight:700;
     background:linear-gradient(to top, rgba(0,0,0,.9), transparent);
   }
+  .empty{ text-align:center; opacity:.6; padding:40px 20px; }
   footer{ text-align:center; padding:20px 20px 48px; opacity:.5; font-size:12px; }
 </style>
 </head>
 <body>
 <header>
   <a class="back" href="./">← Volver</a>
-  <h1>Catálogo</h1>
-  <p>${items.length} discografías disponibles — tocá una tapa para armar tu pedido</p>
+  <h1>Compilados</h1>
+  <p>${items.length} compilado${items.length === 1 ? '' : 's'} disponible${items.length === 1 ? '' : 's'} — tocá una tapa para escucharlo</p>
   <nav class="cat-nav">
-    <a href="catalogo.html" class="active">Discografías</a>
-    <a href="catalogo-compilados.html">Compilados</a>
+    <a href="catalogo.html">Discografías</a>
+    <a href="catalogo-compilados.html" class="active">Compilados</a>
   </nav>
 </header>
 <div class="cat-grid">${cards}
 </div>
+${items.length ? '' : '<p class="empty">Todavía no hay compilados cargados.</p>'}
 <footer>ScanBeat — "Escaneá. Escuchá. Repetí."</footer>
 </body>
 </html>
 `;
 
-fs.writeFileSync(path.join(root, 'catalogo.html'), html);
-console.log(`✅ catalogo.html generado con ${items.length} discografías.`);
+fs.writeFileSync(path.join(root, 'catalogo-compilados.html'), html);
+console.log(`✅ catalogo-compilados.html generado con ${items.length} compilado(s).`);

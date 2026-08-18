@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panel admin — ScanBeat</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1a1a2e">
+<style>html{visibility:hidden}</style>
+<style>
+  :root{ --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; padding:0; min-height:100%; }
+  body{
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  a{ color:inherit; text-decoration:none; }
+  main{ max-width:640px; margin:0 auto; padding:48px 20px 60px; }
+  header{ text-align:center; margin-bottom:34px; }
+  header a.back{ display:inline-block; margin-bottom:14px; font-size:13px; opacity:.6; }
+  h1{
+    margin:0 0 8px; font-size:clamp(26px,7vw,36px); font-weight:800; letter-spacing:-.02em;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header p{ margin:0; opacity:.65; font-size:14px; }
+  .tools{ display:flex; flex-direction:column; gap:14px; }
+  .tool{
+    display:flex; align-items:center; gap:16px; padding:18px 20px; border-radius:16px;
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  }
+  .tool .icon{ font-size:28px; flex-shrink:0; }
+  .tool .info b{ display:block; font-size:15px; margin-bottom:2px; }
+  .tool .info span{ display:block; font-size:12.5px; opacity:.6; }
+  .tool .arrow{ margin-left:auto; opacity:.5; font-size:18px; }
+  footer{ text-align:center; padding:30px 20px; opacity:.4; font-size:12px; }
+</style>
+</head>
+<body>
+<script src="auth.js"></script>
+<main>
+  <header>
+    <a class="back" href="../">← Sitio público</a>
+    <h1>Panel admin</h1>
+    <p>Acceso solo para vos — herramientas internas de ScanBeat.</p>
+  </header>
+  <div class="tools">
+    <a class="tool" href="pedidos.html">
+      <span class="icon">🖨️</span>
+      <span class="info"><b>Armar hoja</b><span>Elegir tarjetas y generar el PDF para imprimir</span></span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="tool" href="reportes.html">
+      <span class="icon">📋</span>
+      <span class="info"><b>Reporte de pedidos</b><span>Ver los pedidos que llegaron por el formulario público</span></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</main>
+<footer>ScanBeat — panel interno</footer>
+</body>
+</html>

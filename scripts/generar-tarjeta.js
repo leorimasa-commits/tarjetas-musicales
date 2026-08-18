@@ -151,6 +151,8 @@ async function main() {
     .replace('"{{TIDAL_URL}}"', escapeJs(args.tidal))
     .replace('"{{APPLE_MUSIC_URL}}"', escapeJs(args.applemusic))
     .replace('"{{YOUTUBE_URL}}"', escapeJs(args.youtube))
+    .replace('"{{ESCUCHAR_EN}}"', escapeJs('el disco completo en'))
+    .replace('"{{TEMAS_DE}}"', escapeJs('del disco'))
     .replace('{{TRACKLIST_JSON}}', JSON.stringify(tracklist));
 
   fs.writeFileSync(path.join(cardDir, 'index.html'), html, 'utf8');
