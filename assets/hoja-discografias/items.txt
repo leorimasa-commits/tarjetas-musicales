@@ -5,8 +5,10 @@ depeche-mode-discografia|Depeche Mode|evento
 divididos-discografia|Divididos|regalo
 fito-paez-discografia|Fito Páez|regalo
 gnr-discografia|Guns N' Roses|regalo
+green-day-discografia|Green Day|regalo
 inxs-discografia|INXS|regalo
 kiss-discografia|KISS|regalo
+linkin-park-discografia|Linkin Park|regalo
 michael-jackson-discografia|Michael Jackson|regalo
 redondos-discografia|Patricio Rey y sus Redonditos de Ricota|regalo
 pet-shop-boys-discografia|Pet Shop Boys|regalo

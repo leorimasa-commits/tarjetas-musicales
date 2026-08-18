@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Linkin Park — Imprimible</title>
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  * { box-sizing: border-box; }
+  body{
+    margin:0; padding:24px; background:#e5e5e5;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+  }
+  .label{ font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.08em; margin:0; }
+
+  /* Tamaño real de tarjeta de crédito (ISO/IEC 7810 ID-1): 8.56cm x 5.4cm */
+  .card{
+    width:8.56cm; height:5.4cm; border-radius:0.3cm; overflow:hidden; position:relative;
+    color:var(--text); box-shadow:0 4px 14px rgba(0,0,0,.25); background-color:var(--accent);
+  }
+  /* Tapa y degradado como <img> reales, no CSS background: así se imprimen siempre,
+     sin depender de la casilla "Gráficos de fondo" del diálogo de impresión. */
+  .card-cover, .card-shade{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+  .card-cover{ object-fit:cover; object-position:center top; z-index:0; }
+  .card-shade{ z-index:1; pointer-events:none; }
+
+  .footer{ position:absolute; left:0.3cm; right:1.9cm; bottom:0.22cm; z-index:2; }
+  .footer .titulo{
+    font-size:9.5pt; font-weight:800; line-height:1.15; margin:0 0 0.12cm;
+    text-shadow:0 2px 6px rgba(0,0,0,.6);
+  }
+  .footer .brand{ display:flex; flex-direction:column; gap:0.02cm; }
+  .footer .domain{
+    font-size:6.5pt; font-weight:700; opacity:.95; text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+  .footer .slogan{
+    font-size:6pt; font-style:italic; opacity:.8; text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+
+  /* --- QR camuflado, tintado con el color del tema --- */
+  .qr-badge{
+    position:absolute; right:0.28cm; bottom:0.22cm; z-index:3;
+    width:2.0cm; height:2.0cm; border-radius:6px;
+    background:#fff; padding:2px;
+    box-shadow:0 2px 6px rgba(0,0,0,.35), 0 0 0 2px var(--accent2);
+  }
+  .qr-badge img{
+    width:100%; height:100%; display:block; border-radius:4px;
+    image-rendering:pixelated;
+  }
+  .qr-badge .note{
+    position:absolute; top:-8px; left:-8px; width:18px; height:18px; border-radius:50%;
+    background:var(--accent2); color:var(--bg1); font-size:10px; font-weight:900;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+
+  @media print{
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
+    body{ background:#fff; padding:0; gap:0.5cm; }
+    .card{ box-shadow:none; page-break-inside:avoid; }
+    .label{ display:none; }
+  }
+</style>
+</head>
+<body>
+<p class="label">Tarjeta</p>
+<div class="card" data-theme-card>
+  <img class="card-cover" src="./covers/cover-2pKw6GERJVAD61449B1EEM.jpg" alt="">
+  <img class="card-shade" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0%25' stop-color='black' stop-opacity='0.8'/%3E%3Cstop offset='32%25' stop-color='black' stop-opacity='0.35'/%3E%3Cstop offset='55%25' stop-color='black' stop-opacity='0.05'/%3E%3Cstop offset='70%25' stop-color='black' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='10' height='10' fill='url(%23g)'/%3E%3C/svg%3E" alt="">
+  <div class="footer">
+    <p class="titulo">Linkin Park</p>
+    <div class="brand">
+      <span class="domain">🌐 scanbeat.com.ar</span>
+      <span class="slogan">"Escaneá. Escuchá. Repetí."</span>
+    </div>
+  </div>
+  <div class="qr-badge">
+    <span class="note">♪</span>
+    <img src="./qr.png" alt="QR">
+  </div>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+</script>
+</body>
+</html>

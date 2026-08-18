@@ -1,0 +1,14 @@
+1,039/Smoothed Out Slappy Hours|1990|https://open.spotify.com/album/0wrqpE7UBZC44PFMtp3OfJ|https://tidal.com/browse/album/359671|https://music.apple.com/us/album/1-039-smoothed-out-slappy-hours-deluxe-edition/210332704
+Kerplunk|1991|https://open.spotify.com/album/1UShup0VvfxhxS7j3Omxh2|https://tidal.com/browse/album/359654|https://music.apple.com/bs/album/kerplunk-bonus-track-version/210274067
+Dookie|1994|https://open.spotify.com/album/4uG8q3GPuWHQlRbswMIRS6|https://tidal.com/browse/album/225469|https://music.apple.com/us/album/dookie-30th-anniversary-deluxe-edition/1702070738
+Insomniac|1995|https://open.spotify.com/album/7d3nOmFvL51roNElAdpi9d|https://tidal.com/browse/album/227014|https://music.apple.com/us/album/insomniac/1160079960
+Nimrod|1997|https://open.spotify.com/album/3x2uer6Xh0d5rF8toWpRDA|https://tidal.com/browse/album/228856|https://music.apple.com/us/album/nimrod/1159778204
+Warning|2000|https://open.spotify.com/album/3ifIxGNsG1XmLdoanRRIWB|https://tidal.com/browse/album/230784|https://music.apple.com/us/album/warning-25th-anniversary-deluxe-edition/1842629912
+American Idiot|2004|https://open.spotify.com/album/01jrNa9Y7CLWnBMT3Fp5vR|https://tidal.com/browse/album/292676|https://music.apple.com/us/album/american-idiot-20th-anniversary-deluxe-edition/1761687864
+21st Century Breakdown|2009|https://open.spotify.com/album/5nKs4LNpHgz0xggy0piMCK|https://tidal.com/browse/album/2795985|https://music.apple.com/us/album/21st-century-breakdown/1156538220
+¡Uno!|2012|https://open.spotify.com/album/6AFJIZmd1zWQDBBwHyeo9w|https://tidal.com/browse/album/17182361|https://music.apple.com/us/album/uno/1156547094
+¡Dos!|2012|https://open.spotify.com/album/71rrqHKVkUFx2CSVfxrrLs|https://tidal.com/browse/album/17861219|https://music.apple.com/us/album/dos/1156548651
+¡Tré!|2012|https://open.spotify.com/album/1t9rzuEEFVHPdqRYzsaWC8|https://tidal.com/browse/album/68638939|https://music.apple.com/us/album/tr%C3%A9/1156539533
+Revolution Radio|2016|https://open.spotify.com/album/5a3LqvNt2nv1B4aRKXmgOV|https://tidal.com/browse/album/68627173|https://music.apple.com/us/album/revolution-radio/1140560324
+Father of All Motherfuckers|2020|https://open.spotify.com/album/7ij8wQxCAexZiXZbMOHcxE|https://tidal.com/browse/album/128529449|https://music.apple.com/us/album/father-of-all-m-s/1478976850
+Saviors|2024|https://open.spotify.com/album/4AIeqAMDyIT884A9uA2A0i|https://tidal.com/browse/album/338407190|https://music.apple.com/us/album/saviors-%C3%A9dition-de-luxe/1836066200

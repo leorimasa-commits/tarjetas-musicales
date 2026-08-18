@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Linkin Park</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Linkin Park">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/linkin-park-discografia/covers/cover-2pKw6GERJVAD61449B1EEM.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/linkin-park-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Linkin Park</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">Nu metal con alma electrónica: de Hybrid Theory a From Zero, la banda que hizo bailar y gritar a toda una generación.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@LinkinPark";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Hybrid Theory","anio":"2000","spotifyUrl":"https://open.spotify.com/album/2pKw6GERJVAD61449B1EEM","tidalUrl":"https://tidal.com/browse/album/1225569","appleMusicUrl":"https://music.apple.com/us/album/hybrid-theory-deluxe-edition/590431776","cover":"./covers/cover-2pKw6GERJVAD61449B1EEM.jpg","tracks":[{"title":"Papercut","spotifyId":"00MYbj8WKfcv3Bz6qFhJKn"},{"title":"One Step Closer","spotifyId":"61fUybL3XS40gcffnnNPoX"},{"title":"With You","spotifyId":"5smQEb4bp9kYX0xgiGh4Fn"},{"title":"Points of Authority","spotifyId":"04mlpyRplis2yvf18EwaeN"},{"title":"Crawling","spotifyId":"5Za8bsHPb08SZXm0bvbDXy"},{"title":"Runaway","spotifyId":"2xQQsFEm7Enrk6fk2KI5C2"},{"title":"By Myself","spotifyId":"0YvLVwdVZlnSjqfetfZcEi"},{"title":"In the End","spotifyId":"3tSmXSxaAnU1EPGKa6NytH"},{"title":"A Place for My Head","spotifyId":"4rbc5CkMyU3F2kwiZLO2z6"},{"title":"Forgotten","spotifyId":"5kBkdxl6uRdwtsGTONJa0z"},{"title":"Cure for the Itch","spotifyId":"5ZZtBmfSsaIAkx6OZYUWzF"},{"title":"Pushing Me Away","spotifyId":"7MfJVe7of8qWEMcCwQnAvS"}]},{"titulo":"Meteora","anio":"2003","spotifyUrl":"https://open.spotify.com/album/4Gfnly5CzMJQqkUFfoHaP3","tidalUrl":"https://tidal.com/browse/album/234793","appleMusicUrl":"https://music.apple.com/us/album/meteora-20th-anniversary-edition/1668484895","cover":"./covers/cover-4Gfnly5CzMJQqkUFfoHaP3.jpg","tracks":[{"title":"Foreword","spotifyId":"4hbpxoMCp62bd1sdy7XehS"},{"title":"Don't Stay","spotifyId":"6HZdbb05lEXLvcmee3ZXO2"},{"title":"Somewhere I Belong","spotifyId":"3agtg0x11wPvLIWkYR39nZ"},{"title":"Lying from You","spotifyId":"4zP2e2aIzOZGEFTq1MDJmm"},{"title":"Hit the Floor","spotifyId":"3R9NKZ4jmxNjOFihSF5s7f"},{"title":"Easier to Run","spotifyId":"17bgialGAwoiGj1STY4cnR"},{"title":"Faint","spotifyId":"4Yf5bqU3NK4kNOypcrLYwU"},{"title":"Figure.09","spotifyId":"2DrMcGNKEY0FZqjMovGaCm"},{"title":"Breaking the Habit","spotifyId":"6n8TMVyFKoUmDc4apxceRD"},{"title":"From the Inside","spotifyId":"60IkVf7UfQXmt5CwkpcX8a"},{"title":"Nobody's Listening","spotifyId":"4m1P1BSg9nLxaWbvPhNdhw"},{"title":"Session","spotifyId":"3sbezh9MMCQrr4KY7zw13j"},{"title":"Numb","spotifyId":"2nLtzopw4rPReszdYBJU6h"}]},{"titulo":"Minutes to Midnight","anio":"2007","spotifyUrl":"https://open.spotify.com/album/7pgs38iLfEqUtwgCRgvbND","tidalUrl":"https://tidal.com/browse/album/406460","appleMusicUrl":"https://music.apple.com/us/album/minutes-to-midnight/528972236","cover":"./covers/cover-7pgs38iLfEqUtwgCRgvbND.jpg","tracks":[{"title":"Wake","spotifyId":"3UcEVEWewecoudSytBUy8O"},{"title":"Given Up","spotifyId":"400lQTCx3wYGgqAIHSZbNA"},{"title":"Leave Out All The Rest","spotifyId":"58AS4weYlUWvGztZbKIuAU"},{"title":"Bleed It Out","spotifyId":"78gsvivelCP8Kh0tSRTy8D"},{"title":"Shadow of the Day","spotifyId":"4Sxx1wd4nnB8ob8Zsujwrs"},{"title":"What I've Done","spotifyId":"4wfyFIRnxdIN0v4OGtXcX3"},{"title":"Hands Held High","spotifyId":"3tIfOsDW9iRIZoBoYhpGTm"},{"title":"No More Sorrow","spotifyId":"69vMDipMastHvYna7plBdS"},{"title":"Valentine's Day","spotifyId":"5AMWj2Dc7oNb4qCHb5cOad"},{"title":"In Between","spotifyId":"334NVjwI4vESPdvOmVZzbo"},{"title":"In Pieces","spotifyId":"0bt6PVHT4Z4AfZLOpGtVi2"},{"title":"The Little Things Give You Away","spotifyId":"6zCaXHIV60YIuDe9qJ9MOo"},{"title":"Faint - Live from Third Encore Studio, North Hollywood, CA, 3/14/2007","spotifyId":"0KipVgZ87uuiO0sMPkMr7z"},{"title":"What I've Done - Live from Third Encore Studio, North Hollywood, CA, 3/14/2007","spotifyId":"3oTmh37Y8fDiljWQmvarYo"}]},{"titulo":"A Thousand Suns","anio":"2010","spotifyUrl":"https://open.spotify.com/album/113yjuFZEqkkbuLi4sEBxo","tidalUrl":"https://tidal.com/browse/album/68639018","appleMusicUrl":"https://music.apple.com/us/album/a-thousand-suns/528969611","cover":"./covers/cover-113yjuFZEqkkbuLi4sEBxo.jpg","tracks":[{"title":"The Requiem","spotifyId":"70uNLwrFxum0Cj79PDygW2"},{"title":"The Radiance","spotifyId":"0qRTXZiHrbYUcFbP5rb9cW"},{"title":"Burning in the Skies","spotifyId":"74d6TJmbOtWswxvbQ3m1eu"},{"title":"Empty Spaces","spotifyId":"5tgyRhmZ480ytCSxJKZIKv"},{"title":"When They Come for Me","spotifyId":"6Hxw4iKjZOyPIHXgbOwVZq"},{"title":"Robot Boy","spotifyId":"2LjaNzmzPfljimPxRgFVye"},{"title":"Jornada Del Muerto","spotifyId":"1LrFwH09EM9VYAUx3DfwBj"},{"title":"Waiting for the End","spotifyId":"1V4Bq9kYHMk9yILUp5z3o3"},{"title":"Blackout","spotifyId":"0uIDQUwQmUltzyozMSezwQ"},{"title":"Wretches and Kings","spotifyId":"4uqacT1xJ7UhPJAMAcb25A"},{"title":"Wisdom, Justice, and Love","spotifyId":"7w7oyRRI2FkOvZHFvw0hid"},{"title":"Iridescent","spotifyId":"6SoUUr6i1X0GReHinApeKI"},{"title":"Fallout","spotifyId":"3Vp3sn18wEzcK6JEwXgJ6a"},{"title":"The Catalyst","spotifyId":"4tXBsD5sEzxlJjWCOz6qzs"},{"title":"The Messenger","spotifyId":"45CFyww2OsnABfrBg6FzRY"}]},{"titulo":"Living Things","anio":"2012","spotifyUrl":"https://open.spotify.com/album/4XHIjbhjRmqWlosjj5rqSI","tidalUrl":"https://tidal.com/browse/album/15937587","appleMusicUrl":"https://music.apple.com/us/album/living-things/518869932","cover":"./covers/cover-4XHIjbhjRmqWlosjj5rqSI.jpg","tracks":[{"title":"LOST IN THE ECHO","spotifyId":"2oNYsdCasRRlz1shXFAz7D"},{"title":"IN MY REMAINS","spotifyId":"00KfIFi2TpAaQGPbRbFbKJ"},{"title":"BURN IT DOWN","spotifyId":"7oVEtyuv9NBmnytsCIsY5I"},{"title":"LIES GREED MISERY","spotifyId":"3aZQQWGNShP6IzzaprPlFX"},{"title":"I'LL BE GONE","spotifyId":"3cQGb2POE359G9WH81bF60"},{"title":"CASTLE OF GLASS","spotifyId":"1r1fPuhj9H4VdXr7OK6FL5"},{"title":"VICTIMIZED","spotifyId":"35jdp4bY3CABKBroODRq7Y"},{"title":"ROADS UNTRAVELED","spotifyId":"1dYw8HTRJnFpeEeMtXj99a"},{"title":"SKIN TO BONE","spotifyId":"4JqgUZ4yZqjeEmgJNsuUjX"},{"title":"UNTIL IT BREAKS","spotifyId":"2ww2xnkptug8KwF6XzEwMq"},{"title":"TINFOIL","spotifyId":"5zoETs17V8PJkeGmB0Iagw"},{"title":"POWERLESS","spotifyId":"4zNk347FJz4yDDcjUhJJMI"}]},{"titulo":"The Hunting Party","anio":"2014","spotifyUrl":"https://open.spotify.com/album/3XB2yloP7l00tEUmaODtVi","tidalUrl":"https://tidal.com/browse/album/30860660","appleMusicUrl":"https://music.apple.com/us/album/the-hunting-party/873395041","cover":"./covers/cover-3XB2yloP7l00tEUmaODtVi.jpg","tracks":[{"title":"Keys to the Kingdom","spotifyId":"2cZXlLwkRmDww37tbEygXl"},{"title":"All for Nothing (feat. Page Hamilton)","spotifyId":"5Rcs3fREgibWujLUlUb8KA"},{"title":"Guilty All the Same (feat. Rakim)","spotifyId":"6L5QMBrydoaapTDMQ0Anui"},{"title":"The Summoning","spotifyId":"7wHW68IXAO0vlhXv1PxKFJ"},{"title":"War","spotifyId":"3h5gMWp1KJQkLBgCtG5EgH"},{"title":"Wastelands","spotifyId":"3S8MFB68isPbRVgaU0MaIW"},{"title":"Until It's Gone","spotifyId":"2n1jBz26dVBtSbMvJNjGsu"},{"title":"Rebellion (feat. Daron Malakian)","spotifyId":"3zZ009FB8sc8JghwVrbLFq"},{"title":"Mark the Graves","spotifyId":"16AFbRYIdpesOleGTKClHs"},{"title":"Drawbar (feat. Tom Morello)","spotifyId":"7MTDaY5oGjo4F8N5r7H8LT"},{"title":"Final Masquerade","spotifyId":"3aYBjxTMvrEOP0A0UXg9ER"},{"title":"A Line in the Sand","spotifyId":"4BRvD5QdauTo8EuUvYchu3"}]},{"titulo":"One More Light","anio":"2017","spotifyUrl":"https://open.spotify.com/album/5Eevxp2BCbWq25ZdiXRwYd","tidalUrl":"https://tidal.com/browse/album/74017550","appleMusicUrl":"https://music.apple.com/us/album/one-more-light/1204427627","cover":"./covers/cover-5Eevxp2BCbWq25ZdiXRwYd.jpg","tracks":[{"title":"Nobody Can Save Me","spotifyId":"3dJj6o9o1fRgrojWjailuz"},{"title":"Good Goodbye (feat. Pusha T and Stormzy)","spotifyId":"650OeHTLxZAQmb4aEbGmaA"},{"title":"Talking to Myself","spotifyId":"7nAfXgeHfDO50upcOjJOaq"},{"title":"Battle Symphony","spotifyId":"3FQCJI2t5LTbsRPfYVBSVB"},{"title":"Invisible","spotifyId":"6OocN63GLU7NF0wHdewhID"},{"title":"Heavy (feat. Kiiara)","spotifyId":"104buTcnP2AsxqB7U1FIZ4"},{"title":"Sorry for Now","spotifyId":"34isqXjbTstbYwl2MfdzDq"},{"title":"Halfway Right","spotifyId":"1KvyBpAxgllKW7bQb0GYCR"},{"title":"One More Light","spotifyId":"3xXBsjrbG1xQIm1xv1cKOt"},{"title":"Sharp Edges","spotifyId":"6c0I7CfL9ziGZN8yYkLppP"}]},{"titulo":"From Zero","anio":"2024","spotifyUrl":"https://open.spotify.com/album/4R6FV9NSzhPihHR0h4pI93","tidalUrl":"https://tidal.com/browse/album/396931349","appleMusicUrl":"https://music.apple.com/us/album/from-zero-deluxe-edition/1801842323","cover":"./covers/cover-4R6FV9NSzhPihHR0h4pI93.jpg","tracks":[{"title":"From Zero (Intro)","spotifyId":"1uhces29ApKuQWFdpiUsvH"},{"title":"The Emptiness Machine","spotifyId":"1EDPVGbyPKJPeGqATwXZvN"},{"title":"Cut the Bridge","spotifyId":"5mFZipkX1HZ4Idz5LOWpzq"},{"title":"Heavy Is the Crown","spotifyId":"2HBBM75Xv3o2Mqdyh1NcM0"},{"title":"Over Each Other","spotifyId":"3k4gjmYNJugQRlh2aounZ9"},{"title":"Casualty","spotifyId":"7BkzAHnNW7WfrT4NcLaUDx"},{"title":"Overflow","spotifyId":"7diOv6wm3ngF7Vt6ubK0Sf"},{"title":"Two Faced","spotifyId":"6i5qhmmF9UNUBRyrPSGn4m"},{"title":"Stained","spotifyId":"0J1IJsMbKWb5g2sJArTkGF"},{"title":"IGYEIH","spotifyId":"7M8eZBRTD9QNasEVReEM0H"},{"title":"Good Things Go","spotifyId":"6aCBjSb87RizdH8lVBIRW7"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
