@@ -48,6 +48,21 @@
   #orderName::placeholder, #orderPrice::placeholder, #search::placeholder{ color:rgba(255,255,255,.4); }
   #orderName:focus, #orderPrice:focus, #search:focus{ border-color:var(--accent2); }
 
+  .price-row{ display:flex; gap:6px; }
+  .price-row #orderPrice{ flex:1; min-width:0; }
+  #btnSavePrice{
+    flex-shrink:0; width:44px; border-radius:12px; border:1px solid rgba(255,209,102,.35);
+    background:rgba(255,209,102,.12); color:var(--accent2); font-size:16px;
+  }
+  #btnSavePrice.saved{ background:rgba(120,220,150,.18); border-color:rgba(120,220,150,.4); color:#8ee6a8; }
+
+  #topTotal{
+    display:none; max-width:420px; margin:0 auto 14px; padding:10px 14px; border-radius:12px;
+    background:rgba(255,209,102,.1); border:1px solid rgba(255,209,102,.3);
+    font-size:13px; font-weight:700; text-align:center;
+  }
+  #topTotal b{ color:var(--accent2); font-size:15px; }
+
   /* ---------- Resumen de hojas ---------- */
   #summary{ max-width:720px; margin:0 auto 26px; display:flex; flex-direction:column; gap:14px; }
   .sheet-block{
@@ -213,8 +228,12 @@
   </header>
   <div class="fields">
     <input id="orderName" type="text" placeholder="Nombre del pedido (ej: Juan Pérez)">
-    <input id="orderPrice" type="number" inputmode="decimal" min="0" step="1" placeholder="Precio por hoja ($)">
+    <div class="price-row">
+      <input id="orderPrice" type="number" inputmode="decimal" min="0" step="1" placeholder="Precio por hoja ($)">
+      <button type="button" id="btnSavePrice" title="Guardar como precio por defecto (se usa también en pedido.html)">💾</button>
+    </div>
   </div>
+  <div id="topTotal"></div>
   <input id="search" type="text" placeholder="Buscar artista…">
   <div id="summary"></div>
   <div class="grid" id="grid"></div>
@@ -243,6 +262,9 @@
   const ROWS_PER_PAGE = 4;
   const PER_PAGE = COLS * ROWS_PER_PAGE;
   const SLOGAN = 'Escaneá. Escuchá. Repetí.';
+  // Misma URL que templates/pedido-cliente.template.html y templates/reportes.template.html
+  // (SHEETS_WEBAPP_URL) — si cambia en un lado, actualizar en los tres.
+  const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbynSAmjU_PqVqt-9D79cd_LpblqXahZbXLS-xRpi46qRXiZ5WO7uNwWu5xYqWoavgao/exec';
 
   let selected = [];
 
@@ -261,12 +283,52 @@
   const countEl = document.getElementById('count');
   const pagesInfoEl = document.getElementById('pageCount');
   const priceInfoEl = document.getElementById('priceInfo');
+  const topTotalEl = document.getElementById('topTotal');
+  const btnSavePrice = document.getElementById('btnSavePrice');
   const btnGenerate = document.getElementById('btnGenerate');
   const btnClear = document.getElementById('btnClear');
   const originalTitle = document.title;
 
   orderNameEl.value = localStorage.getItem('scanbeat-ultimo-pedido') || '';
   orderPriceEl.value = localStorage.getItem('scanbeat-precio-hoja') || '';
+
+  // Si no hay nada guardado en este navegador, traemos el precio por defecto que se
+  // haya guardado desde acá mismo en otra sesión (queda en el Apps Script, no en este
+  // navegador — así el precio es el mismo en cualquier PC donde entres).
+  async function cargarPrecioPorDefecto(){
+    if (orderPriceEl.value || !SHEETS_WEBAPP_URL) return;
+    try {
+      const res = await fetch(`${SHEETS_WEBAPP_URL}?tipo=config`, { cache: 'no-store' });
+      const data = await res.json();
+      if (data && data.precioPorHoja > 0) {
+        orderPriceEl.value = data.precioPorHoja;
+        updateBar();
+      }
+    } catch { /* si falla, el campo queda vacío para completar a mano */ }
+  }
+
+  async function guardarPrecioPorDefecto(){
+    const precio = parseFloat(orderPriceEl.value);
+    if (!(precio > 0) || !SHEETS_WEBAPP_URL) return;
+    btnSavePrice.disabled = true;
+    try {
+      await fetch(SHEETS_WEBAPP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ tipo: 'setConfig', precioPorHoja: precio }),
+      });
+      btnSavePrice.classList.add('saved');
+      btnSavePrice.textContent = '✅';
+      setTimeout(() => { btnSavePrice.classList.remove('saved'); btnSavePrice.textContent = '💾'; }, 2000);
+    } catch {
+      showToast('⚠️ No se pudo guardar el precio por defecto');
+    } finally {
+      btnSavePrice.disabled = false;
+    }
+  }
+
+  btnSavePrice.addEventListener('click', guardarPrecioPorDefecto);
 
   function sheetsOf(list){
     const chunks = [];
@@ -330,9 +392,13 @@
     const precio = parseFloat(orderPriceEl.value);
     if (precio > 0 && totalSheets > 0) {
       const total = precio * totalSheets;
-      priceInfoEl.textContent = ` — Total: $${total.toLocaleString('es-AR')} (${totalSheets} × $${precio.toLocaleString('es-AR')})`;
+      const detalle = `${totalSheets} × $${precio.toLocaleString('es-AR')}`;
+      priceInfoEl.textContent = ` — Total: $${total.toLocaleString('es-AR')} (${detalle})`;
+      topTotalEl.style.display = 'block';
+      topTotalEl.innerHTML = `Precio por hoja: $${precio.toLocaleString('es-AR')} — Total del cliente: <b>$${total.toLocaleString('es-AR')}</b> (${detalle})`;
     } else {
       priceInfoEl.textContent = '';
+      topTotalEl.style.display = 'none';
     }
   }
 
@@ -480,6 +546,7 @@
   renderGrid();
   renderSummary();
   updateBar();
+  cargarPrecioPorDefecto();
 </script>
 </body>
 </html>

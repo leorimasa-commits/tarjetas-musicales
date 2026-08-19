@@ -9,6 +9,15 @@ function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
 
+    // Acción del panel admin/pedidos.html: guardar el precio por hoja para que se
+    // use como valor por defecto en todos lados (pedido.html público y el panel
+    // admin), sin tener que volver a escribirlo cada vez.
+    if (data.tipo === 'setConfig') {
+      PropertiesService.getScriptProperties().setProperty('precioPorHoja', String(data.precioPorHoja || 0));
+      return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     // Acción del panel admin/reportes.html: mandar el mail al cliente directo desde acá
     // (con tu cuenta de Gmail), sin abrir ningún programa.
     if (data.tipo === 'enviarMail') {
@@ -57,6 +66,15 @@ function doPost(e) {
 
 function doGet(e) {
   try {
+    // Acción de pedido.html (público) y admin/pedidos.html: leer el precio por
+    // hoja guardado, para mostrarlo sin que el admin tenga que retipearlo.
+    if (e.parameter && e.parameter.tipo === 'config') {
+      var precioGuardado = PropertiesService.getScriptProperties().getProperty('precioPorHoja');
+      return ContentService.createTextOutput(JSON.stringify({
+        precioPorHoja: precioGuardado ? Number(precioGuardado) : 0,
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Pedidos');
     if (!sheet || sheet.getLastRow() < 2) {
       return ContentService.createTextOutput(JSON.stringify([])).setMimeType(ContentService.MimeType.JSON);
@@ -148,5 +166,10 @@ function guardarPdf_(base64, nombre) {
  * Google puede volver a pedirte autorización (porque ahora el script también necesita
  * permiso para mandar mails en tu nombre) — es el mismo paso de "Avanzado → Ir a...
  * → Permitir" de siempre.
+ *
+ * También guarda el "precio por hoja" (con PropertiesService, no ocupa ninguna celda de
+ * la planilla) cuando lo cambiás desde admin/pedidos.html — y lo expone con GET
+ * (?tipo=config) para que tanto pedido.html (público) como el panel admin lo lean solos,
+ * sin que tengas que volver a escribirlo en cada lugar.
  * ================================================================================
  */
