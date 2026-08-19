@@ -1,6 +1,8 @@
-// Escanea cards/*-discografia y regenera pedido.html (formulario público para que
-// los clientes armen su pedido — envía un email vía FormSubmit.co, no imprime nada).
-// Correr después de agregar/quitar cualquier discografía, junto con generar-catalogo.js.
+// Escanea cards/*-discografia y cards/*-compilado y regenera pedido.html (formulario
+// público para que los clientes armen su pedido — envía un email vía FormSubmit.co,
+// no imprime nada).
+// Correr después de agregar/quitar cualquier discografía o compilado, junto con
+// generar-catalogo.js y generar-catalogo-compilados.js.
 const fs = require('fs');
 const path = require('path');
 
@@ -8,7 +10,7 @@ const root = path.resolve(__dirname, '..');
 const cardsDir = path.join(root, 'cards');
 
 const slugs = fs.readdirSync(cardsDir, { withFileTypes: true })
-  .filter(d => d.isDirectory() && d.name.endsWith('-discografia'))
+  .filter(d => d.isDirectory() && (d.name.endsWith('-discografia') || d.name.endsWith('-compilado')))
   .map(d => d.name)
   .sort();
 
@@ -33,6 +35,13 @@ for (const slug of slugs) {
       const primerCover = albums.find(a => a.cover)?.cover;
       if (primerCover) cover = `cards/${slug}/${primerCover.replace(/^\.\//, '')}`;
     } catch { /* sin tapa si no matchea */ }
+  }
+  if (!cover) {
+    // Compilados (card.template.html) no tienen ALBUMS, guardan una sola tapa
+    // como cover.jpg/png directo en la carpeta de la tarjeta.
+    const candidatos = ['cover.jpg', 'cover.png', 'cover.jpeg'];
+    const encontrada = candidatos.find(c => fs.existsSync(path.join(cardDir, c)));
+    if (encontrada) cover = `cards/${slug}/${encontrada}`;
   }
 
   const qrPath = path.join(cardDir, 'qr.png');

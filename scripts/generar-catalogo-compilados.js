@@ -33,7 +33,7 @@ function esc(s) {
 }
 
 const cards = items.map(it => `
-    <a class="cat-item" href="cards/${it.slug}/">
+    <a class="cat-item" href="pedido.html?artist=${encodeURIComponent(it.slug)}">
       <img src="cards/${it.slug}/${it.cover}" alt="${esc(it.titulo)}" loading="lazy">
       <span>${esc(it.titulo)}</span>
     </a>`).join('');
