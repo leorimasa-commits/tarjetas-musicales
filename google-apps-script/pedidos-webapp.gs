@@ -9,11 +9,13 @@ function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
 
-    // Acción del panel admin/pedidos.html: guardar el precio por hoja para que se
-    // use como valor por defecto en todos lados (pedido.html público y el panel
-    // admin), sin tener que volver a escribirlo cada vez.
+    // Acción del panel admin/pedidos.html: guardar los precios (hoja física y
+    // digital) para que se usen como valor por defecto en todos lados (pedido.html
+    // público y el panel admin), sin tener que volver a escribirlos cada vez.
     if (data.tipo === 'setConfig') {
-      PropertiesService.getScriptProperties().setProperty('precioPorHoja', String(data.precioPorHoja || 0));
+      var props = PropertiesService.getScriptProperties();
+      props.setProperty('precioPorHoja', String(data.precioPorHoja || 0));
+      props.setProperty('precioDigital', String(data.precioDigital || 0));
       return ContentService.createTextOutput(JSON.stringify({ ok: true }))
         .setMimeType(ContentService.MimeType.JSON);
     }
@@ -48,6 +50,8 @@ function doPost(e) {
       data.comentario || '',
       pdfUrl,
       false, // Pagado — se tilda a mano
+      data.entrega || 'Física', // Física o Digital
+      data.slugs || '', // para armar los links directos si es Digital
     ]);
 
     // La casilla se aplica solo a la fila recién agregada (NO precargar un rango grande
@@ -66,12 +70,15 @@ function doPost(e) {
 
 function doGet(e) {
   try {
-    // Acción de pedido.html (público) y admin/pedidos.html: leer el precio por
-    // hoja guardado, para mostrarlo sin que el admin tenga que retipearlo.
+    // Acción de pedido.html (público) y admin/pedidos.html: leer los precios
+    // guardados, para mostrarlos sin que el admin tenga que retipearlos.
     if (e.parameter && e.parameter.tipo === 'config') {
-      var precioGuardado = PropertiesService.getScriptProperties().getProperty('precioPorHoja');
+      var props = PropertiesService.getScriptProperties();
+      var precioHoja = props.getProperty('precioPorHoja');
+      var precioDig = props.getProperty('precioDigital');
       return ContentService.createTextOutput(JSON.stringify({
-        precioPorHoja: precioGuardado ? Number(precioGuardado) : 0,
+        precioPorHoja: precioHoja ? Number(precioHoja) : 0,
+        precioDigital: precioDig ? Number(precioDig) : 0,
       })).setMimeType(ContentService.MimeType.JSON);
     }
 
@@ -79,7 +86,8 @@ function doGet(e) {
     if (!sheet || sheet.getLastRow() < 2) {
       return ContentService.createTextOutput(JSON.stringify([])).setMimeType(ContentService.MimeType.JSON);
     }
-    var rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, 7).getValues();
+    var sheetCols = Math.max(sheet.getLastColumn(), 7);
+    var rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, sheetCols).getValues();
     var data = rows
       .filter(function (r) { return r[1] || r[2]; }) // ignora filas vacías (huérfanas de antes del fix)
       .map(function (r) {
@@ -91,6 +99,8 @@ function doGet(e) {
           comentario: r[4],
           pdf: r[5],
           pagado: r[6] === true,
+          entrega: r[7] || 'Física', // pedidos de antes de este cambio no tienen esta columna
+          slugs: r[8] || '',
         };
       })
       .reverse(); // más recientes primero
@@ -103,10 +113,10 @@ function doGet(e) {
 function crearHoja_() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.insertSheet('Pedidos');
-  sheet.appendRow(['Fecha', 'Nombre', 'Contacto', 'Discografías', 'Comentario', 'PDF', 'Pagado']);
-  sheet.getRange('A1:G1').setFontWeight('bold');
+  sheet.appendRow(['Fecha', 'Nombre', 'Contacto', 'Discografías', 'Comentario', 'PDF', 'Pagado', 'Entrega', 'Slugs']);
+  sheet.getRange('A1:I1').setFontWeight('bold');
   sheet.setFrozenRows(1);
-  sheet.autoResizeColumns(1, 7);
+  sheet.autoResizeColumns(1, 9);
   return sheet;
 }
 
@@ -167,9 +177,15 @@ function guardarPdf_(base64, nombre) {
  * permiso para mandar mails en tu nombre) — es el mismo paso de "Avanzado → Ir a...
  * → Permitir" de siempre.
  *
- * También guarda el "precio por hoja" (con PropertiesService, no ocupa ninguna celda de
- * la planilla) cuando lo cambiás desde admin/pedidos.html — y lo expone con GET
- * (?tipo=config) para que tanto pedido.html (público) como el panel admin lo lean solos,
- * sin que tengas que volver a escribirlo en cada lugar.
+ * También guarda los precios (por hoja física y por tarjeta digital — con
+ * PropertiesService, no ocupan ninguna celda de la planilla) cuando los cambiás desde
+ * admin/pedidos.html — y los expone con GET (?tipo=config) para que tanto pedido.html
+ * (público) como el panel admin los lean solos, sin que tengas que volver a
+ * escribirlos en cada lugar.
+ *
+ * Cada pedido guarda además si es "Física" o "Digital" (columna Entrega) y los slugs
+ * de las tarjetas elegidas (columna Slugs, separados por coma) — así admin/reportes.html
+ * puede armar el link directo a cada tarjeta cuando el pedido es digital (no hay PDF
+ * para mandar en ese caso).
  * ================================================================================
  */

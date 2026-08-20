@@ -48,11 +48,10 @@
   #orderName::placeholder, #orderPrice::placeholder, #search::placeholder{ color:rgba(255,255,255,.4); }
   #orderName:focus, #orderPrice:focus, #search:focus{ border-color:var(--accent2); }
 
-  .price-row{ display:flex; gap:6px; }
-  .price-row #orderPrice{ flex:1; min-width:0; }
   #btnSavePrice{
-    flex-shrink:0; width:44px; border-radius:12px; border:1px solid rgba(255,209,102,.35);
-    background:rgba(255,209,102,.12); color:var(--accent2); font-size:16px;
+    display:block; width:100%; max-width:420px; margin:0 auto 14px; padding:12px;
+    border-radius:12px; border:1px solid rgba(255,209,102,.35);
+    background:rgba(255,209,102,.12); color:var(--accent2); font-size:13.5px; font-weight:700;
   }
   #btnSavePrice.saved{ background:rgba(120,220,150,.18); border-color:rgba(120,220,150,.4); color:#8ee6a8; }
 
@@ -228,11 +227,10 @@
   </header>
   <div class="fields">
     <input id="orderName" type="text" placeholder="Nombre del pedido (ej: Juan Pérez)">
-    <div class="price-row">
-      <input id="orderPrice" type="number" inputmode="decimal" min="0" step="1" placeholder="Precio por hoja ($)">
-      <button type="button" id="btnSavePrice" title="Guardar como precio por defecto (se usa también en pedido.html)">💾</button>
-    </div>
+    <input id="orderPrice" type="number" inputmode="decimal" min="0" step="1" placeholder="Precio por hoja física ($)">
+    <input id="orderPriceDigital" type="number" inputmode="decimal" min="0" step="1" placeholder="Precio por tarjeta digital ($)">
   </div>
+  <button type="button" id="btnSavePrice">💾 Guardar precios por defecto</button>
   <div id="topTotal"></div>
   <input id="search" type="text" placeholder="Buscar artista…">
   <div id="summary"></div>
@@ -278,6 +276,7 @@
   const searchEl = document.getElementById('search');
   const orderNameEl = document.getElementById('orderName');
   const orderPriceEl = document.getElementById('orderPrice');
+  const orderPriceDigitalEl = document.getElementById('orderPriceDigital');
   const summaryEl = document.getElementById('summary');
   const toastEl = document.getElementById('toast');
   const countEl = document.getElementById('count');
@@ -291,38 +290,41 @@
 
   orderNameEl.value = localStorage.getItem('scanbeat-ultimo-pedido') || '';
   orderPriceEl.value = localStorage.getItem('scanbeat-precio-hoja') || '';
+  orderPriceDigitalEl.value = localStorage.getItem('scanbeat-precio-digital') || '';
 
-  // Si no hay nada guardado en este navegador, traemos el precio por defecto que se
-  // haya guardado desde acá mismo en otra sesión (queda en el Apps Script, no en este
-  // navegador — así el precio es el mismo en cualquier PC donde entres).
+  // Si no hay nada guardado en este navegador, traemos los precios por defecto que se
+  // hayan guardado desde acá mismo en otra sesión (quedan en el Apps Script, no en este
+  // navegador — así son los mismos en cualquier PC donde entres).
   async function cargarPrecioPorDefecto(){
-    if (orderPriceEl.value || !SHEETS_WEBAPP_URL) return;
+    if (!SHEETS_WEBAPP_URL) return;
     try {
       const res = await fetch(`${SHEETS_WEBAPP_URL}?tipo=config`, { cache: 'no-store' });
       const data = await res.json();
-      if (data && data.precioPorHoja > 0) {
-        orderPriceEl.value = data.precioPorHoja;
-        updateBar();
-      }
-    } catch { /* si falla, el campo queda vacío para completar a mano */ }
+      if (!data) return;
+      if (!orderPriceEl.value && data.precioPorHoja > 0) orderPriceEl.value = data.precioPorHoja;
+      if (!orderPriceDigitalEl.value && data.precioDigital > 0) orderPriceDigitalEl.value = data.precioDigital;
+      updateBar();
+    } catch { /* si falla, los campos quedan vacíos para completar a mano */ }
   }
 
   async function guardarPrecioPorDefecto(){
-    const precio = parseFloat(orderPriceEl.value);
-    if (!(precio > 0) || !SHEETS_WEBAPP_URL) return;
+    const precio = parseFloat(orderPriceEl.value) || 0;
+    const precioDigital = parseFloat(orderPriceDigitalEl.value) || 0;
+    if (!(precio > 0 || precioDigital > 0) || !SHEETS_WEBAPP_URL) return;
     btnSavePrice.disabled = true;
+    const originalLabel = btnSavePrice.textContent;
     try {
       await fetch(SHEETS_WEBAPP_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({ tipo: 'setConfig', precioPorHoja: precio }),
+        body: JSON.stringify({ tipo: 'setConfig', precioPorHoja: precio, precioDigital: precioDigital }),
       });
       btnSavePrice.classList.add('saved');
-      btnSavePrice.textContent = '✅';
-      setTimeout(() => { btnSavePrice.classList.remove('saved'); btnSavePrice.textContent = '💾'; }, 2000);
+      btnSavePrice.textContent = '✅ Guardado';
+      setTimeout(() => { btnSavePrice.classList.remove('saved'); btnSavePrice.textContent = originalLabel; }, 2000);
     } catch {
-      showToast('⚠️ No se pudo guardar el precio por defecto');
+      showToast('⚠️ No se pudieron guardar los precios por defecto');
     } finally {
       btnSavePrice.disabled = false;
     }
@@ -440,6 +442,10 @@
   orderPriceEl.addEventListener('input', () => {
     localStorage.setItem('scanbeat-precio-hoja', orderPriceEl.value);
     updateBar();
+  });
+
+  orderPriceDigitalEl.addEventListener('input', () => {
+    localStorage.setItem('scanbeat-precio-digital', orderPriceDigitalEl.value);
   });
 
   btnClear.addEventListener('click', () => {

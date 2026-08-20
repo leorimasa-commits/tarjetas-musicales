@@ -50,6 +50,7 @@
   }
   .badge.pagado{ background:rgba(120,220,150,.18); color:#8ee6a8; }
   .badge.pendiente{ background:rgba(255,180,80,.18); color:#ffc266; }
+  .badge.entrega{ background:rgba(255,255,255,.1); color:var(--text); margin-left:6px; }
   .chips{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
   .chip{
     display:inline-block; padding:4px 10px; border-radius:14px; background:rgba(255,255,255,.08);
@@ -104,9 +105,21 @@
     } catch { return iso; }
   }
 
+  const BASE_URL = 'https://scanbeat.com.ar';
+
   function mensajeParaCliente(o){
     const nombres = o.discografias.split(',').map(s => s.trim()).filter(Boolean).join(', ');
     const saludo = `¡Hola${o.nombre ? ' ' + o.nombre : ''}! 🎵`;
+
+    if (o.entrega === 'Digital') {
+      const slugs = (o.slugs || '').split(',').map(s => s.trim()).filter(Boolean);
+      if (slugs.length) {
+        const links = slugs.map(slug => `${BASE_URL}/cards/${slug}/`).join('\n');
+        return `${saludo} Acá tenés el/los link(s) de tu pedido de ScanBeat (${nombres}) — se lo podés mandar directo a quien quieras regalarle:\n\n${links}\n\n¡Gracias por tu compra!`;
+      }
+      return `${saludo} Tu pedido digital de ScanBeat: ${nombres}.\n\nEn breve te mandamos el link. ¡Gracias por tu compra!`;
+    }
+
     if (o.pdf) {
       return `${saludo} Acá tenés la hoja de tu pedido de ScanBeat (${nombres}):\n\n${o.pdf}\n\n¡Gracias por tu compra!`;
     }
@@ -139,6 +152,7 @@
         </div>
         <p class="order-contacto">${esc(o.contacto)}</p>
         <span class="badge ${o.pagado ? 'pagado' : 'pendiente'}">${o.pagado ? '✅ Pagado' : '⏳ Pendiente de pago'}</span>
+        <span class="badge entrega">${o.entrega === 'Digital' ? '💌 Digital' : '📦 Física'}</span>
         <div class="chips">${chips}</div>
         ${o.comentario ? `<p class="order-comentario">"${esc(o.comentario)}"</p>` : ''}
         <div class="order-actions">

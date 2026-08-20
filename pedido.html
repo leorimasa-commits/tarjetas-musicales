@@ -28,6 +28,17 @@
   }
   header p{ margin:0; opacity:.7; font-size:14px; max-width:480px; margin:0 auto; }
 
+  .tipo-entrega{ display:flex; gap:8px; max-width:420px; margin:0 auto 20px; }
+  .tipo-entrega button{
+    flex:1; padding:12px 10px; border-radius:14px; border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05); color:var(--text); font-size:13px; font-weight:700;
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+  .tipo-entrega button small{ font-size:10.5px; font-weight:400; opacity:.6; }
+  .tipo-entrega button.active{
+    border-color:var(--accent2); background:rgba(255,209,102,.12); color:var(--accent2);
+  }
+
   #search{
     display:block; width:100%; max-width:420px; margin:22px auto; padding:12px 16px;
     border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
@@ -189,10 +200,15 @@
     <p>Elegí las discografías que querés en tu tarjeta y completá tus datos. Te contactamos para coordinar el resto.</p>
   </header>
 
+  <div class="tipo-entrega" id="tipoEntrega">
+    <button type="button" data-tipo="Física" class="active">📦 Física<small>te la enviamos impresa</small></button>
+    <button type="button" data-tipo="Digital">💌 Digital<small>te mandamos el link</small></button>
+  </div>
+
   <div id="chosen">
     <h2>Tu selección (<span id="count">0</span>)</h2>
     <div id="priceInfo">
-      <span class="por-hoja">Precio por hoja: <b id="precioPorHojaTxt">—</b></span>
+      <span class="por-hoja"><span id="precioLabel">Precio por hoja</span>: <b id="precioPorHojaTxt">—</b></span>
       <span class="total">Total: <b id="totalTxt">—</b></span>
     </div>
     <p class="empty" id="emptyMsg">Todavía no elegiste ninguna discografía.</p>
@@ -214,6 +230,8 @@
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://scanbeat.com.ar/gracias.html">
     <input type="hidden" name="Discografías elegidas" id="artistsField" value="">
+    <input type="hidden" name="Entrega" id="entregaField" value="Física">
+    <input type="hidden" name="Slugs" id="slugsField" value="">
     <input type="file" name="Hoja en PDF" id="pdfFileInput" style="display:none">
     <div>
       <label for="nombre">Nombre</label>
@@ -246,7 +264,9 @@
   const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbynSAmjU_PqVqt-9D79cd_LpblqXahZbXLS-xRpi46qRXiZ5WO7uNwWu5xYqWoavgao/exec';
 
   let selected = [];
+  let tipoEntrega = 'Física';
   let precioPorHoja = 0; // se completa solo desde admin/pedidos.html — ver cargarPrecio()
+  let precioDigital = 0;
   const params = new URLSearchParams(window.location.search);
   const preselect = params.get('artist');
   if (preselect && BY_SLUG[preselect]) selected.push(preselect);
@@ -260,8 +280,9 @@
     try {
       const res = await fetch(`${SHEETS_WEBAPP_URL}?tipo=config`, { cache: 'no-store' });
       const data = await res.json();
-      if (data && data.precioPorHoja > 0) {
-        precioPorHoja = data.precioPorHoja;
+      if (data) {
+        precioPorHoja = data.precioPorHoja || 0;
+        precioDigital = data.precioDigital || 0;
         renderChosen();
       }
     } catch { /* si falla, seguimos sin mostrar precio */ }
@@ -278,10 +299,14 @@
   const countEl = document.getElementById('count');
   const chipsEl = document.getElementById('chips');
   const priceInfoEl = document.getElementById('priceInfo');
+  const precioLabelEl = document.getElementById('precioLabel');
   const precioPorHojaTxtEl = document.getElementById('precioPorHojaTxt');
   const totalTxtEl = document.getElementById('totalTxt');
   const emptyMsgEl = document.getElementById('emptyMsg');
   const artistsFieldEl = document.getElementById('artistsField');
+  const entregaFieldEl = document.getElementById('entregaField');
+  const slugsFieldEl = document.getElementById('slugsField');
+  const tipoEntregaEl = document.getElementById('tipoEntrega');
   const btnSubmit = document.getElementById('btnSubmit');
   const toastEl = document.getElementById('toast');
   const previewSection = document.getElementById('preview');
@@ -328,17 +353,38 @@
       return `<span class="chip">${esc(c.titulo)}<button type="button" data-remove="${slug}">×</button></span>`;
     }).join('');
     artistsFieldEl.value = selected.map(slug => BY_SLUG[slug].titulo).join(', ');
+    entregaFieldEl.value = tipoEntrega;
+    slugsFieldEl.value = selected.join(', ');
     btnSubmit.disabled = selected.length === 0;
 
-    if (precioPorHoja > 0 && selected.length) {
+    if (tipoEntrega === 'Digital') {
+      if (precioDigital > 0 && selected.length) {
+        priceInfoEl.style.display = 'flex';
+        precioLabelEl.textContent = 'Precio por tarjeta';
+        precioPorHojaTxtEl.textContent = formatARS(precioDigital);
+        totalTxtEl.textContent = `${formatARS(precioDigital * selected.length)} (${selected.length} tarjeta${selected.length > 1 ? 's' : ''})`;
+      } else {
+        priceInfoEl.style.display = 'none';
+      }
+    } else if (precioPorHoja > 0 && selected.length) {
       const hojas = Math.ceil(selected.length / PER_PAGE);
       priceInfoEl.style.display = 'flex';
+      precioLabelEl.textContent = 'Precio por hoja';
       precioPorHojaTxtEl.textContent = formatARS(precioPorHoja);
       totalTxtEl.textContent = `${formatARS(precioPorHoja * hojas)} (${hojas} hoja${hojas > 1 ? 's' : ''})`;
     } else {
       priceInfoEl.style.display = 'none';
     }
   }
+
+  tipoEntregaEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-tipo]');
+    if (!btn) return;
+    tipoEntrega = btn.dataset.tipo;
+    tipoEntregaEl.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+    renderChosen();
+    renderPreview();
+  });
 
   function cardHtml(it){
     if (!it) return '<div class="card-slot"></div>';
@@ -382,6 +428,7 @@
   }
 
   function renderPreview(){
+    if (tipoEntrega === 'Digital') { previewSection.style.display = 'none'; return; }
     const items = selected.map(slug => BY_SLUG[slug]).filter(Boolean);
     if (!items.length) { previewSection.style.display = 'none'; return; }
     previewSection.style.display = 'block';
@@ -483,13 +530,48 @@
     });
   }
 
+  function datosBase(){
+    return {
+      nombre: document.getElementById('nombre').value,
+      contacto: document.getElementById('contacto').value,
+      comentario: document.getElementById('comentario').value,
+      discografias: artistsFieldEl.value,
+      entrega: tipoEntrega,
+      slugs: slugsFieldEl.value,
+    };
+  }
+
   orderForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!selected.length) return;
     const originalLabel = btnSubmit.textContent;
     btnSubmit.disabled = true;
-    btnSubmit.textContent = 'Generando PDF…';
 
+    // Digital: no hay nada para imprimir, así que no generamos PDF — se manda
+    // directo el pedido con los slugs, y desde admin/reportes.html se comparte
+    // el link de cada tarjeta con el cliente.
+    if (tipoEntrega === 'Digital') {
+      try {
+        if (SHEETS_WEBAPP_URL) {
+          fetch(SHEETS_WEBAPP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(datosBase()),
+          }).catch(() => {});
+        }
+        btnSubmit.textContent = 'Enviando…';
+        orderForm.submit();
+      } catch (err) {
+        console.error('Error enviando el pedido digital', err);
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = originalLabel;
+        showToast('⚠️ No pudimos enviar el pedido, probá de nuevo');
+      }
+      return;
+    }
+
+    btnSubmit.textContent = 'Generando PDF…';
     try {
       const pdfBlob = await buildPdfBlob();
       const pdfFile = new File([pdfBlob], `pedido-${Date.now()}.pdf`, { type: 'application/pdf' });
@@ -504,13 +586,7 @@
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'text/plain' },
-            body: JSON.stringify({
-              nombre: document.getElementById('nombre').value,
-              contacto: document.getElementById('contacto').value,
-              comentario: document.getElementById('comentario').value,
-              discografias: artistsFieldEl.value,
-              pdfBase64,
-            }),
+            body: JSON.stringify({ ...datosBase(), pdfBase64 }),
           }).catch(() => {});
         } catch { /* si falla el reporte a Sheets, igual se manda el mail */ }
       }
