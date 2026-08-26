@@ -92,7 +92,7 @@ const html = `<!DOCTYPE html>
 <header>
   <a class="back" href="./">← Volver</a>
   <h1>Compilados</h1>
-  <p>${items.length} compilado${items.length === 1 ? '' : 's'} disponible${items.length === 1 ? '' : 's'} — tocá una tapa para escucharlo</p>
+  <p>${items.length} compilado${items.length === 1 ? '' : 's'} disponible${items.length === 1 ? '' : 's'} — tocá una tapa para armar tu pedido</p>
   <nav class="cat-nav">
     <a href="catalogo.html">Discografías</a>
     <a href="catalogo-compilados.html" class="active">Compilados</a>
