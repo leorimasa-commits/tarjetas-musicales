@@ -1,18 +1,14 @@
 // Regenera admin/reportes.html (panel de administración que lee los pedidos desde
-// Google Sheets y arma el envío de la hoja/PDF al cliente).
-// Correr de nuevo si cambia la URL del Web App de Apps Script.
+// la API de Cloudflare Workers y arma el envío de la hoja/PDF al cliente).
+// La URL de la API ya NO se duplica acá — vive en un solo lugar: assets/api-config.js
+// (que reportes.template.html carga con <script src="../assets/api-config.js">).
 const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 
-// Misma URL que templates/pedido-cliente.template.html (SHEETS_WEBAPP_URL) — si cambia
-// en un lado, actualizar acá también.
-const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbynSAmjU_PqVqt-9D79cd_LpblqXahZbXLS-xRpi46qRXiZ5WO7uNwWu5xYqWoavgao/exec';
-
 const templatePath = path.join(root, 'templates', 'reportes.template.html');
-let html = fs.readFileSync(templatePath, 'utf8');
-html = html.replace('{{SHEETS_WEBAPP_URL}}', SHEETS_WEBAPP_URL);
+const html = fs.readFileSync(templatePath, 'utf8');
 
 const adminDir = path.join(root, 'admin');
 fs.mkdirSync(adminDir, { recursive: true });

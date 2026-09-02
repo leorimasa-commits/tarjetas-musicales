@@ -76,6 +76,7 @@
 </head>
 <body>
 <script src="auth.js"></script>
+<script src="../assets/api-config.js"></script>
 <main>
   <header>
     <div class="links">
@@ -94,8 +95,6 @@
 </main>
 
 <script>
-  const SHEETS_WEBAPP_URL = '{{SHEETS_WEBAPP_URL}}';
-
   const contentEl = document.getElementById('content');
   const btnRefresh = document.getElementById('btnRefresh');
 
@@ -171,13 +170,13 @@
   }
 
   async function cargarPedidos(){
-    if (!SHEETS_WEBAPP_URL) {
-      contentEl.innerHTML = '<p class="status-msg">Todavía no está conectada la planilla de pedidos (SHEETS_WEBAPP_URL vacío).</p>';
+    if (!API_URL) {
+      contentEl.innerHTML = '<p class="status-msg">Todavía no está conectada la API de pedidos (API_URL vacío en assets/api-config.js).</p>';
       return;
     }
     contentEl.innerHTML = '<p class="status-msg">Cargando pedidos…</p>';
     try {
-      const res = await fetch(SHEETS_WEBAPP_URL, { cache: 'no-store' });
+      const res = await fetch(`${API_URL}/pedidos`, { cache: 'no-store' });
       const data = await res.json();
       if (!Array.isArray(data)) throw new Error(data && data.error ? data.error : 'Respuesta inesperada');
       ORDERS = data;
@@ -201,12 +200,10 @@
       sendBtn.disabled = true;
       sendBtn.textContent = 'Enviando…';
       try {
-        const res = await fetch(SHEETS_WEBAPP_URL, {
+        const res = await fetch(`${API_URL}/pedidos/${o.row}/enviar-mail`, {
           method: 'POST',
-          headers: { 'Content-Type': 'text/plain' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            tipo: 'enviarMail',
-            contacto: o.contacto,
             asunto: 'Tu pedido de ScanBeat 🎵',
             mensaje,
           }),
@@ -233,10 +230,10 @@
       const nuevoPagado = !o.pagado;
       payBtn.disabled = true;
       try {
-        const res = await fetch(SHEETS_WEBAPP_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify({ tipo: 'marcarPagado', row: o.row, pagado: nuevoPagado }),
+        const res = await fetch(`${API_URL}/pedidos/${o.row}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pagado: nuevoPagado }),
         });
         const json = await res.json();
         if (!json.ok) throw new Error(json.error || 'Error desconocido');
@@ -263,11 +260,7 @@
       delBtn.disabled = true;
       delBtn.textContent = 'Eliminando…';
       try {
-        const res = await fetch(SHEETS_WEBAPP_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify({ tipo: 'eliminarPedido', row: o.row }),
-        });
+        const res = await fetch(`${API_URL}/pedidos/${o.row}`, { method: 'DELETE' });
         const json = await res.json();
         if (!json.ok) throw new Error(json.error || 'Error desconocido');
         cargarPedidos(); // borrar corre los números de fila de los pedidos siguientes

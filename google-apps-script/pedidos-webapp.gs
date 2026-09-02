@@ -1,4 +1,9 @@
 /**
+ * ⚠️ DEPRECADO (2026-09-02) — YA NO SE USA. Se reemplazó por completo por una API en
+ * Cloudflare Workers + D1 + R2 (ver carpeta worker/ en la raíz del repo), para sacar a
+ * Google Drive/Sheets/Apps Script del medio. Este archivo queda solo como referencia
+ * histórica de cómo funcionaba antes — no hace falta mantenerlo ni redesplegarlo.
+ *
  * ScanBeat — recibe los pedidos enviados desde pedido.html y los guarda como filas
  * en esta misma planilla de Google Sheets (hoja "Pedidos"), con el PDF del pedido
  * guardado en Google Drive y un link a cada uno.

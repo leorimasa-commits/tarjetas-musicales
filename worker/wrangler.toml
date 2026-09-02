@@ -1,0 +1,27 @@
+name = "scanbeat-pedidos"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# Se completa el "database_id" real después de correr:
+#   npx wrangler d1 create scanbeat-pedidos
+# (el comando imprime el ID — pegarlo abajo).
+[[d1_databases]]
+binding = "DB"
+database_name = "scanbeat-pedidos"
+database_id = "PEGAR_ACA_EL_DATABASE_ID"
+
+# Se crea con:
+#   npx wrangler r2 bucket create scanbeat-pedidos-pdfs
+[[r2_buckets]]
+binding = "PDFS"
+bucket_name = "scanbeat-pedidos-pdfs"
+
+# Remitente de los mails a clientes. Con Resend, "onboarding@resend.dev" funciona de
+# entrada sin verificar nada; para que salga como pedidos@scanbeat.com.ar hay que
+# verificar el dominio en Resend (agregar unos registros DNS en Cloudflare) y después
+# cambiar este valor.
+[vars]
+FROM_EMAIL = "ScanBeat <onboarding@resend.dev>"
+
+# La API key de Resend NO va acá (este archivo se sube a git) — se carga como secreto:
+#   npx wrangler secret put RESEND_API_KEY
