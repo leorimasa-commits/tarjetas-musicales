@@ -51,6 +51,10 @@
   .badge.pagado{ background:rgba(120,220,150,.18); color:#8ee6a8; }
   .badge.pendiente{ background:rgba(255,180,80,.18); color:#ffc266; }
   .badge.entrega{ background:rgba(255,255,255,.1); color:var(--text); margin-left:6px; }
+  /* El badge de Pagado/Pendiente es en realidad un <button> — se puede tildar/destildar
+     con un clic sin abrir la planilla de Sheets. */
+  button.badge{ border:none; font-family:inherit; cursor:pointer; }
+  button.badge:disabled{ opacity:.5; cursor:default; }
   .chips{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
   .chip{
     display:inline-block; padding:4px 10px; border-radius:14px; background:rgba(255,255,255,.08);
@@ -65,6 +69,9 @@
   .btn-pdf{ background:rgba(255,255,255,.08); color:var(--text); border:1px solid rgba(255,255,255,.15) !important; }
   .btn-send{ background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#111; }
   .btn-send:disabled{ opacity:.5; }
+  .btn-delete{ background:rgba(255,255,255,.06); color:var(--text); border:1px solid rgba(233,69,96,.4) !important; }
+  .btn-delete:hover{ background:rgba(233,69,96,.18); }
+  .btn-delete:disabled{ opacity:.5; }
 </style>
 </head>
 <body>
@@ -151,13 +158,14 @@
           <span class="order-date">${formatFecha(o.fecha)}</span>
         </div>
         <p class="order-contacto">${esc(o.contacto)}</p>
-        <span class="badge ${o.pagado ? 'pagado' : 'pendiente'}">${o.pagado ? '✅ Pagado' : '⏳ Pendiente de pago'}</span>
+        <button type="button" class="badge ${o.pagado ? 'pagado' : 'pendiente'}" data-toggle-pagado="${idx}" title="Tocar para marcar ${o.pagado ? 'pendiente' : 'pagado'}">${o.pagado ? '✅ Pagado' : '⏳ Pendiente de pago'}</button>
         <span class="badge entrega">${o.entrega === 'Digital' ? '💌 Digital' : '📦 Física'}</span>
         <div class="chips">${chips}</div>
         ${o.comentario ? `<p class="order-comentario">"${esc(o.comentario)}"</p>` : ''}
         <div class="order-actions">
           ${o.pdf ? `<a class="btn-pdf" href="${esc(o.pdf)}" target="_blank" rel="noopener">📄 Ver PDF</a>` : ''}
           ${accionHtml}
+          <button type="button" class="btn-delete" data-delete="${idx}" title="Eliminar pedido">🗑️ Eliminar</button>
         </div>
       </div>`;
   }
@@ -185,31 +193,90 @@
   }
 
   contentEl.addEventListener('click', async (e) => {
-    const btn = e.target.closest('button[data-send-mail]');
-    if (!btn) return;
-    const o = ORDERS[Number(btn.dataset.sendMail)];
-    if (!o) return;
-    const mensaje = mensajeParaCliente(o);
-    btn.disabled = true;
-    btn.textContent = 'Enviando…';
-    try {
-      const res = await fetch(SHEETS_WEBAPP_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({
-          tipo: 'enviarMail',
-          contacto: o.contacto,
-          asunto: 'Tu pedido de ScanBeat 🎵',
-          mensaje,
-        }),
-      });
-      const json = await res.json();
-      if (!json.ok) throw new Error(json.error || 'Error desconocido');
-      btn.textContent = '✅ Enviado';
-    } catch (err) {
-      console.error(err);
-      btn.textContent = '⚠️ Error — reintentar';
-      btn.disabled = false;
+    const sendBtn = e.target.closest('button[data-send-mail]');
+    if (sendBtn) {
+      const o = ORDERS[Number(sendBtn.dataset.sendMail)];
+      if (!o) return;
+      const mensaje = mensajeParaCliente(o);
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Enviando…';
+      try {
+        const res = await fetch(SHEETS_WEBAPP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({
+            tipo: 'enviarMail',
+            contacto: o.contacto,
+            asunto: 'Tu pedido de ScanBeat 🎵',
+            mensaje,
+          }),
+        });
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error || 'Error desconocido');
+        sendBtn.textContent = '✅ Enviado';
+      } catch (err) {
+        console.error(err);
+        sendBtn.textContent = '⚠️ Error — reintentar';
+        sendBtn.disabled = false;
+      }
+      return;
+    }
+
+    // Tildar/destildar Pagado directo desde acá — antes había que abrir la planilla de
+    // Sheets a mano para esto. No hace falta releer todo el reporte después: borrar un
+    // pedido sí cambia los números de fila de los demás (por eso ese caso más abajo hace
+    // cargarPedidos() de nuevo), pero tildar Pagado no mueve ninguna fila.
+    const payBtn = e.target.closest('button[data-toggle-pagado]');
+    if (payBtn) {
+      const o = ORDERS[Number(payBtn.dataset.togglePagado)];
+      if (!o) return;
+      const nuevoPagado = !o.pagado;
+      payBtn.disabled = true;
+      try {
+        const res = await fetch(SHEETS_WEBAPP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({ tipo: 'marcarPagado', row: o.row, pagado: nuevoPagado }),
+        });
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error || 'Error desconocido');
+        o.pagado = nuevoPagado;
+        payBtn.className = `badge ${o.pagado ? 'pagado' : 'pendiente'}`;
+        payBtn.textContent = o.pagado ? '✅ Pagado' : '⏳ Pendiente de pago';
+        payBtn.title = `Tocar para marcar ${o.pagado ? 'pendiente' : 'pagado'}`;
+      } catch (err) {
+        console.error(err);
+        alert('No se pudo actualizar el estado de pago. Probá de nuevo.');
+      } finally {
+        payBtn.disabled = false;
+      }
+      return;
+    }
+
+    // Eliminar un pedido directo desde acá (ej. pedidos de prueba o mal cargados) — sin
+    // esto había que borrar la fila a mano en Sheets.
+    const delBtn = e.target.closest('button[data-delete]');
+    if (delBtn) {
+      const o = ORDERS[Number(delBtn.dataset.delete)];
+      if (!o) return;
+      if (!confirm(`¿Eliminar el pedido de "${o.nombre}"? No se puede deshacer.`)) return;
+      delBtn.disabled = true;
+      delBtn.textContent = 'Eliminando…';
+      try {
+        const res = await fetch(SHEETS_WEBAPP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({ tipo: 'eliminarPedido', row: o.row }),
+        });
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error || 'Error desconocido');
+        cargarPedidos(); // borrar corre los números de fila de los pedidos siguientes
+      } catch (err) {
+        console.error(err);
+        alert('No se pudo eliminar el pedido. Probá de nuevo.');
+        delBtn.disabled = false;
+        delBtn.textContent = '🗑️ Eliminar';
+      }
     }
   });
 

@@ -20,6 +20,35 @@ function doPost(e) {
         .setMimeType(ContentService.MimeType.JSON);
     }
 
+    // Acciones del panel admin/reportes.html para no tener que abrir la planilla nunca:
+    // tildar/destildar Pagado, y borrar un pedido. Identifican la fila por su número real
+    // en la hoja (`row`, el mismo que ya devuelve doGet en cada pedido) — no hace falta
+    // ningún ID nuevo porque appendRow() siempre agrega al final, así que el número de
+    // fila es estable mientras no se borre/reordene nada a mano en el medio.
+    if (data.tipo === 'marcarPagado') {
+      var sheetPago = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Pedidos');
+      if (!sheetPago) throw new Error('No existe la hoja "Pedidos"');
+      var filaPago = Number(data.row);
+      if (!filaPago || filaPago < 2 || filaPago > sheetPago.getLastRow()) {
+        throw new Error('Número de fila inválido: ' + data.row);
+      }
+      sheetPago.getRange(filaPago, 7).setValue(!!data.pagado);
+      return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    if (data.tipo === 'eliminarPedido') {
+      var sheetDel = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Pedidos');
+      if (!sheetDel) throw new Error('No existe la hoja "Pedidos"');
+      var filaDel = Number(data.row);
+      if (!filaDel || filaDel < 2 || filaDel > sheetDel.getLastRow()) {
+        throw new Error('Número de fila inválido: ' + data.row);
+      }
+      sheetDel.deleteRow(filaDel);
+      return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     // Acción del panel admin/reportes.html: mandar el mail al cliente directo desde acá
     // (con tu cuenta de Gmail), sin abrir ningún programa.
     if (data.tipo === 'enviarMail') {
@@ -89,9 +118,14 @@ function doGet(e) {
     var sheetCols = Math.max(sheet.getLastColumn(), 7);
     var rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, sheetCols).getValues();
     var data = rows
-      .filter(function (r) { return r[1] || r[2]; }) // ignora filas vacías (huérfanas de antes del fix)
-      .map(function (r) {
+      // Empareja cada fila con su número REAL en la hoja (fila 2 = la primera de datos)
+      // antes de filtrar/reordenar, así el número no se desincroniza con el contenido.
+      .map(function (r, i) { return { r: r, rowNumber: i + 2 }; })
+      .filter(function (x) { return x.r[1] || x.r[2]; }) // ignora filas vacías (huérfanas de antes del fix)
+      .map(function (x) {
+        var r = x.r;
         return {
+          row: x.rowNumber, // usado por admin/reportes.html para marcarPagado/eliminarPedido
           fecha: r[0] instanceof Date ? r[0].toISOString() : String(r[0]),
           nombre: r[1],
           contacto: r[2],
@@ -187,5 +221,11 @@ function guardarPdf_(base64, nombre) {
  * de las tarjetas elegidas (columna Slugs, separados por coma) — así admin/reportes.html
  * puede armar el link directo a cada tarjeta cuando el pedido es digital (no hay PDF
  * para mandar en ese caso).
+ *
+ * admin/reportes.html también puede tildar/destildar "Pagado" y borrar un pedido
+ * DIRECTAMENTE desde los botones de esa página — ya no hace falta abrir la planilla de
+ * Sheets/Drive para nada del uso normal del día a día (marcar cobrado, sacar un pedido
+ * de prueba o mal cargado). Internamente esto sigue siendo la misma planilla de siempre,
+ * solo que ahora se edita a través del panel en vez de a mano.
  * ================================================================================
  */
