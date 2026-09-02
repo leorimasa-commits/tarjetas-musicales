@@ -8,7 +8,7 @@ compatibility_date = "2026-01-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "scanbeat-pedidos"
-database_id = "PEGAR_ACA_EL_DATABASE_ID"
+database_id = "bb66432e-b983-4a8f-8b94-0f1ded9c98a2"
 
 # Se crea con:
 #   npx wrangler r2 bucket create scanbeat-pedidos-pdfs

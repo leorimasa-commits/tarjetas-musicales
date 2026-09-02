@@ -5,4 +5,4 @@
 //
 // Se completa después de correr `npx wrangler deploy` en la carpeta worker/ — el
 // comando imprime la URL real (algo como https://scanbeat-pedidos.TU-CUENTA.workers.dev).
-const API_URL = 'https://PEGAR-ACA-TU-URL-DE-WORKERS.workers.dev';
+const API_URL = 'https://scanbeat-pedidos.leorimasa.workers.dev';
