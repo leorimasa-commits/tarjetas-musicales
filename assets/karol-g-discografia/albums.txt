@@ -3,3 +3,4 @@ OCEAN|2019|https://open.spotify.com/album/4i5b4YWuMtneUSvQPONwzK|https://tidal.c
 KG0516|2021|https://open.spotify.com/album/5CS8E6JVACItYto4OOJoPW|https://tidal.com/browse/album/178086113|https://music.apple.com/us/album/el-makin%C3%B3n/1560071303
 Mañana Será Bonito|2023|https://open.spotify.com/album/4kS7bSuU0Jm9LYMosFU2x5|https://tidal.com/album/277248225|https://music.apple.com/us/album/provenza/1670245862
 Tropicoqueta|2025|https://open.spotify.com/album/0yY0fT7zibMEffhBJD9Nab|https://tidal.com/album/443072650|https://music.apple.com/us/album/coleccionando-heridas/1819544141
+No Me Arrepiento de Sentir Tanto|2026|https://open.spotify.com/album/7a0lnWtCz0eW15WsWu3dHQ|https://tidal.com/album/549980023|https://music.apple.com/us/album/no-me-arrepiento-de-sentir-tanto/6796864741
