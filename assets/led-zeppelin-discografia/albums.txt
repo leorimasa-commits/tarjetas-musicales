@@ -1,0 +1,9 @@
+Led Zeppelin|1969|https://open.spotify.com/album/3ycjBixZf7S3WpC5WZhhUK|https://tidal.com/browse/album/68705946|https://music.apple.com/us/album/led-zeppelin-remastered/580708520
+Led Zeppelin II|1969|https://open.spotify.com/album/70lQYZtypdCALtFVlQAcvx|https://tidal.com/browse/album/68705797|https://music.apple.com/us/album/led-zeppelin-ii-remastered/580708374
+Led Zeppelin III|1970|https://open.spotify.com/album/6P5QHz4XtxOmS5EuiGIPut|https://tidal.com/browse/album/68699083|https://music.apple.com/us/album/led-zeppelin-iii-remastered/580708279
+Led Zeppelin IV|1971|https://open.spotify.com/album/5EyIDBAqhnlkAHqvPRwdbX|https://tidal.com/browse/album/53660446|https://music.apple.com/us/album/led-zeppelin-iv-remastered/580708175
+Houses of the Holy|1973|https://open.spotify.com/album/0GqpoHJREPp0iuXK3HzrHk|https://tidal.com/browse/album/53660468|https://music.apple.com/us/album/houses-of-the-holy-remastered/580707916
+Physical Graffiti|1975|https://open.spotify.com/album/4Q7cPyiP8cMIlUEHAqeYfd|https://tidal.com/browse/album/68685383|https://music.apple.com/us/album/physical-graffiti-remastered/580707980
+Presence|1976|https://open.spotify.com/album/3uhD8hNpb0m3iIZ18RHH5u|https://tidal.com/browse/album/68672965|https://music.apple.com/us/album/presence-remaster/580707889
+In Through the Out Door|1979|https://open.spotify.com/album/1W5CtQ7Ng0kP3lXyz7PIT2||https://music.apple.com/us/album/in-through-the-out-door-remastered/580707622
+Coda|1982|https://open.spotify.com/album/228mANuRrV20jS5DCA0eER|https://tidal.com/browse/album/68673015|https://music.apple.com/us/album/coda/674271135

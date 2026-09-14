@@ -1,0 +1,11 @@
+The Slim Shady LP|1999|https://open.spotify.com/album/2VFlCEu1NPLIbWjIw1lmjJ|https://tidal.com/browse/album/50307770|https://music.apple.com/us/album/the-slim-shady-lp/1440835991
+The Marshall Mathers LP|2000|https://open.spotify.com/album/6t7956yu5zYf5A829XRiHC|https://tidal.com/browse/album/586938|https://music.apple.com/us/album/the-marshall-mathers-lp/1440906504
+The Eminem Show|2002|https://open.spotify.com/album/2cWBwpqMsDJC1ZUwz813lo|https://tidal.com/browse/album/573283|https://music.apple.com/us/album/the-eminem-show/1440821542
+Relapse|2009|https://open.spotify.com/album/6tgULf2EfJoT8n1StuPQJt|https://tidal.com/browse/album/2795886|https://music.apple.com/us/album/relapse/1440738082
+Recovery|2010|https://open.spotify.com/album/47BiFcV59TQi2s9SkBo2pb|https://tidal.com/album/4104020|https://music.apple.com/us/album/recovery/1440781199
+The Marshall Mathers LP2|2013|https://open.spotify.com/album/3vOgbDjgsZBAPwV2M3bNOj|https://tidal.com/browse/album/23369505|https://music.apple.com/us/album/the-marshall-mathers-lp2/1440858761
+Revival|2017|https://open.spotify.com/album/0U6ldwLBEMkwgfQRY4V6D2|https://tidal.com/browse/album/82504996|https://music.apple.com/us/album/revival/1440916179
+Kamikaze|2018|https://open.spotify.com/album/3HNnxK7NgLXbDoxRZxNWiR|https://tidal.com/album/94370057|https://music.apple.com/us/album/kamikaze/1434766532
+Music To Be Murdered By|2020|https://open.spotify.com/album/4otkd9As6YaxxEkIjXPiZ6|https://tidal.com/browse/album/128442238|https://music.apple.com/us/album/music-to-be-murdered-by/1495269622
+The Death of Slim Shady (Coup De Grâce)|2024|https://open.spotify.com/album/3kjHLu1pL7tdY88GFwEkl6|https://tidal.com/browse/album/374686378|https://music.apple.com/us/album/the-death-of-slim-shady-coup-de-gr%C3%A2ce/1758367372
+Encore|2004|https://open.spotify.com/album/7tsXPtLqhab1zWeubbf6JH|https://tidal.com/browse/album/94834232|https://music.apple.com/us/album/encore/1435774346

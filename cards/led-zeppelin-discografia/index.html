@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Led Zeppelin</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Led Zeppelin">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/led-zeppelin-discografia/covers/cover-3ycjBixZf7S3WpC5WZhhUK.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/led-zeppelin-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Led Zeppelin</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De Led Zeppelin a Coda: los padres del hard rock y el heavy metal, con Jimmy Page, Robert Plant, John Paul Jones y John Bonham.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://youtube.com/@ledzeppelin";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Led Zeppelin","anio":"1969","spotifyUrl":"https://open.spotify.com/album/3ycjBixZf7S3WpC5WZhhUK","tidalUrl":"https://tidal.com/browse/album/68705946","appleMusicUrl":"https://music.apple.com/us/album/led-zeppelin-remastered/580708520","cover":"./covers/cover-3ycjBixZf7S3WpC5WZhhUK.jpg","tracks":[{"title":"Good Times Bad Times - 1993 Remaster","spotifyId":"0QwZfbw26QeUoIy82Z2jYp"},{"title":"Babe I'm Gonna Leave You - 1990 Remaster","spotifyId":"4OMu5a8sFpcRCPCcsoEaov"},{"title":"You Shook Me - 1993 Remaster","spotifyId":"0CrseEjTnYoB625tKoUowp"},{"title":"Dazed and Confused - 1990 Remaster","spotifyId":"6hu1f1cXSw7OAqhpSQ2zDy"},{"title":"Your Time Is Gonna Come - 1990 Remaster","spotifyId":"3Zr81qUZEhR4vPeUFUsBB0"},{"title":"Black Mountain Side - 1993 Remaster","spotifyId":"6rmEV2YtvWkigxPZocINO3"},{"title":"Communication Breakdown - 1990 Remaster","spotifyId":"0yVs7eSL8mPnIu2CGKHpUQ"},{"title":"I Can't Quit You Baby - 1990 Remaster","spotifyId":"62QInSlXQI11BR9ycVWjd6"},{"title":"How Many More Times - 1993 Remaster","spotifyId":"5VBzIn9cBH4BNa1c6Zilba"}]},{"titulo":"Led Zeppelin II","anio":"1969","spotifyUrl":"https://open.spotify.com/album/70lQYZtypdCALtFVlQAcvx","tidalUrl":"https://tidal.com/browse/album/68705797","appleMusicUrl":"https://music.apple.com/us/album/led-zeppelin-ii-remastered/580708374","cover":"./covers/cover-70lQYZtypdCALtFVlQAcvx.jpg","tracks":[{"title":"Whole Lotta Love - 1990 Remaster","spotifyId":"0hCB0YR03f6AmQaHbwWDe8"},{"title":"What Is and What Should Never Be - 1990 Remaster","spotifyId":"5G7uLHtoEW140QOcBpJlfz"},{"title":"The Lemon Song - 1993 Remaster","spotifyId":"5qbVkwfy0RYGFA6hAiIL90"},{"title":"Thank You - 1990 Remaster","spotifyId":"4ZkhFcoS3apzze9w2yI9NO"},{"title":"Heartbreaker - 1990 Remaster","spotifyId":"6WE7jSshLCuVKoCmobVKVf"},{"title":"Living Loving Maid (She's Just a Woman) - 1993 Remaster","spotifyId":"4CWaV1xRCEJQj0QJJif60x"},{"title":"Ramble On - 1990 Remaster","spotifyId":"3MODES4TNtygekLl146Dxd"},{"title":"Moby Dick","spotifyId":"0h2gzJQBt6duqZD6kWiz4s"},{"title":"Bring It on Home - 1993 Remaster","spotifyId":"7t5P7lGYdWMR7k0c2vjdfo"}]},{"titulo":"Led Zeppelin III","anio":"1970","spotifyUrl":"https://open.spotify.com/album/6P5QHz4XtxOmS5EuiGIPut","tidalUrl":"https://tidal.com/browse/album/68699083","appleMusicUrl":"https://music.apple.com/us/album/led-zeppelin-iii-remastered/580708279","cover":"./covers/cover-6P5QHz4XtxOmS5EuiGIPut.jpg","tracks":[{"title":"Immigrant Song - Remaster","spotifyId":"78lgmZwycJ3nzsdgmPPGNx"},{"title":"Friends - Remaster","spotifyId":"7jP44G0vKQLkfJ3x19pqPn"},{"title":"Celebration Day - Remaster","spotifyId":"78MXICbE7bD4cuPKFh1EFO"},{"title":"Since I've Been Loving You - Remaster","spotifyId":"1SDiiE3v2z89VxC3aVRKHQ"},{"title":"Out on the Tiles - Remaster","spotifyId":"6fxcpQMUoX0ofnbIHVnVWN"},{"title":"Gallows Pole - Remaster","spotifyId":"4S2QZuPFZ9qeHW2sonMJS1"},{"title":"Tangerine - Remaster","spotifyId":"4ywWJqYKOwaVVh9xXARWUS"},{"title":"That's the Way - Remaster","spotifyId":"1ZUv3ISx2nFaz0JimVdcoT"},{"title":"Bron-Y-Aur Stomp - Remaster","spotifyId":"1dK6cNOMYjEP3QGYOfwP6t"},{"title":"Hats off To (Roy) Harper - Remaster","spotifyId":"63jSSgwKQtEdOVRuj85GX7"}]},{"titulo":"Led Zeppelin IV","anio":"1971","spotifyUrl":"https://open.spotify.com/album/5EyIDBAqhnlkAHqvPRwdbX","tidalUrl":"https://tidal.com/browse/album/53660446","appleMusicUrl":"https://music.apple.com/us/album/led-zeppelin-iv-remastered/580708175","cover":"./covers/cover-5EyIDBAqhnlkAHqvPRwdbX.jpg","tracks":[{"title":"Black Dog - Remaster","spotifyId":"0D58ERdLBDRgT86BPnH8ps"},{"title":"Rock and Roll - Remaster","spotifyId":"7dWfTdoKjUip1fAW7cdcIX"},{"title":"The Battle of Evermore - Remaster","spotifyId":"6KCjY5kHvgWaWcAV6BBzxO"},{"title":"Stairway to Heaven - Remaster","spotifyId":"0RO9W1xJoUEpq5MEelddFb"},{"title":"Misty Mountain Hop - Remaster","spotifyId":"3frf3zTgzt3YIx9ylpUoqU"},{"title":"Four Sticks - Remaster","spotifyId":"2kVhHxpxXhWr5OuuBtMLME"},{"title":"Going to California - Remaster","spotifyId":"1YVc2NJBwOtAebQiSUbt5T"},{"title":"When the Levee Breaks - Remaster","spotifyId":"7psfcbjfnXwYIezHstNa1a"}]},{"titulo":"Houses of the Holy","anio":"1973","spotifyUrl":"https://open.spotify.com/album/0GqpoHJREPp0iuXK3HzrHk","tidalUrl":"https://tidal.com/browse/album/53660468","appleMusicUrl":"https://music.apple.com/us/album/houses-of-the-holy-remastered/580707916","cover":"./covers/cover-0GqpoHJREPp0iuXK3HzrHk.jpg","tracks":[{"title":"The Song Remains the Same - Remaster","spotifyId":"2e61kmae4HhbuS9hYONQ0A"},{"title":"The Rain Song - Remaster","spotifyId":"3JLrri1xSCui3bzITDJbkk"},{"title":"Over the Hills and Far Away - Remaster","spotifyId":"2eDdFHgqNJltzlvlZFVDWd"},{"title":"The Crunge - Remaster","spotifyId":"7IgBLFklu75pp8Y1vphChS"},{"title":"Dancing Days - Remaster","spotifyId":"43doj2cumGe9W3p5ucxaoH"},{"title":"D'yer Mak'er - Remaster","spotifyId":"5uUhS7XDkyycNa5FaNfPGT"},{"title":"No Quarter - Remaster","spotifyId":"0GRBFjza23Im7Xb16c9AaK"},{"title":"The Ocean - Remaster","spotifyId":"0AqjkVFqa1ujle4Lb1k9wR"}]},{"titulo":"Physical Graffiti","anio":"1975","spotifyUrl":"https://open.spotify.com/album/4Q7cPyiP8cMIlUEHAqeYfd","tidalUrl":"https://tidal.com/browse/album/68685383","appleMusicUrl":"https://music.apple.com/us/album/physical-graffiti-remastered/580707980","cover":"./covers/cover-4Q7cPyiP8cMIlUEHAqeYfd.jpg","tracks":[{"title":"Custard Pie - Remaster","spotifyId":"6hBtPaRGLbIE4Q6OPbj5ds"},{"title":"The Rover - Remaster","spotifyId":"7dOUBannsprgW5AZJwzbIn"},{"title":"In My Time of Dying - Remaster","spotifyId":"1kC4uXJcuRJWPAtg3Oo5gB"},{"title":"Houses of the Holy - Remaster","spotifyId":"0gJmT4VMZd6iYDvqfOou0A"},{"title":"Trampled Under Foot - Remaster","spotifyId":"7Dmtj0kicT7AMR9TSmUASf"},{"title":"Kashmir - Remaster","spotifyId":"0Wa5Q145xoXkfhaCRgA67U"},{"title":"In the Light - Remaster","spotifyId":"6aJpPH5jhRicPvPkoHkcuF"},{"title":"Bron-Yr-Aur - Remaster","spotifyId":"3xQbgu9nvQEqWSPLfNNvOf"},{"title":"Down by the Seaside - Remaster","spotifyId":"3rnZ076JCIiSFTGK1nlEIV"},{"title":"Ten Years Gone - Remaster","spotifyId":"2p135yZ7tfiDglFOWM8syN"},{"title":"Night Flight - Remaster","spotifyId":"2bnEwYr9JVsQS5iiXx5oY5"},{"title":"The Wanton Song - Remaster","spotifyId":"05KMOZ0hOekAoXmo8RZN5R"},{"title":"Boogie with Stu - Remaster","spotifyId":"3clGGhMOIzv53QJTW7bDrQ"},{"title":"Black Country Woman - Remaster","spotifyId":"14SAgjtahOvsXTB0vskuwm"},{"title":"Sick Again - Remaster","spotifyId":"0cVDbVhTxULLt5Pt7Ws8yp"}]},{"titulo":"Presence","anio":"1976","spotifyUrl":"https://open.spotify.com/album/3uhD8hNpb0m3iIZ18RHH5u","tidalUrl":"https://tidal.com/browse/album/68672965","appleMusicUrl":"https://music.apple.com/us/album/presence-remaster/580707889","cover":"./covers/cover-3uhD8hNpb0m3iIZ18RHH5u.jpg","tracks":[{"title":"Achilles Last Stand - Remaster","spotifyId":"1ibHApXtb0pgplmNDRLHrJ"},{"title":"For Your Life - Remaster","spotifyId":"6ly5DBm7QhjU8RQWl2neJg"},{"title":"Royal Orleans - Remaster","spotifyId":"5zTX9sl93oTNuUiOmgq5Cc"},{"title":"Nobody's Fault but Mine - Remaster","spotifyId":"6unmtLYQ2LQ1Cg4IdAiU9g"},{"title":"Candy Store Rock - Remaster","spotifyId":"4i09E6a5vOsIIHb7wpyftz"},{"title":"Hots on for Nowhere - Remaster","spotifyId":"3VYEHEaUE4Zh38xSQtXCwU"},{"title":"Tea for One - Remaster","spotifyId":"3t9Gt4luM1yDfKIljQdiFb"}]},{"titulo":"In Through the Out Door","anio":"1979","spotifyUrl":"https://open.spotify.com/album/1W5CtQ7Ng0kP3lXyz7PIT2","tidalUrl":"","appleMusicUrl":"https://music.apple.com/us/album/in-through-the-out-door-remastered/580707622","cover":"./covers/cover-1W5CtQ7Ng0kP3lXyz7PIT2.jpg","tracks":[{"title":"In the Evening - Remaster","spotifyId":"5OGPjlTOXvKFhnCy9zSdpv"},{"title":"South Bound Saurez - Remaster","spotifyId":"23FeHDJaegIZF0dpH4x1Tf"},{"title":"Fool in the Rain - Remaster","spotifyId":"3i25w2HOWoafnTIiWJCL71"},{"title":"Hot Dog - Remaster","spotifyId":"5K2yYEoc9ljOlzoMnhQSgm"},{"title":"Carouselambra - Remaster","spotifyId":"0YZKbKo9i91i7LD0m1KASq"},{"title":"All My Love - Remaster","spotifyId":"5hhVpGIBlqAU5yJEOmrk5o"},{"title":"I'm Gonna Crawl - Remaster","spotifyId":"1k0GJSTI0xaP8TIvCbyUkh"}]},{"titulo":"Coda","anio":"1982","spotifyUrl":"https://open.spotify.com/album/228mANuRrV20jS5DCA0eER","tidalUrl":"https://tidal.com/browse/album/68673015","appleMusicUrl":"https://music.apple.com/us/album/coda/674271135","cover":"./covers/cover-228mANuRrV20jS5DCA0eER.jpg","tracks":[{"title":"We're Gonna Groove - Remaster","spotifyId":"50B4cVWKkqpSTxWG9xhMXo"},{"title":"Poor Tom - Remaster","spotifyId":"6oqciM0WBIxBmRPoOL4iNF"},{"title":"I Can't Quit You Baby - Remaster","spotifyId":"596s59vwvjBLQ6OAQc9TQR"},{"title":"Walter's Walk - Remaster","spotifyId":"3ELgDnRctxyKerclUQTr7K"},{"title":"Ozone Baby - Remaster","spotifyId":"5qxk29klthBlLT42dzimO7"},{"title":"Darlene - Remaster","spotifyId":"4UbfGyhLsp4blVMSX49mWD"},{"title":"Bonzo's Montreux - Remaster","spotifyId":"5yiMPpkzl5hTeh0EV3IJlb"},{"title":"Wearing and Tearing - Remaster","spotifyId":"4hNsBELiuvPHDgEQvKJqsA"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
