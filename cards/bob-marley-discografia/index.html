@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bob Marley</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Bob Marley">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/bob-marley-discografia/covers/cover-39kLAVdcgW7jbMcTEaY2qy.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/bob-marley-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f0c29">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Bob Marley</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De Catch a Fire a Confrontation: el padre del reggae y su mensaje de unidad, paz y resistencia con The Wailers.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "fiesta");
+
+  const YOUTUBE_URL = "https://youtube.com/@bobmarley";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Catch A Fire","anio":"1973","spotifyUrl":"https://open.spotify.com/album/39kLAVdcgW7jbMcTEaY2qy","tidalUrl":"https://tidal.com/browse/album/289152902","appleMusicUrl":"https://music.apple.com/us/album/catch-a-fire-remastered-2013/1423269033","cover":"./covers/cover-39kLAVdcgW7jbMcTEaY2qy.jpg","tracks":[{"title":"Concrete Jungle","spotifyId":"5M77yXWuKPqaUzdxn4cVnV"},{"title":"Stir It Up - Jamaican Version","spotifyId":"1XjUvJv6w3aTu8o6XszTHS"},{"title":"High Tide Or Low Tide - Jamaican Version","spotifyId":"2P7dqEsGAvdVBCWeycm0vI"},{"title":"Stop That Train - Jamaican Version","spotifyId":"4E6swbqHWEAwfPzXdoN5ct"},{"title":"400 Years - Jamaican Version","spotifyId":"4YToePy23aX4BbaLkXT8df"},{"title":"Baby We've Got A Date (Rock It Baby) - Jamaican Version","spotifyId":"4LMEIaDEH169FA4VUlMfcW"},{"title":"Midnight Ravers - Jamaican Version","spotifyId":"1dDeM190kq6KEcpR0jZIOg"},{"title":"All Day All Night - Jamaican Version","spotifyId":"4xuxMiCpES8B2AuVjfEnr8"},{"title":"Slave Driver - Jamaican Version","spotifyId":"3f6Rdsc0t4mufxpACj4Gzi"},{"title":"Kinky Reggae - Jamaican Version","spotifyId":"3nVveBWPxK3A65Wj6caJ1W"},{"title":"No More Trouble - Jamaican Version","spotifyId":"4Zz5uFDRwYiXg8jCk11xd5"},{"title":"Concrete Jungle","spotifyId":"2AFJm70C2psT6i9IM5WF2U"},{"title":"Slave Driver","spotifyId":"1nC5nmylWPNKwaGCsP8ZwS"},{"title":"400 Years","spotifyId":"6qqn6MwOZe2220p1NT9ja9"},{"title":"Stop That Train","spotifyId":"3zyiIZPvHvZypLqQiN9zey"},{"title":"Baby We've Got A Date (Rock It Baby)","spotifyId":"4JatDWrdTVmI1NbrO4BPTB"},{"title":"Stir It Up","spotifyId":"3sqZDdEO5viqNqMCNem5m5"},{"title":"Kinky Reggae","spotifyId":"7rzl3uAXLQMWznyVUaoeer"},{"title":"No More Trouble","spotifyId":"4xbho217DqHc5cGkaBCUpH"},{"title":"Midnight Ravers","spotifyId":"2ixWPxw2lNOEDtt4XhpWM4"}]},{"titulo":"Burnin'","anio":"1973","spotifyUrl":"https://open.spotify.com/album/25WE9xmZIYadg5lhdgscTJ","tidalUrl":"https://tidal.com/browse/album/574874","appleMusicUrl":"https://music.apple.com/us/album/burnin-remastered-2001/1440821911","cover":"./covers/cover-25WE9xmZIYadg5lhdgscTJ.jpg","tracks":[{"title":"Get Up, Stand Up","spotifyId":"2Mw8xQJpIDAgrktDXEqxCs"},{"title":"Hallelujah Time","spotifyId":"0t4e2n5t9XWIuIEApGJXcb"},{"title":"I Shot The Sheriff","spotifyId":"4MGa3uO14yw16f8IPKnLZ6"},{"title":"Burnin' And Lootin'","spotifyId":"1ZphFUs3J1hwboFrWNurIK"},{"title":"Put It On","spotifyId":"4ER60Uq85ZWbMVWmNlf24V"},{"title":"Small Axe","spotifyId":"0GgJfwe1GvQ9v0z1bSzxGa"},{"title":"Pass It On","spotifyId":"3MASDWpcUNpALHwXF6tc4d"},{"title":"Duppy Conqueror","spotifyId":"5TPPQ0Csr1ESmkhKfynA5S"},{"title":"One Foundation","spotifyId":"1eB6hCEijrtA91AcmlzhuB"},{"title":"Rastaman Chant","spotifyId":"27i9jRHa8U3fycZ1o7cCfh"},{"title":"Reincarnated Soul","spotifyId":"3wnCitVoGgwvaZjq5jqgqh"},{"title":"No Sympathy - Remastered 2001","spotifyId":"4XzBPUcQ2rDN1aR5X4V0gm"},{"title":"The Oppressed Song - Remastered 2001","spotifyId":"3A7UbHquphz96TRfV7ot6N"}]},{"titulo":"Natty Dread","anio":"1974","spotifyUrl":"https://open.spotify.com/album/2fUrVWDYASjthLVsVH53zP","tidalUrl":"https://tidal.com/album/579462","appleMusicUrl":"https://music.apple.com/us/album/natty-dread-2013-remaster/1440861483","cover":"./covers/cover-2fUrVWDYASjthLVsVH53zP.jpg","tracks":[{"title":"Lively Up Yourself","spotifyId":"1PS6ve1nbEWEkv3HUGwoFO"},{"title":"No Woman No Cry","spotifyId":"2ftXrFRLlI9ULnwzde2hJK"},{"title":"Them Belly Full (But We Hungry)","spotifyId":"43RDAl3WZUEOMCqy2tojkH"},{"title":"Rebel Music (3 O'Clock Roadblock)","spotifyId":"5WrH8dS41pIyRncq7NMcLO"},{"title":"So Jah S'eh","spotifyId":"5Ry1MQfdWZi2tfVYWFom1q"},{"title":"Natty Dread","spotifyId":"54hFwvNODjQoel54KevHph"},{"title":"Bend Down Low","spotifyId":"3nGk6b4t1Neq3agqE8bJ9d"},{"title":"Talkin' Blues","spotifyId":"11nAYJSaoZ95orChT94FGC"},{"title":"Revolution","spotifyId":"42VcleWH8tXL8DZ4buzQTL"},{"title":"Am-A-Do","spotifyId":"1v7zpKej7Gt62Rrw5nyRzc"}]},{"titulo":"Rastaman Vibration","anio":"1976","spotifyUrl":"https://open.spotify.com/album/1FictwFMH9Uv1LE8zw4pZu","tidalUrl":"https://tidal.com/browse/album/573252","appleMusicUrl":"https://music.apple.com/us/album/rastaman-vibration-2013-remaster/1440858988","cover":"./covers/cover-1FictwFMH9Uv1LE8zw4pZu.jpg","tracks":[{"title":"Positive Vibration","spotifyId":"2eHOlLD5glnSYlfWXYGTbd"},{"title":"Roots, Rock, Reggae","spotifyId":"3cCdD3n7QdvA6EdbVlKUJd"},{"title":"Johnny Was","spotifyId":"253xLAXeTcwMMm5NaVSvvz"},{"title":"Cry To Me","spotifyId":"76AmhdVHJ2BJNCLdeuZOBL"},{"title":"Want More","spotifyId":"1E2uCl0ImqgCfgNNPFSFSJ"},{"title":"Crazy Baldhead","spotifyId":"1zWr2alhnYrRBy1M28d3z7"},{"title":"Who The Cap Fit","spotifyId":"1vkca36OC6H8lphCiudlkU"},{"title":"Night Shift","spotifyId":"14FieNXhVbG0pz23CnmI2u"},{"title":"War","spotifyId":"1tmnYbe6jpcVuJYf2AQF40"},{"title":"Rat Race","spotifyId":"5DMmfRcYbjyqtAzWK16BRg"},{"title":"Jah Live - Original Mix","spotifyId":"7tk57waHPKhKcEHFeLcpvR"},{"title":"Concrete - Single Version","spotifyId":"4Hy8odZdXSJxkHUXiY3ocr"},{"title":"Roots, Rock, Reggae - Single Version","spotifyId":"3sHmUGTj1JlajKML12ciA3"},{"title":"Roots, Rock, Dub - Single Dub Mix","spotifyId":"2fmR6MooT0n2uz9QodAd1I"},{"title":"Want More - Alternate Mix","spotifyId":"31b23mENzfhoUSkbUy9nus"},{"title":"Crazy Baldhead - Alternate Mix","spotifyId":"3oZH0pRIrYJj41mIcZhtUj"},{"title":"War - Alternate Mix","spotifyId":"4cvTBR4pUceFsWTm6QqaBn"},{"title":"Johnny Was - Alternate Mix","spotifyId":"0oRsKKWnUEkPGfYFj7upkg"},{"title":"Introduction - Live At The Roxy Show","spotifyId":"5BCyMOrMf69IYhxdppjeNb"},{"title":"Trenchtown Rock - Live At The Roxy Theatre","spotifyId":"363nQnbQ3VqJDzcWdaWlNO"},{"title":"Burnin' And Lootin' - 1976/Live At The Roxy","spotifyId":"5VtrGJ5tD3dfWg5UDhP34W"},{"title":"Them Belly Full (But We Hungry) - Live At The Roxy","spotifyId":"75BCMR6cC7juUjNsE4tPQh"},{"title":"Rebel Music (3 O'Clock Road Block) - Live At The Roxy","spotifyId":"5Iy4OH68ZVUWdrRB1PaQlT"},{"title":"I Shot The Sheriff - Live At The Roxy","spotifyId":"5eyTkwIxVT9h9bn31Rpv2w"},{"title":"Want More - Live At The Roxy","spotifyId":"7bYFyp5MPECSO6O39PnHnn"},{"title":"No Woman No Cry - Live At The Roxy, 1976","spotifyId":"47Gxi4mw83VO1Wb7ExbRTi"},{"title":"Lively Up Yourself - Live At The Roxy","spotifyId":"1z0gm53JLBKYWqOlcebRMb"},{"title":"Roots, Rock, Reggae - Live At The Roxy","spotifyId":"4dz0joqXPW5FFtL0kvNNFx"},{"title":"Rat Race - Live At The Roxy","spotifyId":"4Hk0rF0GAKAyMlWd7vKUld"},{"title":"Smile Jamaica - Single Version - 1976","spotifyId":"01HW8CqQdIeejpFOa8gi9j"},{"title":"Smile Jamaica - Dub","spotifyId":"6MReSG5TMQOaEZEVikXmBJ"}]},{"titulo":"Exodus","anio":"1977","spotifyUrl":"https://open.spotify.com/album/2mBbV0Ad6B4ydHMZlzAY7S","tidalUrl":"https://tidal.com/album/231056451","appleMusicUrl":"https://music.apple.com/us/album/exodus-2013-remaster/1625213430","cover":"./covers/cover-2mBbV0Ad6B4ydHMZlzAY7S.jpg","tracks":[{"title":"Natural Mystic","spotifyId":"64xslN8DB3jG1tK2l3H1mA"},{"title":"So Much Things To Say","spotifyId":"2RiOvJpzM1IsxZNLlCBqIM"},{"title":"Guiltiness","spotifyId":"5nmzbxWk4iOQXkuTIRboPS"},{"title":"The Heathen","spotifyId":"4CCxS2emrCLaoLguBN1IgL"},{"title":"Exodus","spotifyId":"3UuqC9dKWG0bLu6TrPIe4F"},{"title":"Jamming","spotifyId":"5LyfiK6iXEIBNEtcaGKohl"},{"title":"Waiting In Vain","spotifyId":"58Zt987fK6gWxtO0MwEzPn"},{"title":"Turn Your Lights Down Low","spotifyId":"1fXNDp6abYxi5TzPEFAC3W"},{"title":"Three Little Birds","spotifyId":"75FYqcxt1YEAtqDLrOeIJn"},{"title":"One Love / People Get Ready","spotifyId":"6SR0dDuXH2vtgBfMLrivKV"},{"title":"Jamming - 12\" Version","spotifyId":"0M1Ng1K7B0Yvjcg1OjRVlG"},{"title":"Punky Reggae Party - 12\" Version","spotifyId":"6L4g3GDDQnbwo9fqPyv0AZ"}]},{"titulo":"Kaya","anio":"1978","spotifyUrl":"https://open.spotify.com/album/13dXX35pYjr8FqRla40K2a","tidalUrl":"https://tidal.com/album/574542","appleMusicUrl":"https://music.apple.com/us/album/kaya-remastered-2013/1440818212","cover":"./covers/cover-13dXX35pYjr8FqRla40K2a.jpg","tracks":[{"title":"Easy Skanking","spotifyId":"0qS73wj4SD1PcFDchuXsMD"},{"title":"Kaya","spotifyId":"2rahWhhubhQMhG6coo7Vu9"},{"title":"Is This Love","spotifyId":"6JRLFiX9NJSoRRKxowlBYr"},{"title":"Sun Is Shining","spotifyId":"2pZJhvpin385eqAFRp3ASJ"},{"title":"Satisfy My Soul","spotifyId":"5Uv1YNz6uBepPLDdoFANKQ"},{"title":"She's Gone","spotifyId":"6MFWhzNSsLdW3WtsuBZsOg"},{"title":"Misty Morning","spotifyId":"7e7kLujXF3G5IcHoskemSI"},{"title":"Crisis","spotifyId":"42qweWuaXhr0JDSXduI1xD"},{"title":"Running Away","spotifyId":"2dFx6mVWGJTu4xa1elAQ7n"},{"title":"Time Will Tell","spotifyId":"4a3OY0g56nps09RkcHWDu3"},{"title":"Smile Jamaica - Single Version","spotifyId":"5ynoU0jdMWUVoTdr7Dx4Hk"}]},{"titulo":"Survival","anio":"1979","spotifyUrl":"https://open.spotify.com/album/09Df7mUZBQwbDYgvE0t30r","tidalUrl":"https://tidal.com/album/575794","appleMusicUrl":"https://music.apple.com/us/album/survival-2013-remaster/1440813900","cover":"./covers/cover-09Df7mUZBQwbDYgvE0t30r.jpg","tracks":[{"title":"So Much Trouble In The World","spotifyId":"209SbubR5uKaVzj5SeN42w"},{"title":"Zimbabwe","spotifyId":"5ApfJDLibIoWL0mRZ5uOKu"},{"title":"Top Rankin'","spotifyId":"0uMvm0efKsaADso8NO7pk1"},{"title":"Babylon System","spotifyId":"6xbtDXk8utIS8rOWD0X9XA"},{"title":"Survival","spotifyId":"7rCOQjHqD2ArkKvoemDG54"},{"title":"Africa Unite","spotifyId":"2qmHhaOmlcKDeGfipGhF1j"},{"title":"One Drop","spotifyId":"3Ui4BMHapr00Iul1kB7lHC"},{"title":"Ride Natty Ride","spotifyId":"5cTsXX5qwa6zmG80OCz4hR"},{"title":"Ambush In The Night","spotifyId":"6kAye2WmX9RVnheY3QmF54"},{"title":"Wake Up And Live","spotifyId":"6xde1uNyEiLOs545PjATUJ"},{"title":"Ride Natty Ride - 12” Mix / Bonus Track","spotifyId":"1Gb2wkjjyJBPFBnF0Cl5Ni"}]},{"titulo":"Uprising","anio":"1980","spotifyUrl":"https://open.spotify.com/album/321q9p7PELvzcFAWxml7VX","tidalUrl":"https://tidal.com/album/578891","appleMusicUrl":"https://music.apple.com/us/album/uprising/1740845714","cover":"./covers/cover-321q9p7PELvzcFAWxml7VX.jpg","tracks":[{"title":"Coming In From The Cold","spotifyId":"6lmLUNd7mcyYqKcg6EIAOu"},{"title":"Real Situation","spotifyId":"6d4B82vt7pjdzumBmV6HiZ"},{"title":"Bad Card","spotifyId":"2Zw5FtdFtvKWg4h44GOv3R"},{"title":"We And Dem","spotifyId":"0FyHNCvSDKV3ZJ9iqSyWNj"},{"title":"Work","spotifyId":"1He5SVrXc9r2rC4lyyWcO1"},{"title":"Zion Train","spotifyId":"2Uqayp7267V5SJYOf7fLmV"},{"title":"Pimper's Paradise","spotifyId":"5JqCmd41S3PZ2AS6GuHqcR"},{"title":"Could You Be Loved","spotifyId":"5O4erNlJ74PIF6kGol1ZrC"},{"title":"Forever Loving Jah","spotifyId":"1CAEHafiiJKjp6t9hfYX7f"},{"title":"Redemption Song","spotifyId":"26PwuMotZqcczKLHi4Htz3"},{"title":"Redemption Song - Band Version / Bonus Track","spotifyId":"6ylXXB6zqjkHsfXu8Ia2VG"},{"title":"Could You Be Loved - Errol Brown and Alex Sadkin Remix / Bonus Track","spotifyId":"1Rb4eWCv2mPz7bVyrwbwvP"}]},{"titulo":"Confrontation","anio":"1983","spotifyUrl":"https://open.spotify.com/album/5Rg4ZSwf1LPCuAMr0msdun","tidalUrl":"https://tidal.com/browse/album/569027","appleMusicUrl":"https://music.apple.com/us/album/confrontation-2013-remaster/1440861469","cover":"./covers/cover-5Rg4ZSwf1LPCuAMr0msdun.jpg","tracks":[{"title":"Chant Down Babylon","spotifyId":"2HJZDha9V8OMf4n2HFUXf5"},{"title":"Buffalo Soldier","spotifyId":"7BfW1eoDh27W69nxsmRicb"},{"title":"Jump Nyabinghi","spotifyId":"6tZ2akfNBG9EQlvhEPYV2Q"},{"title":"Mix Up, Mix Up","spotifyId":"12zYQ3dOGdclP6Iy2a0bgy"},{"title":"Give Thanks & Praises","spotifyId":"7kldRiZk6Wan2uFfb9qfX9"},{"title":"Blackman Redemption","spotifyId":"6jI6sujyu6aHmnAOZTvqz3"},{"title":"Trench Town","spotifyId":"6cLeIanzsJy9LmohPWsg21"},{"title":"Stiff Necked Fools","spotifyId":"1eN3VT6F8JNkjF9b4AMhzd"},{"title":"I Know","spotifyId":"1cFPuvgwmSt5cBMVBy90nj"},{"title":"Rastaman Live Up","spotifyId":"2wFw6mZzzABL9gktquq7I5"},{"title":"Buffalo Soldier - 12\" Mix / Bonus Track","spotifyId":"13UTNNGMy3NJrHmyxnSZhz"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
