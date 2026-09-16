@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>David Bowie</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="David Bowie">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/david-bowie-discografia/covers/cover-6fQElzBNTiEMGdIeY0hy5l.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/david-bowie-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>David Bowie</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De Hunky Dory a Blackstar: el camaleón del rock, maestro de la reinvención constante durante más de 4 décadas.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://youtube.com/@davidbowie";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Hunky Dory","anio":"1971","spotifyUrl":"https://open.spotify.com/album/6fQElzBNTiEMGdIeY0hy5l","tidalUrl":"https://tidal.com/browse/album/51161418","appleMusicUrl":"https://music.apple.com/us/album/hunky-dory-2015-remaster/1039798000","cover":"./covers/cover-6fQElzBNTiEMGdIeY0hy5l.jpg","tracks":[{"title":"Changes - 2015 Remaster","spotifyId":"0LrwgdLsFaWh9VXIjBRe8t"},{"title":"Oh! You Pretty Things - 2015 Remaster","spotifyId":"7Js4OF5MUb2bqJe09g4uQE"},{"title":"Eight Line Poem - 2015 Remaster","spotifyId":"76CfWxdNh9k5ssABTxlmMJ"},{"title":"Life on Mars? - 2015 Remaster","spotifyId":"3ZE3wv8V3w2T2f7nOCjV0N"},{"title":"Kooks - 2015 Remaster","spotifyId":"1w3W1hz6xVUSWkbh0paMgs"},{"title":"Quicksand - 2015 Remaster","spotifyId":"63PgfGFgAZUEzwGouciEC5"},{"title":"Fill Your Heart - 2015 Remaster","spotifyId":"1p4krvaKEJWr3ou3D5IZQy"},{"title":"Andy Warhol - 2015 Remaster","spotifyId":"0SfYZJSWk4h00yzheOgeIQ"},{"title":"Song for Bob Dylan - 2015 Remaster","spotifyId":"3rpuor3iDjfx0yOcSfE63v"},{"title":"Queen Bitch - 2015 Remaster","spotifyId":"2RDXq7AwoEpvrjsXe4zlUc"},{"title":"The Bewlay Brothers - 2015 Remaster","spotifyId":"0sJXU4olfMR2SvULxarpoW"}]},{"titulo":"The Rise and Fall of Ziggy Stardust and the Spiders from Mars","anio":"1972","spotifyUrl":"https://open.spotify.com/album/5x9XtEx7JmohfJ5xQYikBJ","tidalUrl":"https://tidal.com/album/51161406","appleMusicUrl":"https://music.apple.com/us/album/the-rise-and-fall-of-ziggy-stardust-and-the/1039796877","cover":"./covers/cover-5x9XtEx7JmohfJ5xQYikBJ.jpg","tracks":[{"title":"Five Years - 2012 Remaster","spotifyId":"7mrEfM4NUgTZMauRAOtkYy"},{"title":"Soul Love - 2012 Remaster","spotifyId":"0dO9m7c4AdqzhXIf47wTur"},{"title":"Moonage Daydream - 2012 Remaster","spotifyId":"6U6eq682n5Jqva2pTNOFFv"},{"title":"Starman - 2012 Remaster","spotifyId":"5i5eA8a5orfvH4QqmhyiG1"},{"title":"It Ain't Easy - 2012 Remaster","spotifyId":"1EZylzU8g6Ebj39q0PqCe2"},{"title":"Lady Stardust - 2012 Remaster","spotifyId":"5UhCjt0ubYaPsPy2unCbYV"},{"title":"Star - 2012 Remaster","spotifyId":"3l6NR15YeUU75fjWLphZL6"},{"title":"Hang on to Yourself - 2012 Remaster","spotifyId":"7tJm2iFvIWeMGkyDhpQhCE"},{"title":"Ziggy Stardust - 2012 Remaster","spotifyId":"0HTLUpGg04ae75h4vEAyPS"},{"title":"Suffragette City - 2012 Remaster","spotifyId":"6hFRgPnRJzpMvn3e1diUVi"},{"title":"Rock 'n' Roll Suicide - 2012 Remaster","spotifyId":"7KH0E1vdvCVFC9W6e15Cmj"}]},{"titulo":"Aladdin Sane","anio":"1973","spotifyUrl":"https://open.spotify.com/album/3HZKOk1knxrUU3y5ZIOdbz","tidalUrl":"https://tidal.com/browse/album/73204085","appleMusicUrl":"https://music.apple.com/us/album/aladdin-sane-2013-remaster/1039655668","cover":"./covers/cover-3HZKOk1knxrUU3y5ZIOdbz.jpg","tracks":[{"title":"Watch That Man - 2013 Remaster","spotifyId":"1vlcWaJV9hGbiQMbsh2d8t"},{"title":"Aladdin Sane - 2013 Remaster","spotifyId":"0iKRf868w4SYEBDILQu8ob"},{"title":"Drive-In Saturday - 2013 Remaster","spotifyId":"1cSrZX0EdEpbI8t9rG43Cl"},{"title":"Panic in Detroit - 2013 Remaster","spotifyId":"39H1xVrwxDjeIzq4WMYIod"},{"title":"Cracked Actor - 2013 Remaster","spotifyId":"0V0oDdGkkCTLodcuiwQLXm"},{"title":"Time - 2013 Remaster","spotifyId":"1aBgL67Czpgnm87kbrQuzo"},{"title":"The Prettiest Star - 2013 Remaster","spotifyId":"2tjskutXjrrfAyoSw4q4kb"},{"title":"Let's Spend the Night Together - 2013 Remaster","spotifyId":"0Mxo6w8hWMwDN2C0eygceO"},{"title":"The Jean Genie - 2013 Remaster","spotifyId":"6uZtMNTfU5u8w6fsnXeOdb"},{"title":"Lady Grinning Soul - 2013 Remaster","spotifyId":"3ZFurUI2qESabUHHyIlxa8"}]},{"titulo":"Diamond Dogs","anio":"1974","spotifyUrl":"https://open.spotify.com/album/09DRsdYrnm6r7h1syHhMI3","tidalUrl":"https://tidal.com/browse/album/69493357","appleMusicUrl":"https://music.apple.com/us/album/diamond-dogs-2016-remaster/1195107058","cover":"./covers/cover-09DRsdYrnm6r7h1syHhMI3.jpg","tracks":[{"title":"Future Legend - 2016 Remaster","spotifyId":"2jsN75J3rPm2MMN2XAx9c7"},{"title":"Diamond Dogs - 2016 Remaster","spotifyId":"5F31shmRXf4stAGFGdgkdo"},{"title":"Sweet Thing - 2016 Remaster","spotifyId":"08UaNW5GDhTqD5878SglGM"},{"title":"Candidate - 2016 Remaster","spotifyId":"4Gw4GiJMKBBv10c5NTdrpj"},{"title":"Sweet Thing - Reprise; 2016 Remaster","spotifyId":"1U0NlfB6WruahVwh6H9Gq1"},{"title":"Rebel Rebel - 2016 Remaster","spotifyId":"2F37NMx8cOgNdMXnG1DvhR"},{"title":"Rock 'n' Roll with Me - 2016 Remaster","spotifyId":"4N854MsFuaaHV0nIPglYkJ"},{"title":"We Are the Dead - 2016 Remaster","spotifyId":"09cVjS7tvZHv0ceiWoDmQT"},{"title":"1984 - 2016 Remaster","spotifyId":"7j368OOOyIzHoiHiGi7bf1"},{"title":"Big Brother - 2016 Remaster","spotifyId":"730NgUNT1NAEsAYzxy4VYI"},{"title":"Chant of the Ever Circling Skeletal Family - 2016 Remaster","spotifyId":"1Ou4Ikx0qb1U3RAS5NDnp3"}]},{"titulo":"Station to Station","anio":"1976","spotifyUrl":"https://open.spotify.com/album/0MWrKayUshRuT8maG4ZAOU","tidalUrl":"https://tidal.com/album/73029659","appleMusicUrl":"https://music.apple.com/us/album/station-to-station-2016-remaster/1195104858","cover":"./covers/cover-0MWrKayUshRuT8maG4ZAOU.jpg","tracks":[{"title":"Station to Station - 2016 Remaster","spotifyId":"7cehkXeGO0t8HosgO42tHl"},{"title":"Golden Years - 2016 Remaster","spotifyId":"4JRem7xHp2l0kmUvt9zCKu"},{"title":"Word on a Wing - 2016 Remaster","spotifyId":"5BebqkBndVuST8jX9UWPqI"},{"title":"TVC15 - 2016 Remaster","spotifyId":"25iWKdsAyjB4K3bU3qdyq1"},{"title":"Stay - 2016 Remaster","spotifyId":"0tIGiKkTb1US3apjAhW1SG"},{"title":"Wild Is the Wind - 2016 Remaster","spotifyId":"7ynwkFhXbrQqnMIWqFfRUS"}]},{"titulo":"Low","anio":"1977","spotifyUrl":"https://open.spotify.com/album/2de6LD7eOW8zrlorbS28na","tidalUrl":"https://tidal.com/album/80419795","appleMusicUrl":"https://music.apple.com/us/album/low-2017-remaster/1347895593","cover":"./covers/cover-2de6LD7eOW8zrlorbS28na.jpg","tracks":[{"title":"Speed of Life - 2017 Remaster","spotifyId":"7B265QWYkUeqG2ihVEUZ5D"},{"title":"Breaking Glass - 2017 Remaster","spotifyId":"2xFq7wVYKmTHFUySyfv789"},{"title":"What in the World - 2017 Remaster","spotifyId":"04UsGrg02dEMLnTZdBNyRI"},{"title":"Sound and Vision - 2017 Remaster","spotifyId":"1vP2JEXRsGrFbwOZ0foOQ5"},{"title":"Always Crashing in the Same Car - 2017 Remaster","spotifyId":"73HwMEPCCCEqKFYONpOxe9"},{"title":"Be My Wife - 2017 Remaster","spotifyId":"5hh5gq0u54rTP0iBYgZ2xW"},{"title":"A New Career in a New Town - 2017 Remaster","spotifyId":"6O3YVHQaeImvCBbJbalB00"},{"title":"Warszawa - 2017 Remaster","spotifyId":"5DfvrqibQOQLUsN5QKqBJI"},{"title":"Art Decade - 2017 Remaster","spotifyId":"1TfzSwueVDW3b1xTJ46O26"},{"title":"Weeping Wall - 2017 Remaster","spotifyId":"56jhj8hHTw3PEoFV74wn5j"},{"title":"Subterraneans - 2017 Remaster","spotifyId":"2yfKkvgywRAY9xy849piLp"}]},{"titulo":"\"Heroes\"","anio":"1977","spotifyUrl":"https://open.spotify.com/album/4I5zzKYd2SKDgZ9DRf5LVk","tidalUrl":"https://tidal.com/browse/album/80654032","appleMusicUrl":"https://music.apple.com/us/album/heroes-2017-remaster/1347894082","cover":"./covers/cover-4I5zzKYd2SKDgZ9DRf5LVk.jpg","tracks":[{"title":"Beauty and the Beast - 2017 Remaster","spotifyId":"56von762XlyEtT3qQhm47H"},{"title":"Joe the Lion - 2017 Remaster","spotifyId":"1HLbeCJcoW6Bo9xNgWXlSO"},{"title":"\"Heroes\" - 2017 Remaster","spotifyId":"7Jh1bpe76CNTCgdgAdBw4Z"},{"title":"Sons of the Silent Age - 2017 Remaster","spotifyId":"3O85NMbjKkbcCi44UAwOx4"},{"title":"Blackout - 2017 Remaster","spotifyId":"5p3dakY9xb0ArzIHUBshm6"},{"title":"V-2 Schneider - 2017 Remaster","spotifyId":"6PRZIYPOPMt5y8wGofp44d"},{"title":"Sense of Doubt - 2017 Remaster","spotifyId":"1d89lSLqTpMMpcKBWzVWcm"},{"title":"Moss Garden - 2017 Remaster","spotifyId":"2hBsekQsE7bxL4lNGpG1tL"},{"title":"Neuköln - 2017 Remaster","spotifyId":"5ZOitdISR9foFR6QrcZFCa"},{"title":"The Secret Life of Arabia - 2017 Remaster","spotifyId":"4F1V29ygbAKbKCQDgt4z9f"}]},{"titulo":"Scary Monsters (And Super Creeps)","anio":"1980","spotifyUrl":"https://open.spotify.com/album/5fxvWHvIDPIALfTfRiwyB0","tidalUrl":"https://tidal.com/browse/album/81048303","appleMusicUrl":"https://music.apple.com/us/album/scary-monsters-and-super-creeps-2017-remaster/1347896167","cover":"./covers/cover-5fxvWHvIDPIALfTfRiwyB0.jpg","tracks":[{"title":"It's No Game (Pt. 1) - 2017 Remaster","spotifyId":"6S04qCT9xjWPtgBK4UoPEQ"},{"title":"Up the Hill Backwards - 2017 Remaster","spotifyId":"1raM9iX3HPhZvINoYCSWc9"},{"title":"Scary Monsters (And Super Creeps) - 2017 Remaster","spotifyId":"4mm9p1NTNBYnyA89jfss3Z"},{"title":"Ashes to Ashes - 2017 Remaster","spotifyId":"37CRPk0L5ZpfPeePEPwE0t"},{"title":"Fashion - 2017 Remaster","spotifyId":"1MMYuuvnD3O9Sn90gDabv9"},{"title":"Teenage Wildlife - 2017 Remaster","spotifyId":"57NAaXLQGp5ZgEvpVOYtFe"},{"title":"Scream Like a Baby - 2017 Remaster","spotifyId":"4FVKxmy1hKLlgqvOHN8M9L"},{"title":"Kingdom Come - 2017 Remaster","spotifyId":"0GSDkjD1yuhM5YUICzQ2V5"},{"title":"Because You're Young - 2017 Remaster","spotifyId":"4MqUHb6oetPG3nOdXbHr1d"},{"title":"It's No Game (Pt. 2) - 2017 Remaster","spotifyId":"7Gdp4g1w1WWLZgem3ht5Ju"}]},{"titulo":"Let's Dance","anio":"1983","spotifyUrl":"https://open.spotify.com/album/4NwG11AsDJluT732lSjMrV","tidalUrl":"https://tidal.com/album/103398057","appleMusicUrl":"https://music.apple.com/us/album/lets-dance-2018-remaster/1475002920","cover":"./covers/cover-4NwG11AsDJluT732lSjMrV.jpg","tracks":[{"title":"Modern Love - 2018 Remaster","spotifyId":"3gxEZXUjrNbl3TlSrTGbR5"},{"title":"China Girl - 2018 Remaster","spotifyId":"5Ei9o2fHEnfHb84YrPuz4v"},{"title":"Let's Dance - 2018 Remaster","spotifyId":"3ix6K4wZY29bCujrSznwFZ"},{"title":"Without You - 2018 Remaster","spotifyId":"316nCXXZsSSc5fGk1bsS1x"},{"title":"Ricochet - 2018 Remaster","spotifyId":"04pkbLDMnaQdx4kV9bbuV4"},{"title":"Criminal World - 2018 Remaster","spotifyId":"3pMVWZyHRN3DlQ7k79pmTA"},{"title":"Cat People (Putting Out Fire) - 2018 Remaster","spotifyId":"25ceFvWSaI3zoy9hhNYDqu"},{"title":"Shake It - 2018 Remaster","spotifyId":"3BEwVUwXoSQh5JYo7nz2xj"}]},{"titulo":"Blackstar","anio":"2016","spotifyUrl":"https://open.spotify.com/album/0vxg8oJKDu3i0bXQu7vEpi","tidalUrl":"https://tidal.com/album/280721703","appleMusicUrl":"https://music.apple.com/us/album/lazarus/1676286487","cover":"./covers/cover-0vxg8oJKDu3i0bXQu7vEpi.jpg","tracks":[{"title":"★","spotifyId":"1Xb5UAKg5OdTHkg48FdQou"},{"title":"'Tis A Pity She Was A Whore","spotifyId":"7CEjBoE7psDI0hXyZbl6mv"},{"title":"Lazarus","spotifyId":"7rFN0DhIFPjAWG1EaHO2F0"},{"title":"Sue (Or In A Season Of Crime)","spotifyId":"0DEslRB6ry2swHIY0aaNzY"},{"title":"Girl Loves Me","spotifyId":"6v7gMNeD8eK3HsbMPWlfME"},{"title":"Dollar Days","spotifyId":"1k5GEEuEoBiklGgmQcD62s"},{"title":"I Can't Give Everything Away","spotifyId":"4iXSEbAYfD0G4bqTkQCfSn"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

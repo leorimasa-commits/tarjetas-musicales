@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La Renga</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="La Renga">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/la-renga-discografia/covers/cover-2UdvlxrK8bAQWZC2HNyZnt.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/la-renga-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>La Renga</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro">De Esquivando Charcos a Pesados Vestigios: una de las bandas más grandes e independientes del rock argentino.</p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://youtube.com/@larengaoficial";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Esquivando Charcos","anio":"1991","spotifyUrl":"https://open.spotify.com/album/2UdvlxrK8bAQWZC2HNyZnt","tidalUrl":"https://tidal.com/browse/album/4046393","appleMusicUrl":"","cover":"./covers/cover-2UdvlxrK8bAQWZC2HNyZnt.jpg","tracks":[{"title":"Somos Los Mismos De Siempre","spotifyId":"0VjAULIlqwG9eZlQvnHFEm"},{"title":"Moscas Verdes Para El Charlatán","spotifyId":"0X4aIlJuFMJJEJXQWOp08k"},{"title":"Embrolos, Fatos y Paquetes","spotifyId":"6J2fmBxvHrXFSRtFHoQmuy"},{"title":"Luciendo Mi Saquito Blusero","spotifyId":"11OyPxbcMRFUg27eWs4Rj8"},{"title":"Voy A Bailar A La Nave Del Olvido","spotifyId":"5Ce6FRw9hfnr75YyVCXjBy"},{"title":"Buseca y Vino Tinto","spotifyId":"5OrX5CSI3sw0n1QacCFw9x"},{"title":"El Juicio Del Ganso","spotifyId":"4LIEY8TRWk8VqoffiZlEZK"},{"title":"Negra Mi Alma, Negro Mi Corazón","spotifyId":"7lZlB38ASu81tPK0Wx3VEf"},{"title":"Blues De Bolivia","spotifyId":"2lWTQJCbDgVoeWlJ26qCK9"}]},{"titulo":"A Donde Me Lleva La Vida","anio":"1993","spotifyUrl":"https://open.spotify.com/album/5f86DyUHkazyikoFVWb237","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-5f86DyUHkazyikoFVWb237.jpg","tracks":[{"title":"El Camino Del Deshielo","spotifyId":"4pFgceP6hc1NkkOC5uTUNb"},{"title":"Cortala y Olvidala","spotifyId":"0ioT9BZZ8c7rUJWC6f8EQw"},{"title":"El Rito De Los Corazones Sangrando","spotifyId":"5ZozjMsHnMfYHbVhqtiN8J"},{"title":"Blues Cardíaco","spotifyId":"3vWjFfW9di1RQpFShKU8hq"},{"title":"Pis y Caca","spotifyId":"7tQDgm1PpHeafegAhIOmXN"},{"title":"El Sátiro De La Mala Leche","spotifyId":"2gF6pGk88F4Q60UAwfq8JJ"},{"title":"El Mambo De La Botella","spotifyId":"53MwfogCIISCCis4Xe8EaX"},{"title":"Debbie, El Fantasma","spotifyId":"2K61VYe8GHxFAkUrkKW2TI"},{"title":"El Circo Romano","spotifyId":"2lKrc6ja4MgniSD9lbnepW"},{"title":"2+2=3","spotifyId":"08iGhU1Clvs7M5XTLp7BIk"},{"title":"Triste Canción De Amor","spotifyId":"0LTPPsp9xmM92ZT6pGvsrz"}]},{"titulo":"Despedazado Por Mil Partes","anio":"1996","spotifyUrl":"https://open.spotify.com/album/3aJELsa1QVGpsnnwtOccSF","tidalUrl":"https://tidal.com/browse/album/63257679","appleMusicUrl":"https://music.apple.com/ar/album/despedazado-por-mil-partes/1442549689","cover":"./covers/cover-3aJELsa1QVGpsnnwtOccSF.jpg","tracks":[{"title":"Desnudo Para Siempre (O Despedazado)","spotifyId":"555ompHMtDHwI9OtXmxEmv"},{"title":"A La Carga Mi Rock'n Roll","spotifyId":"6ea69cxbhC0fDIBCGeJ1BV"},{"title":"El Final Es En Donde Partí","spotifyId":"7tcZV755xk7oppretFTUqy"},{"title":"Balada Del Diablo y La Muerte","spotifyId":"3hBauFWX16Sw8IuJc4OLs6"},{"title":"Cuándo Vendrán","spotifyId":"27hNdfCx2zVensTrZFSFQR"},{"title":"Psilosibe Mexicana","spotifyId":"4IlF6GJrIis268OfJCFS54"},{"title":"Paja Brava","spotifyId":"6inTxkLe5DhBAUq9avnn6V"},{"title":"Lo Frágil De La Locura","spotifyId":"4e4ezyxvamPVRJ5lOb9KDK"},{"title":"Veneno","spotifyId":"4H1YsXvcyD3nJtNlz5sOKR"},{"title":"El Viento Que Todo Empuja","spotifyId":"5V7LLGcoSIjF5GrbjxdqWi"},{"title":"Hablando De La Libertad","spotifyId":"0Vp7HWykwUGgpVkN1aaBkk"}]},{"titulo":"La Renga","anio":"1998","spotifyUrl":"https://open.spotify.com/album/58M6gPLnHqTnE5z2dRbKNH","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-58M6gPLnHqTnE5z2dRbKNH.jpg","tracks":[{"title":"El Terco","spotifyId":"0IM0b7x6MYrmfc2TuDJ7MS"},{"title":"Tripa Y Corazón","spotifyId":"5ndIDbAA2CY7jB0bUFh7pW"},{"title":"Bien Alto","spotifyId":"6sOa9gg19G0U9DPR39NYQG"},{"title":"El Hombre De La Estrella","spotifyId":"2whSryjMooPaHaysIbVCOm"},{"title":"Vende Patria Clon","spotifyId":"2Syb6W5S2tEjMS2AGTlPzj"},{"title":"El Revelde","spotifyId":"24o76WATbnSIhV26hHgUHn"},{"title":"Me Hice Canción","spotifyId":"50f2Jg5yZMtHOWDUWzsLIs"},{"title":"Cuando Estés Acá","spotifyId":"2rEAG7lKACyW5YVS3KsNoN"},{"title":"El Twist Del Pibe","spotifyId":"2prhbGrXVSV7XZjYBdQm88"},{"title":"Reíte","spotifyId":"2F5yDpYHkEGGs4jjcdsIwh"},{"title":"Ser Yo","spotifyId":"2FUQTdpo033v0b92Sjg4Xc"}]},{"titulo":"La Esquina del Infinito","anio":"2000","spotifyUrl":"https://open.spotify.com/album/4M0ydzwbRw8c1RV07TpMX9","tidalUrl":"https://tidal.com/browse/album/4022035","appleMusicUrl":"","cover":"./covers/cover-4M0ydzwbRw8c1RV07TpMX9.jpg","tracks":[{"title":"La Vida, Las Mismas Calles","spotifyId":"0PQ2gAyFCaMVTJSbI2diuy"},{"title":"Motoralmaisangre","spotifyId":"00c3Rr8vFZ3MzOTnY0AzCR"},{"title":"Al Que He Sangrado","spotifyId":"2AcXZc97Gem3JbmVKLC0Ht"},{"title":"Panic Show","spotifyId":"7ao7jtJIMzppW0p1CwEJ9Q"},{"title":"El Cielo Del Desengaño","spotifyId":"0tum9b7qAfW7VU3OocWyvi"},{"title":"Arte Infernal","spotifyId":"053TpAtf9eywqYXMsKnbwG"},{"title":"En El Baldío","spotifyId":"6JEEFrc6MHgH7X2hRbijzx"},{"title":"En Pie","spotifyId":"01lddjlmA8CHfnACKFTFFy"},{"title":"El Rey De La Triste Felicidad","spotifyId":"5mY6YsgOYzwhnkzUs4sQC2"},{"title":"Estalla","spotifyId":"4QHGGvOwGjnVkJqWHBQJ4u"},{"title":"Hey Hey My My","spotifyId":"21H4wVzmTvERsw1i6ogoyu"},{"title":"Las Mismas Calles","spotifyId":"4nNm2FfBcHh2dKDO0gpqxM"}]},{"titulo":"Detonador de Sueños","anio":"2003","spotifyUrl":"https://open.spotify.com/album/7hHY77bNkcPikVZpC91hvZ","tidalUrl":"","appleMusicUrl":"https://music.apple.com/ar/album/detonador-de-sue%C3%B1os/1881332773","cover":"./covers/cover-7hHY77bNkcPikVZpC91hvZ.jpg","tracks":[{"title":"A Tu Lado","spotifyId":"60qvtGQD34nmfxUdcqUxYp"},{"title":"Detonador de Sueños","spotifyId":"7zFnoSDXf2iAsymG0e9SeY"},{"title":"El Ojo del Huracán","spotifyId":"5i2jx1BRrRBfxWxbuGzfe1"},{"title":"La Razón Que Te Demora","spotifyId":"0ljyHIWERJQp8O5LKgKm1l"},{"title":"Dementes en el Espacio","spotifyId":"1HK8AUq821sBv84EjtZMLS"},{"title":"Estado","spotifyId":"08Ny8fksGTnftNvnU4hzDU"},{"title":"Las Cosas Que Hace","spotifyId":"7o6SFnvKmZFE5XqM2Sb0Wo"},{"title":"Noche Vudú","spotifyId":"4kYUcE7jEWawHAb549gbPP"},{"title":"En los Brazos del Sol","spotifyId":"2CHGrTtXgwt2hiWHmv9SFj"},{"title":"Míralos","spotifyId":"01asY3BieHVn0cNELS3OUd"},{"title":"El Rastro de la Conciencia","spotifyId":"2BXJQDE9uZyCmzJJOZShId"},{"title":"Hielasangre","spotifyId":"0U9IfwcpXRwoBunw9xpyQf"}]},{"titulo":"Truenotierra","anio":"2006","spotifyUrl":"https://open.spotify.com/album/1LcPYKYAui0A4MNHbbdnvS","tidalUrl":"","appleMusicUrl":"https://music.apple.com/ar/album/truenotierra/1881584251","cover":"./covers/cover-1LcPYKYAui0A4MNHbbdnvS.jpg","tracks":[{"title":"El monstruo que crece","spotifyId":"1cJBul0PomJr1llerGCOKW"},{"title":"Almohada de piedra","spotifyId":"6fkQnLaYhkS23Q7Hy9SagH"},{"title":"Ruta 40","spotifyId":"0EjnwEIMAycOSttLU8lvWq"},{"title":"La boca del lobo","spotifyId":"2uVwyHqKP938OOZut5wcej"},{"title":"Montaña Roja","spotifyId":"08GYwdKKdgSncqnYVmE82g"},{"title":"Palabras estorbantes","spotifyId":"5WjEXCRabPcb3njELL2C2B"},{"title":"Cualquier historia","spotifyId":"2lUwyW4qvxsx1Spd6Y3pwL"},{"title":"Mujer de Caleidoscopio","spotifyId":"7siSdlylKN00SU1lrVNN2q"},{"title":"Llenado de llorar","spotifyId":"2lRJADc1imHJDcBhxjG6eO"},{"title":"Oscuro diamante","spotifyId":"4YXfEjF0PPrgsOk5NR2SBQ"},{"title":"Entre la niebla","spotifyId":"558oAG4PA5jvQkSc8JYUs4"},{"title":"Cuadrado Obviado","spotifyId":"0YeJCSnA1tj7szfXauxMCG"},{"title":"Alunizando al unísono","spotifyId":"1T2lorekf5GE5b9fmb9Gd0"},{"title":"Sustancia entre las plantas","spotifyId":"0iq2oanGhAmbaRGaLl5X2z"},{"title":"Truenotierra","spotifyId":"0FXYGMjz0DCNltyBg06y1B"},{"title":"Anaximandro","spotifyId":"1YOuP7lBxKgIps1PGVR7LV"},{"title":"Neuronas abrazadas","spotifyId":"2bWT7q3WBoaMLaYHVOv1TM"}]},{"titulo":"Algún Rayo","anio":"2010","spotifyUrl":"https://open.spotify.com/album/3I7OAI6XOHQLhYIkNRbKw5","tidalUrl":"https://tidal.com/browse/album/5700542","appleMusicUrl":"https://music.apple.com/ar/album/alg%C3%BAn-rayo/1881715909","cover":"./covers/cover-3I7OAI6XOHQLhYIkNRbKw5.jpg","tracks":[{"title":"Canibalismo Galáctico","spotifyId":"3xpiYOZOuJxU5ij7SwwP8M"},{"title":"Destino Ciudad Futura","spotifyId":"3UGJ4UtleMpzeGVL5aHnC6"},{"title":"La Furia de la Bestia Rock","spotifyId":"3GAOEp6QIVvbuMcpX0k5UV"},{"title":"Poder","spotifyId":"70nDPYmHki7bCE5OEtJv0P"},{"title":"Algún Rayo","spotifyId":"5Nt4lkouM54zjhcNdWiscW"},{"title":"Cristal de Zirconio","spotifyId":"4ZKXPGteZ4Efz3G2YwNMNy"},{"title":"Dioses de Terciopelo","spotifyId":"1fyS8eAwyZWjKdoU7M1c2u"},{"title":"Inventa un Mañana","spotifyId":"0kUPMqgdPTpy9xO3UFb4K9"},{"title":"Disfrazado de Amigo","spotifyId":"05XYE4FvhyrZpnGbkxrSYG"},{"title":"Lunáticos","spotifyId":"7InWg34bjjRGYBcaY24FBb"},{"title":"Desoriente Blues","spotifyId":"3FLU0tegclVtqVMSEdXLYz"},{"title":"Caricias de Asfalto","spotifyId":"3OEcpwd5ZL2qBuTGciXgVE"}]},{"titulo":"Pesados Vestigios","anio":"2014","spotifyUrl":"https://open.spotify.com/album/2jQGwS9ek4TmM8wbv8HUsF","tidalUrl":"","appleMusicUrl":"https://music.apple.com/ar/album/pesados-vestigios/1881745325","cover":"./covers/cover-2jQGwS9ek4TmM8wbv8HUsF.jpg","tracks":[{"title":"Corazón Fugitivo","spotifyId":"08Az8ihw2PvIlj4cpLsZgT"},{"title":"Nómades","spotifyId":"59xswgEWnuM2DZq0SlOlyw"},{"title":"Mirada de Acantilado","spotifyId":"0CmmFl8OhihfEWaCRlFgeH"},{"title":"Día de Sol","spotifyId":"3Rn0ZUmsaKrf48cTICloJX"},{"title":"Sabes Qué","spotifyId":"3wwABoBedeudsSli4ksHGK"},{"title":"San Miguel","spotifyId":"16Rg6mHOVYYMXCzxHD9knE"},{"title":"Pole","spotifyId":"5jTbXBEemzKyWkmnylmS30"},{"title":"Muy Indignado","spotifyId":"46MIMzycKvQaAV4SohEA13"},{"title":"No para de Aletear","spotifyId":"5ywVeFufJrtMuFli5UQsIx"},{"title":"Motorock","spotifyId":"0XjwHQAsSOiaReVjs37yXR"},{"title":"Masomenos Blues","spotifyId":"7Je9DUdImJCE49mfhieFlJ"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
