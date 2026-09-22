@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elton John</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Elton John">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/elton-john-discografia/covers/cover-02WiaWY2oYZP8lVHKKvF1R.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/elton-john-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Elton John</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro"></p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/channel/UCcd0tBtip8YzdTCUw3OVv_Q";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Goodbye Yellow Brick Road","anio":"1973","spotifyUrl":"https://open.spotify.com/album/02WiaWY2oYZP8lVHKKvF1R","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-02WiaWY2oYZP8lVHKKvF1R.jpg","tracks":[{"title":"Funeral For A Friend / Love Lies Bleeding","spotifyId":"3vVErZzV7K5q81xehMFS9O"},{"title":"Candle In The Wind","spotifyId":"3Vlrby7pYDM7Yf0ObhCyun"},{"title":"Bennie And The Jets - Live","spotifyId":"4ewBPXMiRRW0fG0tPe0DsE"},{"title":"Goodbye Yellow Brick Road","spotifyId":"1FnwiJpNeueZ3ppOLnDDs3"},{"title":"This Song Has No Title","spotifyId":"42AtcZvsbrIwjWD4rqQfSg"},{"title":"Grey Seal - Version 1973","spotifyId":"2lbxIN9urwgIxguc2GYBW9"},{"title":"Jamaica Jerk-Off","spotifyId":"0FwrK1dzEm9yfNeby7eAot"},{"title":"I've Seen That Movie Too","spotifyId":"5JQiMyQ8K1pEdBVWl2WQeA"},{"title":"Sweet Painted Lady","spotifyId":"1pT9RHD2v3aHqENfVaFPw4"},{"title":"The Ballad Of Danny Bailey (1909-1934)","spotifyId":"2sRSlIHG9CRiyP0mUgsWJX"},{"title":"Dirty Little Girl","spotifyId":"0dQTjLhVXyiQLMlCyEmT52"},{"title":"All The Girls Love Alice","spotifyId":"385fuOY9Anqmll4eDkYeEU"},{"title":"Your Sister Can't Twist (But She Can Rock'n Roll)","spotifyId":"1iOSyoIRhJb547Qy6kbw4z"},{"title":"Saturday Night's Alright (For Fighting)","spotifyId":"5dai7ywF5t1DqMmDRqIhIl"},{"title":"Roy Rogers","spotifyId":"1JgNO4KIDoZ5eorvWEAYYd"},{"title":"Social Disease","spotifyId":"1VC3hRGhjRrpeTU0WJAnGX"},{"title":"Harmony","spotifyId":"0BGdsiEankbI0DACa0Uays"}]},{"titulo":"Captain Fantastic and the Brown Dirt Cowboy","anio":"1975","spotifyUrl":"https://open.spotify.com/album/01sJklSgqDgyR7nlhnRcFA","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-01sJklSgqDgyR7nlhnRcFA.jpg","tracks":[{"title":"Captain Fantastic And The Brown Dirt Cowboy","spotifyId":"58hb5zNHFE6np8gGHm0b9n"},{"title":"Tower Of Babel","spotifyId":"3sjk6n71wc9WzWs1RoOsTH"},{"title":"Bitter Fingers","spotifyId":"7k63sjSuQ0I3KCtxwV7UJK"},{"title":"Tell Me When The Whistle Blows","spotifyId":"1ZDcb5SSPBZIWQ0Gmm8BXk"},{"title":"Someone Saved My Life Tonight","spotifyId":"0CcGLZQ2WvKkpPrsy0euFU"},{"title":"(Gotta Get A) Meal Ticket","spotifyId":"30tWMxzdRReFk4quQsV0Su"},{"title":"Better Off Dead","spotifyId":"23JuilAzewNOYc2hfvcSQl"},{"title":"Writing","spotifyId":"2AX5FxOBx0h50RdpnsddHh"},{"title":"We All Fall In Love Sometimes","spotifyId":"7G66QboAoXiEyj7lGoIzwn"},{"title":"Curtains","spotifyId":"4iuipnfpOluuRF7X7IZ9SB"},{"title":"Lucy In The Sky With Diamonds","spotifyId":"7qm8CNevYm6vX5tadKzPip"},{"title":"One Day At A Time","spotifyId":"7cnjONRYj6ZJSFpuqSecTp"},{"title":"Philadelphia Freedom","spotifyId":"6kLGxJA0QCVDTIbZDbXgL3"},{"title":"House Of Cards","spotifyId":"37WuoKbmmHW33QJSfcjIK1"},{"title":"Captain Fantastic And The Brown Dirt Cowboy - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"5hZD6mr1QZs49u4ojNHCmj"},{"title":"Tower Of Babel - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"5LmYaWhxezjHPiVThcIvhw"},{"title":"Bitter Fingers - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"09ZoAvbc1IjMPTvgTPZoEr"},{"title":"Tell Me When The Whistle Blows - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"4HcMFIDYnCfgjaugYIHjqE"},{"title":"Someone Saved My Life Tonight - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"5TA8EtUpB31TUc60Jk7pIn"},{"title":"(Gotta Get A) Meal Ticket - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"0uHV14fBosExlpblWjO4vH"},{"title":"Better Off Dead - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"0YTOloo1vcYg4UJVa26xnY"},{"title":"Writing - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"7eIoYqpsVXL5XFgaGkxUz3"},{"title":"We All Fall In Love Sometimes - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"6I85rmjD1AbN98yGJYyF60"},{"title":"Curtains - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"7KbOL8Bg1wjVVC3PzjPR0V"},{"title":"Pinball Wizard - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"20R0Rtgxws2sCIwI5ymCeN"},{"title":"Saturday Night's Alright (For Fighting) - Live From \"Midsummer Music\" At Wembley Stadium / 1975","spotifyId":"0FKtV0JfaF7S03WDIxnldQ"}]},{"titulo":"A Single Man","anio":"1978","spotifyUrl":"https://open.spotify.com/album/3nCMMolz1wMdEIwlf0SbZp","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-3nCMMolz1wMdEIwlf0SbZp.jpg","tracks":[{"title":"Shine On Through","spotifyId":"6alVOFBQtlXKUnkvpLkVsE"},{"title":"Return To Paradise","spotifyId":"4BTqc5vVoB3Cu3F6qtFXiz"},{"title":"I Don't Care","spotifyId":"08uVknixiIZGP9Lt9sobQF"},{"title":"Big Dipper","spotifyId":"6OVzjUYXPUzhC2CHEo1UAk"},{"title":"It Ain't Gonna Be Easy","spotifyId":"0PuA4sglslF8Tp3mwadnaA"},{"title":"Part-Time Love","spotifyId":"7fOCk5J3V7rC914y1seAvs"},{"title":"Georgia","spotifyId":"5xUQD7REvYCR2hwMS0uH9o"},{"title":"Shooting Star","spotifyId":"2ewZevXBQuNuNQVHhSKdmC"},{"title":"Madness","spotifyId":"7jOu8dOL0lRL8E1y8Zwe4V"},{"title":"Reverie","spotifyId":"3PrPfJf3VT0h0jMNRTp3y0"},{"title":"Song For Guy","spotifyId":"71zJRiAG1f817v9R9tYMvg"},{"title":"Ego","spotifyId":"6QNrmIiwwsvkL0GFkV2Cfq"},{"title":"Flinstone Boy","spotifyId":"7KPwwzMF2VqRLgtPKP2KVh"},{"title":"I Cry At Night","spotifyId":"7MAVmdpMgE9CtQ4jIIQNfw"},{"title":"Lovesick","spotifyId":"18s5u73IeszmNilFtAZ27U"},{"title":"Strangers","spotifyId":"4Ousa0idpaZ6KpLmT1iUnF"}]},{"titulo":"21 at 33","anio":"1980","spotifyUrl":"https://open.spotify.com/album/6uIizyHYBxUUp3I76LQ8cV","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-6uIizyHYBxUUp3I76LQ8cV.jpg","tracks":[{"title":"Chasing The Crown","spotifyId":"2rm6U6Q9tb48T8puxaRMBp"},{"title":"Little Jeannie","spotifyId":"19Kf8FxBJ5a1Bb8uKCrIIe"},{"title":"Sartorial Eloquence","spotifyId":"10iq4kBKW7tPIzUEIKmcTm"},{"title":"Two Rooms At The End Of The World","spotifyId":"0Qjv3FuTDNVA7ROf3UM3ib"},{"title":"White Lady White Powder","spotifyId":"1AC2yaxIO68p1h5gSeKsTO"},{"title":"Dear God","spotifyId":"4i6r30m0T4qoCjjCYwvJ1c"},{"title":"Never Gonna Fall In Love Again","spotifyId":"2jTObRM0ckTs6naKA7r7P6"},{"title":"Take Me Back","spotifyId":"0uuY1ugGRma1cHJicmi6Ja"},{"title":"Give Me The Love","spotifyId":"45yhLSiMoYvz8rfSke939Z"}]},{"titulo":"The One","anio":"1992","spotifyUrl":"https://open.spotify.com/album/5WbC2jwkdiRD3lcgC2SAHa","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-5WbC2jwkdiRD3lcgC2SAHa.jpg","tracks":[{"title":"Simple Life","spotifyId":"1KkPY76tgPzEnL8hdqTiIu"},{"title":"The One","spotifyId":"2stzPKoUdtHcA4LlEu2ayw"},{"title":"Sweat It Out","spotifyId":"7tuP0f0jiZT7fHg3VyDDrJ"},{"title":"Runaway Train","spotifyId":"1relIAfP5Dn2cihAHv1efL"},{"title":"Whitewash County","spotifyId":"6Ind1AWnuYb1pSKwnJgRWh"},{"title":"The North","spotifyId":"4l1wkdNUNjEzUerp34s51F"},{"title":"When A Woman Doesn't Want You","spotifyId":"2hfWkzKibVUGoaM24mit5J"},{"title":"Emily","spotifyId":"2eIfNoVHmo3LGI5IZB5Nv2"},{"title":"On Dark Street","spotifyId":"1eRNWai6OWRRKN7xI2OH17"},{"title":"Understanding Women","spotifyId":"1L209N6WHxTyzljrKhRKN4"},{"title":"The Last Song","spotifyId":"0pNXDQo75eOukoK8PejiRE"},{"title":"Suit Of Wolves","spotifyId":"7mvK7JHc1fOVs7HLVP3fwV"},{"title":"Fat Boys And Ugly Girls","spotifyId":"14sADwg78MbJw9dDL62iRR"}]},{"titulo":"The Lockdown Sessions","anio":"2021","spotifyUrl":"https://open.spotify.com/album/0HadKSH32oHv4BJjNZ30FG","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-0HadKSH32oHv4BJjNZ30FG.jpg","tracks":[{"title":"Merry Christmas","spotifyId":"2LQNGs6tdjJJS7fxopcaFW"},{"title":"Cold Heart - PNAU Remix","spotifyId":"3ShPFzKuewYNq2SDqi95BE"},{"title":"Always Love You","spotifyId":"2SIfnPJ88f26bM4o34OXOl"},{"title":"Learn To Fly","spotifyId":"6DjHbO0ftDCJNPsrgiWazP"},{"title":"After All","spotifyId":"5PYyHqCk0NBGhUp4v8oTdB"},{"title":"Chosen Family","spotifyId":"1Xufl1BQibOP2W1NpukFrO"},{"title":"The Pink Phantom","spotifyId":"0LGhL7lODi2RksTJ7ERqou"},{"title":"It's a sin - global reach mix","spotifyId":"0HfXAFHgdT6I4FGZRW5N6K"},{"title":"Nothing Else Matters","spotifyId":"2A4CAeIXL1wMlzBIi4lRpj"},{"title":"Orbit","spotifyId":"1t4DXIPEUHSF4AOEz5bJKR"},{"title":"Simple Things","spotifyId":"341HlrAkad5oeGCNfSldL1"},{"title":"Beauty In The Bones","spotifyId":"7sPFiuflDp8ChSuPkWgvJw"},{"title":"One Of Me","spotifyId":"7lq0lFcUDszLgYpS1pipwl"},{"title":"E-Ticket","spotifyId":"4OZ9VHUjWqGIUcxTThjILf"},{"title":"Finish Line","spotifyId":"3Ogg7SBBZjjno0ridKHcD9"},{"title":"Stolen Car","spotifyId":"3DEU0LgZcb4R2LVESnvfTH"},{"title":"I'm Not Gonna Miss You","spotifyId":"1NsQLrxqgQ4FXYR09fWr4X"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

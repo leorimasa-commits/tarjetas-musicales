@@ -1,0 +1,5 @@
+Fleetwood Mac|1975|https://open.spotify.com/album/5VIQ3VaAoRKOEpJ0fewdvo
+Rumours|1977|https://open.spotify.com/album/1bt6q2SruMsBtcerNVtpZB
+Tusk|1979|https://open.spotify.com/album/6b6FYoisWvkLKxF2JDjm1j
+Mirage|1982|https://open.spotify.com/album/2962eYkQa0R7EnIGZqeARS
+Tango in the Night|1987|https://open.spotify.com/album/1W5YP0TlKjFtb2UZJThLpV

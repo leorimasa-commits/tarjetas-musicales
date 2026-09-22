@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wos</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Wos">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/wos-discografia/covers/cover-7L6gLnSJBTU0tOneX0Ol91.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/wos-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f0c29">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Wos</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro"></p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "fiesta");
+
+  const YOUTUBE_URL = "https://www.youtube.com/channel/UCzY1-NKVNDA4UpE4MmTq0eg";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Caravana","anio":"2019","spotifyUrl":"https://open.spotify.com/album/7L6gLnSJBTU0tOneX0Ol91","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-7L6gLnSJBTU0tOneX0Ol91.jpg","tracks":[{"title":"CANGURO","spotifyId":"2UAWYufVaO3EnUUNzl0ppO"},{"title":"FRESCO","spotifyId":"0blWPYAfbvpRLVHUcmqmmj"},{"title":"PANTANO","spotifyId":"0VMxiFeuVhG3Hu7NHnge9e"},{"title":"MELÓN VINO","spotifyId":"5uHAzGa4d9j35DEbhUwGhi"},{"title":"LUZ DELITO","spotifyId":"13VEtVCYfLTVsq5STs3SlW"},{"title":"OKUPA","spotifyId":"25NPeIjHjQGvyp4D52Tji2"},{"title":"NO VA A BAJAR","spotifyId":"3wNiMUFSp0H7zF7QH4vCPq"}]},{"titulo":"Oscuro Éxtasis","anio":"2021","spotifyUrl":"https://open.spotify.com/album/0fYhjxeRFdXp6s8R9hUXKt","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-0fYhjxeRFdXp6s8R9hUXKt.jpg","tracks":[{"title":"INTRODUCCIÓN AL ÉXTASIS","spotifyId":"74KCrwYaoHssps1bXnh1mR"},{"title":"BUITRES","spotifyId":"2cIf0QMDPd9aimLylQqCZ8"},{"title":"CULPA","spotifyId":"0BTJ7QpDRjinzAy8KQMAp8"},{"title":"PARED DE CRISTAL","spotifyId":"2k9N7Izc9EO9upvM61FuGC"},{"title":"MIRÁ MAMÁ","spotifyId":"3QKJdI6KVxsjKoaKIU1PVD"},{"title":"GATO NEGRO","spotifyId":"5Mn4FEB5vtRI4tbr3MwNnO"},{"title":"QUE SE MEJOREN","spotifyId":"7nL1zzQNVESuRbd5ykNJFv"},{"title":"NIÑO GORDO FLACO","spotifyId":"0Wz6TToEPwxzH482fuGEwO"},{"title":"CAMBIANDO LA PIEL","spotifyId":"2y2iEADc8O0Vv5IKHSs21i"},{"title":"CONTANDO OVEJAS","spotifyId":"47DL8jY6HJD2mlCcTuOWKX"},{"title":"CONVOY JARANA","spotifyId":"1ZDx9Z5BI8fJHBP6buqR6I"},{"title":"LLENO DE ZAFIROS","spotifyId":"3HJ9wlvw5PcxTDEUSVcSxY"},{"title":"MUGRE","spotifyId":"5AfOrFKaQjli1muiEtjsqs"}]},{"titulo":"Descartable","anio":"2024","spotifyUrl":"https://open.spotify.com/album/0t9xw4VcPabCkwVO77u31Z","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-0t9xw4VcPabCkwVO77u31Z.jpg","tracks":[{"title":"NUEVAS COORDENADAS","spotifyId":"7kysK9zB05cNs2MMzVW8jq"},{"title":"DESCARTABLE","spotifyId":"49elju847fdX66ndDF3g5x"},{"title":"⅞","spotifyId":"1e3i1QINpaceyv6EcVmBWz"},{"title":"QUEMARÁS","spotifyId":"37o3TuM0nRPMa9f9qpUKlo"},{"title":"CABEZAS CROMADAS","spotifyId":"1FoPf8w0x67jIf52IJEfeQ"},{"title":"MORFEO","spotifyId":"297Ev6aeDHc8dECDmK7SFH"},{"title":"CAÍDA LIBRE","spotifyId":"5WY8tzFcvLf07qFlvGjLob"},{"title":"PAUSA","spotifyId":"0PuEgLQljj1z24Q9JuuGx7"},{"title":"LA COCHERÍA","spotifyId":"6BqAyOg9mraM91wByUaWp9"},{"title":"MELANCOLÍA","spotifyId":"7FIWHKEE0ATHZkHi0USxCZ"},{"title":"ESTÍMULO","spotifyId":"1neeheY8W8Ue2tlNPXvYBS"},{"title":"ERMITAÑO","spotifyId":"5qW3HbsHPHK06TgdAFYOSo"},{"title":"QUE SE HAGA TARDE","spotifyId":"2bo1qRu3BJnBCws9n8bU7G"},{"title":"LA NIEBLA","spotifyId":"6P70hz3JRyFLp0tL4HWrZD"},{"title":"SUR","spotifyId":"5StUSvNOqZ4mabU1QQDRyC"},{"title":"ARRANCÁRMELO","spotifyId":"2GNjjWYymmIS8HEC4Xp2eu"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fleetwood Mac</title>
+<meta name="description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:site_name" content="ScanBeat">
+<meta property="og:title" content="Fleetwood Mac">
+<meta property="og:description" content="&quot;Escaneá. Escuchá. Repetí.&quot; — ScanBeat">
+<meta property="og:image" content="https://scanbeat.com.ar/cards/fleetwood-mac-discografia/covers/cover-5VIQ3VaAoRKOEpJ0fewdvo.jpg">
+<meta property="og:url" content="https://scanbeat.com.ar/cards/fleetwood-mac-discografia/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5c0011">
+<style>
+  :root{
+    --bg1:#1a1a2e; --bg2:#16213e; --accent:#e94560; --accent2:#ffd166; --text:#ffffff;
+  }
+  html[data-theme="cumpleanos"]{ --bg1:#3a0d5c; --bg2:#7b2d8e; --accent:#ff6fb5; --accent2:#ffd166; }
+  html[data-theme="fiesta"]{ --bg1:#0f0c29; --bg2:#302b63; --accent:#00f5d4; --accent2:#f15bb5; }
+  html[data-theme="evento"]{ --bg1:#0b0b0b; --bg2:#1c1c1c; --accent:#d4af37; --accent2:#ffffff; }
+  html[data-theme="regalo"]{ --bg1:#5c0011; --bg2:#8e0e3a; --accent:#ff8fa3; --accent2:#ffd166; }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{
+    margin:0; padding:0; min-height:100%; width:100%;
+    background:radial-gradient(circle at 50% 0%, var(--bg2), var(--bg1));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+  }
+  header{ text-align:center; padding:48px 20px 12px; }
+  h1{
+    margin:0; font-size:clamp(24px,6vw,36px); font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1.2;
+  }
+  .subtitle{ margin:8px 0 0; font-size:13px; opacity:.6; text-transform:uppercase; letter-spacing:.1em; }
+  .intro{
+    max-width:520px; margin:20px auto 0; font-size:clamp(13px,3.4vw,15px); line-height:1.9;
+    font-family:Georgia,'Times New Roman',serif; letter-spacing:.04em; font-weight:400; opacity:.88;
+  }
+  .yt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; text-decoration:none;
+    color:var(--text); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;
+  }
+  .yt-link small{ font-size:10px; font-weight:400; opacity:.65; text-transform:uppercase; }
+
+  .list{ max-width:560px; margin:0 auto; padding:24px 16px 60px; display:flex; flex-direction:column; gap:14px; }
+
+  .album{
+    background:rgba(255,255,255,.05); border-radius:16px; padding:14px;
+  }
+  .album-head{ display:flex; gap:14px; align-items:center; }
+  .album-cover{
+    width:76px; height:76px; flex-shrink:0; border-radius:10px; background-color:var(--accent);
+    background-size:cover; background-position:center top; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .album-info{ flex:1; min-width:0; }
+  .album-title{ font-size:15px; font-weight:700; line-height:1.3; }
+  .album-year{ font-size:12px; opacity:.55; margin-top:2px; }
+  .album-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .album-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:var(--text); text-decoration:none;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px; border-radius:20px;
+  }
+
+  details.tracklist{
+    margin-top:12px; background:rgba(255,255,255,.06); border-radius:14px; padding:4px 14px;
+  }
+  details.tracklist summary{
+    cursor:pointer; padding:12px 0; font-weight:700; font-size:14px; list-style:none;
+  }
+  .track-list{ margin:0 0 12px; text-align:left; }
+  .track-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{ opacity:.5; font-size:11px; width:18px; flex-shrink:0; }
+  .track-title{ font-size:13px; opacity:.9; flex:1; }
+  .track-play{
+    flex-shrink:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22);
+    color:var(--text); border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer;
+  }
+  .track-embed{ display:none; padding:6px 0 10px 18px; }
+  .track-embed.open{ display:block; }
+  .track-embed iframe{ width:100%; border-radius:10px; border:none; }
+
+  .more-albums{ max-width:560px; margin:0 auto; padding:0 16px 8px; }
+  .more-albums .more-label{
+    margin:4px 0 12px; font-size:12px; opacity:.55; text-transform:uppercase; letter-spacing:.08em;
+    text-align:center;
+  }
+  .more-list{ display:flex; flex-direction:column; gap:2px; }
+  .more-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 4px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .more-row:last-child{ border-bottom:none; }
+  .more-title{ font-size:13px; font-weight:600; opacity:.9; }
+  .more-year{ font-size:11px; opacity:.5; margin-left:6px; }
+  .more-links{ display:flex; gap:10px; flex-shrink:0; }
+  .more-links a{ font-size:12px; font-weight:700; color:var(--accent2); text-decoration:none; }
+
+  .brand-footer{ text-align:center; padding:4px 20px 48px; opacity:.75; }
+  .brand-footer .domain{ color:var(--text); text-decoration:none; font-size:13px; font-weight:700; }
+  .brand-footer .slogan{ margin:6px 0 0; font-size:12px; font-style:italic; opacity:.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fleetwood Mac</h1>
+  <p class="subtitle">Discografía</p>
+  <p class="intro"></p>
+  <div id="ytLinkWrap"></div>
+</header>
+
+<div class="list" id="list"></div>
+
+<div class="more-albums" id="moreAlbums"></div>
+
+<footer class="brand-footer">
+  <a class="domain" href="https://scanbeat.com.ar" target="_blank" rel="noopener">🌐 scanbeat.com.ar</a>
+  <p class="slogan">"Escaneá. Escuchá. Repetí."</p>
+</footer>
+
+<script>
+  document.documentElement.setAttribute('data-theme', "regalo");
+
+  const YOUTUBE_URL = "https://www.youtube.com/@fleetwoodmac";
+  if(YOUTUBE_URL){
+    document.getElementById('ytLinkWrap').innerHTML =
+      `<a class="yt-link" href="${YOUTUBE_URL}" target="_blank" rel="noopener">▶ Canal oficial de YouTube<small>sin cuenta</small></a>`;
+  }
+
+  const ALBUMS = [{"titulo":"Fleetwood Mac","anio":"1975","spotifyUrl":"https://open.spotify.com/album/5VIQ3VaAoRKOEpJ0fewdvo","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-5VIQ3VaAoRKOEpJ0fewdvo.jpg","tracks":[{"title":"Monday Morning","spotifyId":"0qjfjKFoP7LaqLI2KI9M1Q"},{"title":"Warm Ways","spotifyId":"4SysnIGNcHQlaz9jJVnIxX"},{"title":"Blue Letter","spotifyId":"2P5jgK6L6NeOIKOs6JdDV5"},{"title":"Rhiannon","spotifyId":"05oETzWbd4SI33qK2gbJfR"},{"title":"Over My Head","spotifyId":"4rBnrnqnI0tcjcNAFO6RZO"},{"title":"Crystal","spotifyId":"6h0s5FUtc6HV3smc8naDPI"},{"title":"Say You Love Me","spotifyId":"6lrQo6KAYvb92MGk6ZuZlt"},{"title":"Landslide","spotifyId":"5ihS6UUlyQAfmp48eSkxuQ"},{"title":"World Turning","spotifyId":"6QvgyZ8xG2OFGjZsH3s8d3"},{"title":"Sugar Daddy","spotifyId":"29IWmqmyYyA1LylPAd2fxh"},{"title":"I'm so Afraid","spotifyId":"1fXvxcQdz9OEe5IeNHQh72"}]},{"titulo":"Rumours","anio":"1977","spotifyUrl":"https://open.spotify.com/album/1bt6q2SruMsBtcerNVtpZB","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-1bt6q2SruMsBtcerNVtpZB.jpg","tracks":[{"title":"Second Hand News - 2004 Remaster","spotifyId":"0hlniElQOr5tvSKBaSpAQi"},{"title":"Dreams - 2004 Remaster","spotifyId":"5TDZyWDfbQFQJabbPwImVY"},{"title":"Never Going Back Again - 2004 Remaster","spotifyId":"2TJqhMuTx2eMun7MMQVIFy"},{"title":"Don't Stop - 2004 Remaster","spotifyId":"4bEb3KE4mSKlTFjtWJQBqO"},{"title":"Go Your Own Way - 2004 Remaster","spotifyId":"07GvNcU1WdyZJq3XxP0kZa"},{"title":"Songbird - 2004 Remaster","spotifyId":"2JoUtztTqCN4ZhmbRDGPIL"},{"title":"The Chain - 2004 Remaster","spotifyId":"7Dm3dV3WPNdTgxoNY7YFnc"},{"title":"You Make Loving Fun - 2004 Remaster","spotifyId":"28H3wOEKsaEa8NBEYCLl4j"},{"title":"I Don't Want to Know - 2004 Remaster","spotifyId":"6mGTiazKYI1BHT2uc9wTUL"},{"title":"Oh Daddy - 2004 Remaster","spotifyId":"3D8bcwMmgPR5ZnpL52rY1q"},{"title":"Gold Dust Woman - 2004 Remaster","spotifyId":"2w3ScXudq4aD3K5HFO5xvx"}]},{"titulo":"Tusk","anio":"1979","spotifyUrl":"https://open.spotify.com/album/6b6FYoisWvkLKxF2JDjm1j","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-6b6FYoisWvkLKxF2JDjm1j.jpg","tracks":[{"title":"Over & Over","spotifyId":"56l1Tuy7P038FH2bifgc7Q"},{"title":"The Ledge","spotifyId":"4VW1A3mwiKEtOOcd4S7dlF"},{"title":"Think About Me","spotifyId":"4VsdGSppNtajAc3StTpwsm"},{"title":"Save Me A Place","spotifyId":"78ws3lDbo8p61ycvvg0f1T"},{"title":"Sara - Edit Version","spotifyId":"6JslZrf9SZekHY76bEPCd5"},{"title":"What Makes You Think You're The One","spotifyId":"1CdvoEJTJj3nTRfVNK9H7y"},{"title":"Storms","spotifyId":"1K18NZlNyUyKAdZ9oykfXa"},{"title":"That's All For Everyone","spotifyId":"3RSxGpUyhoOml1lPPfix0P"},{"title":"Not That Funny","spotifyId":"5nvPFHMcoFmc0PplilL1gD"},{"title":"Sisters Of The Moon","spotifyId":"2PKeopw0BR6E5I8DFhvNHh"},{"title":"Angel","spotifyId":"4gs32lufYFqvL52JT9JhvX"},{"title":"That's Enough For Me","spotifyId":"1wKJnmxRQlsQmKJZpGgRUp"},{"title":"Brown Eyes","spotifyId":"5rPEIYic4SL0wvbD9YyVs2"},{"title":"Never Make Me Cry","spotifyId":"4QYfUvUaldAFYLWFHUHKmA"},{"title":"I Know I'm Not Wrong","spotifyId":"4NGWhVAevZhOo5yyAHIliE"},{"title":"Honey Hi","spotifyId":"2wVWO0eNN6TxRzjx5KtoDO"},{"title":"Beautiful Child","spotifyId":"4CTqbfDjQyzbjanrqlMEpn"},{"title":"Walk A Thin Line","spotifyId":"4Z0IgQF5HbwfuhsgUeefle"},{"title":"Tusk","spotifyId":"56vXknIYSyvrt1ydAfA1lZ"},{"title":"Never Forget","spotifyId":"0C13g8c0mPIBEw7qhwp3yk"}]},{"titulo":"Mirage","anio":"1982","spotifyUrl":"https://open.spotify.com/album/2962eYkQa0R7EnIGZqeARS","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-2962eYkQa0R7EnIGZqeARS.jpg","tracks":[{"title":"Love in Store - 2016 Remaster","spotifyId":"7BeycceSkmxbvSKtxIdRw0"},{"title":"Can't Go Back - 2016 Remaster","spotifyId":"3ltp7aRqgUdXIp9OaYQZjZ"},{"title":"That's Alright - 2016 Remaster","spotifyId":"4arKPsDN68HpKzwWLuca9B"},{"title":"Book of Love - 2016 Remaster","spotifyId":"2A07z3XR3vRSp9igqW6iWF"},{"title":"Gypsy - 2016 Remaster","spotifyId":"1A4atcphOI8vxrgp1YJjuf"},{"title":"Only over You - 2016 Remaster","spotifyId":"3ZeUDJ3c0rUZFOcXrKGArB"},{"title":"Empire State - 2016 Remaster","spotifyId":"6IE1pQ6kvFCSwQaEmd5mGe"},{"title":"Straight Back - 2016 Remaster","spotifyId":"1XulvzEP0hXQ5OrPhrzXuQ"},{"title":"Hold Me - 2016 Remaster","spotifyId":"2ySKeCQ9Bxhm4dVzBe8qrb"},{"title":"Oh Diane - 2016 Remaster","spotifyId":"5JNOmrqg6hee3mtWMwYMPN"},{"title":"Eyes of the World - 2016 Remaster","spotifyId":"0Fb7NBbIRP7Z6SV3BzMvhM"},{"title":"Wish You Were Here - 2016 Remaster","spotifyId":"1MagANszakeiDxzQjEPjD5"}]},{"titulo":"Tango in the Night","anio":"1987","spotifyUrl":"https://open.spotify.com/album/1W5YP0TlKjFtb2UZJThLpV","tidalUrl":"","appleMusicUrl":"","cover":"./covers/cover-1W5YP0TlKjFtb2UZJThLpV.jpg","tracks":[{"title":"Big Love","spotifyId":"4npQqHOi5Zxxyw1oarSivu"},{"title":"Seven Wonders","spotifyId":"76TweiQmmIfRpGVZUMNZbT"},{"title":"Everywhere","spotifyId":"6i8ecOsx4J2Px1maiqzqoG"},{"title":"Caroline","spotifyId":"0yK3BfMCP9rC8ujUCndw0O"},{"title":"Tango In The Night","spotifyId":"6zXpPJs8LbCfzEKvFYgyRh"},{"title":"Mystified","spotifyId":"4CtNKBje5C6aOPW0pStdY9"},{"title":"Little Lies","spotifyId":"5uw9UIOXj6R8pOwXte8F5h"},{"title":"Family Man","spotifyId":"7FaarqLNsZlFsRMQjjX5QR"},{"title":"Welcome To The Room...Sara","spotifyId":"5H1EXMKjBFlI5F9QkCD6Ft"},{"title":"Isn't It Midnight","spotifyId":"2icOTC7sCLZSDVbCPJ6olG"},{"title":"When I See You Again","spotifyId":"0QE9gbtUuiSJIqclW9N2TQ"},{"title":"You And I, Part II","spotifyId":"01pmYrV2NrQBivoGxXjzl3"}]}];
+
+  function esc(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function renderTrackRow(track, albumIndex, trackIndex){
+    const num = String(trackIndex + 1).padStart(2, '0');
+    const embedId = `track-embed-${albumIndex}-${trackIndex}`;
+    return `<div class="track-row">
+        <span class="track-num">${num}</span>
+        <span class="track-title">${esc(track.title)}</span>
+        <button class="track-play" data-spotify-id="${track.spotifyId}" data-embed="${embedId}">▶ Escuchar</button>
+      </div>
+      <div class="track-embed" id="${embedId}"></div>`;
+  }
+
+  function renderAlbum(a, i){
+    const tracksHtml = Array.isArray(a.tracks) && a.tracks.length
+      ? `<details class="tracklist">
+          <summary>Ver los ${a.tracks.length} temas</summary>
+          <div class="track-list">${a.tracks.map((t, j) => renderTrackRow(t, i, j)).join('')}</div>
+        </details>`
+      : '';
+    const links = [
+      a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+      a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+      a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+    ].filter(Boolean).map(l =>
+      `<a class="album-link" href="${l.url}" target="_blank" rel="noopener">▶ ${l.label}</a>`
+    ).join('');
+    return `<div class="album">
+        <div class="album-head">
+          <div class="album-cover" style="${a.cover ? `background-image:url('${a.cover}')` : ''}"></div>
+          <div class="album-info">
+            <div class="album-title">${esc(a.titulo)}</div>
+            <div class="album-year">${esc(a.anio)}</div>
+            <div class="album-links">${links}</div>
+          </div>
+        </div>
+        ${tracksHtml}
+      </div>`;
+  }
+
+  const list = document.getElementById('list');
+  list.innerHTML = ALBUMS.map((a, i) => renderAlbum(a, i)).join('');
+
+  const MORE_ALBUMS = [];
+  if(Array.isArray(MORE_ALBUMS) && MORE_ALBUMS.length){
+    function renderMoreRow(a){
+      const links = [
+        a.spotifyUrl ? { url: a.spotifyUrl, label: 'Spotify' } : null,
+        a.tidalUrl ? { url: a.tidalUrl, label: 'Tidal' } : null,
+        a.appleMusicUrl ? { url: a.appleMusicUrl, label: 'Apple Music' } : null,
+      ].filter(Boolean).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+      return `<div class="more-row">
+          <span class="more-title">${esc(a.titulo)}<span class="more-year">${esc(a.anio)}</span></span>
+          <span class="more-links">${links}</span>
+        </div>`;
+    }
+    document.getElementById('moreAlbums').innerHTML = `
+      <p class="more-label">Más discos</p>
+      <div class="more-list">${MORE_ALBUMS.map(renderMoreRow).join('')}</div>`;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.track-play');
+    if(!btn) return;
+    const embed = document.getElementById(btn.dataset.embed);
+    if(embed.classList.contains('open')){
+      embed.classList.remove('open');
+      embed.innerHTML = '';
+      return;
+    }
+    document.querySelectorAll('.track-embed.open').forEach(el => { el.classList.remove('open'); el.innerHTML = ''; });
+    embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${btn.dataset.spotifyId}?utm_source=generator" height="152" allow="encrypted-media" loading="lazy"></iframe>`;
+    embed.classList.add('open');
+  });
+</script>
+</body>
+</html>
