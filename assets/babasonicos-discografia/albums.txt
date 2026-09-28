@@ -1,0 +1,4 @@
+Miami|1999|https://open.spotify.com/album/5ZfZ0PWqGTRHmOxkIkQaLE
+Jessico|2001|https://open.spotify.com/album/2VMsGuuC4CDcyZ8qp7njWh
+Infame|2003|https://open.spotify.com/album/5chAuifdjaRoIqlnG4Lbun
+Anoche|2005|https://open.spotify.com/album/2n1QFng7Wi5CetjzL5l7JF
